@@ -1,0 +1,51 @@
+---
+import Mail from "../svg/Mail.astro";
+import Telefono from "../svg/Telefono.astro";
+import Ubicacion from "../svg/Ubicacion.astro";
+import empresaInfo from "../../data/accessibleTravel.json"
+---
+
+<section class="py-8 bg-white">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <article class="text-center space-y-2">
+      <div class="flex justify-center">
+        <Ubicacion style="text-azul-travel"  />
+      </div>
+      <h3 class="text-sm font-semibold text-gray-800 uppercase">
+        Address Line
+      </h3>
+      <address class="not-italic text-sm text-gray-500">
+{empresaInfo.direccion}
+      </address>
+    </article>
+
+    <article class="text-center space-y-2">
+      <div class="flex justify-center">
+        <Telefono style="text-azul-travel " />
+      </div>
+      <h3 class="text-sm font-semibold text-gray-800 uppercase">
+        Phone Number
+      </h3>{empresaInfo.telefonos.map((data)=>
+
+    <p class="text-sm text-gray-500">
+        {data}
+      </p>
+      )}
+  
+    </article>
+
+    <article class="text-center space-y-2">
+      <div class="flex justify-center">
+        <Mail style="text-azul-travel w-7"  />
+      </div>
+      <h3 class="text-sm font-semibold text-gray-800 uppercase">
+        Mail Address
+      </h3>
+      <p class="text-sm text-gray-500">
+        <a href="mailto:email@example.com" class=" break-words hover:underline"
+          >{empresaInfo.correo}</a
+        ><br />
+      </p>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+---
+
+const {url="/images/gato.jpg", title, style, texto ="hola"}=Astro.props;
+---
+
+<section class="h-full w-full relative ">
+    <img src={url} alt={title} class=` w-full max-h-60  h-[50svh] object-cover  `>
+    <p class=`text-center absolute top-20 right-0 left-0 text-white z-1 text-5xl ${style}` >{texto}</p>
+</section>

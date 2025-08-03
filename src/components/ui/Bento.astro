@@ -1,0 +1,46 @@
+---
+const destinos = [
+  { title: "Perú", url: "/images/gato.jpg", count: 12, href: "/tours/peru", area: "destino-principal" },
+  { title: "Argentina", url: "/images/gato.jpg", count: 8, href: "/tours/argentina", area: "destino-secundario-1" },
+  { title: "México", url: "/images/gato.jpg", count: 15, href: "/tours/mexico", area: "destino-secundario-2" },
+  { title: "Chile", url: "/images/gato.jpg", count: 6, href: "/tours/chile", area: "destino-secundario-3" },
+  { title: "Colombia", url: "/images/gato.jpg", count: 9, href: "/tours/colombia", area: "destino-secundario-4" }
+];
+---
+
+<style>
+  @media (min-width: 768px) {
+    .bento-grid {
+      display: grid;
+      grid-template-areas:
+        "destino-principal destino-secundario-1"
+        "destino-principal destino-secundario-2"
+        "destino-secundario-3 destino-secundario-4";
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1rem;
+      height: 100vh;
+      padding: 1rem;
+    }
+
+    .destino-principal { grid-area: destino-principal; }
+    .destino-secundario-1 { grid-area: destino-secundario-1; }
+    .destino-secundario-2 { grid-area: destino-secundario-2; }
+    .destino-secundario-3 { grid-area: destino-secundario-3; }
+    .destino-secundario-4 { grid-area: destino-secundario-4; }
+  }
+</style>
+
+<section class="bento-grid px-4 py-6 h-full ">
+  {destinos.map((item) => (
+    <a href={item.href} class={`block my-4 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group ${item.area}`}>
+      <div class="relative w-full h-full text-white">
+        <img src={item.url} alt={`Imagen de ${item.title}`} class="object-cover w-full h-full group-hover:scale-105 transition duration-300" />
+
+          <h3 class="text-xl absolute bottom-2 left-2 font-semibold">Tour {item.title}</h3>
+          <p class="text-md  absolute top-2 right-2">{item.count} tours disponibles</p>
+
+      </div>
+    </a>
+  ))}
+</section>

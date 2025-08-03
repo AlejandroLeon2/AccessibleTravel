@@ -1,22 +1,56 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Modalcontac from "../components/ui/Modalcontac.astro";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const {
+  title = "Accessible Travel Peru",
+  description = "Agencia de viajes inclusiva líder en Perú",
+  canonical = "https://accessibletravelperu.com/",
+  ogImage = "/og-image.png"
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Accessible Travel Peru" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical dinámico -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Accesibilidad y SEO -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+
+  <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
+    <a href="#main" class="sr-only focus:not-sr-only">Saltar al contenido</a>
+    <Header  />
+    <main id="main" class=" pt-14 md:pt-22">
+      <slot />
+    </main>
+    <Footer />
+    <Modalcontac />
+  </body>
+</html>

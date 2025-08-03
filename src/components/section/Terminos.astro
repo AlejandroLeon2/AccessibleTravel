@@ -1,0 +1,59 @@
+---
+const {terminos}=Astro.props;
+---
+<section class="max-w-5xl mx-auto px-4 gap-4 py-8 grid grid-cols-1 md:grid-cols-4">
+    <!-- 🔗 Tabs como índice de navegación -->
+    <nav class="flex flex-wrap min-h-80 border border-gray-200  max-h-80 gap-2 text-balance mb-8 col-span-1  p-4 " role="tablist" data-tabs>
+      {terminos.map((item) => (
+        <button
+          class="tab px-4 py-2 rounded border-l-2 border-azul-travel-hover  w-full max-h-25 text-sm font-semibold transition"
+          data-id={item.id}
+          type="button"
+          aria-selected={item.id === "terms-conditions"}
+        >
+          {item.titulo}
+        </button>
+      ))}
+    </nav>
+
+    <!-- 📄 Contenido legal por sección -->
+    {terminos.map((item) => (
+      <section
+        data-id={item.id}
+        class="section hidden md:col-span-3"
+        role="tabpanel"
+        aria-labelledby={item.id}
+      >
+        <h2 class="text-xl font-semibold text-black mb-6">{item.titulo}</h2>
+        
+        <div class="space-y-6">
+          {item.contenido.map((section) => (
+            <div class="  pl-4">
+              {section.subtitulo && (
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                  {section.subtitulo}
+                </h3>
+              )}
+              
+              {section.texto && (
+                <p class="text-gray-600 leading-relaxed mb-3">
+                  {section.texto}
+                </p>
+              )}
+              
+              {section.items && (
+                <ul class="space-y-2 ml-4">
+                  {section.items.map((itemText) => (
+                    <li  class="flex items-start">
+                      <div class="h-1.5 w-1.5 bg-gray-400 rounded-full mt-2 mr-2"></div>
+                      <span class="text-gray-600">{itemText}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </section>

@@ -1,0 +1,172 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PortadaStatic from "../../components/section/PortadaStatic.astro";
+import Terminos from "../../components/section/Terminos.astro";
+
+const terminos = [
+  {
+    id: "terms-conditions",
+    titulo: "Términos y Condiciones",
+    contenido: [
+      {
+        subtitulo: "1. Introducción",
+        texto: "Bienvenido a Accessible Travel Peru, agencia especializada en viajes accesibles en Perú. Al utilizar nuestros servicios, usted acepta estos términos que describen sus derechos y responsabilidades como cliente."
+      },
+      {
+        subtitulo: "2. Reservas",
+        items: [
+          "Reservas mediante sitio web, teléfono o email",
+          "Depósito del 20% para confirmación",
+          "Pago completo 30 días antes del viaje"
+        ]
+      },
+      {
+        subtitulo: "3. Política de Reembolsos",
+        texto: "Reembolsos solo si se cancela con 20+ días de anticipación vía email a contact@accessibletravelperu.com. Motivos:",
+        items: [
+          "Preparativos logísticos inmediatos",
+          "Contratos con terceros no reembolsables",
+          "Planificación personalizada no recuperable"
+        ]
+      },
+      {
+        subtitulo: "4. Modificaciones y Cancelaciones",
+        items: [
+          "Cambios: Solicitar 30+ días antes (pueden aplicar cargos adicionales)",
+          "Cancelación cliente:",
+          "   - 30+ días: Reembolso parcial menos gastos",
+          "   - Dentro de 20 días: Sin reembolso (NO SHOW)",
+          "Cancelación agencia (fuerza mayor): Reembolso completo o reprogramación"
+        ]
+      },
+      {
+        subtitulo: "5. Responsabilidades del Cliente",
+        items: [
+          "Documentación: Pasaporte, visas, permisos",
+          "Seguro de viaje altamente recomendado"
+        ]
+      },
+      {
+        subtitulo: "6. Limitación de Responsabilidad",
+        texto: "No somos responsables por:",
+        items: [
+          "Servicios de terceros (hoteles, transportistas)",
+          "Circunstancias imprevistas (clima, huelgas, conflictos sociales)"
+        ]
+      },
+      {
+        subtitulo: "7. Jurisdicción",
+        texto: "Estos términos se rigen por las leyes de Perú. Cualquier disputa se resolverá en los tribunales de Lima."
+      }
+    ]
+  },
+  {
+    id: "privacy-security",
+    titulo: "Privacidad y Seguridad",
+    contenido: [
+      {
+        subtitulo: "Información que Recopilamos",
+        items: [
+          "Datos personales: Nombre, email, teléfono, detalles de pago",
+          "Datos no personales: Cookies y tecnologías de seguimiento"
+        ]
+      },
+      {
+        subtitulo: "Uso de su Información",
+        items: [
+          "Procesar reservas y pagos",
+          "Comunicación sobre reservas y ofertas",
+          "Mejorar experiencia en nuestro sitio web",
+          "Cumplir obligaciones legales"
+        ]
+      },
+      {
+        subtitulo: "Protección de Datos",
+        texto: "Implementamos:",
+        items: [
+          "Encriptación y servidores seguros",
+          "Monitoreo constante de seguridad",
+          "Compartimos datos solo con socios confiables que cumplen estándares de protección"
+        ]
+      },
+      {
+        subtitulo: "Sus Derechos",
+        texto: "Puede acceder, actualizar o eliminar su información en cualquier momento contactándonos a contact@accessibletravelperu.com"
+      }
+    ]
+  },
+  {
+    id: "cookies-policy",
+    titulo: "Política de Cookies",
+    contenido: [
+      {
+        subtitulo: "¿Qué son las Cookies?",
+        texto: "Pequeños archivos de texto almacenados en su dispositivo que nos permiten recordar sus preferencias."
+      },
+      {
+        subtitulo: "Tipos de Cookies",
+        items: [
+          "Esenciales: Necesarias para funcionamiento del sitio",
+          "Rendimiento: Analizan uso del sitio (anónimo)",
+          "Funcionales: Recuerdan preferencias (idioma, configuración)",
+          "Publicitarias: Muestran contenido relevante"
+        ]
+      },
+      {
+        subtitulo: "Gestión de Cookies",
+        texto: "Puede controlar/eliminar cookies en la configuración de su navegador, pero esto puede afectar la funcionalidad del sitio."
+      }
+    ]
+  },
+  {
+    id: "contact",
+    titulo: "Información de Contacto",
+    contenido: [
+      {
+        texto: "Para consultas o inquietudes:"
+      },
+      {
+        items: [
+          "Teléfono: +51 944 731 223",
+          "Email: contact@accessibletravelperu.com",
+          "Compromiso: Brindar la mejor experiencia de viaje accesible"
+        ]
+      }
+    ]
+  }
+];
+---
+<script type="module" is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    let active = "terms-conditions";
+    const nav = document.querySelector("[data-tabs]");
+    const buttons = nav?.querySelectorAll("button.tab");
+    const sections = document.querySelectorAll("section.section");
+
+    function setActive(id) {
+      active = id;
+      buttons.forEach(btn => {
+        btn.classList.toggle("bg-azul-travel", btn.dataset.id === id);
+        btn.classList.toggle("text-white", btn.dataset.id === id);
+        btn.classList.toggle("bg-gray-100", btn.dataset.id !== id);
+        btn.setAttribute("aria-selected", btn.dataset.id === id);
+      });
+      sections.forEach(sec => {
+        sec.style.display = sec.dataset.id === id ? "block" : "none";
+      });
+    }
+
+    nav?.addEventListener("click", (e) => {
+      const target = e.target.closest("button.tab");
+      if (target) setActive(target.dataset.id);
+    });
+
+    setActive(active);
+  });
+</script>
+
+<Layout>
+    <PortadaStatic texto="Terminos y condiciones"/>
+    <Terminos terminos={terminos}/>
+  
+</Layout>

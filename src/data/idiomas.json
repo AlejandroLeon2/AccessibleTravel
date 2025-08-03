@@ -1,0 +1,20 @@
+[
+  {
+    "name": "English",
+    "native": "English",
+    "region": "US",
+    "lang": "en"
+  },
+  {
+    "name": "Spanish",
+    "native": "Español",
+    "region": "PE",
+    "lang": "es"
+  },
+  {
+    "name": "French",
+    "native": "Français",
+    "region": "FR",
+    "lang": "fr"
+  }
+]

@@ -1,0 +1,93 @@
+---
+import Calendario from "../svg/Calendario.astro";
+import Ubicacion from "../svg/Ubicacion.astro";
+import Persona from "../svg/Persona.astro";
+
+const tour = {
+  title: "Days and 6 nights From Moscow",
+  titleLink: "moscow-6-nights-tour",
+  imagen: "/images/gato.jpg",
+  label: "Featured",
+  location: {
+    nombre: "United States USA",
+  },
+  duracion: "5 days",
+  grupo: "12 Person",
+  valoracion: {
+    estrellas: 5,
+    resenas: 1,
+  },
+  precio: {
+    actual: 169.0,
+    original: 199.0,
+  },
+};
+---
+
+<article class="bg-white rounded-xl shadow-md overflow-hidden max-w-sm">
+  <header class="">
+    <a href="#" class="relative">
+    <img
+      src={tour.imagen}
+      alt={`Imagen del tour ${tour.title}`}
+      class="w-full h-52 object-cover"
+    />
+
+    <span
+      class="absolute top-3 left-3 bg-azul-travel text-white text-xs px-2 py-1 rounded"
+    >
+      {tour.label}
+    </span>
+    </a>
+
+  </header>
+
+  <main class="p-4 space-y-2">
+    <p class="text-sm flex items-center gap-1">
+      <Ubicacion style=" text-azul-travel" />
+      {tour.location.nombre}
+    </p>
+
+    <h2 class="text-base font-semibold text-gray-800 leading-snug">
+      {tour.title}
+    </h2>
+
+    <section
+      class="flex items-center gap-1 text-yellow-500 text-sm"
+      aria-label="Valoración"
+    >
+      <span class="flex">
+        {
+          [...Array(tour.valoracion.estrellas)].map((_, i) => (
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 15l-5.878 3.09L5.516 12 1 7.91l6.09-.909L10 2l2.91 5.001L19 7.91 14.484 12l1.394 6.09z" />
+            </svg>
+          ))
+        }
+      </span>
+      <span class="text-gray-500 ml-1">({tour.valoracion.resenas} Review)</span>
+    </section>
+
+    <ul
+      class="flex justify-between text-sm text-gray-600 mt-2"
+      aria-label="Detalles del tour"
+    >
+      <li class="flex items-center gap-1">
+        <Calendario style="text-azul-travel" />
+        {tour.duracion}
+      </li>
+      <li class="flex items-center gap-1">
+        <Persona style="text-azul-travel" />
+        {tour.grupo}
+      </li>
+    </ul>
+  </main>
+
+  <footer class="flex items-center justify-between px-4 pb-4 pt-2">
+   
+      <p class="text-azul-travel font-semibold ">${tour.precio.actual.toFixed(2)}</p>
+
+
+    <a href={"#"} class="text-white text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5" >leer mas</a>
+  </footer>
+</article>

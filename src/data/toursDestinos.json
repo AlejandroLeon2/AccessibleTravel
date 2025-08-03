@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Perú",
+    "titleLink": "peru",
+    "destinos": [
+      { "nombre": "Machu Picchu" },
+      { "nombre": "Valle Sagrado" },
+      { "nombre": "Trujillo" },
+      { "nombre": "Chiclayo" },
+      { "nombre": "Iquitos" },
+      { "nombre": "Tarapoto" }
+    ]
+  },
+  {
+    "title": "Ecuador",
+    "titleLink": "ecuador",
+    "destinos": []
+  },
+  {
+    "title": "Argentina",
+    "titleLink": "argentina",
+    "destinos": []
+  },
+  {
+    "title": "Chile",
+    "titleLink": "chile",
+    "destinos": []
+  },
+  {
+    "title": "Brasil",
+    "titleLink": "brazil",
+    "destinos": []
+  },
+  {
+    "title": "Colombia",
+    "titleLink": "colombia",
+    "destinos": []
+  },
+  {
+    "title": "Bolivia",
+    "titleLink": "bolivia",
+    "destinos": []
+  }
+]

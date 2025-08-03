@@ -1,0 +1,76 @@
+{
+  "nombre": "Accessible Travel Peru",
+  "descripcion": "Accessible Travel Peru is a travel agency specialized in inclusive tourism for people with disabilities, connecting adventure and accessibility across Peru.",
+  "correo": "contact@accessibletravelperu.com",
+  "telefonos": [
+    "Peru: +51 944 731 223",
+    "USA: +1 908-935-6769"
+  ],
+  "direccion": "465, FRAY LUIS DE LEON ST",
+  "redes": [
+    {
+      "icono": "facebook",
+      "url": "#",
+      "handle": "@AccessibleTravelPeru"
+    },
+    {
+      "icono": "twitter",
+      "url": "#",
+      "handle": "@AccessibleTravelPeru"
+    },
+    {
+      "icono": "instagram",
+      "url": "#",
+      "handle": "@AccessibleTravelPeru"
+    },
+    {
+      "icono": "whatsapp",
+      "url": "#",
+      "handle": "+51 944 731 223"
+    }
+  ],
+  "galleryLogos": [
+    {
+      "src": "/images/logos/PANTOU-min.webp",
+      "alt": "PANTOU"
+    },
+    {
+      "src": "/images/logos/mincetur.webp",
+      "alt": "MINCETUR"
+    },
+    {
+      "src": "/images/logos/WeTravel.webp",
+      "alt": "WeTravel"
+    },
+    {
+      "src": "/images/logos/Enat.webp",
+      "alt": "ENAT"
+    },
+    {
+      "src": "/images/logos/AccessibleTravel.webp",
+      "alt": "Accessible Travel"
+    }
+  ],
+  "servicios": [
+    {
+      "nombre": "Accessible Tours",
+      "url": "#"
+    },
+    {
+      "nombre": "Custom Itineraries",
+      "url": "#"
+    },
+    {
+      "nombre": "Transportation Services",
+      "url": "#"
+    },
+    {
+      "nombre": "Accessible Accommodations",
+      "url": "#"
+    },
+    {
+      "nombre": "Travel Consultation",
+      "url": "#"
+    }
+  ]
+}
