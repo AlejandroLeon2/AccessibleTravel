@@ -4,7 +4,8 @@ import HeaderNav from "../components/constructor/HeaderNav.astro";
 import idiomas from "../data/idiomas.json";
 import Earth from "../components/svg/Earth.astro";
 import empresaInfo from "../data/accessibleTravel.json";
-import toursDestinos from "../data/toursDestinos.json"
+import {toursDestinos} from "../data/toursDestinos"
+
 
 
 function generateTourDestinationMenu(destinations: {
@@ -14,7 +15,7 @@ function generateTourDestinationMenu(destinations: {
 }[]): { label: string; href: string }[] {
   return destinations.map(({ title, titleLink }) => ({
     label: `Tours ${title}`,
-    href: `/en/destino/${titleLink}`
+    href: `/destino/${titleLink}`
   }));
 }
 
@@ -47,8 +48,8 @@ const headerMenu = [
     label: "About Us",
     href: "/about",
     children: [
-      { label: "Contact Us", href: "/en/contactUs" },
-      { label: "Términos y condiciones", href: "/en/terminosCondiciones" }
+      { label: "Contact Us", href: "/contactUs" },
+      { label: "Términos y condiciones", href: "/terminosCondiciones" }
     ]
   }
 ];

@@ -1,8 +1,8 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import PortadaStatic from "../../../components/section/PortadaStatic.astro";
-import CardDestino from "../../../components/ui/CardDestino.astro";
-import travels from "../../../data/toursDestinos.json";
+import Layout from "../../layouts/Layout.astro";
+import PortadaStatic from "../../components/section/PortadaStatic.astro";
+import CardDestino from "../../components/ui/CardDestino.astro";
+import travels from "../../data/peru/peru-en/travels.json";
 
 // 🛠 Genera rutas dinámicas según cada objeto dentro del array
 export function getStaticPaths() {
@@ -25,7 +25,4 @@ if (!destino) {
 <Layout>
   <PortadaStatic texto={destino.title} />
 
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
-    {destino.destinos.map((lugar) => <CardDestino nombre={lugar.nombre} />)}
-  </section>
 </Layout>

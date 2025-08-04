@@ -1,0 +1,211 @@
+---
+const { data } = Astro.props;
+const tour = {
+  title: "Africa – Amazing African Safari",
+  duration: "5 Hours",
+  maxGuests: 12,
+  location: "1421 San Pedro St, Los Angeles, CA",
+  price: 130,
+  oldPrice: 16000,
+  rating: 5,
+  reviews: 1,
+  featured: true,
+  images: ["/images/gato.jpg", "/images/gato.jpg", "/images/gato.jpg"],
+};
+---
+
+<section class="bg-white py-6 relative px-4 max-w-4xl mx-auto">
+  <div
+    class="absolute -top-12 md:left-20 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 w-100"
+  >
+    <button
+      id="tab-info"
+      class="tab-btn px-6 bg-white py-3 font-semibold rounded-full hover:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black border-"
+      data-tab="info"
+    >
+      Information
+    </button>
+    <button
+      id="tab-plan"
+      class="tab-btn px-6 bg-white py-3 font-semibold rounded-full transition text-black hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
+      data-tab="plan"
+    >
+      Tour Planning
+    </button>
+  </div>
+
+  <div class="flex flex-col justify-between items-start gap-6 ">
+    <div class="flex flex-col w-full ">
+      {
+        tour.featured && (
+          <span class="w-20 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded mb-2">
+            Featured
+          </span>
+        )
+      }
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">{data.title}</h1>
+
+      <div
+        class="flex  items-center gap-6 text-sm text-gray-500 mb-6 flex-wrap"
+      >
+        <p class="flex items-center gap-2">
+          <span></span>
+          {data.duration}
+        </p>
+        <p class="flex items-center gap-2">
+          <span></span> Max Guests: {data.groupSize}
+        </p>
+        <p class="flex items-center gap-2">
+          <span></span>
+          {tour.location}
+        </p>
+      </div>
+
+      <p class="text-azul-travel font-semibold text-xl mb-2">
+        {data.packages[0].price}
+      </p>
+
+      <p class="text-yellow-500 text-sm mb-4">
+        {"★".repeat(tour.rating)}{"☆".repeat(5 - tour.rating)}
+        <span class="ml-2 text-gray-500">({tour.reviews} Review)</span>
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 flex-1 w-full ">
+        <img
+          src={tour.images[0]}
+          alt={`Tour image `}
+          class="w-full md:w-3/6 h-52 md:h-[60svh] object-cover rounded-xl"
+        />
+        <img
+          src={tour.images[1]}
+          alt={`Tour image `}
+          class="w-full md:w-2/6 h-52 md:h-[60svh] object-cover rounded-xl"
+        />
+        <img
+          src={tour.images[2]}
+          alt={`Tour image `}
+          class="w-full md:w-1/6 h-52 md:h-[60svh] object-cover rounded-xl"
+        />
+      </div>
+
+      <section id="tab-content-info" class="text-gray-700 block  w-full">
+        <section class="py-12 max-w-xl  px-4 bg-white mx-auto space-y-10">
+          <h2 class="text-lg font-semibold mb-2">Description:</h2>
+          <p class="py-4">
+            {data.description}
+          </p>
+          <!-- 
+          {
+            Array.isArray(data?.highlights) && data.highlights.length > 0 && (
+              <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+                {data.highlights.map((text) => (
+                  <li class="text-sm font-semibold">
+                    <span class="text-green-700">✔</span> {text}
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+            -->
+
+          {
+            Array.isArray(data?.includes) && data.includes.length > 0 && (
+              <div>
+                <h2 class="text-lg font-semibold  mb-2">Incluye:</h2>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {data.includes.map((item) => (
+                    <li class="text-sm  ">
+                      <span class="text-green-700">✔</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            Array.isArray(data?.excludes) && data.excludes.length > 0 && (
+              <div>
+                <h2 class="text-lg font-semibold  mb-2">No incluye:</h2>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {data.excludes.map((item) => (
+                    <li class="text-sm ">
+                      <span class="text-red-600">x</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+          <h2 class="text-lg font-semibold mb-2">Available Packages</h2>
+          {
+            Array.isArray(data?.packages) && data.packages.length > 0 && (
+              <div class="grid grid-cols-1 gap-6">
+                {data.packages.map((pkg) => (
+    <article class="border border-gray-200 flex flex-col md:flex-row px-4 py-2 justify-center md:justify-around md:items-start items-center rounded-lg shadow-sm bg-white">
+  <header>
+    <h3 class="text-lg font-semibold min-w-36">{pkg.name}</h3>
+  </header>
+
+  <section class="space-y-1 mt-2">
+    <p class="text-sm  text-gray-700">
+      <span class="font-semibold">Precio:</span> {pkg.price}
+    </p>
+    <p class="text-sm  text-gray-700">
+      <span class="font-semibold">Depósito:</span> {pkg.deposit}
+    </p>
+  </section>
+
+  <footer class="mt-4">
+    <a href="#" class="inline-block hover:bg-azul-travel hover:scale-105 active:scale-95 duration-300 rounded-full py-2 px-4 bg-gray-700 text-white">
+      Book Now
+    </a>
+  </footer>
+</article>
+
+                ))}
+              </div>
+            )
+          }
+        </section>
+      </section>
+      <section id="tab-content-plan" class="text-gray-700 hidden">
+        <p>
+          Day 1: Arrival and welcome<br />
+
+        </p>
+      </section>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = {
+      info: document.getElementById("tab-content-info"),
+      plan: document.getElementById("tab-content-plan"),
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        // reset all
+        tabs.forEach((t) => {
+          t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
+          t.classList.add("text-gray-500", "border-transparent");
+        });
+        Object.values(contents).forEach((c) => c.classList.add("hidden"));
+
+        // activate clicked
+        const selected = tab.dataset.tab;
+        tab.classList.remove("text-gray-500", "border-transparent");
+        tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+        contents[selected].classList.remove("hidden");
+      });
+    });
+
+    // default active tab
+    document
+      .getElementById("tab-info")
+      .classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+  });
+</script>

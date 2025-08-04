@@ -22,14 +22,15 @@ const tour = {
     original: 199.0,
   },
 };
+const {data , locacion}=Astro.props;
 ---
 
-<article class="bg-white rounded-xl shadow-md overflow-hidden max-w-sm">
+<article class="bg-white rounded-xl shadow-md overflow-hidden max-w-xs min-w-xs">
   <header class="">
     <a href="#" class="relative">
     <img
       src={tour.imagen}
-      alt={`Imagen del tour ${tour.title}`}
+      alt={`Imagen del tour ${data.title}`}
       class="w-full h-52 object-cover"
     />
 
@@ -45,11 +46,11 @@ const tour = {
   <main class="p-4 space-y-2">
     <p class="text-sm flex items-center gap-1">
       <Ubicacion style=" text-azul-travel" />
-      {tour.location.nombre}
+      {locacion}
     </p>
 
     <h2 class="text-base font-semibold text-gray-800 leading-snug">
-      {tour.title}
+      {data.title}
     </h2>
 
     <section
@@ -74,20 +75,20 @@ const tour = {
     >
       <li class="flex items-center gap-1">
         <Calendario style="text-azul-travel" />
-        {tour.duracion}
+        {data.duration}
       </li>
       <li class="flex items-center gap-1">
         <Persona style="text-azul-travel" />
-        {tour.grupo}
+        {data.groupSize}
       </li>
     </ul>
   </main>
 
   <footer class="flex items-center justify-between px-4 pb-4 pt-2">
    
-      <p class="text-azul-travel font-semibold ">${tour.precio.actual.toFixed(2)}</p>
+      <p class="text-azul-travel font-semibold ">{data.packages[0].price}</p>
 
 
-    <a href={"#"} class="text-white text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5" >leer mas</a>
+    <a href={`/destino/tour/${data.titleLink}`} class="text-white text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5" >leer mas</a>
   </footer>
 </article>

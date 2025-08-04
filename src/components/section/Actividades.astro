@@ -1,0 +1,53 @@
+---
+import Carro from "../svg/Carro.astro";
+import Avion from "../svg/Avion.astro";
+import Corbata from "../svg/Corbata.astro";
+import Montana from "../svg/Montana.astro";
+import Mapa from "../svg/Mapa.astro";
+
+const services = [
+  { title: "Airport Transfers", icon: "carrito", link: "#", activo: true },
+  { title: "Full Day Excursions", icon: "guia", link: "#" },
+  { title: "Multiday Excursions", icon: "montanas", link: "#" },
+  { title: "Tailor Made", icon: "corbata", link: "#" },
+  { title: "Off Road Tours", icon: "4x4", link: "#" },
+];
+---
+
+<section class="max-w-5xl mx-auto px-4 py-12 text-center">
+  <h2 class="text-5xl font-semibold text-gray-900 dark:text-white mb-8">
+    Services
+  </h2>
+
+  <div
+    class="grid grid-cols-4 text-xs md:text-lg sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-4"
+  >
+    {
+      services.map((item) => (
+        <a
+          href={item.link}
+          class={`flex flex-col h-25 md:h-40 items-center text-azul-travel hover:scale-105 active:scale-95 duration-300 hover:text-white justify-center gap-2 px-2 py-4 rounded-lg transition ${
+            item.activo
+              ? "bg-azul-travel  text-white"
+              : "hover:bg-azul-travel group border  border-gray-200 text-black dark:hover:bg-gray-800"
+          }`}
+          aria-current={item.activo ? "true" : undefined}
+        >
+          {item.icon === "carrito" && <Avion style="w-8 h-auto" />}
+          {item.icon === "guia" && <Mapa style=" w-8 h-auto text-azul-travel group-hover:text-white group-active:text-white" />}
+          {item.icon === "montanas" && (
+            <Montana style="text-azul-travel group-hover:text-white group-active:text-white" />
+          )}
+          {item.icon === "corbata" && (
+            <Corbata style="w-8 h-auto text-azul-travel group-hover:text-white group-active:text-white" />
+          )}
+          {item.icon === "4x4" && (
+            <Carro style="w-10 h-auto text-azul-travel group-hover:text-white group-active:text-white" />
+          )}
+
+          <span class=" font-medium leading-snug">{item.title}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>

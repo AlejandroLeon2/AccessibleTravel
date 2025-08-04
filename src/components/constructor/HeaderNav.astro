@@ -4,7 +4,7 @@
 const { data ,style } = Astro.props;
 ---
 
-<nav id="nav-links" class={` w-full translate-x-200 md:translate-x-0  [@media(max-width:426px)]:fixed top-14 md:top-24 lg:top-0 right-0 justify-center items-center  ${style}  md:flex `}>
+<nav id="nav-links" class={` w-full translate-x-200 md:translate-x-0  [@media(max-width:767px)]:fixed top-14 md:top-24 lg:top-0 right-0 justify-center items-center  ${style}  md:flex `}>
   <ul id="menu-principal" class="flex flex-col py-4 md:py-1 md:flex-row  px-4  mx-auto  bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700 ">
     {
       data.map((item) => (

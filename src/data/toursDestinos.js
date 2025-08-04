@@ -1,15 +1,10 @@
-[
+import travelsPeru from "../data/peru/peru-en/travels.json" assert { type: "json" } ;
+
+export const toursDestinos =[
   {
     "title": "Perú",
     "titleLink": "peru",
-    "destinos": [
-      { "nombre": "Machu Picchu" },
-      { "nombre": "Valle Sagrado" },
-      { "nombre": "Trujillo" },
-      { "nombre": "Chiclayo" },
-      { "nombre": "Iquitos" },
-      { "nombre": "Tarapoto" }
-    ]
+    "destinos": travelsPeru
   },
   {
     "title": "Ecuador",
@@ -41,4 +36,4 @@
     "titleLink": "bolivia",
     "destinos": []
   }
-]
+];
