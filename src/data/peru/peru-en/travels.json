@@ -1283,6 +1283,13 @@
         "price": "$50"
       }
     ],
+     "addOns": [
+      {
+        "name": "Round Trip Transfers",
+        "price": "$50",
+        "description": "Start and Finish in the airport jorge chavez in Lima or in callao port"
+      }
+    ],
     "images": [
       {
         "link": "https://example.com/ballestas-islands-tour.jpg",
@@ -1373,6 +1380,13 @@
         "name": "Round Trip Transfers: Start and Finish in the airport jorge chavez in Lima or in callao port",
         "capacity": "1",
         "price": "$50"
+      }
+    ],
+    "addOns": [
+      {
+        "name": "Round Trip Transfers",
+        "price": "$50",
+        "description": "Start and Finish in the airport jorge chavez in Lima or in callao port"
       }
     ],
     "images": [

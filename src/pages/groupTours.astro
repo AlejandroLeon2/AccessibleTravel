@@ -6,6 +6,7 @@ import MainContent from "../components/constructor/MainContent.astro";
 import {groupTours} from "../data/groupTours.js";
 import CardDestino from "../components/ui/CardDestino.astro";
 import Times from "../components/constructor/Times.astro";
+import Certificaciones from "../components/section/Certificaciones.astro";
 ---
 
 <Layout>
@@ -15,9 +16,10 @@ import Times from "../components/constructor/Times.astro";
     <section class="flex flex-col px-4 py-8 gap-4 max-w-5xl mx-auto">
       {
         groupTours.map((lugar) => (
-          <div class="flex flex-col-reverse md:flex-row justify-between mx-auto gap-4">
-            <CardDestino data={lugar} ruta="/group/" />
-            <div>
+          <div class="flex flex-col-reverse justify-between mx-auto gap-4">
+            <CardDestino data={lugar} style="flex flex-col md:flex-row min-w-xs max-w-xs md:min-w-2xl max-w-4xl mx-auto" ruta="/group/" />
+            <div class="flex justify-between items-center px-4">
+              <p class="font-semibold flex text-xl flex-col text-azul-travel"> Hurry! <span class="font-normal text-sm text-black">This special offer ends in:</span> </p>
               <Times data={lugar}/>
 
             </div>
@@ -25,5 +27,6 @@ import Times from "../components/constructor/Times.astro";
         ))
       }
     </section>
+    <Certificaciones/>
   </MainContent>
 </Layout>
