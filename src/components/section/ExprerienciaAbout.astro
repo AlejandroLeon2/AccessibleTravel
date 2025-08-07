@@ -1,0 +1,84 @@
+---
+const data = {
+  cantidadClientes: "5,000+ Clientes en todo el mundo",
+  aniosExperiencia: "20 Años de experiencia",
+  subtitulo: "Discover Peru without limits",
+  titulo: " A Great Adventure Awaits You Travel is a right, not a privilege.",
+
+  items: [
+      {
+  
+      titulo: "Tailor-Made Accessible Trips",
+      texto: "We craft personalized itineraries based on your interests, needs, and pace—because true luxury means choosing how to live your adventure."
+    },
+    {
+
+      titulo: "Trusted & Caring Guides",
+      texto: "Travel with professionals who are passionate about inclusion and ready to support you every step of the way."
+    }
+  
+  ],
+  boton: "LEARN MORE ABOUT US",
+  autor: {
+    nombre: "Cisco",
+    cargo: "CEO & Founder",
+    imagen: "/images/gato.jpg",
+    mensaje: "Explore beautiful, barrier-free destinations across Peru."
+  },
+  imagen1: "/images/gato.jpg",
+  imagen2: "/images/gato.jpg"
+};
+---
+
+<section class="py-12 px-4 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+
+  <div class="relative w-full  h-[70svh] max-w-4xl max-h-100 flex ">
+    <div class="absolute -left-25 z-10 top-20 bg-azul-travel -rotate-90 text-white text-sm py-2 px-3 rounded-r-full shadow">
+      {data.cantidadClientes}
+    </div>
+
+    <img src={data.imagen1} alt="Imagen 1" class=" absolute top-10 left-10 lg:left-15 object-cover w-50 h-70 rounded-2xl" />
+    <div class="absolute bottom-10 z-10 border border-gray-200  right-40 w-30  bg-white rounded-lg px-3 py-2 text-center shadow text-azul-travel font-bold text-sm">
+      {data.aniosExperiencia}
+    </div>
+
+    <img src={data.imagen2} alt="Imagen 2" class=" absolute right-10 lg:right-15 top-20 w-50 object-cover h-70 rounded-2xl" />
+  </div>
+
+  <!-- Derecha: Texto -->
+  <div>
+    <p class="text-azul-travel font-semibold text-sm mb-2">{data.subtitulo}</p>
+    <h2 class="text-3xl font-extrabold text-gray-900 leading-tight mb-4">
+      {data.titulo}
+    </h2>
+
+
+
+    <div class="grid grid-cols-2 gap-4 mb-4">
+      {data.items.map((item) => (
+        <div class="flex flex-col  items-start gap-3">
+
+            <h4 class="text-base font-semibold text-gray-800">{item.titulo}</h4>
+            <p class="text-sm text-gray-600">{item.texto}</p>
+  
+        </div>
+      ))}
+    </div>
+<div class="flex justify-between items-center gap-4">
+
+    <a href="/aboutUs" class="bg-azul-travel text-center text-balance w-50 text-white px-5 py-3 rounded-full font-semibold text-sm shadow hover:bg-green-700">
+      {data.boton}
+    </a>
+
+    <div class="flex items-center gap-4 ">
+      <img src={data.autor.imagen} alt={data.autor.nombre} class="w-10 h-10 rounded-full object-cover" />
+      <div>
+        <p class="font-semibold text-gray-800 text-sm">{data.autor.nombre}</p>
+        <p class="text-xs text-azul-travel">{data.autor.cargo}</p>
+        <p class="text-xs text-gray-500 italic">{data.autor.mensaje}</p>
+      </div>
+    </div>
+</div>
+
+  </div>
+</section>

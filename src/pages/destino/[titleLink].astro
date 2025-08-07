@@ -1,8 +1,10 @@
 ---
+import Certificaciones from "../../components/section/Certificaciones.astro";
 import Layout from "../../layouts/Layout.astro";
 import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import CardDestino from "../../components/ui/CardDestino.astro";
 import {toursDestinos as travels} from "../../data/toursDestinos.js";
+import MainContent from "../../components/constructor/MainContent.astro";
 
 // 🛠 Genera rutas dinámicas según cada objeto dentro del array
 export function getStaticPaths() {
@@ -24,8 +26,13 @@ if (!destino) {
 
 <Layout>
   <PortadaStatic texto={destino.title} />
+<MainContent>
 
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
+  <section class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
     {destino.destinos.map((lugar) => <CardDestino data={lugar} locacion={destino.title} />)}
   </section>
+  <Certificaciones/>
+</MainContent>
+
+
 </Layout>

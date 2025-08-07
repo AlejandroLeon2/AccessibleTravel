@@ -1,4 +1,6 @@
 ---
+import Acordeon from "../constructor/Acordeon.astro"
+import AsideTravel from "../ui/AsideTravel.astro";
 const { data } = Astro.props;
 const tour = {
   title: "Africa – Amazing African Safari",
@@ -14,13 +16,13 @@ const tour = {
 };
 ---
 
-<section class="bg-white py-6 relative px-4 max-w-4xl mx-auto">
+<section class="bg-white py-6 relative px-4 mx-auto">
   <div
-    class="absolute -top-12 md:left-20 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 w-100"
+    class="absolute -top-12 md:left-20 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 min-w-40 max-w-100 w-auto"
   >
     <button
       id="tab-info"
-      class="tab-btn px-6 bg-white py-3 font-semibold rounded-full hover:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black border-"
+      class="tab-btn px-6 bg-white py-3 font-semibold rounded-full hover:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black"
       data-tab="info"
     >
       Information
@@ -34,61 +36,65 @@ const tour = {
     </button>
   </div>
 
-  <div class="flex flex-col justify-between items-start gap-6 ">
-    <div class="flex flex-col w-full ">
-      {
-        tour.featured && (
-          <span class="w-20 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded mb-2">
-            Featured
-          </span>
-        )
-      }
-      <h1 class="text-3xl font-bold text-gray-900 mb-4">{data.title}</h1>
-
-      <div
-        class="flex  items-center gap-6 text-sm text-gray-500 mb-6 flex-wrap"
-      >
-        <p class="flex items-center gap-2">
-          <span></span>
-          {data.duration}
-        </p>
-        <p class="flex items-center gap-2">
-          <span></span> Max Guests: {data.groupSize}
-        </p>
-        <p class="flex items-center gap-2">
-          <span></span>
-          {tour.location}
-        </p>
+  <div class="flex flex-col lg:flex-row justify-between gap-6">
+    <section id="tab-content-info" class=" block w-full">
+      <div class="flex flex-col lg:flex-row w-full">
+        <div
+          class="flex items-center gap-2 md:gap-4 text-sm text-gray-500 mb-4 flex-wrap"
+        >
+          {
+            tour.featured && (
+              <span class="w-auto z-10 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded mb-2">
+                Featured
+              </span>
+            )
+          }
+          <h1 class="text-3xl w-full font-bold text-gray-900 ">
+            {data.title}
+          </h1>
+          <p class="flex items-center gap-2">
+            {data.duration}
+          </p>
+          <p class="flex items-center gap-2">
+            Max Guests: {data.groupSize}
+          </p>
+          <p class="flex items-center gap-2">
+            {tour.location}
+          </p>
+        </div>
+        <div
+          class="flex mb-4 lg:flex-col-reverse justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
+        >
+          <p
+            class="text-yellow-500 flex lg:flex-col gap-4 justify-center items-center text-xl "
+          >
+            {"★".repeat(tour.rating)}{"☆".repeat(5 - tour.rating)}
+            <span class="text-gray-500 text-xs">({tour.reviews} Review)</span>
+          </p>
+          <p class="text-azul-travel font-semibold text-lg lg:text-2xl ">
+            {data.packages[0].price}
+          </p>
+        </div>
       </div>
-
-      <p class="text-azul-travel font-semibold text-xl mb-2">
-        {data.packages[0].price}
-      </p>
-
-      <p class="text-yellow-500 text-sm mb-4">
-        {"★".repeat(tour.rating)}{"☆".repeat(5 - tour.rating)}
-        <span class="ml-2 text-gray-500">({tour.reviews} Review)</span>
-      </p>
-      <div class="flex flex-col md:flex-row gap-4 flex-1 w-full ">
+      <div class="flex flex-col lg:flex-row gap-4">
         <img
           src={tour.images[0]}
           alt={`Tour image `}
-          class="w-full md:w-3/6 h-52 md:h-[60svh] object-cover rounded-xl"
+          class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
         />
         <img
           src={tour.images[1]}
           alt={`Tour image `}
-          class="w-full md:w-2/6 h-52 md:h-[60svh] object-cover rounded-xl"
+          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
         />
         <img
           src={tour.images[2]}
           alt={`Tour image `}
-          class="w-full md:w-1/6 h-52 md:h-[60svh] object-cover rounded-xl"
+          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
         />
       </div>
-
-      <section id="tab-content-info" class="text-gray-700 block  w-full">
-        <section class="py-12 max-w-xl  px-4 bg-white mx-auto space-y-10">
+      <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
+        <section class="py-12 max-w-xl px-4 bg-white mx-auto space-y-10">
           <h2 class="text-lg font-semibold mb-2">Description:</h2>
           <p class="py-4">
             {data.description}
@@ -141,71 +147,91 @@ const tour = {
             Array.isArray(data?.packages) && data.packages.length > 0 && (
               <div class="grid grid-cols-1 gap-6">
                 {data.packages.map((pkg) => (
-    <article class="border border-gray-200 flex flex-col md:flex-row px-4 py-2 justify-center md:justify-around md:items-start items-center rounded-lg shadow-sm bg-white">
-  <header>
-    <h3 class="text-lg font-semibold min-w-36">{pkg.name}</h3>
-  </header>
+                  <article class="border border-gray-200 flex flex-col md:flex-row px-4 py-2 justify-center md:justify-between md:items-start items-center rounded-lg shadow-sm bg-white">
+                    <header>
+                      <h3 class="text-lg max-w-50 font-semibold min-w-40">{pkg.name}</h3>
+                    </header>
 
-  <section class="space-y-1 mt-2">
-    <p class="text-sm  text-gray-700">
-      <span class="font-semibold">Precio:</span> {pkg.price}
-    </p>
-    <p class="text-sm  text-gray-700">
-      <span class="font-semibold">Depósito:</span> {pkg.deposit}
-    </p>
-  </section>
+                    <section class="space-y-1 mt-2">
+                      <p class="text-sm  text-gray-700">
+                        <span class="font-semibold">Precio:</span> {pkg.price}
+                      </p>
+                      <p class="text-sm  text-gray-700">
+                        <span class="font-semibold">Depósito:</span>{" "}
+                        {pkg.deposit}
+                      </p>
+                    </section>
 
-  <footer class="mt-4">
-    <a href="#" class="inline-block hover:bg-azul-travel hover:scale-105 active:scale-95 duration-300 rounded-full py-2 px-4 bg-gray-700 text-white">
-      Book Now
-    </a>
-  </footer>
-</article>
-
+                    <footer class="mt-4">
+                      <a
+                        href="#"
+                        class="inline-block hover:bg-azul-travel hover:scale-105 active:scale-95 duration-300 rounded-full py-2 px-4 bg-gray-700 text-white"
+                      >
+                        Book Now
+                      </a>
+                    </footer>
+                  </article>
                 ))}
               </div>
             )
           }
-        </section>
-      </section>
-      <section id="tab-content-plan" class="text-gray-700 hidden">
-        <p>
-          Day 1: Arrival and welcome<br />
 
-        </p>
-      </section>
-    </div>
-  </div>
+
+<section aria-labelledby="add-ons-heading" class="mt-4">
+  <h2 id="add-ons-heading" class="text-xl font-semibold text-black mb-4">
+    Complementos disponibles
+  </h2>
+
+  <ul class="" role="list">
+    {data.addOns.map((addon) => (
+      <li class="border-b border-gray-200 rounded-lg p-4 ">
+        <h3 class=" flex justify-between text-lg font-semibold text-gray-800">{addon.name} <span class="text-sm font-medium text-azul-travel mt-2">{addon.price}</span></h3>
+        <p class="text-sm text-gray-600 mt-1">{addon.description}</p>
+        
+      </li>
+    ))}
+  </ul>
 </section>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const tabs = document.querySelectorAll(".tab-btn");
-    const contents = {
-      info: document.getElementById("tab-content-info"),
-      plan: document.getElementById("tab-content-plan"),
-    };
+        </section>
+        <AsideTravel data={data}/>
+      </div>
+    </section>
+    <section id="tab-content-plan" class="text-gray-700 flex flex-col lg:flex-row  hidden w-full">
+      <Acordeon data{data}/>
+      <AsideTravel data={data}/>
+    </section>
+  </div>
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        // reset all
-        tabs.forEach((t) => {
-          t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
-          t.classList.add("text-gray-500", "border-transparent");
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".tab-btn");
+      const contents = {
+        info: document.getElementById("tab-content-info"),
+        plan: document.getElementById("tab-content-plan"),
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // reset all
+          tabs.forEach((t) => {
+            t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
+            t.classList.add("text-gray-500", "border-transparent");
+          });
+          Object.values(contents).forEach((c) => c.classList.add("hidden"));
+
+          // activate clicked
+          const selected = tab.dataset.tab;
+          tab.classList.remove("text-gray-500", "border-transparent");
+          tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+          contents[selected].classList.remove("hidden");
         });
-        Object.values(contents).forEach((c) => c.classList.add("hidden"));
-
-        // activate clicked
-        const selected = tab.dataset.tab;
-        tab.classList.remove("text-gray-500", "border-transparent");
-        tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
-        contents[selected].classList.remove("hidden");
       });
-    });
 
-    // default active tab
-    document
-      .getElementById("tab-info")
-      .classList.add("text-[-azul-travel]", "border-[-azul-travel]");
-  });
-</script>
+      // default active tab
+      document
+        .getElementById("tab-info")
+        .classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+    });
+  </script>
+</section>

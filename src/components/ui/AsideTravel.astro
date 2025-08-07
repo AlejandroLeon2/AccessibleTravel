@@ -1,0 +1,72 @@
+---
+import Certificaciones from "../section/Certificaciones.astro";
+const { data } = Astro.props;
+---
+
+<section
+  class="flex flex-col md:grid  md:grid-cols-2 lg:flex lg:flex-col w-full h-full gap-4 space-y-4 rounded-2xl py-12 px-4 lg:max-w-xs"
+>
+  <div
+    class="px-4 py-2 max-h-45 bg-gray-100 flex flex-col border space-y-2 border-gray-200"
+  >
+    <p class="flex justify-between text-sm">
+      Total <span class="text-azul-travel text-lg"
+        >{data.packages[0].price}</span
+      >
+    </p>
+    <a
+      href="#"
+      class="w-auto text-white text-center px-4 py-2 bg-gray-700 hover:bg-azul-travel active:scale-95 active:bg-azul-travel hover:scale-105 duration-300 rounded-full"
+      >Procced Booking</a
+    >
+    <p
+      class="mt-2 text-sm text-gray-600 text-center"
+      role="note"
+      aria-live="polite"
+    >
+      Al continuar, serás redirigido a una plataforma segura para completar el
+      depósito.
+    </p>
+  </div>
+  <section
+    aria-labelledby="confidence-heading"
+    class="booking-confidence p-4 bg-gray-100"
+  >
+    <h2
+      id="confidence-heading "
+      class="py-2 px-4 border-l-2 border-azul-travel"
+    >
+      Reserva con confianza
+    </h2>
+    <ul class="flex flex-col gap-2 p-4 text-sm text-gray-700" role="list">
+      <li class="flex items-center gap-2">
+        <span aria-hidden="true">🕐</span>
+        <span>Atención al cliente disponible 24/7</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <span aria-hidden="true">🎯</span>
+        <span>Tours y actividades seleccionados cuidadosamente</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <span aria-hidden="true">🛡️</span>
+        <span>Seguro de viaje gratuito incluido</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <span aria-hidden="true">💰</span>
+        <span>Garantía de mejor precio sin complicaciones</span>
+      </li>
+    </ul>
+  </section>
+  <Certificaciones
+    base="md:col-span-2 lg:col-span-1"
+    style="grid grid-cols-5 lg:grid-cols-2 gap-4"
+  />
+  <section class="p-4 col-span-2 lg:col-span-1">
+    <h2 class="font-semibold">You con pay with</h2>
+  </section>
+  <section class="p-4">
+    <h2 class="font-semibold col-span-2 lg:col-span-1">
+      Nuevas publicaciones del blog de viajes
+    </h2>
+  </section>
+</section>

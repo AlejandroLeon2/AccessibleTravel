@@ -1,20 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PortadaStatic from "../components/section/PortadaStatic.astro";
+import PortadaDinamica from "../components/section/PortadaDinamica.astro";
 import Certificaciones from "../components/section/Certificaciones.astro";
 import Comentarios from "../components/section/Comentarios.astro";
 import Actividades from "../components/section/Actividades.astro";
-
+import MainContent from "../components/constructor/MainContent.astro";
+import HeroHome from "../components/section/HeroHome.astro";
+import ModalVideo from "../components/ui/ModalVideo.astro";
 ---
 
-<Layout title="" description="" >
-    <PortadaStatic texto="Home"/>
-    <Actividades/>
-    <Certificaciones/>
+<Layout title="" description="">
+  <PortadaDinamica />
+  
+  <MainContent>
+    <HeroHome />
+    <Actividades />
+    <Certificaciones />
     <div class="px-4">
-    <p class="text-azul-travel font-semibold">Explore The Word</p>
-    <h2 class="text-4xl font-bold ">What Our Passenger Say?</h2>
+      <p class="text-azul-travel font-semibold">Explore The Word</p>
+      <h2 class="text-4xl font-bold">What Our Passenger Say?</h2>
     </div>
 
-    <Comentarios/>
+    <Comentarios />
+  </MainContent>
+  <ModalVideo />
 </Layout>

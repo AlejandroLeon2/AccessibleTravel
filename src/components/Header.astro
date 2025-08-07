@@ -13,10 +13,16 @@ function generateTourDestinationMenu(destinations: {
   titleLink: string;
   destinos: { nombre: string }[];
 }[]): { label: string; href: string }[] {
-  return destinations.map(({ title, titleLink }) => ({
+  const tour = destinations.map(({ title, titleLink }) => ({
     label: `Tours ${title}`,
     href: `/destino/${titleLink}`
+    
   }));
+  return [{
+    label: `All Tours`,
+    href: `/tourDestino`
+    
+  }, ...tour]
 }
 
 
@@ -32,10 +38,8 @@ const headerMenu = [
   },
   {
     label: "Group Tours",
-    href: "#",
-    children: [
-      { label: "Group tour próximo", href: "#" }
-    ]
+    href: "/groupTours",
+  
   },
   {
     label: "Blog",
@@ -49,7 +53,8 @@ const headerMenu = [
     href: "/about",
     children: [
       { label: "Contact Us", href: "/contactUs" },
-      { label: "Términos y condiciones", href: "/terminosCondiciones" }
+      { label: "Términos y condiciones", href: "/terminosCondiciones" },
+      { label: "About Us", href: "/aboutUs" }
     ]
   }
 ];

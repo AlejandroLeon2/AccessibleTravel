@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PortadaStatic from "../components/section/PortadaStatic.astro";
+import HeroGroup from "../components/section/HeroGroup.astro";
+import MainContent from "../components/constructor/MainContent.astro";
+import {groupTours} from "../data/groupTours.js";
+import CardDestino from "../components/ui/CardDestino.astro";
+import Times from "../components/constructor/Times.astro";
+---
+
+<Layout>
+  <PortadaStatic texto="Group Tours" />
+  <MainContent>
+    <HeroGroup />
+    <section class="flex flex-col px-4 py-8 gap-4 max-w-5xl mx-auto">
+      {
+        groupTours.map((lugar) => (
+          <div class="flex flex-col-reverse md:flex-row justify-between mx-auto gap-4">
+            <CardDestino data={lugar} ruta="/group/" />
+            <div>
+              <Times data={lugar}/>
+
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </MainContent>
+</Layout>

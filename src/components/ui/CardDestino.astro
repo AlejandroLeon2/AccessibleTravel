@@ -22,7 +22,7 @@ const tour = {
     original: 199.0,
   },
 };
-const {data , locacion}=Astro.props;
+const {data , locacion, ruta="/destino/tour/"}=Astro.props;
 ---
 
 <article class="bg-white rounded-xl shadow-md overflow-hidden max-w-xs min-w-xs">
@@ -89,6 +89,6 @@ const {data , locacion}=Astro.props;
       <p class="text-azul-travel font-semibold ">{data.packages[0].price}</p>
 
 
-    <a href={`/destino/tour/${data.titleLink}`} class="text-white text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5" >leer mas</a>
+    <a href={`${ruta}${data.titleLink}`} class="text-white text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5" >leer mas</a>
   </footer>
 </article>

@@ -3,8 +3,8 @@ import Layout from "../../../layouts/Layout.astro";
 import travels from "../../../data/peru/peru-en/travels.json";
 import PortadaStatic from "../../../components/section/PortadaStatic.astro";
 import Infotravel from "../../../components/section/Infotravel.astro";
+import MainContent from "../../../components/constructor/MainContent.astro";
 
-// 🛠 Genera rutas dinámicas según cada objeto dentro del array
 export function getStaticPaths() {
   const paths = travels.map((item) => ({
     params: { titleLink: item.titleLink }
@@ -24,5 +24,10 @@ if (!destino) {
 
 <Layout>
     <PortadaStatic/>
-<Infotravel data={destino}/>
+<MainContent>
+  <Infotravel data={destino}/>
+
+
+</MainContent>
+
 </Layout>

@@ -41,15 +41,15 @@ const {
     <!-- Accesibilidad y SEO -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="/styles/global.css" />
+
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
-    <a href="#main" class="sr-only focus:not-sr-only">Saltar al contenido</a>
+    
     <Header  />
-    <main id="main" class=" pt-14 md:pt-22">
+    <div class=" pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
       <slot />
-    </main>
+
     <Footer />
     <Modalcontac />
   </body>

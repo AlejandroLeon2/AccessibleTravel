@@ -1,0 +1,137 @@
+---
+// Frontmatter
+const textos = {
+  descuento: "25% Off",
+  descripcion: "Discover Great Accessible Deals Across Peru",
+  urgencia: "Hurry Up!",
+  terminaEn: "Offer Ends in:",
+  unidades: ["DAYS", "HOURS", "MINUTES", "SECONDS"],
+  incluyeTitulo: "What's included",
+};
+
+const groupTours = [
+  {
+    title: "Machu Picchu and the Titicaca Lake",
+    titleLink: "/machu-picchu-2026",
+    startDate: new Date("2025-02-20"),
+    endDate: new Date("2025-10-20"),
+
+    includes: [
+      "Accessible Hotels",
+      "Accessible Routes",
+      "Specialized Equipment",
+      "Official Tour Guides",
+      "Support Staff",
+      "Train Tickets & Entrances",
+      "Tourism Oriented",
+      "Climatic Events & Warnings",
+    ],
+    detalles: [
+      "Double room",
+      "All legal documents and detailed list of events and conditions",
+      "All offer-based services (tours, equipment)",
+      "Bilingual local tour guides (Spanish / English)",
+      "Trained and ready to help at any time",
+      "Tickets and access to Machu Picchu + Return Tickets",
+      "A full focus on customer demands from the itinerary",
+      "Maybe... you like heavy raining in the tour",
+    ],
+    excludes: [
+      "Personal expenses",
+      "Tips for guides",
+      "Insurance",
+      "Meals not mentioned",
+    ],
+  },
+];
+
+import Times from "../constructor/Times.astro";
+import { groupTours as grouptour } from "../../data/groupTours";
+---
+
+<section class="flex flex-col gap-6 p-6 max-w-6xl mx-auto">
+  <header
+    class="flex md:col-span-2 flex-col md:flex-row items-center justify-between bg-gray-100 p-4 rounded-xl shadow"
+  >
+    <div class="text-left gap-4 flex  justify-center items-center">
+      <p
+        class="text-2xl border border-gray-200 bg-white rounded-lg px-4 py-2 w-20 font-bold text-azul-travel"
+      >
+        {textos.descuento}
+      </p>
+      <p class="text-sm text-gray-600">
+        {textos.descripcion}
+  
+      </p>
+    </div>
+    <Times data={grouptour[0]}/>
+  </header>
+  <div class="flex flex-col lg:flex-row justify-between space-y-2">
+    <iframe
+      class="w-full h-[50svh] max-h-100 lg:max-w-xl rounded-2xl"
+      src="https://www.youtube-nocookie.com/embed/0sX7dygdxLE?si=9IbAGsWLQyNV_Swg"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+
+
+  <div class="bg-white w-full lg:max-w-md rounded-xl p-4">
+    <h3 class="text-lg font-semibold mb-4">{textos.incluyeTitulo}</h3>
+    <ul class="space-y-3">
+      {
+        groupTours[0].includes.map((item, i) => (
+          <li class="flex items-start gap-2">
+            <span class="text-green-600 font-bold">✓</span>
+            <span>
+              <span class="font-medium">{item}</span>:
+              <span class="text-gray-600 text-sm">
+                {groupTours[0].detalles[i]}
+              </span>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+    </div>
+</section>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contadores = document.querySelectorAll(".contador");
+
+    contadores.forEach((contador, index) => {
+      const start = new Date(contador.dataset.start);
+      const end = new Date(contador.dataset.end);
+
+      const unidades = contador.querySelectorAll(".unidad");
+
+      function updateCounter() {
+        const now = new Date();
+        const diff = end - now;
+
+        if (diff <= 0) {
+          unidades.forEach((el) => {
+            el.textContent = "00";
+          });
+          clearInterval(intervalo);
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        const valores = [days, hours, minutes, seconds];
+        valores.forEach((val, i) => {
+          unidades[i].textContent = String(val).padStart(2, "0");
+        });
+      }
+
+      updateCounter();
+      const intervalo = setInterval(updateCounter, 1000);
+    });
+  });
+</script>

@@ -1,0 +1,46 @@
+---
+const { data } = Astro.props;
+---
+
+<section class="max-w-xs py-12  md:max-w-3xl mx-auto md:px-4 ">
+
+    <div class="space-y-4" id="acordeon">
+      {
+        data.itinerary.map((dias, index) => (
+          <details
+            class=" w-200 relative max-w-xs md:max-w-3xl lg:max-w-md xl:max-w-3xl rounded group"
+            data-acordeon={index}
+          >
+            <summary class="cursor-pointer gap-2 md:gap-8 delay-300 duration-300 select-none   bg-white hover:bg-gray-200 flex  items-center">
+              <span class="z-1 max-w-14 min-w-14 font-semibold text-center py-3 text-white text-2xl bg-azul-travel p-4">
+                {index+1}
+              </span>
+              <h2 class="font-semibold  text-black text-lg">{`${dias.time ?" " :"Day"} ${dias.time ?? dias.day}: ${dias.title}`}</h2>
+            </summary>
+            <div class="absolute bottom-0 left-7 border-l-2 border-dashed border-qillary-aqua h-full w-1" />
+            <div class=" pl-10 pr-4  py-4 space-y-3 text-gray-700">
+              <p class="">{dias.description}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+</section>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const acordeon = document.getElementById("acordeon");
+    const items = acordeon.querySelectorAll("details");
+
+    items.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          items.forEach((other) => {
+            if (other !== item) {
+              other.removeAttribute("open");
+            }
+          });
+        }
+      });
+    });
+  });
+</script>

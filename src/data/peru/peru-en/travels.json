@@ -1246,52 +1246,355 @@
       "inquire": "Ask a question"
     }
   },
-  {
-    "title": "Wheelchair Airport Transfers",
-    "titleLink": "wheelchair-airport-transfers-lima",
-    "location": "Lima, Perú",
+ {
+    "title": "PARACAS, ICA & HUACACHINA ACCESSIBLE FULL DAY TOUR",
+    "titleLink": "paracas-ica-huacachina-accessible-full-day-tour",
+    "location": "Ica, Perú",
     "operator": "Accessible Travel Peru",
     "rating": "4 reviews",
     "duration": "1 day",
-    "groupSize": "1 - 2",
-    "description": "Transfers & Excursions from the Airport to your hotel in the city of Lima, Peru",
+    "groupSize": "1 - 25",
+    "description": "At Accessible Travel Perú, we believe that everyone should be able to experience the wonders of Peru—from ocean wildlife to desert sunsets—with comfort, dignity, and excitement. Our Accessible Full Day Tour to Ica & Paracas is designed for travelers with disabilities who want to explore the coast, vineyards, and dunes of southern Peru in a safe and inclusive way. This unforgettable journey includes a boat tour to the Ballestas Islands, where you’ll spot sea lions and penguins, a visit to a traditional vineyard with Pisco tasting, and a thrilling buggy ride across the desert, ending with a sunset picnic in the heart of the dunes. With over 10 years of experience and a fully accessible approach, we provide adapted transportation, trained staff, and personalized support every step of the way. Whether you’re tasting Pisco or watching the sun melt into the sand, you’ll feel empowered to explore—without limits. Registered under MINCETUR Members of ENAT – European Network for Accessible Tourism Book now at www.accessibletravelperu.com or message us on WhatsApp at +51 944 731 223 From the sea to the sand dunes—discover coastal Peru like never before. ♿🇵🇪✨",
     "includes": [
-      "Accessible van (Van adapted for electric & manual wheelchairs 1 wheelchair + 3 accompaniers)",
-      "Tickets & Taxes (Parking tickets & Taxes)"
+      "Accessible van (WAV)",
+      "All tours described",
+      "All entrances",
+      "Tour guide specialized in accessible tourism",
+      "Lunch in local restaurant"
     ],
-    "excludes": ["Tips"],
+    "excludes": [
+      "Tours not mentioned in the program",
+      "Hotel accommodation"
+    ],
     "packages": [
       {
-        "name": "Apto - Lince, San Isidro, Miraflores",
-        "capacity": "Min. 2",
-        "price": "$45"
+        "name": "Wheelchair user",
+        "capacity": "1",
+        "price": "$430"
       },
       {
-        "name": "Apto - Barranco, Chorrillos, Surco",
-        "capacity": "Min. 2",
+        "name": "Partner",
+        "capacity": "1",
+        "price": "$350"
+      },
+      {
+        "name": "Round Trip Transfers: Start and Finish in the airport jorge chavez in Lima or in callao port",
+        "capacity": "1",
         "price": "$50"
-      },
-      {
-        "name": "Apto - Casuarinas, La Molina, Ate",
-        "capacity": "Min. 2",
-        "price": "$65"
       }
     ],
     "images": [
       {
-        "link": "https://example.com/accessible-van-lima.jpg",
-        "alt": "Accessible van for wheelchair transfers",
-        "title": "Wheelchair Accessible Vehicle"
+        "link": "https://example.com/ballestas-islands-tour.jpg",
+        "alt": "Accessible boat tour to Ballestas Islands",
+        "title": "Wildlife Boat Tour"
       },
       {
-        "link": "https://example.com/airport-transfer-service.jpg",
-        "alt": "Airport transfer service in Lima",
-        "title": "Airport Transfer"
+        "link": "https://example.com/huacachina-dunes.jpg",
+        "alt": "Accessible dune buggy adventure in Huacachina",
+        "title": "Desert Buggy Ride"
       }
     ],
     "links": {
       "book": "Book Now",
-      "inquire": "Ask a question"
-    }
+      "brochure": "Download Brochure",
+      "inquire": "Ask A Question"
+    },
+    "itinerary": [
+      {
+        "time": "05:30 AM",
+        "title": "Pickup from Hotel in Lima",
+        "description": "We begin early with a private, accessible vehicle equipped for travelers with reduced mobility. The ride to Paracas includes rest stops and comfortable seating to ensure a smooth journey."
+      },
+      {
+        "time": "10:00 AM",
+        "title": "Ballestas Islands Boat Tour",
+        "description": "Experience Peru's own 'mini Galápagos'! A specially arranged accessible boat tour will take us to the Ballestas Islands, home to sea lions, Humboldt penguins, and thousands of seabirds. The boarding dock is adapted and our staff will provide full support for boarding and disembarking safely."
+      },
+      {
+        "time": "12:30 AM",
+        "title": "Scenic Transfer to Ica",
+        "description": "We travel from Paracas to Ica in our accessible van, passing through desert landscapes and vineyards on the way."
+      },
+      {
+        "time": "01:30 PM",
+        "title": "Visit to an Accessible Vineyard & Pisco Tasting",
+        "description": "Arrive at a traditional bodega that's fully equipped for accessibility. Here, we learn about the production of wine and Pisco, Peru's national spirit, followed by a guided tasting experience with non-alcoholic alternatives available. The terrain is flat, with accessible restrooms and shaded areas."
+      },
+      {
+        "time": "02:30 PM",
+        "title": "Country-Style Lunch at the Vineyard",
+        "description": "Enjoy a delicious traditional criollo lunch in an open-air, wheelchair-friendly dining space. Dietary needs are fully accommodated upon request."
+      },
+      {
+        "time": "04:00 PM",
+        "title": "Arrival at Huacachina & Dune Buggy Adventure",
+        "description": "Upon reaching the famous Huacachina Oasis, we begin a thrilling and guided buggy ride into the desert dunes. The activity is adapted with assistance from trained staff for boarding, seatbelt support, and secure seating. Halfway through the buggy route, we stop at a scenic, remote desert viewpoint, where a beautiful picnic setup awaits you. Enjoy fresh fruit, snacks, and drinks while watching the sunset over the golden dunes, in one of the most magical moments of the day. The setup includes comfortable seating, shade, and full staff support."
+      },
+      {
+        "time": "06:00 PM",
+        "title": "Return to Lima",
+        "description": "We begin our return journey in the comfort of our accessible van, arriving in Lima around 9:30 PM"
+      }
+    ]
+  },
+    {
+    "title": "GASTRONOMIC EXPERIENCE - ACCESSIBLE FULL DAY TOUR ♿",
+    "titleLink": "gastronomic-experience-accessible-full-day-tour",
+    "location": "Lima, Perú",
+    "operator": "Accessible Travel Peru",
+    "rating": "4 reviews",
+    "duration": "1 day",
+    "groupSize": "1 - 25",
+    "description": "At Accessible Travel Perú, we believe that food is a gateway to culture—and everyone deserves a seat at the table. Our Full Day Accessible Gastronomic Tour in Lima is designed for travelers with disabilities who want to explore Peru’s world-renowned culinary scene in comfort and style. This sensory journey includes visits to local markets, hands-on cooking classes with adapted stations, and meals at top-rated accessible restaurants—featuring authentic Peruvian flavors like ceviche, lomo saltado, and lucuma desserts. With over 10 years of experience and a fully accessible approach, we guarantee safe transportation, expert guides, and a seamless day of delicious discovery. Registered under MINCETUR Members of ENAT – European Network for Accessible Tourism Book your tour today at www.accessibletravelperu.com or reach us via WhatsApp at +51 944 731 223. Let us help you taste the heart of Lima—without limits! 🇵🇪✨",
+    "includes": [
+      "Accessible van (WAV)",
+      "All tours described",
+      "All entrances",
+      "Tour guide specialized in accessible tourism",
+      "Lunch in local restaurant"
+    ],
+    "excludes": [
+      "Tours not mentioned in the program",
+      "Hotel accommodation"
+    ],
+    "packages": [
+      {
+        "name": "Wheelchair user",
+        "capacity": "1",
+        "price": "$195"
+      },
+      {
+        "name": "Partner",
+        "capacity": "1",
+        "price": "$165"
+      },
+      {
+        "name": "Round Trip Transfers: Start and Finish in the airport jorge chavez in Lima or in callao port",
+        "capacity": "1",
+        "price": "$50"
+      }
+    ],
+    "images": [
+      {
+        "link": "https://example.com/peruvian-market-tour.jpg",
+        "alt": "Accessible visit to traditional market in Lima",
+        "title": "Local Market Experience"
+      },
+      {
+        "link": "https://example.com/cooking-class-lima.jpg",
+        "alt": "Accessible cooking class at El Bolivariano restaurant",
+        "title": "Peruvian Cooking Demonstration"
+      }
+    ],
+    "links": {
+      "book": "Book Now",
+      "brochure": "Download Brochure",
+      "inquire": "Ask A Question"
+    },
+    "itinerary": [
+      {
+        "time": "09:00 AM",
+        "title": "Hotel Pickup",
+        "description": "Your day begins with a comfortable and safe transfer in our specially adapted vehicle for travelers with reduced mobility. We ensure every moment is smooth and worry-free."
+      },
+      {
+        "time": "09:20 AM",
+        "title": "Visit to the Huaca Pucllana Archaeological Complex",
+        "description": "We start the day by visiting the impressive Huaca Pucllana Archaeological Complex, an ancient pre-Inca temple located in the heart of Miraflores. This archaeological site is one of Lima's most iconic landmarks."
+      },
+      {
+        "time": "10:00 AM",
+        "title": "Visit to a Traditional Local Market",
+        "description": "Dive into the heart of Peruvian flavors with a guided visit to a local market. Taste exotic fruits like lucuma, cherimoya, granadilla, and aguaymanto, while learning about native ingredients and their role in traditional Peruvian cuisine. The market is carefully selected for wide aisles and full accessibility."
+      },
+      {
+        "time": "11:30 AM",
+        "title": "Live Cooking Demonstration at El Bolivariano Restaurant",
+        "description": "Next, we head to the iconic and fully accessible El Bolivariano restaurant for an interactive culinary experience: You'll learn how to prepare: • Classic Ceviche • Causa Limeña • Pisco Sour Adapted cooking stations and experienced staff ensure everyone can take part in this hands-on experience."
+      },
+      {
+        "time": "01:00 PM",
+        "title": "Accessible Lunch at El Bolivariano",
+        "description": "After the demo, enjoy a full lunch featuring Peru's best traditional dishes. The restaurant offers inclusive service and menus tailored to various dietary needs."
+      },
+      {
+        "time": "03:00 PM",
+        "title": "Panoramic Lima City Tour",
+        "description": "The afternoon continues with a guided and accessible city tour: • Plaza Mayor & Historic Center – explore Lima's colonial heart with barrier-free access. • Santo Domingo Convent – fully wheelchair accessible with guided cultural insights."
+      },
+      {
+        "time": "05:30 PM",
+        "title": "Return to Hotel",
+        "description": "We end the day with a relaxing transfer back to your hotel in our accessible vehicle, ensuring comfort and care every step of the way."
+      }
+    ]
+  },
+    {
+    "title": "THE FLIGHT OF THE CONDOR + THE RAINBOW MOUNTAIN",
+    "titleLink": "flight-condor-rainbow-mountain",
+    "location": "Arequipa, Perú",
+    "operator": "Accessible Travel Peru",
+    "rating": "4 reviews",
+    "duration": "13 days",
+    "groupSize": "2 - 8",
+    "description": "Discover the best of Peru on this 13-day accessible journey, specially designed for travelers of all abilities. From the vibrant streets of Lima to the elegant city of Arequipa, the majestic Colca Valley, and the sacred waters of Lake Titicaca—each destination offers unforgettable moments. Explore Cusco, marvel at the colors of Rainbow Mountain, and stand in awe before Machu Picchu, one of the New Seven Wonders of the World. Accessible hotels, transport & tours. Personalized support & expert guides. Comfort, safety, and cultural immersion at every step. Travel without limits. Peru awaits you. Accessible Travel Peru - Making Peru Accessible for Everyone WhatsApp us... 👉 click here!",
+    "includes": [
+      "Accessible rooms (Accessible hotels)",
+      "Domestic flights (Lima - Arequipa / Cusco - Lima)",
+      "Meals specified in program",
+      "Adapted tourism vans for wheelchair users in all destinations",
+      "Special equipment (Off-Road Wheelchairs, slings, portable ramps)",
+      "Bilingual tour guide (Spanish - English)",
+      "Support staff ready and happy to help you",
+      "All the entrances and train tickets",
+      "All the tours and excursions described in the itinerary",
+      "01 bottle water & snacks (Maybe... you feel hungry during the tour)"
+    ],
+    "excludes": [
+      "International flights front and to your country",
+      "Travel Insurance",
+      "Tips, Meals not mentioned in the description, alcoholic and non-alcoholic drinks, other services"
+    ],
+    "packages": [
+      {
+        "name": "Wheelchair User",
+        "capacity": "1",
+        "price": "$5,819",
+        "deposit": "$700"
+      },
+      {
+        "name": "Partner",
+        "capacity": "1",
+        "price": "$4,733",
+        "deposit": "$700"
+      }
+    ],
+    "addOns": [
+      {
+        "name": "Gastronomic tour in Lima",
+        "description": "In this tour we will visit local markets and learn about the different products that we have in the country, from potatoes and chili peppers to exotic fruits. Price per person",
+        "price": "$70"
+      },
+      {
+        "name": "Larco Herrera Museum",
+        "description": "Tour to the Larco Herrera Museum specialized in pre inca cultures",
+        "price": "$40"
+      },
+      {
+        "name": "ATV excursion in Piuray",
+        "description": "Accessible ATV excursion in Piuray Lagoon",
+        "price": "$35"
+      },
+      {
+        "name": "Shamans",
+        "description": "Day with shaman, energetic cleansing and payment to the earth for prosperity",
+        "price": "$65"
+      },
+      {
+        "name": "Titicaca Express",
+        "description": "Luxury Train from Puno to Cusco. Includes brunch, lunch, happy hour and show. Includes support staff to assist you on the train. This train only departs on MONDAYS, THURSDAYS and SATURDAYS from the city of Puno",
+        "price": "$290"
+      },
+      {
+        "name": "Luxury Hiram Bingham Train service",
+        "description": "Includes brunch, lunch, happy hour and show. Round Trip, includes support staff to assist you on the train",
+        "price": "$1,275"
+      },
+      {
+        "name": "360° Panoramic Train service",
+        "description": "Panoramic train with big windows even in the roof. You can see everything! (per person round trip), includes support staff to assist you on the train",
+        "price": "$100"
+      },
+      {
+        "name": "Extra day in Lima, Puno or Cusco",
+        "description": "Cost per night, includes breakfast",
+        "price": "$60"
+      }
+    ],
+    "images": [
+      {
+        "link": "https://example.com/rainbow-mountain-peru.jpg",
+        "alt": "Accessible tour to Rainbow Mountain in Peru",
+        "title": "Rainbow Mountain Experience"
+      },
+      {
+        "link": "https://example.com/colca-condor-flight.jpg",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
+      }
+    ],
+    "links": {
+      "book": "Book Now",
+      "brochure": "Download Brochure",
+      "inquire": "Ask A Question"
+    },
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Arrival in Lima – Welcome to Peru",
+        "description": "Upon your arrival at Lima International Airport, our team will be waiting to greet you with a warm welcome and provide comfortable, accessible transportation to your hotel in the city. Once settled in, you'll have some time to rest after your journey. Later, we'll meet for a briefing session at the hotel, where we'll go over the details of your adventure, answer any questions, and share helpful tips for the days ahead. You'll also receive any mobility equipment or support devices arranged for your trip, ensuring everything is ready for a safe and enriching experience. From the moment you land, we are here to support you with personalized, accessible service every step of the way. Welcome to Peru—your unforgettable journey begins now!"
+      },
+      {
+        "day": 2,
+        "title": "Lima City Tour – Contrasts of the City of Kings",
+        "description": "Start your Peruvian adventure with a fascinating tour of Lima, the vibrant capital known as the City of Kings. Begin in the elegant coastal district of Miraflores, where you'll enjoy scenic ocean views and a panoramic stop at Huaca Pucllana, an ancient adobe pyramid that speaks to the city's pre-Columbian past. Then, journey into the heart of the Historic Center of Lima, a UNESCO World Heritage Site. Admire the colonial balconies, grand architecture, and charming plazas. Visit the beautiful Convent of Santo Domingo, home to centuries of spiritual and cultural history. A delicious lunch at a local restaurant is included, featuring a taste of Peru's world-famous cuisine. The tour is fully accessible, with adapted transportation and dedicated assistance to ensure comfort and inclusion at every stop. OPTIONAL: After Lunch Tour to the Larco Herrera Museum ($40 p/ person), Gastronomic tour and demo class ($70 p/ person). A day filled with history, flavor, and unforgettable first impressions of Peru."
+      },
+      {
+        "day": 3,
+        "title": "Flight to Arequipa & City Tour – The White City Awaits",
+        "description": "In the morning, we will transfer you to Jorge Chávez International Airport for your flight to Arequipa, known as La Ciudad Blanca for its stunning white volcanic stone architecture. Upon arrival, our team will greet you and provide accessible transportation to your hotel for check-in and a short rest. In the afternoon, enjoy a guided City Tour of Arequipa, where you'll explore its charming historic center, a UNESCO World Heritage Site. Visit iconic landmarks such as the Plaza de Armas, the beautiful Cathedral, and the impressive Santa Catalina Monastery, a city within a city filled with history and color. The tour includes accessible routes and personalized assistance to ensure comfort throughout the day. A perfect welcome to the Andes and a city full of elegance, history, and soul."
+      },
+      {
+        "day": 4,
+        "title": "Journey to the Colca Valley – Andean Landscapes & Local Flavors",
+        "description": "After breakfast, we'll depart from Arequipa towards the spectacular Colca Valley, one of the deepest canyons in the world and home to breathtaking scenery and traditional highland culture. Enjoy a scenic drive across the Salinas and Aguada Blanca Reserve, where you'll spot wild vicuñas, llamas, and alpacas grazing in the vast puna landscapes. Along the way, we'll stop at panoramic viewpoints like Patapampa, located over 4,900 meters above sea level, where the surrounding volcanoes rise majestically on the horizon. A delicious lunch featuring local ingredients is included in a traditional restaurant along the route. In the afternoon, arrive at your hotel in the Colca area, where you'll have time to rest, enjoy the peaceful mountain air, or take in the surroundings at your own pace. Overnight stay in the heart of the Andes, where nature, silence, and stars await."
+      },
+      {
+        "day": 5,
+        "title": "Colca Canyon & Journey to Puno – Condors and Highland Roads",
+        "description": "Early in the morning, we'll head to the iconic Cruz del Cóndor viewpoint to witness the majestic flight of the Andean condors as they soar gracefully above one of the deepest canyons on Earth. Along the way, you'll enjoy stunning views of the valley's pre-Inca terraces, snowcapped peaks, and traditional villages. After this unforgettable experience, we'll begin our journey across the Andean Altiplano toward Puno, located on the shores of Lake Titicaca, the highest navigable lake in the world. A stop will be made for lunch en route (optional or included depending on final program), with time to rest and stretch along the scenic drive. Upon arrival in Puno, transfer to your accessible hotel for check-in and overnight stay. A day filled with nature, wildlife, and the changing colors of the Andes, ending by the sacred lake of the Incas."
+      },
+      {
+        "day": 6,
+        "title": "Lake Titicaca – Uros & Taquile Islands",
+        "description": "Explore the magic of Lake Titicaca on a full-day boat tour to the floating Uros Islands and the traditional island of Taquile. Start your day navigating the highest navigable lake in the world as you visit the unique Uros community, where locals live on handmade reed islands. Then continue to Taquile, known for its rich textile traditions and stunning lake views. Enjoy a freshly prepared lunch on Taquile Island, featuring local ingredients and Andean hospitality. The tour includes adapted assistance and personalized support to ensure a safe and inclusive experience on the water and the islands. Return to Puno in the late afternoon with unforgettable memories of Peru's living lake cultures."
+      },
+      {
+        "day": 7,
+        "title": "Overland, Cusco to Puno – Scenic Route with Cultural Stops",
+        "description": "Today, travel from Cusco to Puno along one of the most scenic and culturally rich routes in the Andes. This full-day road journey includes several fascinating stops along the way, offering a deeper look into Peru's history and highland landscapes. You'll visit traditional villages, ancient ruins, and beautiful viewpoints as we make our way south toward Lake Titicaca. A hearty buffet lunch is included in a picturesque Andean town, featuring local ingredients and traditional flavors. Accessible transportation and assistance are provided to ensure comfort throughout the day. Arrive in Puno by evening and settle into your hotel to rest and prepare for your Lake Titicaca adventure. Optional: Route Cusco to Puno by Train. Lunch and Folkloric Show Included. ($290 p/ person)"
+      },
+      {
+        "day": 8,
+        "title": "Afternoon City Tour – Inca Capital Awaits",
+        "description": "This afternoon, we'll visit Cusco, the historic capital of the Inca Empire nestled in the heart of the Andes. City Tour of Cusco, a journey through time and tradition. Visit the sacred Qoricancha, the Inca Temple of the Sun, and walk through the iconic Plaza de Armas, surrounded by colonial charm and lively culture. Then, explore the awe-inspiring fortress of Sacsayhuamán, followed by visits to Tambomachay and panoramic stops at Qenko and Puka Pukará, where the spirit of the Andes still lingers in every stone. Accessible transportation and personal support are provided to ensure your comfort throughout the day. A magical first glimpse into Cusco's living history and timeless majesty."
+      },
+      {
+        "day": 9,
+        "title": "Sacred Valley Full Day – Pisac, Urubamba & Ollantaytambo",
+        "description": "Today you'll explore the breathtaking Sacred Valley of the Incas, a place where history, culture, and nature come together in perfect harmony. Start your day in Pisac, wandering through its colorful artisan market and admiring the terraced hillsides of its ancient ruins. Continue to Urubamba, where you'll enjoy a delicious buffet lunch featuring local Andean flavors. In the afternoon, visit the impressive fortress of Ollantaytambo, a living Inca town filled with stories carved in stone. This day offers not only incredible views but also a deep connection with the spirit of the Andes. Accessible transportation and personal assistance are included to ensure a smooth and enriching experience for all. A day full of culture, flavors, and awe-inspiring beauty—straight from the heart of the Andes."
+      },
+      {
+        "day": 10,
+        "title": "Rainbow Mountain Full Day Tour | Accessible Experience",
+        "description": "Join us for an unforgettable accessible adventure to the stunning Rainbow Mountain! This full-day tour includes scenic views of the Andes, local encounters, and a delicious countryside lunch. Box lunch included for the journey featuring native corn, Andean potatoes, fresh cheese, and alpaca meat. Adapted support and assistance throughout the experience. Breathe in the beauty of the Peruvian highlands and witness one of nature's most colorful wonders—safely and comfortably."
+      },
+      {
+        "day": 11,
+        "title": "Living Culture in Cuper Bajo, Chinchero",
+        "description": "This morning, immerse yourself in the daily life of the Cuper Bajo community, located on the peaceful shores of Lake Piuray, high in the Andes of Chinchero. Be welcomed by local families and experience authentic Andean living culture through an enriching and hands-on exchange. Discover the ancient art of textile weaving—from shearing and spinning wool to learning how they create vibrant colors using natural dyes from native plants, minerals, and insects. You'll also explore their agricultural traditions, learning about the native crops they grow—such as potatoes, corn, and quinoa—and the deep connection they maintain with Pachamama (Mother Earth). The experience includes a delicious traditional Pachamanca lunch, where meats and vegetables are slow-cooked underground with hot stones—a true celebration of Andean flavors and community. This activity is designed to be accessible and inclusive, with adapted support to ensure comfort and full participation for every traveler. A morning of culture, nature, and connection—shared with the warm hearts of the Andes. Optionals: - Accessible ATV off road excursion around Piuray Lagoon ($35 p/ person) - Day with shaman, energetic cleansing and payment to the earth for prosperity ($65 p/ person)"
+      },
+      {
+        "day": 12,
+        "title": "Machu Picchu Full Day Tour | From Cusco & Back",
+        "description": "Today, you'll embark on a full-day adventure to the majestic citadel of Machu Picchu. Early in the morning, we'll transfer you from your hotel to the train station for a scenic journey through the Sacred Valley. Upon arrival in Aguas Calientes, you'll take a short bus ride up the mountain to reach the entrance of Machu Picchu. Enjoy a guided tour of this iconic Inca sanctuary, adapted to your pace and needs, with plenty of time to take in the breathtaking views and history. After exploring the site, return to Aguas Calientes for a delicious lunch at a local restaurant before heading back to Cusco by train and private transfer. Accessible assistance provided throughout the day for a smooth and enriching experience. Optional: - Panoramic train service ($100 per person, round trip, includes support staff to assist you on the train) - Luxury Hiram Bingham Train service, includes brunch, Lunch and happy hour ($1275 per person, round trip. Includes support staff to assist you on the train)"
+      },
+      {
+        "day": 13,
+        "title": "Time to say Good Bye...",
+        "description": "After 13 incredible days discovering the soul of Peru—its colors, flavors, landscapes, and people—it's time to say goodbye, but not farewell forever. This morning, we'll accompany you to Cusco Airport, where you'll board your flight back to Lima to connect with your international journey home. As your adventure ends, we hope your heart is full of unforgettable moments, meaningful connections, and a deep bond with this magical land. Thank you for letting us be part of your journey. It has been a true honor to travel with you. We'll be waiting with open arms whenever you return. And like the Inca's says... TUPAYANCHIS K'AMA! - Until life meet us again… ¡Hasta pronto!"
+      }
+    ]
   }
 ]

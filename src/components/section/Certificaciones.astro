@@ -27,11 +27,12 @@ const images = [
   }
 ];
 
+const {style ="grid grid-cols-5 px-4 py-4 gap-6" , base}=Astro.props;
 
 ---
 
-<section class="py-6 bg-white  ">
-  <div class="grid grid-cols-5  px-4 py-4 place-items-center gap-6">
+<section class=` py-6 bg-white ${base} `>
+  <div class=`${style}    place-items-center `>
     {
       images.map((img) => (
         <img
