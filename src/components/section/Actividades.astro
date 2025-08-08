@@ -29,11 +29,11 @@ const services = [
           class={`flex flex-col h-25 md:h-40 items-center text-azul-travel hover:scale-105 active:scale-95 duration-300 hover:text-white justify-center gap-2 px-2 py-4 rounded-lg transition ${
             item.activo
               ? "bg-azul-travel  text-white"
-              : "hover:bg-azul-travel group border  border-gray-200 text-black dark:hover:bg-gray-800"
+              : "hover:bg-azul-travel group border active:scale-95 duration-300 active:bg-azul-travel border-gray-200 text-black dark:hover:bg-gray-800"
           }`}
           aria-current={item.activo ? "true" : undefined}
         >
-          {item.icon === "carrito" && <Avion style="w-8 h-auto" />}
+          {item.icon === "carrito" && <Avion style="w-8 h-auto " />}
           {item.icon === "guia" && <Mapa style=" w-8 h-auto text-azul-travel group-hover:text-white group-active:text-white" />}
           {item.icon === "montanas" && (
             <Montana style="text-azul-travel group-hover:text-white group-active:text-white" />

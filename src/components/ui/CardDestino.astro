@@ -22,7 +22,7 @@ const tour = {
     original: 199.0,
   },
 };
-const {data ,style ="max-w-xs min-w-xs" , locacion, ruta="/destino/tour/"}=Astro.props;
+const {data ,style ="max-w-xs min-w-xs" , botones="justify-between", locacion, ruta="/destino/tour/"}=Astro.props;
 ---
 
 <article class=`bg-white ${style}  rounded-xl shadow-md overflow-hidden `>
@@ -35,7 +35,7 @@ const {data ,style ="max-w-xs min-w-xs" , locacion, ruta="/destino/tour/"}=Astro
     />
 
     <span
-      class="absolute top-3 left-3 bg-azul-travel text-white text-xs px-2 py-1 rounded"
+      class="absolute top-3 left-3 bg-azul-travel  text-white text-xs px-2 py-1 rounded"
     >
       {tour.label}
     </span>
@@ -84,7 +84,7 @@ const {data ,style ="max-w-xs min-w-xs" , locacion, ruta="/destino/tour/"}=Astro
     </ul>
   </main>
 
-  <footer class=`flex items-center ${style?"flex-col justify-around ": " justify-between "} px-4 pb-4 pt-2`>
+  <footer class=`flex w-auto  items-center ${botones}  px-4 pb-4 pt-2`>
    
       <p class="text-azul-travel font-semibold ">{data.packages[0].price}</p>
 

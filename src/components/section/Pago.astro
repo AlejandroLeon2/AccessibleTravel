@@ -1,0 +1,44 @@
+---
+const images = [
+  {
+    src: "/images/logos/logo-amex-min.webp",
+    alt: "Logo of American Express, global financial services corporation",
+    titleLink: "american-express-logo"
+  },
+  {
+    src: "/images/logos/logo-diners-min.webp",
+    alt: "Logo of Diners Club International, credit card company",
+    titleLink: "diners-club-international-logo"
+  },
+  {
+    src: "/images/logos/logo-mastercard-min.webp",
+    alt: "Logo of Mastercard, multinational financial services corporation",
+    titleLink: "mastercard-logo"
+  },
+  {
+    src: "/images/logos/logo-visa-min.webp",
+    alt: "Logo of Visa, global digital payments technology company",
+    titleLink: "visa-logo"
+  }
+];
+
+
+const {style ="grid grid-cols-4 px-4 py-4 gap-6" , base}=Astro.props;
+
+---
+
+<section class=` py-6 bg-white ${base} `>
+  <div class=`${style}    place-items-center `>
+    {
+      images.map((img) => (
+        <img
+          src={img.src}
+          alt={img.alt}
+          title={img.titleLink}
+          class="w-full xl:w-30 h-auto  object-cover group-hover:opacity-90 transition"
+          loading="lazy"
+        />
+      ))
+    }
+  </div>
+</section>

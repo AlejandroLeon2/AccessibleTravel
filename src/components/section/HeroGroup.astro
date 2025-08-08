@@ -53,7 +53,7 @@ import { groupTours as grouptour } from "../../data/groupTours";
   <header
     class="flex md:col-span-2 flex-col md:flex-row items-center justify-evenly bg-gray-100 p-4 rounded-xl shadow"
   >
-    <div class="text-left gap-4 flex max-w-50 justify-center items-center">
+    <div class="text-left gap-4 flex md:max-w-50 justify-center items-center">
       <p
         class="text-2xl border flex flex-col border-gray-200 border-b-azul-travel border-b-4 bg-white rounded-lg px-4 py-2 w-20 font-bold text-azul-travel"
       >
@@ -64,7 +64,7 @@ import { groupTours as grouptour } from "../../data/groupTours";
   
       </p>
     </div>
-     <p class="font-semibold flex max-w-30 text-xl flex-col text-azul-travel"> Hurry! <span class="font-normal text-sm text-black">This special offer ends in:</span> </p>
+     <p class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"> Hurry! <span class="font-normal text-sm text-black">This special offer ends in:</span> </p>
     <Times data={grouptour[0]}/>
   </header>
   <div class="flex flex-col lg:flex-row justify-between space-y-2">

@@ -1,0 +1,36 @@
+---
+// src/components/ui/PostCard.astro
+export interface Props {
+  post: {
+    frontmatter: {
+      title: string
+      description: string
+      date: string
+      image?: string
+    }
+    url: string
+  }
+}
+
+const { post } = Astro.props
+---
+
+<article class="  w-auto rounded-2xl    ">
+  <a href={post.url} class="  transition flex flex-col  md:flex-row justify-between items-center">
+    <img
+      src={post.frontmatter.image ?? '/images/gato.jpg'}
+      alt={post.frontmatter.title}
+      class="w-full md:w-full h-50  object-cover  hover:scale-105"
+      loading="lazy"
+    />
+    <div class="  text-black p-4 border-2 border-black ">
+      <h2 class="text-lg font-bold mb-2">{post.frontmatter.title}</h2>
+      <p class="text-xs mb-2">{post.frontmatter.description}</p>
+      <p class="text-xs block text-gray-700">
+        {post.frontmatter.date}
+      </p>
+    </div>
+  </a>
+</article>
+
+
