@@ -29,8 +29,9 @@ const {data ,style ="max-w-xs min-w-xs" , botones="justify-between", locacion, r
   <header class="">
     <a href="#" class="relative">
     <img
-      src={tour.imagen}
-      alt={`Imagen del tour ${data.title}`}
+      src={data.images[0].link}
+      alt={`Imagen del tour ${data.images[0].alt}`}
+      title={`Imagen del tour ${data.images[0].title}`}
       class="w-full h-52 object-cover"
     />
 

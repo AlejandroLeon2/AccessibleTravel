@@ -2,10 +2,7 @@
   "nombre": "Accessible Travel Peru",
   "descripcion": "Accessible Travel Peru is a travel agency specialized in inclusive tourism for people with disabilities, connecting adventure and accessibility across Peru.",
   "correo": "contact@accessibletravelperu.com",
-  "telefonos": [
-    "Peru: +51 944 731 223",
-    "USA: +1 908-935-6769"
-  ],
+  "telefonos": ["Peru: +51 944 731 223", "USA: +1 908-935-6769"],
   "direccion": "465, FRAY LUIS DE LEON ST",
   "redes": [
     {
@@ -14,7 +11,12 @@
       "handle": "@AccessibleTravelPeru"
     },
     {
-      "icono": "twitter",
+      "icono": "tiktok",
+      "url": "#",
+      "handle": "@AccessibleTravelPeru"
+    },
+    {
+      "icono": "youtube",
       "url": "#",
       "handle": "@AccessibleTravelPeru"
     },

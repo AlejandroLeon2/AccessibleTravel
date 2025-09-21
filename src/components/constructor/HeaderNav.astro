@@ -1,26 +1,40 @@
 ---
 // src/components/HeaderNav.astro
 
-const { data ,style } = Astro.props;
+const { data, style } = Astro.props;
 ---
 
-<nav id="nav-links" class={` w-full translate-x-200 md:translate-x-0  [@media(max-width:767px)]:fixed top-14 md:top-24 lg:top-0 right-0 justify-center items-center  ${style}  md:flex `}>
-  <ul id="menu-principal" class="flex flex-col py-4 md:py-1 md:flex-row  px-4  mx-auto  bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700 ">
+<nav
+  id="nav-links"
+  class={` w-full translate-x-200 md:translate-x-0  [@media(max-width:767px)]:fixed top-14 md:top-24 lg:top-0 right-0 justify-center items-center  ${style}  md:flex `}
+>
+  <ul
+    id="menu-principal"
+    class="flex flex-col py-4 md:py-1 md:flex-row px-4 mx-auto bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700"
+  >
     {
-      data.map((item) => (
+      data.map((item) =>
         item.children ? (
           <li class="group relative ">
-            <button class="hover:text-blue-600 escuchar ">{item.label}</button>
+            {item.label !== "Tour Destination" ? (
+              <button class="hover:text-blue-600 escuchar">{item.label}</button>
+            ) : (
+              <a class="hover:text-blue-600 escuchar" href={item.href}>
+                {item.label}
+              </a>
+            )}
+
             <ul class="md:absolute mt-0.5  duration-300 left-0 md:w-50 hidden group-focus:block group-hover:block  bg-white shadow-lg border rounded  z-10">
-              {
-                item.children.map((child) => (
-                  <li class="">
-                    <a href={child.href} class="block  px-4 py-2 hover:bg-gray-100">
-                      {child.label}
-                    </a>
-                  </li>
-                ))
-              }
+              {item.children.map((child) => (
+                <li class="">
+                  <a
+                    href={child.href}
+                    class="block  px-4 py-2 hover:bg-gray-100"
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </li>
         ) : (
@@ -30,7 +44,7 @@ const { data ,style } = Astro.props;
             </a>
           </li>
         )
-      ))
+      )
     }
   </ul>
 </nav>

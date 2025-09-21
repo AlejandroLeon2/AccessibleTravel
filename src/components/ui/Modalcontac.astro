@@ -1,7 +1,10 @@
 ---
 import Mail from "../svg/Mail.astro";
 import Telefono from "../svg/Telefono.astro";
+
 import Ubicacion from "../svg/Ubicacion.astro";
+import Youtube from "../svg/Youtube.astro";
+import Tiktok from "../svg/Tiktok.astro";
 import empresaInfo from "../../data/accessibleTravel.json";
 ---
 
@@ -32,16 +35,12 @@ import empresaInfo from "../../data/accessibleTravel.json";
       </svg>
     </button>
 
-    <!-- Logo + Título -->
     <div class="flex flex-col items-center space-y-2">
       <img
         src="/images/logos/LOGOATPsinfondo.webp"
         alt="Logo Accessible Travel"
         class="w-50 h-auto"
       />
-      <h2 class="text-xl font-semibold text-balance text-azul-travel">
-        {empresaInfo.titulo}
-      </h2>
       <p class="text-sm text-gray-600">{empresaInfo.descripcion}</p>
     </div>
 
@@ -61,32 +60,30 @@ import empresaInfo from "../../data/accessibleTravel.json";
         ))
       }
 
-      <p class="flex items-center gap-2 ">
+      <p class="flex items-center gap-2">
         <Mail style="text-azul-travel  w-6 " />
         {empresaInfo.correo}
       </p>
     </div>
 
-    <!-- Redes Sociales -->
-    <div class="mt-6 flex justify-center gap-4">
+    <div class="mt-6 flex justify-center  gap-4">
       {
         empresaInfo.redes.map((red) => (
           <a
             href={red.url}
             target="_blank"
             aria-label={`${red.icono} de Accessible Travel Peru`}
-            class="p-2 rounded-full bg-gray-100 hover:bg-azul-travel hover:text-white transition-colors"
+            class="p-2 rounded-full bg-gray-100 text-black hover:bg-azul-travel hover:text-white transition-colors"
           >
             {red.icono === "facebook" && (
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.2c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0022 12z" />
               </svg>
             )}
-            {red.icono === "twitter" && (
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016 2c-2.48 0-4.5 2-4.5 4.5 0 .35.04.7.1 1.03A12.94 12.94 0 013 4.1a4.5 4.5 0 001.4 6.03 4.48 4.48 0 01-2-.55v.05c0 2.2 1.56 4.04 3.6 4.45a4.5 4.5 0 01-2 .07 4.5 4.5 0 004.2 3.1A9 9 0 012 19.54 12.9 12.9 0 008 21c7.5 0 11.6-6.2 11.6-11.6 0-.18 0-.36-.01-.54A8.3 8.3 0 0023 3z" />
-              </svg>
+            {red.icono === "tiktok" && (
+              <Tiktok style="w-6 w-5 hover:fill-white fill-black" />
             )}
+            {red.icono === "youtube" && <Youtube style="w-6 w-5 hover:fill-white fill-black"/>}
             {red.icono === "instagram" && (
               <svg
                 class=" w-6 h-6"
@@ -107,7 +104,6 @@ import empresaInfo from "../../data/accessibleTravel.json";
       }
     </div>
 
-    <!-- CTA -->
     <div class="mt-6 text-center">
       <a
         href="/contactUs"

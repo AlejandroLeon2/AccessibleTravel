@@ -3,7 +3,7 @@ const { data, news } = Astro.props;
 ---
 
 <aside
-  class="w-full md:max-w-xs my-12 md:w-80 p-4 space-y-8 bg-white border border-gray-200 rounded-lg shadow-sm"
+  class="w-full md:max-w-xs my-12 md:w-80 p-4 space-y-8 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
 >
   <!-- Perfil -->
   {
@@ -15,7 +15,9 @@ const { data, news } = Astro.props;
           title={`Foto de ${data.author.name ?? data.author}`}
           class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"
         />
-        <h2 class="mt-4 text-lg font-bold text-gray-900">{data.author.name ?? data.author}</h2>
+        <h2 class="mt-4 text-lg font-bold text-gray-900">
+          {data.author.name ?? data.author}
+        </h2>
         <p class="text-sm text-gray-500">{data.author.role ?? data.role}</p>
         <p class="mt-3 text-gray-600 text-sm">{data.author.bio ?? data.bio}</p>
         <div class="flex justify-center gap-4 mt-4 text-gray-500">
@@ -51,7 +53,6 @@ const { data, news } = Astro.props;
     )
   }
 
-  <!-- Tags -->
   {
     data.tags?.length > 0 && (
       <section>
@@ -77,25 +78,23 @@ const { data, news } = Astro.props;
     <div class="space-y-4">
       {
         news.slice(0, 3).map((newsa) => (
-          <article class="flex gap-4 items-center">
-
+          <article class="flex gap-4 items-center ">
             <img
               src={newsa.frontmatter.image ?? "/images/default-news.jpg"}
               alt={newsa.frontmatter.title}
-              class="w-16 h-16 rounded object-cover"
+              class="w-22 h-full rounded object-cover"
             />
             <div class="w-auto">
-              <time class="block text-xs text-gray-500">
-                {newsa.frontmatter.date}
-              </time>
               <a
                 href={newsa.url}
                 class="text-sm font-medium text-gray-800 hover:text-blue-600"
               >
                 {newsa.frontmatter.title}
               </a>
+              <time class="block text-xs text-gray-500">
+                {newsa.frontmatter.date}
+              </time>
             </div>
-
           </article>
         ))
       }

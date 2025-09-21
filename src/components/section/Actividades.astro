@@ -24,8 +24,7 @@ const services = [
   >
     {
       services.map((item) => (
-        <a
-          href={item.link}
+        <button
           class={`flex flex-col h-25 md:h-40 items-center text-azul-travel hover:scale-105 active:scale-95 duration-300 hover:text-white justify-center gap-2 px-2 py-4 rounded-lg transition ${
             item.activo
               ? "bg-azul-travel  text-white"
@@ -34,7 +33,9 @@ const services = [
           aria-current={item.activo ? "true" : undefined}
         >
           {item.icon === "carrito" && <Avion style="w-8 h-auto " />}
-          {item.icon === "guia" && <Mapa style=" w-8 h-auto text-azul-travel group-hover:text-white group-active:text-white" />}
+          {item.icon === "guia" && (
+            <Mapa style=" w-8 h-auto text-azul-travel group-hover:text-white group-active:text-white" />
+          )}
           {item.icon === "montanas" && (
             <Montana style="text-azul-travel group-hover:text-white group-active:text-white" />
           )}
@@ -46,7 +47,7 @@ const services = [
           )}
 
           <span class=" font-medium leading-snug">{item.title}</span>
-        </a>
+        </button>
       ))
     }
   </div>

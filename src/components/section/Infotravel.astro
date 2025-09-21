@@ -78,17 +78,17 @@ const tour = {
       </div>
       <div class="flex flex-col lg:flex-row gap-4">
         <img
-          src={tour.images[0]}
+          src={data.images[1].link}
           alt={`Tour image `}
           class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
         />
         <img
-          src={tour.images[1]}
+          src={data.images[2].link}
           alt={`Tour image `}
           class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
         />
         <img
-          src={tour.images[2]}
+          src={data.images[3].link}
           alt={`Tour image `}
           class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
         />
@@ -164,7 +164,7 @@ const tour = {
 
                     <footer class="mt-4">
                       <a
-                        href="#"
+                        href={data.links.book}
                         class="inline-block hover:bg-azul-travel hover:scale-105 active:scale-95 duration-300 rounded-full py-2 px-4 bg-gray-700 text-white"
                       >
                         Book Now

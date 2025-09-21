@@ -20,7 +20,7 @@ const posts = [
     id="prev-btn"
     class="absolute w-10 h-10 active:scale-95 hover:scale-105 duration-300 left-1 z-10 bg-white/40 rounded-full p-2 shadow hover:bg-white active:bg-white transition"
   >
-    ◀
+    ←
   </button>
   <div class="absolute mx-auto max-w-4xl left-0 right-0 px-10">
     <h2 class=" md:text-4xl text-2xl lg:max-w-xl font-bold text-azul-travel">{page.title}</h2>
@@ -42,14 +42,14 @@ const posts = [
     id="next-btn"
     class="absolute w-10 h-10 active:scale-95 hover:scale-105 duration-300 right-2 z-10 bg-white/40 text-center rounded-full p-2 shadow hover:bg-white active:bg-white transition"
   >
-    ▶
+    →
   </button>
 </section>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const images = [
-      { alt: "Cliff view", src: "/images/gato.jpg" },
+      { alt: "Cliff view", src: "https://process.filestackapi.com/resize=fit:crop,width:1700,height:500/quality=v:79/compress/cache=expiry:604800/fallback=file:%22https%3A%2F%2Fcdn.filestackcontent.com%2F1uoBxezQaKH4MRvxI9wA%22,cache:604800/1uoBxezQaKH4MRvxI9wA" },
       { alt: "Hiking rocky terrain", src: "/images/nice.jpeg" },
       { alt: "Tent near lake", src: "/images/gato.jpg" },
       { alt: "Forest walk", src: "/images/gato.jpg" },
