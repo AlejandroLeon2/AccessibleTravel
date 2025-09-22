@@ -10,7 +10,7 @@ const { data, news } = Astro.props;
     data.author && (
       <section class="text-center">
         <img
-          src={data.author.image ?? data.imageAutor}
+          src="/images/autor.webp"
           alt={data.author.name ?? data.author}
           title={`Foto de ${data.author.name ?? data.author}`}
           class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"

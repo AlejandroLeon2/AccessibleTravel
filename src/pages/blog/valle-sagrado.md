@@ -2,8 +2,8 @@
 title: "Valle Sagrado: Naturaleza, Historia y Accesibilidad en los Andes"
 description: "Explora el Valle Sagrado de los Incas con rutas accesibles, experiencias culturales y paisajes que te conectan con lo esencial"
 layout: "../../layouts/BlogPost.astro"
-image: "/images/gato.jpg"
-imageAutor: "/images/gato.jpg"
+image: "/moray.jpg"
+imageAutor: "/images/autor.webp"
 role: "Agencia de Viajes Inclusiva"
 bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
 tags: ["cusco", "viajes", "turismo accesible", "perú"]

@@ -4,13 +4,14 @@ const page = {
   subtitle: "¡Bienvenido a Accessible Travel Peru! Somos una agencia de viajes especializada en turismo accesible, confiable y profesional. Ofrecemos experiencias únicas por Perú.",
 };
 
-const posts = [
-  { alt: "Cliff view", src: "/images/gato.jpg" },
-  { alt: "Hiking rocky terrain", src: "/images/gato.jpg" },
-  { alt: "Tent near lake", src: "/images/gato.jpg" },
-  { alt: "Forest walk", src: "/images/gato.jpg" },
-  { alt: "Camping setup", src: "/images/gato.jpg" },
-];
+
+    const posts  = [
+      { alt: "Cliff view", src: "https://process.filestackapi.com/resize=fit:crop,width:1700,height:500/quality=v:79/compress/cache=expiry:604800/fallback=file:%22https%3A%2F%2Fcdn.filestackcontent.com%2F1uoBxezQaKH4MRvxI9wA%22,cache:604800/1uoBxezQaKH4MRvxI9wA" },
+      { alt: "Hiking rocky terrain", src: "/images/banners.webp" },
+      { alt: "Tent near lake", src: "/images/gato.jpg" },
+ 
+
+    ];
 ---
 
 <section
@@ -50,10 +51,8 @@ const posts = [
   document.addEventListener("DOMContentLoaded", () => {
     const images = [
       { alt: "Cliff view", src: "https://process.filestackapi.com/resize=fit:crop,width:1700,height:500/quality=v:79/compress/cache=expiry:604800/fallback=file:%22https%3A%2F%2Fcdn.filestackcontent.com%2F1uoBxezQaKH4MRvxI9wA%22,cache:604800/1uoBxezQaKH4MRvxI9wA" },
-      { alt: "Hiking rocky terrain", src: "/images/nice.jpeg" },
+      { alt: "Hiking rocky terrain", src: "/images/banners.webp" },
       { alt: "Tent near lake", src: "/images/gato.jpg" },
-      { alt: "Forest walk", src: "/images/gato.jpg" },
-      { alt: "Camping setup", src: "/images/gato.jpg" },
     ];
 
     let index = 0;

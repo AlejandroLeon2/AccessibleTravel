@@ -48,14 +48,26 @@ export const groupTours =[
     ],
     "images": [
       {
-        "link": "https://example.com/sacred-valley-access.jpg",
-        "alt": "Wheelchair accessible path in Sacred Valley",
-        "title": "Sacred Valley Accessibility"
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/0FR0NdnMRVCeXx5ZIJWs",
+        "alt": "Accessible tour to Rainbow Mountain in Peru",
+        "title": "Rainbow Mountain Experience"
       },
       {
-        "link": "https://example.com/machu-picchu-ramp.jpg",
-        "alt": "Accessible route at Machu Picchu",
-        "title": "Machu Picchu Access"
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/82R7b1cFT3SMzfNiBCem",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
+      }
+      ,
+      {
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/eO9RiisGRRaQ8sCM9G9j",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
+      }
+      ,
+      {
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/YGaGsA0wTSycd44At8eA",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
       }
     ],
     "links": {
@@ -140,14 +152,26 @@ export const groupTours =[
     ],
     "images": [
       {
-        "link": "https://example.com/arequipa-colonial.jpg",
-        "alt": "Wheelchair access in Arequipa's colonial center",
-        "title": "Colonial Accessibility"
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/0FR0NdnMRVCeXx5ZIJWs",
+        "alt": "Accessible tour to Rainbow Mountain in Peru",
+        "title": "Rainbow Mountain Experience"
       },
       {
-        "link": "https://example.com/colca-condor-view.jpg",
-        "alt": "Accessible condor viewing platform in Colca Canyon",
-        "title": "Condor Flight Access"
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/82R7b1cFT3SMzfNiBCem",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
+      }
+      ,
+      {
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/eO9RiisGRRaQ8sCM9G9j",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
+      }
+      ,
+      {
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/YGaGsA0wTSycd44At8eA",
+        "alt": "Flight of the Condor in Colca Canyon",
+        "title": "Andean Condor Sighting"
       }
     ],
     "links": {

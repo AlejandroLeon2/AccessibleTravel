@@ -15,15 +15,15 @@ export interface Props {
 const { post } = Astro.props
 ---
 
-<article class="  w-auto rounded-2xl    ">
+<article class="  w-auto rounded-xl border border-gray-200 shadow overflow-hidden    ">
   <a href={post.url} class="  transition flex flex-col  md:flex-row justify-between items-center">
     <img
       src={post.frontmatter.image ?? '/images/gato.jpg'}
       alt={post.frontmatter.title}
-      class="w-full md:w-full h-50  object-cover  hover:scale-105"
+      class="w-full md:w-full h-50 duration-300  object-cover  hover:scale-105"
       loading="lazy"
     />
-    <div class="  text-black p-4 border-2 border-black ">
+    <div class="  text-black p-4  border-black ">
       <h2 class="text-lg font-bold mb-2">{post.frontmatter.title}</h2>
       <p class="text-xs mb-2">{post.frontmatter.description}</p>
       <p class="text-xs block text-gray-700">

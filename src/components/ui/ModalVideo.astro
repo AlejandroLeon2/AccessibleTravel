@@ -8,66 +8,65 @@ import empresaInfo from "../../data/accessibleTravel.json";
 <!-- Modal Toggle Button --><!-- Modal Container -->
 <div
   id="modal-video"
-  class="fixed  top-0 bottom-0 w-full hidden items-center backdrop-blur-3xl bg-black/40 flex justify-center z-50 transition duration-300"
+  class="fixed top-0 bottom-0 w-full hidden items-center backdrop-blur-3xl bg-black/40 flex justify-center z-50 transition duration-300"
 >
-
-    <button
-      id="closeModalvideo"
-      class="absolute top-3 right-3 text-white hover:text-red-700"
+  <button
+    id="closeModalvideo"
+    class="absolute top-3 right-3 text-white hover:text-red-700"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
 
-    <iframe
-      class="w-full h-[60svh] max-h-200 lg:max-w-5xl rounded-2xl"
-      src="https://www.youtube-nocookie.com/embed/0sX7dygdxLE?si=9IbAGsWLQyNV_Swg"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen></iframe>
-
-
+  <iframe
+  id="youtube-player"
+   class="w-full h-[60svh] max-h-200 lg:max-w-5xl rounded-2xl"
+    src="https://www.youtube.com/embed/PBF2y98Bdn0?si=cL-cuBrIkc3mjlb3"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
 </div>
 
-<!-- Script -->
 <script is:inline>
   const openvideo = document.getElementById("openModalvideo");
   const closevideo = document.getElementById("closeModalvideo");
   const modalvideo = document.getElementById("modal-video");
+  const iframe = document.getElementById("youtube-player");
+
+  function cerrarModal() {
+    modalvideo.classList.add("hidden");
+    // Reinicia el src para detener el video
+    iframe.src = iframe.src;
+  }
 
   openvideo.addEventListener("click", () => {
- 
     modalvideo.classList.remove("hidden");
   });
 
-  closevideo.addEventListener("click", () => {
-
-    modalvideo.classList.add("hidden");
-  });
+  closevideo.addEventListener("click", cerrarModal);
 
   window.addEventListener("click", (e) => {
     if (e.target === modalvideo) {
-      modalvideo.classList.add("hidden");
-
+      cerrarModal();
     }
   });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      modalvideo.classList.add("hidden");
+      cerrarModal();
     }
   });
 </script>

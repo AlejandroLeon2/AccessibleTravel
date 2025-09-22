@@ -19,19 +19,23 @@ const grupo = 3;
         <img
           src={persona.imagen}
           alt={`Foto de ${persona.nombre}`}
-          class="w-60 -rotate-25 outline-2 outline-gray-300 border-8 border-white border-b-50 md:top-20 z-1 left-12 lg:left-20 xl:left-30 absolute h-auto object-cover"
+          class="w-60 -rotate-25 outline-2 outline-gray-300 border-8 border-white border-b-50 md:top-20 z-1 left-12 lg:left-20 xl:left-30 absolute h-auto min-h-70 max-h-80 object-cover"
           id={`imagen-principal-${index}`}
           hidden={index !== activo}
           aria-hidden={index !== activo}
         />
+ <img
+  src={persona.imagen2}
+  alt={`Foto de ${persona.nombre}`}
+  class="w-60 border-8 outline-1 outline-gray-300 border-white border-b-50 rotate-25 top-30 md:top-30 left-28 lg:left-40 xl:left-50 absolute h-auto min-h-70 max-h-80 object-cover"
+  id={`imagen-secundaria-${index}`}
+  hidden={index !== activo}
+  aria-hidden={index !== activo}
+/>
+
       ))
     }
-    <img
-      src={testimonios[0].imagen}
-      alt={`Foto de ${testimonios[0].nombre}`}
-      class="w-60 border-8 outline-1 outline-gray-300 border-white border-b-50 rotate-25 top-30 md:top-30 left-28 lg:left-40 xl:left-50 absolute h-auto object-cover"
-      id="imagen-secundaria"
-    />
+
   </div>
 
   <div class="py-6 px-4 md:max-w-xs lg:max-w-sm flex flex-col gap-4">
@@ -104,16 +108,40 @@ const grupo = 3;
   function actualizarTestimonio(index) {
     activo = index;
 
+    // Mostrar testimonio activo
     document.querySelectorAll("[id^='testimonio-']").forEach((el, i) => {
       el.hidden = i !== activo;
       el.setAttribute("aria-hidden", i !== activo);
     });
 
+    // Mostrar ambas imágenes
     document.querySelectorAll("[id^='imagen-principal-']").forEach((img, i) => {
-      img.hidden = i !== activo;
-      img.setAttribute("aria-hidden", i !== activo);
+      const visible = i === activo;
+      img.hidden = !visible;
+      img.setAttribute("aria-hidden", !visible);
+      img.style.zIndex = "2";
+      img.style.opacity = "1";
     });
 
+    document.querySelectorAll("[id^='imagen-secundaria-']").forEach((img, i) => {
+      const visible = i === activo;
+      img.hidden = !visible;
+      img.setAttribute("aria-hidden", !visible);
+      img.style.zIndex = "1";
+      img.style.opacity = "1";
+    });
+
+    // Después de 5 segundos, la secundaria pasa al frente
+    setTimeout(() => {
+      document.querySelectorAll("[id^='imagen-secundaria-']").forEach((img, i) => {
+        if (i === activo) {
+          img.style.zIndex = "3";
+          img.style.transition = "z-index 0.5s ease";
+        }
+      });
+    }, 5000);
+
+    // Botones de grupo
     const grupoInicio = Math.floor(activo / grupo) * grupo;
     const grupoFin = grupoInicio + grupo;
 
@@ -142,8 +170,11 @@ const grupo = 3;
   });
 
   actualizarTestimonio(activo); // inicial
+
   setInterval(() => {
     activo = (activo + 1) % total;
     actualizarTestimonio(activo);
-  }, 10000);
+  }, 12000);
 </script>
+
+

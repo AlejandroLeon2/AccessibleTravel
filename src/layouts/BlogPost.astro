@@ -2,13 +2,16 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Modalcontac from "../components/ui/Modalcontac.astro";
+import data from "../data/accessibleTravel.json";
+import MensajeApp from "../components/section/MensajeApp.astro";
 import "../styles/global.css";
 import PortadaStatic from "../components/section/PortadaStatic.astro";
 import BlogAside from "../components/ui/BlogAside.astro";
 import MainContent from "../components/constructor/MainContent.astro";
 
-
-const articulo = await Astro.glob("../pages/blog/*.md");
+const articulo = Object.values(
+  await import.meta.glob("../pages/blog/*.md", { eager: true })
+);
 
 const { title, description, image, date, author, tags, imageAutor, role, bio } =
   Astro.props.frontmatter;
@@ -57,16 +60,15 @@ const { title, description, image, date, author, tags, imageAutor, role, bio } =
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
     <Header />
-      <div class=" pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
-  <PortadaStatic  />
+    <div class="pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
+    <PortadaStatic />
 
-    <MainContent>  
+    <MainContent>
       <article
         class="space-y-6 text-base leading-relaxed mx-auto:max-w-7xl gap-4 p-4 flex flex-col-reverse md:flex-row"
       >
-        
         <div
-          class="bg-white max-w-md md:py-12 lg:max-w-2xl xl:max-w-4xl rounded-lg  overflow-hidden"
+          class="bg-white max-w-md md:py-12 lg:max-w-2xl xl:max-w-4xl rounded-lg overflow-hidden"
         >
           <img
             src={image ?? "/images/gato.jpg"}
@@ -75,19 +77,17 @@ const { title, description, image, date, author, tags, imageAutor, role, bio } =
           />
 
           <div class="p-6">
-
-
             <h1 class="text-2xl font-bold text-gray-900 mb-2">{title}</h1>
-           
+
             <div class="flex items-center text-gray-500 text-sm space-x-4 mb-4">
               <span>📅 {date}</span>
               <span>✍️ {author}</span>
             </div>
-             <p class="text-gray-600 mb-4">{description}</p>
-            
-<div class="space-y-2 ">
-<slot  />
-</div>
+            <p class="text-gray-600 mb-4">{description}</p>
+
+            <div class="space-y-2">
+              <slot />
+            </div>
           </div>
         </div>
         <BlogAside
@@ -109,5 +109,24 @@ const { title, description, image, date, author, tags, imageAutor, role, bio } =
 
     <Footer />
     <Modalcontac />
+    <button
+      id="btn"
+      title="Open contact panel"
+      class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 duration-500 flex items-center justify-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-10 w-10"
+        ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"
+        ></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg
+      >
+    </button>
+    <MensajeApp data={data} />
   </body>
 </html>

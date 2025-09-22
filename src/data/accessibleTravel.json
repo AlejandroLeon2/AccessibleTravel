@@ -2,28 +2,38 @@
   "nombre": "Accessible Travel Peru",
   "descripcion": "Accessible Travel Peru is a travel agency specialized in inclusive tourism for people with disabilities, connecting adventure and accessibility across Peru.",
   "correo": "contact@accessibletravelperu.com",
+  "whatsapp1": {
+    "numero": "+51 944 731 223",
+    "mensaje": "¡Hola! Estoy interesado en conocer más sobre sus servicios de turismo accesible en Perú.",
+    "title": "Contacto directo desde Perú para información sobre viajes accesibles"
+  },
+  "whatsapp2": {
+    "numero": "+1 908-935-6769",
+    "mensaje": "Hi! I'm reaching out to learn more about your accessible travel experiences from the USA.",
+    "title": "Reach out from the USA for accessible travel inquiries"
+  },
   "telefonos": ["Peru: +51 944 731 223", "USA: +1 908-935-6769"],
   "direccion": "465, FRAY LUIS DE LEON ST",
   "redes": [
     {
       "icono": "facebook",
-      "url": "#",
+      "url": "https://web.facebook.com/accessibletravelperu",
       "handle": "@AccessibleTravelPeru"
     },
     {
       "icono": "tiktok",
-      "url": "#",
-      "handle": "@AccessibleTravelPeru"
+      "url": "https://www.tiktok.com/@accessibletravelperu?is_from_webapp=1&sender_device=pc",
+      "handle": "@accessibletravelperu"
     },
     {
       "icono": "youtube",
-      "url": "#",
+      "url": "https://www.youtube.com/@accessibletravelperu5826",
       "handle": "@AccessibleTravelPeru"
     },
     {
       "icono": "instagram",
-      "url": "#",
-      "handle": "@AccessibleTravelPeru"
+      "url": "https://www.instagram.com/accessibletravelperu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      "handle": "@accessibletravelperu"
     },
     {
       "icono": "whatsapp",

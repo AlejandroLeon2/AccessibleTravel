@@ -6,8 +6,8 @@ tags: ["cusco", "viajes", "turismo accesible", "perú"]
 author: "Accessible Travel Peru"
 role: "Agencia de Viajes Inclusiva"
 bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
-image: "/images/gato.jpg"
-imageAutor: "/images/gato.jpg"
+image: "/chincheros.jpg"
+imageAutor: "/images/autor.webp"
 layout: "../../layouts/BlogPost.astro"
 ---
 

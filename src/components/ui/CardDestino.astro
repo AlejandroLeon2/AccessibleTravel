@@ -27,19 +27,19 @@ const {data ,style ="max-w-xs min-w-xs" , botones="justify-between", locacion, r
 
 <article class=`bg-white ${style}  rounded-xl shadow-md overflow-hidden `>
   <header class="">
-    <a href="#" class="relative">
+    <a href={`${ruta}${data.titleLink}`} class="relative">
     <img
       src={data.images[0].link}
       alt={`Imagen del tour ${data.images[0].alt}`}
       title={`Imagen del tour ${data.images[0].title}`}
       class="w-full h-52 object-cover"
     />
-
-    <span
+{(data.recomendado)&&(    <span
       class="absolute top-3 left-3 bg-azul-travel  text-white text-xs px-2 py-1 rounded"
     >
       {tour.label}
-    </span>
+    </span>)}
+
     </a>
 
   </header>

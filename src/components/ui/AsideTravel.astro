@@ -1,7 +1,7 @@
 ---
 import Certificaciones from "../section/Certificaciones.astro";
 import Pago from "../section/Pago.astro";
-const articulo = await Astro.glob("../../pages/blog/*.md");
+const articulo = Object.values(await import.meta.glob('/src/pages/blog/*.md', { eager: true }));
 const { data } = Astro.props;
 ---
 
@@ -59,14 +59,18 @@ const { data } = Astro.props;
       </li>
     </ul>
   </section>
+  <section class="p-4 col-span-2 lg:col-span-1">
+  <h2 class="font-semibold">Proud Members of</h2>
   <Certificaciones
-    base="md:col-span-2 lg:col-span-1"
+    base="md:col-span-2 md:px-8 lg:col-span-1"
     style="grid grid-cols-5 lg:grid-cols-2 gap-4"
   />
+  </section>
+
   <section class="p-4 col-span-2 lg:col-span-1">
     <h2 class="font-semibold">You con pay with</h2>
     <Pago
-        base="md:col-span-2 lg:col-span-1"
+        base="md:col-span-2 md:px-8 lg:col-span-1"
     style="grid grid-cols-4 lg:grid-cols-2 gap-4"
     />
   </section>

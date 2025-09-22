@@ -5,67 +5,90 @@ import Certificaciones from "../components/section/Certificaciones.astro";
 import Comentarios from "../components/section/Comentarios.astro";
 import Actividades from "../components/section/Actividades.astro";
 import MainContent from "../components/constructor/MainContent.astro";
+import data from "../data/peru/peru-en/travels.json";
+import CardDestino from "../components/ui/CardDestino.astro";
 
 import HeroHome from "../components/section/HeroHome.astro";
 import ModalVideo from "../components/ui/ModalVideo.astro";
-const articulo = await Astro.glob("../pages/blog/*.md");
+const destinos = data.filter((item) => item.recomendado === true).slice(0, 3);
+
+const articulo = Object.values(
+  await import.meta.glob("./blog/*.md", { eager: true })
+);
 ---
 
 <Layout title="" description="">
   <PortadaDinamica />
-  
+
   <MainContent>
     <HeroHome />
     <Actividades />
-    <h2 class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900">
-       Proud Members of
+    <h2
+      class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900"
+    >
+      Recommended Destinations
+    </h2>
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 gap-4 place-items-center"
+    >
+      {
+        destinos.map((lugar) => (
+          <CardDestino data={lugar} locacion={lugar.title} />
+        ))
+      }
+    </section>
+    <h2
+      class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900"
+    >
+      Proud Members of
     </h2>
     <Certificaciones />
- 
 
     <Comentarios />
-<section class="p-4 space-y-6 max-w-5xl mx-auto">
-    <span class="text-azul-travel">Explore the World</span>
-    <h2 class="text-4xl font-semibold text-gray-900">
-       Nuevas publicaciones del blog de viajes
-    </h2>
+    <section class="p-4 space-y-6 max-w-5xl mx-auto">
+      <span class="text-azul-travel">Explore the World</span>
+      <h2 class="text-4xl font-semibold text-gray-900">
+        Nuevas publicaciones del blog de viajes
+      </h2>
 
+      <div class="space-y-4 flex flex-col gap-4 md:grid md:grid-cols-3">
+        {
+          articulo.slice(0, 3).map((newsa) => (
+            <article class="flex flex-col gap-4 max-w-sm  items-start bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
+              <a
+                href={newsa.url}
+                class="text-sm font-medium text-black hover:text-azul-travel duration-300 active:scale-95 active:text-azul-travel leading-snug"
+              >
+                <img
+                  src={newsa.frontmatter.image ?? "/images/default-news.jpg"}
+                  alt={`Imagen de ${newsa.frontmatter.title}`}
+                  class="w-full h-auto max-h-60 rounded object-cover flex-shrink-0"
+                />
+              </a>
 
+              <div class="flex flex-col gap-2 justify-between px-4 pb-4">
+                <a
+                  href={newsa.url}
+                  class="text-sm font-medium text-black hover:text-azul-travel duration-300 active:scale-95 active:text-azul-travel leading-snug"
+                >
+                  {newsa.frontmatter.title}
+                </a>
+                <div class="flex justify-between">
+                  <time class="text-xs text-gray-500 mb-1">
+                    {newsa.frontmatter.date}
+                  </time>
+                  <p class="text-xs">{newsa.frontmatter.author}</p>
+                </div>
 
-  <div class="space-y-4  flex flex-col gap-4 md:grid md:grid-cols-3">
-    {
-      articulo.slice(0, 3).map((newsa) => (
-        <article class="flex flex-col gap-4 max-w-sm  items-start bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition">
-          <img
-            src={newsa.frontmatter.image ?? "/images/default-news.jpg"}
-            alt={`Imagen de ${newsa.frontmatter.title}`}
-            class="w-full h-auto max-h-60 rounded object-cover flex-shrink-0"
-          />
-          <div class="flex flex-col gap-2 justify-between px-4 pb-4">
-                        <a
-              href={newsa.url}
-              class="text-sm font-medium text-black hover:text-azul-travel duration-300 active:scale-95 active:text-azul-travel leading-snug"
-            >
-              {newsa.frontmatter.title}
-            </a>
-            <div class="flex justify-between">
-            <time class="text-xs text-gray-500 mb-1">
-              {newsa.frontmatter.date}
-            </time>
-            <p class="text-xs">{newsa.frontmatter.author}</p>
-            </div>
-
-
-            <p class="text-xs text-gray-600 mt-1 line-clamp-2">
-              {newsa.frontmatter.description}
-            </p>
-          </div>
-        </article>
-      ))
-    }
-  </div>
-</section>
-
+                <p class="text-xs text-gray-600 mt-1 line-clamp-2">
+                  {newsa.frontmatter.description}
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
   </MainContent>
   <ModalVideo />
 </Layout>

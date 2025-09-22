@@ -1,0 +1,54 @@
+---
+import WhatsappPop from "../ui/WhatsappPop.astro";
+import data from "../../data/accessibleTravel.json";
+---
+
+<div
+  id="mover"
+  class="fixed flex flex-col space-y-1 duration-300 translate-y-60 z-50 bottom-5 right-1 md:right-5"
+>
+  <button id="btn-cerrar" class="text-center active:scale-95 hover:scale-105">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      class="w-full h-10 text-amber-400"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg></button >
+  <WhatsappPop data={data.whatsapp1} />
+  <WhatsappPop data={data.whatsapp2} />
+  
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("btn");
+    const mover = document.getElementById("mover");
+    const cerrar = document.getElementById("btn-cerrar");
+
+    if (!btn || !mover || !cerrar) return;
+
+    // Mostrar automáticamente después de 15 segundos
+
+
+    // Abrir manualmente
+    btn.addEventListener("click", () => {
+      mover.classList.remove("translate-y-60");
+      btn.classList.add("translate-y-60");
+    });
+
+    // Cerrar manualmente
+    cerrar.addEventListener("click", () => {
+      mover.classList.add("translate-y-60");
+      btn.classList.remove("translate-y-60");
+    });
+  });
+</script>
+
+

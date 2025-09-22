@@ -22,13 +22,14 @@ export const data = {
   tags: ["Turismo Accesible", "Cultura", "Naturaleza", "Aventura", "Inclusión"],
 
 };
-const articulo = await Astro.glob('./blog/*.md')
+const articulo = Object.values(await import.meta.glob('./blog/*.md', { eager: true }))
+
 ---
 
 <Layout title="Blog Retro">
   <PortadaStatic texto="Blog" />
   <MainContent>
-<section class="flex flex-col-reverse md:flex-row gap-4 px-4 w-full max-w-5xl">
+<section class="flex flex-col-reverse mx-auto md:flex-row gap-4 px-4 w-full max-w-5xl">
     <section class="flex flex-col py-4 md:py-12 gap-4 w-full">
       {articulo.map(posts => (
 
