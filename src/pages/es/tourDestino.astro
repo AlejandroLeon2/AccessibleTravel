@@ -1,0 +1,20 @@
+---
+import PortadaStatic from "../../components/section/PortadaStatic.astro";
+import Layout from "../../layouts/Layout.astro";
+import Bento from "../../components/ui/Bento.astro";
+import MainContent from "../../components/constructor/MainContent.astro";
+import { headerMenu } from "../../utils/headerSpañol";
+import lenguaje from "../../data/locales/es.json";
+import { toursDestinos } from "../../data/toursDestinos";
+---
+
+<Layout headerMenu={headerMenu} lenguaje={lenguaje}>
+  <PortadaStatic
+    url="/images/misti.webp"
+   
+    texto="Tours Destinations"
+  />
+  <MainContent>
+    <Bento destinos={toursDestinos} />
+  </MainContent>
+</Layout>

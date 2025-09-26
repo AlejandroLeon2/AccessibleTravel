@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PortadaStatic from "../../components/section/PortadaStatic.astro";
+import Certificaciones from "../../components/section/Certificaciones.astro";
+import Informacion from "../../components/section/Informacion.astro";
+import ContactoForm from "../../components/section/ContactoForm.astro";
+import lenguaje from "../../data/locales/es.json";
+import { headerMenu } from "../../utils/headerSpañol";
+---
+<Layout headerMenu={headerMenu} lenguaje={lenguaje}>
+<PortadaStatic url="/images/misti.webp" texto="Contact US"/>
+<Informacion lenguaje={lenguaje}/>
+<ContactoForm lenguaje={lenguaje}/>
+<Certificaciones />
+</Layout>

@@ -1,17 +1,16 @@
 ---
-const texto = ["DAYS", "HOURS", "MINUTES", "SECONDS"];
 
-const {data}=Astro.props;
+const {data, lenguaje}=Astro.props;
 ---
  <div
-      class="flex gap-2 mt-2 contador justify-center"
+      class="flex max-w-xs gap-2 mt-2 contador justify-center"
       
       data-start={ data.startDate.toISOString() }
       data-end={ data.endDate.toISOString()  }
     >
       {
         
-        texto.map((unidad) => (
+        lenguaje.heroGroupUnidades.map((unidad) => (
           <div class="text-center  w-16 py-2 space-y-2">
             <p
               class={ ` text-azul-travel unidad border border-gray-200 rounded-full px-2 py-4 bg-white text-xl font-bold`}

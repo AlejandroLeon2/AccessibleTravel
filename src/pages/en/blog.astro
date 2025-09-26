@@ -1,0 +1,53 @@
+---
+// src/pages/blog.astro
+import Layout from '../../layouts/Layout.astro'
+import PostCard from '../../components/ui/PostCard.astro'
+import MainContent from '../../components/constructor/MainContent.astro'
+import PortadaStatic from '../../components/section/PortadaStatic.astro'
+import BlogAside from '../../components/ui/BlogAside.astro'
+import lenguaje from "../../data/locales/en.json";
+import { headerMenu } from '../../utils/headerSpañol'
+import dest from "../../data/peru/peru-en/travels.json";
+
+
+const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
+
+
+export const data = {
+  author: {
+    name: "Accessible Travel Peru",
+    role: "Agencia de Viajes Inclusiva",
+    bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú.",
+    image: "/images/gato.jpg",
+    social: {
+      facebook: "https://facebook.com/AccessibleTravelPeru",
+      twitter: "https://twitter.com/AccessibleTravelPeru",
+      linkedin: "https://linkedin.com/company/accessibletravelperu"
+    }
+  },
+  tags: ["Turismo Accesible", "Cultura", "Naturaleza", "Aventura", "Inclusión"],
+
+};
+const articulo = Object.values(await import.meta.glob('./blog/*.md', { eager: true }))
+
+---
+
+<Layout headerMenu={headerMenu} lenguaje={lenguaje} title="Blog Retro">
+  <PortadaStatic url="/images/misti.webp" texto="Blog" />
+  <MainContent>
+<section class="flex flex-col-reverse mx-auto md:flex-row gap-4 px-4 w-full max-w-5xl">
+    <section class="flex flex-col py-4 md:py-12 gap-4 w-full">
+      {articulo.map(posts => (
+
+          <PostCard post={posts} />
+
+      ))}
+    </section>
+    <BlogAside lenguaje={lenguaje}  data={data} news={articulo} destinos={destinos}/>
+</section>
+
+  </MainContent>
+
+</Layout>
+
+

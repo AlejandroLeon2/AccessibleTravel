@@ -8,7 +8,8 @@ role: "Agencia de Viajes Inclusiva"
 bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
 image: "/chincheros.jpg"
 imageAutor: "/images/autor.webp"
-layout: "../../layouts/BlogPost.astro"
+layout: "/src/layouts/BlogPostEs.astro"
+lang: "es"
 ---
 
 ## Cusco: Donde la historia se encuentra con la aventura

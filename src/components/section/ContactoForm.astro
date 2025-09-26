@@ -1,36 +1,50 @@
 ---
-import Formulario from "../ui/Formulario.astro"
+import Formulario from "../ui/Formulario.astro";
+const { lenguaje } = Astro.props;
 ---
+
 <section class="bg-gray-100 py-6">
-  <div class="max-w-6xl mx-auto px-4 grid place-items-center md:grid-cols-2 gap-8 ">
+  <div
+    class="max-w-6xl mx-auto px-4 grid place-items-center md:grid-cols-2 gap-8"
+  >
+    <div>
+      <p class="py-4">{lenguaje.formDescripcion}</p>
 
-    <!-- Imagen lateral -->
-      <img src="/images/gato.jpg" alt="Contact Us Group" class="rounded-xl object-cover w-full< h-[80svh] shadow-md" loading="lazy" />
+      <!-- Imagen lateral -->
+      <img
+        src="/images/contacto.webp"
+        alt="Contact Us Group"
+        class="rounded-xl object-cover w-full h-[60svh] shadow-md"
+        loading="lazy"
+      />
+    </div>
 
-
-    <!-- Formulario -->
-    <Formulario/>
+    <Formulario lenguaje={lenguaje} />
   </div>
 </section>
 
 <!-- EmailJS y reCAPTCHA (AJUSTA LOS IDs) -->
 <script type="module" is:inline>
-  import emailjs from 'https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js';
-  emailjs.init('TU_USER_ID'); // remplaza con tu EmailJS user ID
+  import emailjs from "https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js";
+  emailjs.init("TU_USER_ID"); // remplaza con tu EmailJS user ID
 
-  const form = document.getElementById('contact-form');
-  const statusMsg = document.getElementById('form-status');
+  const form = document.getElementById("contact-form");
+  const statusMsg = document.getElementById("form-status");
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
-      const result = await emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', form);
-      console.log('SUCCESS!', result.status, result.text);
-      statusMsg.classList.remove('hidden');
+      const result = await emailjs.sendForm(
+        "TU_SERVICE_ID",
+        "TU_TEMPLATE_ID",
+        form
+      );
+      console.log("SUCCESS!", result.status, result.text);
+      statusMsg.classList.remove("hidden");
       form.reset();
     } catch (error) {
-      console.error('FAILED...', error);
+      console.error("FAILED...", error);
       alert("There was an error sending your message. Please try again.");
     }
   });

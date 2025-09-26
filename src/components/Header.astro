@@ -6,53 +6,10 @@ import Earth from "../components/svg/Earth.astro";
 import Tiktok from "./svg/Tiktok.astro";
 import Youtube from "./svg/Youtube.astro";
 import empresaInfo from "../data/accessibleTravel.json";
-import { toursDestinos } from "../data/toursDestinos";
+const { currentLocale } = Astro;
+const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(\/)?/, "/");
 
-function generateTourDestinationMenu(
-  destinations: {
-    title: string;
-    titleLink: string;
-    destinos: { nombre: string }[];
-  }[]
-): { label: string; href: string }[] {
-  const tour = destinations.map(({ title, titleLink }) => ({
-    label: `Tours ${title}`,
-    href: `/destino/${titleLink}`,
-  }));
-  return [
-
-    ...tour,
-  ];
-}
-
-const headerMenu = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Tour Destination",
-    href: "/tourDestino",
-    children: generateTourDestinationMenu(toursDestinos),
-  },
-  {
-    label: "Group Tours",
-    href: "/groupTours",
-  },
-  {
-    label: "Blog",
-    href: "/blog",
-  },
-  {
-    label: "About Us",
-    href: "/about",
-    children: [
-      { label: "Contact Us", href: "/contactUs" },
-      { label: "Términos y condiciones", href: "/terminosCondiciones" },
-      { label: "About Us", href: "/aboutUs" },
-    ],
-  },
-];
+const { lenguaje, headerMenu } = Astro.props;
 ---
 
 <header class="bg-white fixed flex flex-col z-50 md:h-23 w-full shadow-md">
@@ -133,7 +90,7 @@ const headerMenu = [
         {
           empresaInfo.redes.map((red, index) => (
             <a
-            target="_blank"
+              target="_blank"
               href={red.url}
               class="flex items-center hover:text-azul-travel transition-colors"
             >
@@ -150,7 +107,9 @@ const headerMenu = [
                 <Tiktok style="w-4 h-4 hover:fill-azul-travel fill-black" />
               )}
 
-              {red.icono === "youtube" && <Youtube style="w-4 h-4 hover:fill-azul-travel fill-black"/>}
+              {red.icono === "youtube" && (
+                <Youtube style="w-4 h-4 hover:fill-azul-travel fill-black" />
+              )}
               {red.icono === "instagram" && (
                 <svg
                   class=" w-4 h-4 mr-1"
@@ -193,18 +152,18 @@ const headerMenu = [
       <!-- Idioma -->
       <div class="flex items-center gap-1 mx-1">
         <Earth style="w-5 h-5" />
-        <select
-          id="language"
-          name="language"
-          class="appearance-none border px-4 py-1 border-gray-300 rounded text-sm text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
-        >
-          <option value="en" selected>Select language</option>
-          {
-            idiomas.map((lang) => (
-              <option value={lang.lang}>{lang.name}</option>
-            ))
-          }
-        </select>
+<select
+  id="language"
+  name="language"
+  class="appearance-none border px-4 py-1 border-gray-300 rounded text-sm text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
+  onchange="window.location.href = this.value"
+>
+  <option value={`/en${currentPath}`} selected={currentLocale === 'en'}>English</option>
+  <option value={`/es${currentPath}`} selected={currentLocale === 'es'}>Español</option>
+ 
+</select>
+
+
       </div>
       <button
         id="openMenu"
@@ -255,6 +214,7 @@ const headerMenu = [
         el.classList.add("hidden");
         el.classList.remove("flex-col");
       });
+      // Alterna el submenú actual
 
       // Abre solo el submenú actual
       if (subMenu && !subMenu.classList.contains("flex-col")) {

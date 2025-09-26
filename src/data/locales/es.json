@@ -1,4 +1,115 @@
 {
-  "title": "Bienvenido",
-  "description": "Agencia de marketing digital que impulsa tu negocio."
+  "titleDinamico": "TOUR, VIAJES Y CAMPAMENTO DE AVENTURA",
+  "subtitleDinamico": "¡Bienvenido a Accessible Travel Peru! Somos una agencia de viajes especializada en turismo accesible, confiable y profesional. Ofrecemos experiencias únicas por Perú.",
+  "botonDinamico1": "Tour en Grupo",
+  "botonDinamico2": "Sobre Nosotros",
+  "cantidadClientesHeroHome": "Más de 5,000 clientes en todo el mundo",
+  "aniosExperienciaHeroHome": "20 años de experiencia",
+  "subtituloHeroHome": "Descubre Perú sin límites",
+  "tituloHeroHome": "Una gran aventura te espera. Viajar es un derecho, no un privilegio.",
+  "itemsHeroHome": [
+    {
+      "tituloHeroHome": "Viajes accesibles a medida",
+      "textoHeroHome": "Creamos itinerarios personalizados según tus intereses, necesidades y ritmo—porque el verdadero lujo es elegir cómo vivir tu aventura."
+    },
+    {
+      "tituloHeroHome": "Guías confiables y comprometidos",
+      "textoHeroHome": "Viaja con profesionales apasionados por la inclusión y listos para apoyarte en cada paso del camino."
+    }
+  ],
+  "botonHeroHome": "CONOCE MÁS SOBRE NOSOTROS",
+  "autorHeroHome": {
+    "nombreHeroHome": "Francisco",
+    "cargoHeroHome": "CEO y Fundador",
+    "mensajeHeroHome": "Explora destinos hermosos y sin barreras en todo el Perú."
+  },
+  "servicesActividades": [
+    {
+      "title": "Traslados desde el aeropuerto",
+      "icon": "carrito",
+      "link": "#",
+      "activo": true
+    },
+    {
+      "title": "Excursiones de día completo",
+      "icon": "guia",
+      "link": "#"
+    },
+    {
+      "title": "Excursiones de varios días",
+      "icon": "montanas",
+      "link": "#"
+    },
+    {
+      "title": "Viajes a medida",
+      "icon": "corbata",
+      "link": "#"
+    },
+    {
+      "title": "Tours fuera de ruta",
+      "icon": "4x4",
+      "link": "#"
+    }
+  ],
+  "tituloActividades": "Servicios",
+  "tituloRecomendado": "Destinos Recomendados",
+  "tituloMiembros": "Orgullosos miembros de",
+  "tituloPublicaciones": "Nuevas publicaciones",
+  "subtituloPublicaciones": "Explora el mundo",
+  "tituloComentarios": "¿Qué dice nuestro pasajero?",
+  "subtituloComentarios": "Explora el mundo",
+  "descripcionAccessible": "Accessible Travel Peru es una agencia de viajes especializada en turismo inclusivo para personas con discapacidad, que conecta la aventura con la accesibilidad en todo el Perú.",
+  "botonModal": "Contactanos",
+  "footerServicios": "Nuestros Servicios",
+  "footerSocios": "Nuestros Socios",
+  "footerRedes": "Conéctese con nosotros",
+  "contactoDireccion": "Línea de dirección",
+  "contactoNumero": "Número de teléfono",
+  "contactoCorreo": "Dirección de correo",
+  "formularioTitulo": "Rellene el formulario",
+  "formDescripcion": "¡No dude en comunicarse con nosotros en Accessible Travel Perú para cualquier consulta o para comenzar a planificar su aventura accesible en Perú! Nuestro equipo dedicado está aquí para ayudarlo en cada paso del camino.",
+  "formularioDescripcion": "Tu dirección de correo electrónico no será publicada. Los campos obligatorios están marcados con *",
+  "formularioNombre": "Te llamas*",
+  "formularioCorreo": "Dirección de correo electrónico *",
+  "formularioMensaje": "Ingrese su mensaje aquí",
+  "formularioBoton": "Pongase en contacto",
+  "cardDestinoBoton": "Leer mas",
+  "cardDestinoRecomendado": "Recomendado",
+  "infoBotonDescripcion": "Descripcion",
+  "infoBotonPlanificacion": "Planificacion de Tour",
+  "infoRecomendado": "Recomendado",
+  "infoReseñas": "Reseñas",
+  "infoHuespedes": "Máx. Personas",
+  "infoDias": "Dias",
+  "infoDescripcion": "Descripcion",
+  "infoIncluye": "Incluye",
+  "infoNoIncluye": "No Incluye",
+  "infoPaquetes": "Paquetes disponibles",
+  "infoComplementos": "Complementos disponibles",
+  "infoPrecio": "Precio",
+  "infoDeposito": "Depósito",
+  "infoReserva": "Reserva ahora",
+  "asideTotal": "Total",
+  "asideProceso": "Reserva procesada",
+  "asideDescripcionProceso": "Al continuar, serás redirigido a una plataforma segura para completar el depósito.",
+  "asideConfianza": "Reserva con confianza",
+  "asideList": {
+    "atencionCliente": "Atención al cliente disponible 24/7",
+    "seleccionActividades": "Tours y actividades seleccionados cuidadosamente",
+    "seguroIncluido": "Seguro de viaje gratuito incluido",
+    "garantiaPrecio": "Garantía de mejor precio sin complicaciones"
+  },
+  "asidePago": "Puedes pagar con",
+  "asideBlogSub": "Agencia de Viajes Inclusiva",
+  "opcionLenguaje": "Selecciona Lenguaje",
+  "aboutTitle": "Viajes Accesibles Perú",
+  "aboutSubtitle": "Tu puerta a aventuras inclusivas",
+  "aboutDescription": "Bienvenido a Viajes Accesibles Perú, tu especialista de confianza en turismo accesible. Nuestro equipo dedicado está comprometido con hacer que las maravillas del Perú sean accesibles para todos, ofreciendo tours personalizados y servicios adaptados a las necesidades individuales. Con años de experiencia y una pasión por la inclusión, garantizamos que los sueños de cada viajero se hagan realidad.",
+  "aboutTagline": "Vive el Perú sin barreras: donde cada viaje es accesible, inclusivo e inolvidable.",
+  "heroGroupDescuento": "25",
+  "heroGroupDescripcion": "Descubre grandes ofertas accesibles en todo el Perú",
+  "heroGroupUrgencia": "¡Apresúrate!",
+  "heroGroupTerminaEn": "La oferta termina en:",
+  "heroGroupUnidades": ["DÍAS", "HORAS", "MINUTOS", "SEGUNDOS"],
+  "heroGroupIncluyeTitulo": "¿Qué incluye?"
 }

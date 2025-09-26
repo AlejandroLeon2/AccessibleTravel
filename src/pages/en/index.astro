@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PortadaDinamica from "../../components/section/PortadaDinamica.astro";
+import Certificaciones from "../../components/section/Certificaciones.astro";
+import Comentarios from "../../components/section/Comentarios.astro";
+import Actividades from "../../components/section/Actividades.astro";
+import MainContent from "../../components/constructor/MainContent.astro";
+import data from "../../data/peru/peru-en/travels.json";
+import BlogNew from "../../components/section/BlogNew.astro";
+import lenguaje from "../../data/locales/en.json";
+import DestinosRecomendados from "../../components/section/DestinosRecomendados.astro";
+import HeroHome from "../../components/section/HeroHome.astro";
+import ModalVideo from "../../components/ui/ModalVideo.astro";
+import { headerMenu } from "../../utils/headerSpañol";
+const destinos = data.filter((item) => item.recomendado === true).slice(0, 3);
+const articulos = Object.values(
+  await import.meta.glob("/src/pages/en/blog/*.md", { eager: true })
+);
+const articulo = articulos.slice(0, 3);
+---
+
+<Layout title="" description="" headerMenu={headerMenu} lenguaje={lenguaje}>
+  <PortadaDinamica lenguaje={lenguaje} />
+
+  <MainContent>
+    <HeroHome lenguaje={lenguaje} />
+    <Actividades lenguaje={lenguaje} />
+    <DestinosRecomendados lenguaje={lenguaje} {destinos} />
+    <h2
+      class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900"
+    >
+      {lenguaje.tituloMiembros}
+    </h2>
+    <Certificaciones />
+    <Comentarios lenguaje={lenguaje} />
+    <BlogNew articulo={articulo} lenguaje={lenguaje} />
+  </MainContent>
+  <ModalVideo />
+</Layout>

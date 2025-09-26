@@ -8,12 +8,19 @@ import "../styles/global.css";
 import PortadaStatic from "../components/section/PortadaStatic.astro";
 import BlogAside from "../components/ui/BlogAside.astro";
 import MainContent from "../components/constructor/MainContent.astro";
-
-const articulo = Object.values(
-  await import.meta.glob("../pages/blog/*.md", { eager: true })
+import { headerMenu } from "../utils/headerSpañol";
+import lenguaje from "../data/locales/en.json";
+import dest from "../data/peru/peru-en/travels.json";
+const articulos = Object.values(
+  await import.meta.glob("/src/pages/es/blog/*.md", { eager: true })
 );
+const articulo = articulos.slice(0, 3);
 
-const { title, description, image, date, author, tags, imageAutor, role, bio } =
+const { currentLocale } = Astro;
+
+const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
+
+const {lang, title, description, image, date, author, tags, imageAutor, bio } =
   Astro.props.frontmatter;
 ---
 
@@ -59,9 +66,9 @@ const { title, description, image, date, author, tags, imageAutor, role, bio } =
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
-    <Header />
+    <Header headerMenu={headerMenu} lenguaje={lenguaje} />
     <div class="pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
-    <PortadaStatic />
+    <PortadaStatic url="/images/misti.webp" />
 
     <MainContent>
       <article
@@ -99,16 +106,18 @@ const { title, description, image, date, author, tags, imageAutor, role, bio } =
             author,
             tags,
             imageAutor,
-            role,
+
             bio,
           }}
+          destinos={destinos}
           news={articulo}
+          lenguaje={lenguaje}
         />
       </article>
     </MainContent>
 
-    <Footer />
-    <Modalcontac />
+    <Footer headerMenu={headerMenu} lenguaje={lenguaje} />
+    <Modalcontac  lenguaje={lenguaje} />
     <button
       id="btn"
       title="Open contact panel"
@@ -127,6 +136,7 @@ const { title, description, image, date, author, tags, imageAutor, role, bio } =
         ></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg
       >
     </button>
+    
     <MensajeApp data={data} />
   </body>
 </html>

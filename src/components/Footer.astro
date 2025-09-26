@@ -1,24 +1,12 @@
 ---
 import Tiktok from "./svg/Tiktok.astro";
 import Youtube from "./svg/Youtube.astro";
-
 import empresaInfo from "./../data/accessibleTravel.json";
 
 const footerLegal = {
-  copyright: `Copyright © ${new Date().getFullYear()} by Accessible Travel Peru. All Rights Reserved`,
-  legalLinks: [
-    { text: "Terms & Conditions", url: "#" },
-    { text: "Privacy Policy", url: "#" },
-    { text: "Cookie Policy", url: "#" },
-    { text: "Accessibility Statement", url: "#" },
-  ],
-  redesSociales: [
-    { icono: "facebook", url: "#" },
-    { icono: "twitter", url: "#" },
-    { icono: "instagram", url: "#" },
-    { icono: "linkedin", url: "#" },
-  ],
+  copyright: `Copyright © ${new Date().getFullYear()} by Accessible Travel Peru. All Rights Reserved`
 };
+const {lenguaje}=Astro.props;
 ---
 
 <!-- Footer.astro -->
@@ -34,7 +22,7 @@ const footerLegal = {
         class="w-full mx-auto max-w-[150px] h-auto mb-4"
       />
       <p class="text-sm mb-4">
-        {empresaInfo.descripcion}
+        {lenguaje.descripcionAccessible}
       </p>
       <ul class="text-sm space-y-2">
         <li class="flex items-center gap-2">
@@ -102,17 +90,17 @@ const footerLegal = {
 
     <!-- Servicios -->
     <section>
-      <h3 class="font-semibold text-lg mb-4">Our Services</h3>
+      <h3 class="font-semibold text-lg mb-4">{lenguaje.footerServicios}</h3>
       <ul class="space-y-2 text-sm">
         {
           empresaInfo.servicios.map((servicio, index) => (
             <li key={index}>
-              <a
-                href={servicio.url}
+              <p
+               
                 class="hover:text-azul-travel transition-colors"
               >
                 {servicio.nombre}
-              </a>
+              </p>
             </li>
           ))
         }
@@ -121,7 +109,7 @@ const footerLegal = {
 
     <!-- Galería de logos -->
     <section>
-      <h3 class="font-semibold text-lg mb-4">Our Partners</h3>
+      <h3 class="font-semibold text-lg mb-4">{lenguaje.footerSocios}</h3>
       <div class="grid grid-cols-2 gap-2">
         {
           empresaInfo.galleryLogos.map((logo, index) => (
@@ -138,7 +126,7 @@ const footerLegal = {
 
     <!-- Redes sociales -->
     <section>
-      <h3 class="font-semibold text-lg mb-4">Connect With Us</h3>
+      <h3 class="font-semibold text-lg mb-4">{lenguaje.footerRedes}</h3>
       <ul class="space-y-3 text-sm">
         {
           empresaInfo.redes.map((red, index) => (

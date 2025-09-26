@@ -1,16 +1,7 @@
 ---
-const page = {
-  title: "TOUR, VIAJES Y CAMPAMENTO DE AVENTURA",
-  subtitle: "¡Bienvenido a Accessible Travel Peru! Somos una agencia de viajes especializada en turismo accesible, confiable y profesional. Ofrecemos experiencias únicas por Perú.",
-};
-
-
+import lenguaje from "../../data/locales/es.json";
     const posts  = [
       { alt: "Cliff view", src: "https://process.filestackapi.com/resize=fit:crop,width:1700,height:500/quality=v:79/compress/cache=expiry:604800/fallback=file:%22https%3A%2F%2Fcdn.filestackcontent.com%2F1uoBxezQaKH4MRvxI9wA%22,cache:604800/1uoBxezQaKH4MRvxI9wA" },
-      { alt: "Hiking rocky terrain", src: "/images/banners.webp" },
-      { alt: "Tent near lake", src: "/images/gato.jpg" },
- 
-
     ];
 ---
 
@@ -24,12 +15,12 @@ const page = {
     ←
   </button>
   <div class="absolute mx-auto max-w-4xl left-0 right-0 px-10">
-    <h2 class=" md:text-4xl text-2xl lg:max-w-xl font-bold text-azul-travel">{page.title}</h2>
-    <p class=" text-sm md:text-lg text-white mt-2 lg:max-w-xl">{page.subtitle}</p>
+    <h2 class=" md:text-4xl text-2xl lg:max-w-xl font-bold text-azul-travel">{lenguaje.titleDinamico}</h2>
+    <p class=" text-sm md:text-lg text-white mt-2 lg:max-w-xl">{lenguaje.subtitleDinamico}</p>
   </div>
   <div class="flex  text-xs w-full  max-w-xs md:max-w-2xl  lg:max-w-3xl  text-white justify-start  items-center gap-4 absolute bottom-8 ">
- <a href="#" class=" px-4 py-2 rounded-full bg-azul-travel duration-300 active:bg-azul-travel-hover active:text-white hover:bg-azul-travel-hover hover:scale-105 active:scale-95 hover:text-white">Reservas</a>
-  <a href="/aboutUs" class=" px-4 py-2 rounded-full bg-azul-travel duration-300 active:bg-azul-travel-hover active:text-white hover:bg-azul-travel-hover hover:scale-105 active:scale-95 hover:text-white"> Quiénes somos</a>
+ <a href="#" class=" px-4 py-2 rounded-full bg-azul-travel duration-300 active:bg-azul-travel-hover active:text-white hover:bg-azul-travel-hover hover:scale-105 active:scale-95 hover:text-white">{lenguaje.botonDinamico1}</a>
+  <a href="/aboutUs" class=" px-4 py-2 rounded-full bg-azul-travel duration-300 active:bg-azul-travel-hover active:text-white hover:bg-azul-travel-hover hover:scale-105 active:scale-95 hover:text-white">{lenguaje.botonDinamico2}</a>
   
   </div>
  <img

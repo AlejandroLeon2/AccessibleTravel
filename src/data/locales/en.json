@@ -1,4 +1,115 @@
 {
-  "title": "Welcome",
-  "description": "Digital marketing agency that boosts your business."
+  "titleDinamico": "TOUR, TRAVEL AND ADVENTURE CAMP",
+  "subtitleDinamico": "Welcome to Accessible Travel Peru! We are a travel agency specialized in accessible, reliable, and professional tourism. We offer unique experiences across Peru.",
+  "botonDinamico1": "Group Tour",
+  "botonDinamico2": "About Us",
+  "cantidadClientesHeroHome": "Over 5,000 clients worldwide",
+  "aniosExperienciaHeroHome": "20 years of experience",
+  "subtituloHeroHome": "Discover Peru without limits",
+  "tituloHeroHome": "A great adventure awaits you. Traveling is a right, not a privilege.",
+  "itemsHeroHome": [
+    {
+      "tituloHeroHome": "Custom accessible travels",
+      "textoHeroHome": "We create personalized itineraries according to your interests, needs, and pace—because true luxury is choosing how to live your adventure."
+    },
+    {
+      "tituloHeroHome": "Reliable and committed guides",
+      "textoHeroHome": "Travel with professionals passionate about inclusion and ready to support you every step of the way."
+    }
+  ],
+  "botonHeroHome": "LEARN MORE ABOUT US",
+  "autorHeroHome": {
+    "nombreHeroHome": "Francisco",
+    "cargoHeroHome": "CEO and Founder",
+    "mensajeHeroHome": "Explore beautiful and barrier-free destinations throughout Peru."
+  },
+  "servicesActividades": [
+    {
+      "title": "Transfers from the airport",
+      "icon": "carrito",
+      "link": "#",
+      "activo": true
+    },
+    {
+      "title": "Full-day excursions",
+      "icon": "guia",
+      "link": "#"
+    },
+    {
+      "title": "Multi-day excursions",
+      "icon": "montanas",
+      "link": "#"
+    },
+    {
+      "title": "Custom trips",
+      "icon": "corbata",
+      "link": "#"
+    },
+    {
+      "title": "Off-road tours",
+      "icon": "4x4",
+      "link": "#"
+    }
+  ],
+  "tituloActividades": "Services",
+  "tituloRecomendado": "Recommended Destinations",
+  "tituloMiembros": "Proud members of",
+  "tituloPublicaciones": "New publications",
+  "subtituloPublicaciones": "Explore the world",
+  "tituloComentarios": "What does our passenger say?",
+  "subtituloComentarios": "Explore the world",
+  "descripcionAccessible": "Accessible Travel Peru is a travel agency specialized in inclusive tourism for people with disabilities, connecting adventure with accessibility throughout Peru.",
+  "botonModal": "Contact us",
+  "footerServicios": "Our Services",
+  "footerSocios": "Our Partners",
+  "footerRedes": "Connect with us",
+  "contactoDireccion": "Address line",
+  "contactoNumero": "Phone number",
+  "contactoCorreo": "Email address",
+  "formularioTitulo": "Fill out the form",
+  "formDescripcion": "Do not hesitate to contact us at Accessible Travel Peru for any inquiry or to start planning your accessible adventure in Peru! Our dedicated team is here to help you every step of the way.",
+  "formularioDescripcion": "Your email address will not be published. Required fields are marked with *",
+  "formularioNombre": "Your name*",
+  "formularioCorreo": "Email address *",
+  "formularioMensaje": "Enter your message here",
+  "formularioBoton": "Get in touch",
+  "cardDestinoBoton": "Read more",
+  "cardDestinoRecomendado": "Recommended",
+  "infoBotonDescripcion": "Description",
+  "infoBotonPlanificacion": "Tour Planning",
+  "infoRecomendado": "Recommended",
+  "infoReseñas": "Reviews",
+  "infoHuespedes": "Max. People",
+  "infoDias": "Days",
+  "infoDescripcion": "Description",
+  "infoIncluye": "Includes",
+  "infoNoIncluye": "Not Included",
+  "infoPaquetes": "Available packages",
+  "infoComplementos": "Available add-ons",
+  "infoPrecio": "Price",
+  "infoDeposito": "Deposit",
+  "infoReserva": "Book now",
+  "asideTotal": "Total",
+  "asideProceso": "Booking processed",
+  "asideDescripcionProceso": "When continuing, you will be redirected to a secure platform to complete the deposit.",
+  "asideConfianza": "Book with confidence",
+  "asideList": {
+    "atencionCliente": "Customer service available 24/7",
+    "seleccionActividades": "Tours and activities carefully selected",
+    "seguroIncluido": "Free travel insurance included",
+    "garantiaPrecio": "Best price guarantee without complications"
+  },
+  "asidePago": "You can pay with",
+  "asideBlogSub": "Inclusive Travel Agency",
+  "opcionLenguaje": "Select Language",
+  "aboutTitle": "Accessible Travel Peru",
+  "aboutSubtitle": "Your gateway to inclusive adventures",
+  "aboutDescription": "Welcome to Accessible Travel Peru, your trusted specialist in accessible tourism. Our dedicated team is committed to making the wonders of Peru accessible to everyone, offering personalized tours and services tailored to individual needs. With years of experience and a passion for inclusion, we guarantee that every traveler's dreams come true.",
+  "aboutTagline": "Experience Peru without barriers: where every journey is accessible, inclusive, and unforgettable.",
+  "heroGroupDescuento": "25",
+  "heroGroupDescripcion": "Discover great accessible deals across Peru",
+  "heroGroupUrgencia": "Hurry up!",
+  "heroGroupTerminaEn": "The offer ends in:",
+  "heroGroupUnidades": ["DAYS", "HOURS", "MINUTES", "SECONDS"],
+  "heroGroupIncluyeTitulo": "What does it include?"
 }

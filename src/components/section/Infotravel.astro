@@ -1,8 +1,7 @@
 ---
-import { object } from "astro:schema";
-import Acordeon from "../constructor/Acordeon.astro"
+import Acordeon from "../constructor/Acordeon.astro";
 import AsideTravel from "../ui/AsideTravel.astro";
-const { data } = Astro.props;
+const { data, lenguaje } = Astro.props;
 const tour = {
   title: "Africa – Amazing African Safari",
   duration: "5 Hours",
@@ -19,45 +18,48 @@ const tour = {
 
 <section class="bg-white py-6 relative px-4 mx-auto">
   <div
-    class="absolute -top-12 md:left-20 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 min-w-40 max-w-100 w-auto"
+    class="absolute -top-12 md:left-20 px-2 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 min-w-40 max-w-100 w-auto"
   >
     <button
       id="tab-info"
-      class="tab-btn px-6 bg-white py-3 font-semibold rounded-full hover:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black"
+      class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg hover:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black"
       data-tab="info"
     >
-      Information
+      {lenguaje.infoBotonDescripcion}
     </button>
     <button
       id="tab-plan"
-      class="tab-btn px-6 bg-white py-3 font-semibold rounded-full transition text-black hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
+      class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg transition text-black hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
       data-tab="plan"
     >
-      Tour Planning
+      {lenguaje.infoBotonPlanificacion}
     </button>
   </div>
 
   <div class="flex flex-col lg:flex-row justify-between gap-6">
-    <section id="tab-content-info" class=" block w-full">
+    <section id="tab-content-info" class="block w-full">
       <div class="flex flex-col lg:flex-row w-full">
         <div
           class="flex items-center gap-2 md:gap-4 text-sm text-gray-500 mb-4 flex-wrap"
         >
           {
-            data.recomendado? (
+            data.recomendado ? (
               <span class="w-auto z-10 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded mb-2">
-                Featured
+                {lenguaje.infoRecomendado}
               </span>
-            ):(<span></span>)
+            ) : (
+              <span />
+            )
           }
-          <h1 class="text-3xl w-full font-bold text-gray-900 ">
+          <h1 class="text-3xl w-full font-bold text-gray-900">
             {data.title}
           </h1>
           <p class="flex items-center gap-2">
             {data.duration}
+            {lenguaje.infoDias}
           </p>
           <p class="flex items-center gap-2">
-            Max Guests: {data.groupSize}
+            {lenguaje.infoHuespedes}: {data.groupSize}
           </p>
           <p class="flex items-center gap-2">
             {data.location}
@@ -67,12 +69,14 @@ const tour = {
           class="flex mb-4 lg:flex-col-reverse justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
         >
           <p
-            class="text-yellow-500 flex lg:flex-col gap-4 justify-center items-center text-xl "
+            class="text-yellow-500 flex lg:flex-col gap-4 justify-center items-center text-xl"
           >
-            {"★".repeat(tour.rating)}{"☆".repeat(5 - tour.rating)}
-            <span class="text-gray-500 text-xs">({tour.reviews} Review)</span>
+            {"★".repeat(data.rating)}{"☆".repeat(5 - data.rating)}
+            <span class="text-gray-500 text-xs"
+              >({tour.reviews} {lenguaje.infoReseñas})</span
+            >
           </p>
-          <p class="text-azul-travel font-semibold text-lg lg:text-2xl ">
+          <p class="text-azul-travel font-semibold text-lg lg:text-2xl">
             {data.packages[0].price}
           </p>
         </div>
@@ -96,7 +100,9 @@ const tour = {
       </div>
       <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
         <section class="py-12 max-w-xl px-4 bg-white mx-auto space-y-10">
-          <h2 class="text-lg font-semibold mb-2">Description:</h2>
+          <h2 class="text-lg font-semibold mb-2">
+            {lenguaje.infoDescripcion}:
+          </h2>
           <p class="py-4">
             {data.description}
           </p>
@@ -117,7 +123,9 @@ const tour = {
           {
             Array.isArray(data?.includes) && data.includes.length > 0 && (
               <div>
-                <h2 class="text-lg font-semibold  mb-2">Incluye:</h2>
+                <h2 class="text-lg font-semibold  mb-2">
+                  {lenguaje.infoIncluye}:
+                </h2>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {data.includes.map((item) => (
                     <li class="text-sm  ">
@@ -132,7 +140,9 @@ const tour = {
           {
             Array.isArray(data?.excludes) && data.excludes.length > 0 && (
               <div>
-                <h2 class="text-lg font-semibold  mb-2">No incluye:</h2>
+                <h2 class="text-lg font-semibold  mb-2">
+                  {lenguaje.infoNoIncluye}:
+                </h2>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {data.excludes.map((item) => (
                     <li class="text-sm ">
@@ -143,22 +153,29 @@ const tour = {
               </div>
             )
           }
-          <h2 class="text-lg font-semibold mb-2">Available Packages</h2>
+          <h2 class="text-lg font-semibold mb-2">{lenguaje.infoPaquetes}</h2>
           {
             Array.isArray(data?.packages) && data.packages.length > 0 && (
               <div class="grid grid-cols-1 gap-6">
                 {data.packages.map((pkg) => (
                   <article class="border border-gray-200 flex flex-col md:flex-row px-4 py-2 justify-center md:justify-between md:items-start items-center rounded-lg shadow-sm bg-white">
                     <header>
-                      <h3 class="text-lg max-w-50 font-semibold min-w-40">{pkg.name}</h3>
+                      <h3 class="text-lg max-w-50 font-semibold min-w-40">
+                        {pkg.name}
+                      </h3>
                     </header>
 
                     <section class="space-y-1 mt-2">
                       <p class="text-sm  text-gray-700">
-                        <span class="font-semibold">Precio:</span> {pkg.price}
+                        <span class="font-semibold">
+                          {lenguaje.infoPrecio}:
+                        </span>{" "}
+                        {pkg.price}
                       </p>
                       <p class="text-sm  text-gray-700">
-                        <span class="font-semibold">Depósito:</span>{" "}
+                        <span class="font-semibold">
+                          {lenguaje.infoDeposito}:
+                        </span>{" "}
                         {pkg.deposit}
                       </p>
                     </section>
@@ -168,7 +185,7 @@ const tour = {
                         href={data.links.book}
                         class="inline-block hover:bg-azul-travel hover:scale-105 active:scale-95 duration-300 rounded-full py-2 px-4 bg-gray-700 text-white"
                       >
-                        Book Now
+                        {lenguaje.infoReserva}
                       </a>
                     </footer>
                   </article>
@@ -177,30 +194,42 @@ const tour = {
             )
           }
 
+          <section aria-labelledby="add-ons-heading" class="mt-4">
+            <h2
+              id="add-ons-heading"
+              class="text-xl font-semibold text-black mb-4"
+            >
+              {lenguaje.infoComplementos}
+            </h2>
 
-<section aria-labelledby="add-ons-heading" class="mt-4">
-  <h2 id="add-ons-heading" class="text-xl font-semibold text-black mb-4">
-    Complementos disponibles
-  </h2>
-
-  <ul class="" role="list">
-    {data.addOns.map((addon) => (
-      <li class="border-b border-gray-200 rounded-lg p-4 ">
-        <h3 class=" flex justify-between text-lg font-semibold text-gray-800">{addon.name} <span class="text-sm font-medium text-azul-travel mt-2">{addon.price}</span></h3>
-        <p class="text-sm text-gray-600 mt-1">{addon.description}</p>
-        
-      </li>
-    ))}
-  </ul>
-</section>
-
+            <ul class="" role="list">
+              {
+                data.addOns.map((addon) => (
+                  <li class="border-b border-gray-200 rounded-lg p-4 ">
+                    <h3 class=" flex justify-between text-lg font-semibold text-gray-800">
+                      {addon.name}{" "}
+                      <span class="text-sm font-medium text-azul-travel mt-2">
+                        {addon.price}
+                      </span>
+                    </h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                      {addon.description}
+                    </p>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
         </section>
-        <AsideTravel data={data}/>
+        <AsideTravel lenguaje={lenguaje} data={data} />
       </div>
     </section>
-    <section id="tab-content-plan" class="text-gray-700 flex flex-col lg:flex-row  hidden w-full">
-      <Acordeon data{data}/>
-      <AsideTravel data={data}/>
+    <section
+      id="tab-content-plan"
+      class="text-gray-700 flex flex-col lg:flex-row hidden w-full"
+    >
+      <Acordeon {data} />
+      <AsideTravel lenguaje={lenguaje} data={data} />
     </section>
   </div>
 

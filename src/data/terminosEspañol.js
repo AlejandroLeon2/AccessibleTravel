@@ -1,11 +1,4 @@
----
-import Layout from "../layouts/Layout.astro";
-import PortadaStatic from "../components/section/PortadaStatic.astro";
-import Terminos from "../components/section/Terminos.astro";
-import MainContent from "../components/constructor/MainContent.astro";
-import Certificaciones from "../components/section/Certificaciones.astro";
-
-const terminos = [
+export const terminos = [
   {
     id: "terms-conditions",
     titulo: "Términos y Condiciones",
@@ -143,41 +136,3 @@ const terminos = [
     ],
   },
 ];
----
-
-<script type="module" is:inline>
-  window.addEventListener("DOMContentLoaded", () => {
-    let active = "terms-conditions";
-    const nav = document.querySelector("[data-tabs]");
-    const buttons = nav?.querySelectorAll("button.tab");
-    const sections = document.querySelectorAll("section.section");
-
-    function setActive(id) {
-      active = id;
-      buttons.forEach((btn) => {
-        btn.classList.toggle("bg-azul-travel", btn.dataset.id === id);
-        btn.classList.toggle("text-white", btn.dataset.id === id);
-        btn.classList.toggle("bg-gray-100", btn.dataset.id !== id);
-        btn.setAttribute("aria-selected", btn.dataset.id === id);
-      });
-      sections.forEach((sec) => {
-        sec.style.display = sec.dataset.id === id ? "block" : "none";
-      });
-    }
-
-    nav?.addEventListener("click", (e) => {
-      const target = e.target.closest("button.tab");
-      if (target) setActive(target.dataset.id);
-    });
-
-    setActive(active);
-  });
-</script>
-
-<Layout>
-  <PortadaStatic texto="Terminos y condiciones" />
-  <MainContent>
-    <Terminos terminos={terminos} />
-    <Certificaciones />
-  </MainContent>
-</Layout>

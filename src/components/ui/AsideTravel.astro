@@ -1,8 +1,7 @@
 ---
 import Certificaciones from "../section/Certificaciones.astro";
 import Pago from "../section/Pago.astro";
-const articulo = Object.values(await import.meta.glob('/src/pages/blog/*.md', { eager: true }));
-const { data } = Astro.props;
+const { data , lenguaje } = Astro.props;
 ---
 
 <section
@@ -12,22 +11,21 @@ const { data } = Astro.props;
     class="px-4 py-2 max-h-45 bg-gray-100 flex flex-col border space-y-2 border-gray-200"
   >
     <p class="flex justify-between text-sm">
-      Total <span class="text-azul-travel text-lg"
+      {lenguaje.asideTotal} <span class="text-azul-travel text-lg"
         >{data.packages[0].price}</span
       >
     </p>
     <a
       href={data.links.book}
       class="w-auto text-white text-center px-4 py-2 bg-gray-700 hover:bg-azul-travel active:scale-95 active:bg-azul-travel hover:scale-105 duration-300 rounded-full"
-      >Procced Booking</a
+      >{lenguaje.asideProceso}</a
     >
     <p
       class="mt-2 text-sm text-gray-600 text-center"
       role="note"
       aria-live="polite"
     >
-      Al continuar, serás redirigido a una plataforma segura para completar el
-      depósito.
+      {lenguaje.asideDescripcionProceso}
     </p>
   </div>
   <section
@@ -38,29 +36,25 @@ const { data } = Astro.props;
       id="confidence-heading "
       class="py-2 px-4 border-l-4 rounded font-semibold border-azul-travel"
     >
-      Reserva con confianza
+      {lenguaje.asideConfianza}
     </h2>
     <ul class="flex flex-col gap-2 p-4 text-sm text-gray-700" role="list">
       <li class="flex items-center gap-2">
         
-        <span>Atención al cliente disponible 24/7</span>
+        <span>{lenguaje.asideList.atencionCliente}</span>
       </li>
       <li class="flex items-center gap-2">
         
-        <span>Tours y actividades seleccionados cuidadosamente</span>
+        <span>{lenguaje.asideList.seleccionActividades}</span>
       </li>
       <li class="flex items-center gap-2">
         
-        <span>Seguro de viaje gratuito incluido</span>
-      </li>
-      <li class="flex items-center gap-2">
-        
-        <span>Garantía de mejor precio sin complicaciones</span>
+        <span>{lenguaje.asideList.garantiaPrecio}</span>
       </li>
     </ul>
   </section>
   <section class="p-4 col-span-2 lg:col-span-1">
-  <h2 class="font-semibold">Proud Members of</h2>
+  <h2 class="font-semibold">{lenguaje.tituloMiembros}</h2>
   <Certificaciones
     base="md:col-span-2 md:px-8 lg:col-span-1"
     style="grid grid-cols-5 lg:grid-cols-2 gap-4"
@@ -68,41 +62,12 @@ const { data } = Astro.props;
   </section>
 
   <section class="p-4 col-span-2 lg:col-span-1">
-    <h2 class="font-semibold">You con pay with</h2>
+    <h2 class="font-semibold">{lenguaje.asidePago}</h2>
     <Pago
         base="md:col-span-2 md:px-8 lg:col-span-1"
     style="grid grid-cols-4 lg:grid-cols-2 gap-4"
     />
   </section>
-  <section class="p-4">
-    <h2 class="font-semibold col-span-2 lg:col-span-1">
-      Nuevas publicaciones del blog de viajes
-    </h2>
-    <div class="space-y-4">
-      {
-        articulo.slice(0, 3).map((newsa) => (
-          <article class="flex gap-4 items-center">
 
-            <img
-              src={newsa.frontmatter.image ?? "/images/default-news.jpg"}
-              alt={newsa.frontmatter.title}
-              class="w-16 h-16 rounded object-cover"
-            />
-            <div class="w-auto">
-              <time class="block text-xs text-gray-500">
-                {newsa.frontmatter.date}
-              </time>
-              <a
-                href={newsa.url}
-                class="text-sm font-medium text-gray-800 hover:text-blue-600"
-              >
-                {newsa.frontmatter.title}
-              </a>
-            </div>
-
-          </article>
-        ))
-      }
-    </div>
   </section>
 </section>

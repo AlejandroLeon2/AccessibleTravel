@@ -9,6 +9,13 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+    i18n: {
+    defaultLocale: 'en',
+    locales: ['es', 'en', ],
+    routing: {
+      prefixDefaultLocale: true // genera /es/ en lugar de /
+    }
+  },
 
   integrations: [
     sitemap() 

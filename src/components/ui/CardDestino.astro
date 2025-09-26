@@ -3,51 +3,40 @@ import Calendario from "../svg/Calendario.astro";
 import Ubicacion from "../svg/Ubicacion.astro";
 import Persona from "../svg/Persona.astro";
 
-const tour = {
-  title: "Days and 6 nights From Moscow",
-  titleLink: "moscow-6-nights-tour",
-  imagen: "/images/gato.jpg",
-  label: "Featured",
-  location: {
-    nombre: "United States USA",
-  },
-  duracion: "5 days",
-  grupo: "12 Person",
-  valoracion: {
-    estrellas: 5,
-    resenas: 1,
-  },
-  precio: {
-    actual: 169.0,
-    original: 199.0,
-  },
-};
-const {data ,style ="max-w-xs min-w-xs" , botones="justify-between", locacion, ruta="/destino/tour/"}=Astro.props;
+const { currentLocale } = Astro;
+const {
+  lenguaje,
+  data,
+  style = "max-w-xs min-w-xs",
+  botones = "justify-between",
+  locacion,
+  ruta = "/destino/tour/",
+} = Astro.props;
 ---
 
 <article class=`bg-white ${style}  rounded-xl shadow-md overflow-hidden `>
   <header class="">
-    <a href={`${ruta}${data.titleLink}`} class="relative">
-    <img
-      src={data.images[0].link}
-      alt={`Imagen del tour ${data.images[0].alt}`}
-      title={`Imagen del tour ${data.images[0].title}`}
-      class="w-full h-52 object-cover"
-    />
-{(data.recomendado)&&(    <span
-      class="absolute top-3 left-3 bg-azul-travel  text-white text-xs px-2 py-1 rounded"
-    >
-      {tour.label}
-    </span>)}
-
+    <a href={`/${currentLocale}${ruta}${data.titleLink}`} class="relative">
+      <img
+        src={data.images[0].link}
+        alt={`Imagen del tour ${data.images[0].alt}`}
+        title={`Imagen del tour ${data.images[0].title}`}
+        class="w-full h-52 object-cover"
+      />
+      {
+        data.recomendado && (
+          <span class="absolute top-3 left-3 bg-azul-travel  text-white text-xs px-2 py-1 rounded">
+            {lenguaje.cardDestinoRecomendado}
+          </span>
+        )
+      }
     </a>
-
   </header>
 
   <main class=`${style? "max-w-xs":" "} p-4 space-y-2`>
     <p class="text-sm flex items-center gap-1">
       <Ubicacion style=" text-azul-travel" />
-      {data.location??locacion}
+      {data.location ?? locacion}
     </p>
 
     <h2 class="text-base font-semibold text-gray-800 leading-snug">
@@ -58,16 +47,12 @@ const {data ,style ="max-w-xs min-w-xs" , botones="justify-between", locacion, r
       class="flex items-center gap-1 text-yellow-500 text-sm"
       aria-label="Valoración"
     >
-      <span class="flex">
-        {
-          [...Array(tour.valoracion.estrellas)].map((_, i) => (
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 15l-5.878 3.09L5.516 12 1 7.91l6.09-.909L10 2l2.91 5.001L19 7.91 14.484 12l1.394 6.09z" />
-            </svg>
-          ))
-        }
-      </span>
-      <span class="text-gray-500 ml-1">({tour.valoracion.resenas} Review)</span>
+      <p class="text-yellow-500 flex gap-4 justify-center items-center text-xl">
+        {"★".repeat(data.rating)}{"☆".repeat(5 - data.rating)}
+        <span class="text-gray-500 text-xs"
+          >({data.rating} {lenguaje.infoReseñas})</span
+        >
+      </p>
     </section>
 
     <ul
@@ -77,19 +62,23 @@ const {data ,style ="max-w-xs min-w-xs" , botones="justify-between", locacion, r
       <li class="flex items-center gap-1">
         <Calendario style="text-azul-travel" />
         {data.duration}
+        {lenguaje.infoDias}
       </li>
       <li class="flex items-center gap-1">
         <Persona style="text-azul-travel" />
         {data.groupSize}
+        {lenguaje.infoHuespedes}
       </li>
     </ul>
   </main>
 
   <footer class=`flex w-auto  items-center ${botones}  px-4 pb-4 pt-2`>
-   
-      <p class="text-azul-travel font-semibold ">{data.packages[0].price}</p>
+    <p class="text-azul-travel font-semibold">{data.packages[0].price}</p>
 
-
-    <a href={`${ruta}${data.titleLink}`} class=`text-white ${style? "w-30 text-center":" "}  text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5` >leer mas</a>
+    <a
+      href={`/${currentLocale}${ruta}${data.titleLink}`}
+      class=`text-white ${style? "w-30 text-center":" "}  text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5`
+      >{lenguaje.cardDestinoBoton}</a
+    >
   </footer>
 </article>

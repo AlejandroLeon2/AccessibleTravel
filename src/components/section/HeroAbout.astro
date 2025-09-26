@@ -1,27 +1,21 @@
 ---
-const page = {
-  title: "Accessible Travel Peru",
-  subtitle: "Your Gateway to Inclusive Adventures",
-  description: `Welcome to Accessible Travel Peru, your trusted specialist in accessible tourism. Our dedicated team is committed to making the wonders of Peru accessible to all, providing customized tours and services tailored to individual needs. With years of experience and a passion for inclusivity, we ensure that every traveler's dreams become a reality.`,
-  tagline: "Experience Peru without barriers – where every journey is accessible, inclusive, and unforgettable.",
-};
 
 const info = {
   image: "/images/gato.jpg", // reemplaza con imagen real
   alt: "Group of travelers including wheelchair users in scenic Peru",
 };
+const {lenguaje}=Astro.props;
 ---
 <section class="bg-white py-8 px-4 max-w-5xl mx-auto">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
     <!-- Texto -->
     <div class="flex flex-col gap-6">
-      <h2 class="text-3xl font-bold text-[-azul-travel]">{page.title}</h2>
-      <h3 class="text-xl font-semibold text-gray-700">{page.subtitle}</h3>
-      <p class="text-gray-600 leading-relaxed">{page.description}</p>
-      <p class="text-azul-travel font-medium">{page.tagline}</p>
+      <h2 class="text-3xl font-bold text-[-azul-travel]">{lenguaje.aboutTitle}</h2>
+      <h3 class="text-xl font-semibold text-gray-700">{lenguaje.aboutSubtitle}</h3>
+      <p class="text-gray-600 leading-relaxed">{lenguaje.aboutDescription}</p>
+      <p class="text-azul-travel font-medium">{lenguaje.aboutTagline}</p>
     </div>
 
-    <!-- Imagen -->
     <div>
       <img src={info.image} alt={info.alt} class="w-full h-72 object-cover rounded-xl shadow-md" />
     </div>

@@ -11,16 +11,19 @@ const {
   title = "Accessible Travel Peru",
   description = "Agencia de viajes inclusiva líder en Perú",
   canonical = "https://accessibletravelperu.com/",
-  ogImage = "/og-image.png"
+  ogImage = "/og-image.png",
+  lenguaje,
+  headerMenu,
 } = Astro.props;
-const slug = title && typeof title === 'string'
-  ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-  : 'post'
+const slug =
+  title && typeof title === "string"
+    ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+    : "post";
 
-const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`
-
+const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -30,7 +33,7 @@ const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`
     <meta name="description" content={description} />
     <meta name="author" content="Accessible Travel Peru" />
     <meta name="robots" content="index, follow" />
-    
+
     <!-- Canonical dinámico -->
     <link rel="canonical" href={canonicalUrl} />
 
@@ -50,35 +53,33 @@ const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`
     <!-- Accesibilidad y SEO -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#ffffff" />
-
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
-    
-    <Header  />
-    <div class=" pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
-      <slot />
+    <Header lenguaje={lenguaje} headerMenu={headerMenu} />
+    <div class="pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
+    <slot />
 
-    <Footer />
-    <Modalcontac />
-     <button
-        id="btn"
-        title="Open contact panel"
-        class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 duration-500 flex items-center justify-center"
+    <Footer lenguaje={lenguaje} />
+    <Modalcontac lenguaje={lenguaje} />
+    <button
+      id="btn"
+      title="Open contact panel"
+      class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 duration-500 flex items-center justify-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-10 w-10"
+        ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"
+        ></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="h-10 w-10"
-          ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"
-          ></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg
-        >
-      </button>
-      <MensajeApp data={data}/>
+    </button>
+    <MensajeApp data={data} />
   </body>
 </html>

@@ -1,14 +1,6 @@
 ---
-// Frontmatter
-const textos = {
-  descuento: "25 ",
-  descripcion: "Discover Great Accessible Deals Across Peru",
-  urgencia: "Hurry Up!",
-  terminaEn: "Offer Ends in:",
-  unidades: ["DAYS", "HOURS", "MINUTES", "SECONDS"],
-  incluyeTitulo: "What's included",
-};
 
+const {lenguaje}=Astro.props;
 const groupTours = [
   {
     title: "Machu Picchu and the Titicaca Lake",
@@ -57,15 +49,15 @@ import { groupTours as grouptour } from "../../data/groupTours";
       <p
         class="text-2xl border flex flex-col border-gray-200 border-b-azul-travel border-b-4 bg-white rounded-lg px-4 py-2 w-20 font-bold text-azul-travel"
       >
-        {textos.descuento} <span class="text-sm ">%Off</span>
+        {lenguaje.heroGroupDescuento} <span class="text-sm ">%Off</span>
       </p>
       <p class="text-sm text-gray-600">
-        {textos.descripcion}
+        {lenguaje.heroGroupDescripcion}
   
       </p>
     </div>
-     <p class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"> Hurry! <span class="font-normal text-sm text-black">This special offer ends in:</span> </p>
-    <Times data={grouptour[0]}/>
+     <p class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel">{lenguaje.heroGroupUrgencia}<span class="font-normal text-sm text-black">{lenguaje.heroGroupTerminaEn}</span> </p>
+    <Times lenguaje={lenguaje} data={grouptour[0]}/>
   </header>
   <div class="flex flex-col lg:flex-row justify-between space-y-2">
     <iframe
@@ -79,7 +71,7 @@ import { groupTours as grouptour } from "../../data/groupTours";
 
 
   <div class="bg-white w-full lg:max-w-md rounded-xl p-4">
-    <h3 class="text-lg font-semibold mb-4">{textos.incluyeTitulo}</h3>
+    <h3 class="text-lg font-semibold mb-4">{lenguaje.heroGroupIncluyeTitulo}</h3>
     <ul class="space-y-3">
       {
         groupTours[0].includes.map((item, i) => (

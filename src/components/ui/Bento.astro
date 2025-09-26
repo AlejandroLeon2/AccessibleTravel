@@ -1,5 +1,5 @@
 ---
-import { toursDestinos } from "../../data/toursDestinos";
+const {destinos}=Astro.props;
 ---
 
 <style>
@@ -37,14 +37,12 @@ import { toursDestinos } from "../../data/toursDestinos";
 </style>
 
 <section class="bento-grid space-y-2 px-4 py-6 h-full  mx-auto max-w-6xl">
-  {toursDestinos.map((item , index) => (
+  {destinos.map((item , index) => (
     <a href={`/destino/${item.titleLink}`} class={`block rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group `}>
-      <div class="relative w-full h-full text-white">
-        <img src="/images/gato.jpg" alt={`Imagen de ${item.title}`} class="object-cover w-full h-full group-hover:scale-105 transition duration-300" />
-
+      <div class="relative flex flex-col w-full h-full  text-white">
+        <img src={item.url ? item.url : "/images/gato.jpg" } alt={`Imagen de ${item.title}`} class="object-cover w-full h-full min-h-70 group-hover:scale-105 transition duration-300" />
           <h3 class="text-xl absolute bottom-2 left-2 font-semibold">Tour {item.title}</h3>
-          <p class="text-md  absolute top-2 right-2">{item.destinos.length} tours disponibles</p>
-
+          <p class="text-md  absolute top-2 py-2 px-4 bg-black/50 rounded-xl border border-gray-300 right-2">{item.destinos.length} tours disponibles</p>
       </div>
     </a>
   ))}

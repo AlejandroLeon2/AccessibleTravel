@@ -1,11 +1,12 @@
 ---
 import Mail from "../svg/Mail.astro";
 import Telefono from "../svg/Telefono.astro";
-
 import Ubicacion from "../svg/Ubicacion.astro";
 import Youtube from "../svg/Youtube.astro";
 import Tiktok from "../svg/Tiktok.astro";
 import empresaInfo from "../../data/accessibleTravel.json";
+const { currentLocale } = Astro;
+const {lenguaje}=Astro.props;
 ---
 
 <!-- Modal Toggle Button --><!-- Modal Container -->
@@ -41,7 +42,7 @@ import empresaInfo from "../../data/accessibleTravel.json";
         alt="Logo Accessible Travel"
         class="w-50 h-auto"
       />
-      <p class="text-sm text-gray-600">{empresaInfo.descripcion}</p>
+      <p class="text-sm text-gray-600">{lenguaje.descripcionAccessible}</p>
     </div>
 
     <!-- Información de contacto -->
@@ -106,10 +107,10 @@ import empresaInfo from "../../data/accessibleTravel.json";
 
     <div class="mt-6 text-center">
       <a
-        href="/contactUs"
+        href={`/${currentLocale}/contactUs`}
         class="inline-block px-6 py-3 bg-azul-travel text-white rounded-full text-sm active:scale-95 hover:scale-105 hover:bg-azul-travel-hover"
       >
-        Contact us
+       {lenguaje.botonModal}
       </a>
     </div>
   </div>
