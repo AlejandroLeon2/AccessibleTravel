@@ -3,9 +3,10 @@ import Certificaciones from "../../../components/section/Certificaciones.astro";
 import Layout from "../../../layouts/Layout.astro";
 import PortadaStatic from "../../../components/section/PortadaStatic.astro";
 import CardDestino from "../../../components/ui/CardDestino.astro";
-import {toursDestinos as travels} from "../../../data/toursDestinos.js";
+import {toursDestinos as travels } from "../../../data/toursDestinos.js";
 import MainContent from "../../../components/constructor/MainContent.astro";
 import lenguaje from "../../../data/locales/en.json";
+import infoEmpresa from "../../../data/accessibleTravel.json";
 import { headerMenu } from "../../../utils/headerSpañol";
 
 export function getStaticPaths() {
@@ -15,8 +16,6 @@ export function getStaticPaths() {
 
   return paths;
 }
-
-// 🧩 Accede al parámetro y busca el destino en el array
 const { titleLink } = Astro.params;
 const destino = travels.find((item) => item.titleLink === titleLink);
 
@@ -26,11 +25,11 @@ if (!destino) {
 ---
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url="/images/misti.webp" texto={destino.title} />
+  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={destino.title} />
 <MainContent>
 
   <section class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
-    {destino.destinos.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />)}
+    {destino.destinosEN.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />)}
   </section>
   <Certificaciones/>
 </MainContent>

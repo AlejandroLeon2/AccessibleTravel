@@ -7,6 +7,7 @@ import {toursDestinos as travels} from "../../../data/toursDestinos.js";
 import MainContent from "../../../components/constructor/MainContent.astro";
 import lenguaje from "../../../data/locales/es.json";
 import { headerMenu } from "../../../utils/headerSpañol";
+import infoEmpresa from "../../../data/accessibleTravel.json";
 
 export function getStaticPaths() {
   const paths = travels.map((item) => ({
@@ -26,11 +27,11 @@ if (!destino) {
 ---
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url="/images/misti.webp" texto={destino.title} />
+  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={destino.title} />
 <MainContent>
 
   <section class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
-    {destino.destinos.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />)}
+    {destino.destinosES.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />)}
   </section>
   <Certificaciones/>
 </MainContent>

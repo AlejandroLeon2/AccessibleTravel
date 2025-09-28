@@ -1,5 +1,5 @@
 ---
-import FlechaCorta from "../svg/FlechaCorta.astro"
+import FlechaCorta from "../svg/FlechaCorta.astro";
 const { currentLocale } = Astro;
 
 const { data, style } = Astro.props;
@@ -11,23 +11,34 @@ const { data, style } = Astro.props;
 >
   <ul
     id="menu-principal"
-    class="flex flex-col py-4 md:py-1 md:flex-row px-4 mx-auto bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700"
+    class="flex flex-col border-b sm:border-b-0 border-gray-300 py-4 md:py-1 md:flex-row px-4 mx-auto bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700"
   >
     {
       data.map((item) =>
         item.children ? (
-          <li class="group flex relative ">
+          <li class="group relative ">
             {item.label !== "Tour Destination" ? (
-              <button class="hover:text-blue-600  escuchar">{item.label}</button>
-              <button class="escuchar p-1 md:p-0   items-center -rotate-90 hover:text-blue-600 focus focus:rotate-0"><FlechaCorta/></button>
+              <div class="escuchar flex">
+                <button class="hover:text-blue-600  ">{item.label}</button>
+                <button class=" p-1 md:p-0   items-center -rotate-90 hover:text-blue-600 focus focus:rotate-0">
+                  <FlechaCorta />
+                </button>
+              </div>
             ) : (
-              <a class="hover:text-blue-600 " href={item.href}>
-                {item.label}
-              </a>
-              <button class="escuchar p-1 md:p-0 border-0 -rotate-90 hover:text-blue-600 focus focus:rotate-0"><FlechaCorta/></button>
+              <div class="escuchar flex">
+                <a
+                  class="hover:text-blue-600 "
+                  href={`/${currentLocale}${item.href}`}
+                >
+                  {item.label}
+                </a>
+                <button class=" p-1 md:p-0 border-0 -rotate-90 hover:text-blue-600 focus focus:rotate-0">
+                  <FlechaCorta />
+                </button>
+              </div>
             )}
 
-            <ul class="md:absolute mt-0.5 translate-y-4  duration-300 left-0 md:w-50 hidden group-focus:block group-hover:block  bg-white shadow-lg border rounded  z-10">
+            <ul class="md:absolute mt-0.5  duration-300 left-0 md:w-50 hidden group-focus:block group-hover:block  bg-white shadow-lg border rounded  z-10">
               {item.children.map((child) => (
                 <li class="">
                   <a
@@ -42,7 +53,10 @@ const { data, style } = Astro.props;
           </li>
         ) : (
           <li>
-            <a href={`/${currentLocale}${item.href}`} class="hover:text-blue-600">
+            <a
+              href={`/${currentLocale}${item.href}`}
+              class="hover:text-blue-600"
+            >
               {item.label}
             </a>
           </li>

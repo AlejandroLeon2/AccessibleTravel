@@ -1,55 +1,48 @@
 ---
 title: "Valle Sagrado: Naturaleza, Historia y Accesibilidad en los Andes"
-description: "Explora el Valle Sagrado de los Incas con rutas accesibles, experiencias culturales y paisajes que te conectan con lo esencial"
+description: "Explore the Sacred Valley of the Incas with accessible routes, cultural experiences, and landscapes that connect you with what matters most"
 layout: "/src/layouts/BlogPostEn.astro"
 image: "/moray.jpg"
 imageAutor: "/images/autor.webp"
-bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
-tags: ["cusco", "viajes", "turismo accesible", "perú"]
+bio: "Specialized in accessible tourism for people with disabilities. We connect adventure and accessibility throughout Peru."
+tags: ["cusco", "travel", "accessible tourism", "peru"]
 date: "2025-08-07"
 author: "Francisco"
 ---
 
-El Valle Sagrado, ubicado entre Cusco y Machu Picchu 🇵🇪, ofrece una experiencia única para viajeros que requieren accesibilidad sin renunciar a la autenticidad cultural ni al contacto con la naturaleza.
+The Sacred Valley, located between Cusco and Machu Picchu 🇵🇪, offers a unique experience for travelers who require accessibility without giving up cultural authenticity or contact with nature.
 
+## **Adapted destinations**
 
+- **Pisac**: Inca ruins with leveled paths and an artisan market accessible for wheelchairs ♿  
+- **Ollantaytambo**: Fortress with ramps and local assistance, ideal for barrier-free exploration  
+- **Chinchero**: Adapted textile workshops and accessible panoramic views
 
-## **Destinos adaptados**
+## **Accessible transportation and routes ♿**
 
-- **Pisac**: Ruinas incas con senderos nivelados y mercado artesanal con acceso para silla de ruedas ♿  
-- **Ollantaytambo**: Fortaleza con rampas y asistencia local, ideal para explorar sin barreras  
-- **Chinchero**: Talleres textiles adaptados y vistas panorámicas accesibles
+Accessible Travel Peru offers:
 
+- Vehicles adapted for wheelchairs  
+- Drivers and guides trained in accessibility  
+- Personalized assistance at every stop
 
+## **Inclusive activities**
 
-## **Transporte y rutas accesibles ♿**
+- Gentle walks through Inca agricultural terraces  
+- Pottery and weaving workshops with sensory focus  
+- Lunches in organic gardens with universal access ♿
 
-Accessible Travel Peru ofrece:
+## **Benefits of the Sacred Valley for travelers with special needs**
 
-- Vehículos adaptados para silla de ruedas  
-- Choferes y guías capacitados en accesibilidad  
-- Asistencia personalizada en cada parada
-
-
-
-## **Actividades inclusivas**
-
-- Caminatas suaves por terrazas agrícolas incas  
-- Talleres de cerámica y tejido con enfoque sensorial  
-- Almuerzos en huertos orgánicos con acceso universal ♿
-
-
-
-## **Beneficios del Valle Sagrado para viajeros con necesidades especiales**
-- Altitud moderada y clima templado, ideal para aclimatarse gradualmente  
-- Infraestructura turística en constante mejora  
-- Experiencias auténticas sin aglomeraciones ni estrés logístico
+- Moderate altitude and mild climate, ideal for gradual acclimatization  
+- Constantly improving tourist infrastructure  
+- Authentic experiences without crowds or logistical stress
 
 ---
 
-## **Reserva tu itinerario accesible ♿**
+## **Book your accessible itinerary ♿**
 
-El Valle Sagrado no es solo un destino turístico:  
-es una oportunidad para reconectar con lo esencial, sin barreras.
+The Sacred Valley is not just a tourist destination:  
+it’s an opportunity to reconnect with what matters most—without barriers.
 
-Contáctanos y diseñaremos tu viaje a medida, con cada detalle pensado para tu comodidad y seguridad.
+Contact us and we’ll design your custom trip, with every detail tailored for your comfort and safety.

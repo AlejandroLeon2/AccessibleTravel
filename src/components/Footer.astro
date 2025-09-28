@@ -9,11 +9,12 @@ const footerLegal = {
 const {lenguaje}=Astro.props;
 ---
 
-<!-- Footer.astro -->
 <footer
-  class="bg-[url('/images/footer-img.webp')] w-full text-white py-12 px-6"
+
+  class="bg-[url('/images/footers.webp')] relative sm:bg-no-repeat bg-current sm:bg-cover w-full text-white py-12 px-6"
 >
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+  <div class="absolute inset-0 bg-blue-950/80"></div> 
+  <div class="max-w-7xl z-10 relative mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
     <!-- Logo + Descripción + Contacto -->
     <section>
       <img
@@ -94,7 +95,7 @@ const {lenguaje}=Astro.props;
       <ul class="space-y-2 text-sm">
         {
           empresaInfo.servicios.map((servicio, index) => (
-            <li key={index}>
+            <li >
               <p
                
                 class="hover:text-azul-travel transition-colors"
@@ -110,14 +111,13 @@ const {lenguaje}=Astro.props;
     <!-- Galería de logos -->
     <section>
       <h3 class="font-semibold text-lg mb-4">{lenguaje.footerSocios}</h3>
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-2 gap-2 ">
         {
-          empresaInfo.galleryLogos.map((logo, index) => (
+          empresaInfo.galleryLogos.map((logo) => (
             <img
-              key={index}
               src={logo.src}
               alt={logo.alt}
-              class="w-full h-auto md:h-20 object-contain bg-white p-2 rounded"
+              class="w-full filter duration-300 grayscale hover:grayscale-0 hover:scale-105 h-auto md:h-20 object-contain bg-white p-2 rounded"
             />
           ))
         }
@@ -179,7 +179,7 @@ const {lenguaje}=Astro.props;
 
   <!-- Footer inferior -->
   <div
-    class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"
+    class="border-t relative z-10 border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400"
   >
     <p class="mx-auto">{footerLegal.copyright}</p>
   </div>

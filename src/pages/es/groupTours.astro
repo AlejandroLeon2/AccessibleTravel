@@ -8,11 +8,12 @@ import CardDestino from "../../components/ui/CardDestino.astro";
 import Times from "../../components/constructor/Times.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
 import lenguaje from "../../data/locales/es.json";
+import infoEmpresa from "../../data/accessibleTravel.json";
 import { headerMenu } from "../../utils/headerSpañol";
 ---
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url="/images/misti.webp" texto="Group Tours" />
+  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="Group Tours" />
   <MainContent>
     <HeroGroup lenguaje={lenguaje} />
     <section class="flex flex-col px-4 py-8 gap-4 max-w-5xl mx-auto">

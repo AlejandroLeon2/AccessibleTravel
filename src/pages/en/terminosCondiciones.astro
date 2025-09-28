@@ -5,13 +5,14 @@ import Terminos from "../../components/section/Terminos.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
 import lenguaje from "../../data/locales/en.json";
+import infoEmpresa from "../../data/accessibleTravel.json";
 import { headerMenu } from "../../utils/headerSpañol";
-import { terminos } from "../../data/terminosEspañol";
+import { terminos } from "../../data/terminosEn";
 ---
 
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url="/images/misti.webp" texto="Terminos y condiciones" />
+  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="Terminos y condiciones" />
   <MainContent>
     <Terminos terminos={terminos} />
     <Certificaciones />

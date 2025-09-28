@@ -4,6 +4,7 @@ import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import Terminos from "../../components/section/Terminos.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
+import infoEmpresa from "../../data/accessibleTravel.json";
 import lenguaje from "../../data/locales/es.json";
 import { headerMenu } from "../../utils/headerSpañol";
 import { terminos } from "../../data/terminosEspañol";
@@ -11,7 +12,7 @@ import { terminos } from "../../data/terminosEspañol";
 
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url="/images/misti.webp" texto="Terminos y condiciones" />
+  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="Terminos y condiciones" />
   <MainContent>
     <Terminos terminos={terminos} />
     <Certificaciones />

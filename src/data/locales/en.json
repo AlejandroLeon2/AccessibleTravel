@@ -81,6 +81,7 @@
   "infoReseñas": "Reviews",
   "infoHuespedes": "Max. People",
   "infoDias": "Days",
+  "infoTravelDay": "Day",
   "infoDescripcion": "Description",
   "infoIncluye": "Includes",
   "infoNoIncluye": "Not Included",
@@ -101,6 +102,7 @@
   },
   "asidePago": "You can pay with",
   "asideBlogSub": "Inclusive Travel Agency",
+  "asideBlogDescripcion": "Specialized in accessible tourism for people with disabilities. We connect adventure and accessibility throughout Peru.",
   "opcionLenguaje": "Select Language",
   "aboutTitle": "Accessible Travel Peru",
   "aboutSubtitle": "Your gateway to inclusive adventures",
@@ -111,5 +113,24 @@
   "heroGroupUrgencia": "Hurry up!",
   "heroGroupTerminaEn": "The offer ends in:",
   "heroGroupUnidades": ["DAYS", "HOURS", "MINUTES", "SECONDS"],
-  "heroGroupIncluyeTitulo": "What does it include?"
+  "heroGroupIncluyeTitulo": "What does it include?",
+  "banners": [
+    {
+      "alt": "Cliff view",
+      "src": "/images/autor.webp",
+      "title": "Maker Your Dream Vacations Come True"
+    },
+    {
+      "alt": "Hiking rocky terrain",
+      "src": "/images/banner2.webp",
+      "title": "Trust in The Best... Trust in Accessible Travel Peru"
+    },
+    {
+      "alt": "Tent near lake",
+      "src": "/images/banner1.webp",
+      "title": "The Best Accessible Service in Machu Picchu"
+    }
+  ],
+  "aboutCantidadClientes": "2,000+ Clients worldwide",
+  "aboutAniosExperiencia": "20 Years of experience"
 }

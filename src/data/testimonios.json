@@ -17,84 +17,84 @@
     "nombre": "Señor Quijano",
     "pais": "México",
     "comentario": "Viajé con dudas… y regresé con el corazón lleno. Cada actividad estaba perfectamente adaptada y el trato fue excepcional. Cisco y su equipo nos trataron con tanto respeto y cariño que me sentí como en casa.",
-        "imagen": "/images/sieteprincipal.webp",
+    "imagen": "/images/sieteprincipal.webp",
     "imagen2": "/images/unoprincipal.webp"
   },
-    {
+  {
     "nombre": "Chris Kerr",
     "pais": "Australia",
     "comentario": "I can’t describe what this trip meant to me. I laughed more than I had in years. I cried happy tears at Machu Picchu. Cisco’s passion and the team’s kindness reminded me how beautiful this world is—especially when it’s open to everyone.",
-                  "imagen": "/images/newprincipal.webp",
+    "imagen": "/images/newprincipal.webp",
     "imagen2": "/images/new2principal.webp"
   },
   {
     "nombre": "Pierre & Roman",
     "pais": "Francia",
     "comentario": "Un voyage magique. Chaque étape était pensée pour nous, avec beaucoup d'attention et d'humanité. Cisco et son équipe ont rendu l’impossible accessible. Une aventure humaine avant tout.",
-           "imagen": "/images/ochoprincipal.webp",
+    "imagen": "/images/ochoprincipal.webp",
     "imagen2": "/images/nueveprincipal.webp"
   },
   {
     "nombre": "Neto & Cristina Davanzo",
     "pais": "Brasil",
     "comentario": "Explorar o Peru com acessibilidade foi um sonho que virou realidade. Cada momento foi planejado com amor e responsabilidade. A equipe da Accessible Travel nos acolheu com carinho e profissionalismo. Nos sentimos seguros e livres para viver cada experiência.",
-               "imagen": "/images/diesprincipal.webp",
+    "imagen": "/images/diesprincipal.webp",
     "imagen2": "/images/onceprincipal.webp"
   },
   {
-    "nombre": "Francine",
+    "nombre": "Franciely",
     "pais": "Brasil",
     "comentario": "Foi como voltar a acreditar que eu posso tudo. Nunca me senti tão segura e acolhida em uma viagem. A energia da equipe é linda, e o cuidado com a acessibilidade é real e eficaz.",
-               "imagen": "/images/doceprincipal.webp",
+    "imagen": "/images/doceprincipal.webp",
     "imagen2": "/images/treceprincipal.webp"
   },
   {
     "nombre": "Travel Xperience",
     "pais": "España",
     "comentario": "Hemos colaborado con Cisco para nuestros clientes con discapacidad y la experiencia ha sido impecable. Trato humano, itinerarios adaptados y todo con un alto nivel profesional. ¡Seguiremos trabajando juntos!",
-               "imagen": "/images/catorceprincipal.webp",
+    "imagen": "/images/catorceprincipal.webp",
     "imagen2": "/images/quinceprincipal.webp"
   },
   {
     "nombre": "Lourdes",
     "pais": "España",
     "comentario": "Accessible Travel me hizo sentir viva otra vez. Disfruté sin preocuparme, sabiendo que cada parte del viaje estaba pensada para mí. Cisco y su equipo me dieron más que un viaje: me devolvieron el placer de explorar.",
-                   "imagen": "/images/diesiseisprincipal.webp",
+    "imagen": "/images/diesiseisprincipal.webp",
     "imagen2": "/images/diesisieteprincipal.webp"
   },
   {
     "nombre": "Kriss Kerr",
     "pais": "Australia",
     "comentario": "I can’t describe what this trip meant to me. I laughed more than I had in years. I cried happy tears at Machu Picchu. Cisco’s passion and the team’s kindness reminded me how beautiful this world is—especially when it’s open to everyone.",
-                  "imagen": "/images/dieciochoprincipal.webp",
+    "imagen": "/images/dieciochoprincipal.webp",
     "imagen2": "/images/diecinueveprincipal.webp"
   },
   {
     "nombre": "Mr & Ms Goldberg",
     "pais": "Australia",
     "comentario": "We’ve traveled a lot, but this was different. Every day felt safe, exciting, and truly accessible. From the airport to the trails, Cisco and his team exceeded every expectation. We’ll never forget this.",
-                   "imagen": "/images/veinteprincipal.webp",
+    "imagen": "/images/veinteprincipal.webp",
     "imagen2": "/images/veintiunoprincipal.webp"
   },
   {
     "nombre": "Ryan Smith",
     "pais": "Nueva Zelanda",
     "comentario": "This trip gave me something I hadn’t felt in years: freedom. Peru is breathtaking, but what made it unforgettable was Cisco. His heart, his team, and their commitment to inclusion made me believe in travel again.",
-                   "imagen": "/images/veintidosprincipal.webp",
+    "imagen": "/images/veintidosprincipal.webp",
     "imagen2": "/images/veintitresprincipal.webp"
   },
   {
     "nombre": "Kristine Seccor",
     "pais": "USA",
     "comentario": "From the first email to the final goodbye, I felt seen, supported, and celebrated. I never thought it would be possible to bring a group with diverse needs to Peru — but Accessible Travel Peru made it happen. This wasn’t just a vacation—it was healing. The team doesn’t just plan tours… they change lives.",
-                  "imagen": "/images/dieciochoprincipal.webp",
+    "imagen": "/images/dieciochoprincipal.webp",
     "imagen2": "/images/diecinueveprincipal.webp"
   },
   {
     "nombre": "Oleksii Bugai",
     "pais": "Ucrania",
     "comentario": "Це була пригода, яку я ніколи не забуду! Подорож бездоріжжям була справжнім викликом — і справжнім щастям! The off-road trip was incredible, beyond anything I imagined. Cisco, Dilmar, and Mario are now my friends — see you soon, my brothers! I’ll definitely be back… next time for the Amazon with Accessible Travel Peru!",
-                      "imagen": "/images/veinticuatroprincipal.webp",
+    "imagen": "/images/veinticuatroprincipal.webp",
     "imagen2": "/images/veinticincoprincipal.webp"
   }
 ]

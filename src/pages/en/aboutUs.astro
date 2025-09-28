@@ -7,15 +7,15 @@ import HeroAbout from "../../components/section/HeroAbout.astro";
 import ExperienciaAbout from "../../components/section/ExprerienciaAbout.astro";
 import lenguaje from "../../data/locales/en.json";
 import { headerMenu } from "../../utils/headerSpañol";
+import infoEmpresa from "../../data/accessibleTravel.json";
 ---
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-<PortadaStatic url="/images/misti.webp" texto="About Us"/>
+<PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="About Us"/>
+
 <MainContent>
 <HeroAbout lenguaje={lenguaje}/>
 <Certificaciones/>
-<ExperienciaAbout/>
-
-
+<ExperienciaAbout lenguaje={lenguaje}/>
 
 </MainContent>
 

@@ -1,40 +1,40 @@
 ---
 title: "Descubre Cusco: Historia, Cultura y Aventura en el Corazón del Perú"
-description: "Explora Cusco, la capital histórica del Imperio Inca, con experiencias accesibles, gastronomía local y paisajes inolvidables."
+description: "Explore Cusco, the historic capital of the Inca Empire, with accessible experiences, local cuisine, and unforgettable landscapes."
 date: "2025-03-07"
-tags: ["cusco", "viajes", "turismo accesible", "perú"]
+tags: ["cusco", "travel", "accessible tourism", "peru"]
 author: "Accessible Travel Peru"
-role: "Agencia de Viajes Inclusiva"
-bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
+role: "Inclusive Travel Agency"
+bio: "Specialized in accessible tourism for people with disabilities. We connect adventure and accessibility throughout Peru."
 image: "/chincheros.jpg"
 imageAutor: "/images/autor.webp"
 layout: "/src/layouts/BlogPostEn.astro"
 ---
 
-## Cusco: Donde la historia se encuentra con la aventura
+## Cusco: Where history meets adventure
 
-Cusco, antigua capital del Imperio Inca, es mucho más que una parada hacia Machu Picchu. Es un destino vibrante, lleno de arquitectura colonial, mercados coloridos y una energía única que conecta pasado y presente.
+Cusco, the ancient capital of the Inca Empire, is much more than a stop on the way to Machu Picchu. It’s a vibrant destination full of colonial architecture, colorful markets, and a unique energy that connects past and present.
 
-### 🏛️ Patrimonio y cultura viva
+### 🏛️ Heritage and living culture
 
-Desde la majestuosa Plaza de Armas hasta los muros incas de Sacsayhuamán, cada rincón de Cusco cuenta una historia. Los museos, templos y calles empedradas ofrecen una experiencia inmersiva para quienes buscan entender la riqueza cultural del Perú.
+From the majestic Plaza de Armas to the Inca walls of Sacsayhuamán, every corner of Cusco tells a story. Museums, temples, and cobblestone streets offer an immersive experience for those seeking to understand Peru’s rich cultural heritage.
 
-### 🍲 Gastronomía local
+### 🍲 Local cuisine
 
-No puedes irte sin probar un buen **ají de gallina**, una **trucha fresca del Valle Sagrado** o un **chocolate artesanal cusqueño**. Muchos restaurantes ofrecen opciones accesibles y menús adaptados para todos los visitantes.
+You can’t leave without trying a delicious **ají de gallina**, **fresh trout from the Sacred Valley**, or **artisanal Cusco chocolate**. Many restaurants offer accessible options and adapted menus for all visitors.
 
-### ♿ Turismo accesible
+### ♿ Accessible tourism
 
-Cusco está avanzando en infraestructura inclusiva. En Accessible Travel Peru, diseñamos experiencias adaptadas para personas con movilidad reducida, incluyendo transporte accesible, guías capacitados y alojamientos con accesibilidad certificada.
+Cusco is making progress in inclusive infrastructure. At Accessible Travel Peru, we design adapted experiences for people with reduced mobility, including accessible transportation, trained guides, and certified accessible accommodations.
 
-### 🌄 Excursiones imperdibles
+### 🌄 Must-see excursions
 
-- **Valle Sagrado**: Pisaq, Ollantaytambo y Chinchero, con vistas espectaculares y mercados tradicionales.
-- **Machu Picchu**: Accesible mediante tren adaptado y asistencia personalizada.
-- **Montaña de 7 Colores**: Opciones de transporte y asistencia para quienes no pueden hacer la caminata completa.
+- **Sacred Valley**: Pisaq, Ollantaytambo, and Chinchero, with spectacular views and traditional markets.  
+- **Machu Picchu**: Accessible via adapted train and personalized assistance.  
+- **Rainbow Mountain**: Transportation and support options for those unable to complete the full hike.
 
 ---
 
-### ¿Listo para explorar Cusco de forma inclusiva?
+### Ready to explore Cusco inclusively?
 
-Contáctanos para diseñar tu viaje a medida. Cusco te espera con los brazos abiertos y una historia que merece ser vivida por todos.
+Contact us to design your custom trip. Cusco awaits with open arms and a story that deserves to be lived by everyone.

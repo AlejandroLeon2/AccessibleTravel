@@ -1,7 +1,7 @@
 ---
 import BlogNew from "../section/BlogNew.astro";
 import DestinoAside from "../section/DestinoAside.astro";
-const { data, lenguaje, destinos ,news} = Astro.props;
+const {  lenguaje, destinos ,news} = Astro.props;
 const { currentLocale } = Astro;
 ---
 
@@ -9,55 +9,21 @@ const { currentLocale } = Astro;
   class="w-full md:max-w-xs my-12 md:w-80 p-4 space-y-2 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
 >
   <!-- Perfil -->
-  {
-    data.author && (
       <section class="text-center">
         <img
           src="/images/autor.webp"
-          alt={data.author.name ?? data.author}
-          title={`Foto de ${data.author.name ?? data.author}`}
+          alt={lenguaje.aboutTitle}
+          title={`Foto de ${lenguaje.aboutTitle}`}
           class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"
         />
         <h2 class="mt-4 text-lg font-bold text-gray-900">
-          {data.author.name ?? data.author}
+          {lenguaje.aboutTitle }
         </h2>
         <p class="text-sm text-gray-500">{lenguaje.asideBlogSub}</p>
-        <p class="mt-3 text-gray-600 text-sm">{data.author.bio ?? data.bio}</p>
+        <p class="mt-3 text-gray-600 text-sm">{lenguaje.asideBlogDescripcion}</p>
         <div class="flex justify-center gap-4 mt-4 text-gray-500">
-          {data.author.social?.facebook && (
-            <a
-              href={data.author.social.facebook}
-              aria-label="Facebook"
-              class="hover:text-blue-500"
-            >
-              <i class="fab fa-facebook-f" />
-            </a>
-          )}
-          {data.author.social?.twitter && (
-            <a
-              href={data.author.social.twitter}
-              aria-label="Twitter"
-              class="hover:text-sky-500"
-            >
-              <i class="fab fa-twitter" />
-            </a>
-          )}
-          {data.author.social?.linkedin && (
-            <a
-              href={`/${currentLocale}data.author.social.linkedin`}
-              aria-label="LinkedIn"
-              class="hover:text-blue-700"
-            >
-              <i class="fab fa-linkedin-in" />
-            </a>
-          )}
         </div>
       </section>
-    )
-  }
-
-
-
   <!-- Noticias recientes -->
   <BlogNew articulo={news} lenguaje={lenguaje} />
   <DestinoAside lenguaje={lenguaje} destinos={destinos}/>

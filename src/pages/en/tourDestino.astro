@@ -5,12 +5,13 @@ import Bento from "../../components/ui/Bento.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import { headerMenu } from "../../utils/headerSpañol";
 import lenguaje from "../../data/locales/en.json";
+import infoEmpresa from "../../data/accessibleTravel.json";
 import { toursDestinos } from "../../data/toursDestinos";
 ---
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
   <PortadaStatic
-    url="/images/misti.webp"
+    url={infoEmpresa.imagenPortadaGeneral}
    
     texto="Tours Destinations"
   />

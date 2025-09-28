@@ -1,23 +1,13 @@
 ---
-// src/components/ui/PostCard.astro
-export interface Props {
-  post: {
-    frontmatter: {
-      title: string
-      description: string
-      date: string
-      image?: string
-    }
-    url: string
-  }
-}
+
+
 const { currentLocale } = Astro;
 
 const { post } = Astro.props
 ---
 
 <article class="  w-auto rounded-xl border border-gray-200 shadow overflow-hidden    ">
-  <a href={`${currentLocale}${post.url}`} class="  transition flex flex-col  lg:flex-row justify-between items-center">
+  <a href={post.url} class="  transition flex flex-col  lg:flex-row justify-between items-center">
     <img
       src={post.frontmatter.image ?? '/images/gato.jpg'}
       alt={post.frontmatter.title}

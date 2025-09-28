@@ -6,9 +6,10 @@ import Informacion from "../../components/section/Informacion.astro";
 import ContactoForm from "../../components/section/ContactoForm.astro";
 import lenguaje from "../../data/locales/en.json";
 import { headerMenu } from "../../utils/headerSpañol";
+import infoEmpresa from "../../data/accessibleTravel.json";
 ---
 <Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-<PortadaStatic url="/images/misti.webp" texto="Contact US"/>
+<PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="Contact US"/>
 <Informacion lenguaje={lenguaje}/>
 <ContactoForm lenguaje={lenguaje}/>
 <Certificaciones />

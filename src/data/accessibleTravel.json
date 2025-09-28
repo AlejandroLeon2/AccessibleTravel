@@ -12,6 +12,7 @@
     "mensaje": "Hi! I'm reaching out to learn more about your accessible travel experiences from the USA.",
     "title": "Reach out from the USA for accessible travel inquiries"
   },
+  "imagenPortadaGeneral":"/images/vicunas.png",
   "telefonos": ["Peru: +51 944 731 223", "USA: +1 908-935-6769"],
   "direccion": "465, FRAY LUIS DE LEON ST",
   "redes": [
@@ -23,7 +24,7 @@
     {
       "icono": "tiktok",
       "url": "https://www.tiktok.com/@accessibletravelperu?is_from_webapp=1&sender_device=pc",
-      "handle": "@accessibletravelperu"
+      "handle": "@Accessibletravelperu"
     },
     {
       "icono": "youtube",
@@ -33,7 +34,7 @@
     {
       "icono": "instagram",
       "url": "https://www.instagram.com/accessibletravelperu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      "handle": "@accessibletravelperu"
+      "handle": "@Accessibletravelperu"
     },
     {
       "icono": "whatsapp",

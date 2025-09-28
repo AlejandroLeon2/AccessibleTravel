@@ -5,14 +5,13 @@ import Certificaciones from "../../components/section/Certificaciones.astro";
 import Comentarios from "../../components/section/Comentarios.astro";
 import Actividades from "../../components/section/Actividades.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
-import data from "../../data/peru/peru-en/travels.json";
+import data from "../../data/peru/peru-es/travels.json";
 import BlogNew from "../../components/section/BlogNew.astro";
 import lenguaje from "../../data/locales/es.json";
 import DestinosRecomendados from "../../components/section/DestinosRecomendados.astro";
 import HeroHome from "../../components/section/HeroHome.astro";
-import ModalVideo from "../../components/ui/ModalVideo.astro";
 import { headerMenu } from "../../utils/headerSpañol";
-const destinos = data.filter((item) => item.recomendado === true).slice(0, 3);
+const destinos = data.filter((item) => item.recomendado === true).slice(0, 4);
 const articulos = Object.values(
   await import.meta.glob("/src/pages/es/blog/*.md", { eager: true })
 );
@@ -35,5 +34,37 @@ const articulo = articulos.slice(0, 3);
     <Comentarios lenguaje={lenguaje} />
     <BlogNew articulo={articulo} lenguaje={lenguaje} />
   </MainContent>
-  <ModalVideo />
+
 </Layout>
+<script >
+  import lenguaje from "../../data/locales/es.json"
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const titleEl = document.getElementById("slider-title");
+    let index = 0;
+    const imgEl = document.getElementById("slider-image");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const updateImage = (i) => {
+      index = i;
+      imgEl.src = lenguaje.banners[i].src;
+      imgEl.alt = lenguaje.banners[i].alt;
+      titleEl.textContent = lenguaje.banners[i].title;
+    };
+
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + lenguaje.banners.length) % lenguaje.banners.length;
+      updateImage(index);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % lenguaje.banners.length;
+      updateImage(index);
+    });
+
+    setInterval(() => {
+      index = (index + 1) % lenguaje.banners.length;
+      updateImage(index);
+    }, 10000);
+  });
+</script>

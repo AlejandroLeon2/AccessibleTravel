@@ -5,6 +5,7 @@ autor: "/images/autor.webp",
   imagen1: "/images/gato.jpg",
   imagen2: "/images/gato.jpg",
 };
+const { currentLocale } = Astro;
 const {lenguaje}=Astro.props
 ---
 
@@ -14,17 +15,16 @@ const {lenguaje}=Astro.props
   <div
     class="relative w-full items-center justify-center h-[70svh] max-w-4xl max-h-100 flex"
   >
-    <img
-      src="/images/veinticuatroprincipal.webp"
-      alt="Imagen 2"
-      class="w-full object-cover max-h-100 h-[50svh] rounded-2xl"
-    />
-    <button
-      id="openModalvideo"
-      class="absolute right-0 left-0 active:scale-95 duration-300 hover:scale-105 bg-white/80 mx-auto text-black w-15 h-15 rounded-full animate-pulse"
-    >
-      <Play style="w-15 h-auto" />
-    </button>
+  <iframe
+  id="youtube-player"
+   class="w-full h-[60svh] max-h-200 lg:max-w-5xl rounded-2xl"
+    src="https://www.youtube.com/embed/PBF2y98Bdn0?si=cL-cuBrIkc3mjlb3"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
+
   </div>
 
   <div>
@@ -45,7 +45,7 @@ const {lenguaje}=Astro.props
     </div>
     <div class="flex justify-between items-center gap-4">
       <a
-        href="/aboutUs"
+        href={`/${currentLocale}/aboutUs`}
         class="bg-azul-travel text-center text-balance w-50 text-white px-5 py-3 rounded-full font-semibold text-sm shadow hover:bg-azul-travel-hover"
       >
         {lenguaje.botonHeroHome}

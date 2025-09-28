@@ -8,6 +8,7 @@ import BlogAside from '../../components/ui/BlogAside.astro'
 import lenguaje from "../../data/locales/en.json";
 import { headerMenu } from '../../utils/headerSpañol'
 import dest from "../../data/peru/peru-en/travels.json";
+import infoEmpresa from "../../data/accessibleTravel.json";
 
 
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
@@ -33,7 +34,7 @@ const articulo = Object.values(await import.meta.glob('./blog/*.md', { eager: tr
 ---
 
 <Layout headerMenu={headerMenu} lenguaje={lenguaje} title="Blog Retro">
-  <PortadaStatic url="/images/misti.webp" texto="Blog" />
+  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="Blog" />
   <MainContent>
 <section class="flex flex-col-reverse mx-auto md:flex-row gap-4 px-4 w-full max-w-5xl">
     <section class="flex flex-col py-4 md:py-12 gap-4 w-full">
