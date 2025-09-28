@@ -1,45 +1,51 @@
-import travelsPeruEN from "../data/peru/peru-en/travels.json" assert { type: "json" } ;
+import travelsPeruEN from "../data/peru/peru-en/travels.json" assert { type: "json" };
 import travelsPeruES from "../data/peru/peru-es/travels.json" assert {type: "json"}
 
-export const toursDestinos =[
+export const toursDestinos = [
   {
     "title": "Perú",
     "titleLink": "peru",
-    "url":"/images/machu.webp",
+    "url": "/images/machu.webp",
     "destinosEN": travelsPeruEN,
     "destinosES": travelsPeruES
   },
   {
     "title": "Ecuador",
     "titleLink": "ecuador",
-    "destinos": []
+    "destinosEn": [],
+    "destinosES": []
   },
   {
     "title": "Argentina",
     "titleLink": "argentina",
-    "destinos": []
+    "destinosEn": [],
+    "destinosES": []
   },
   {
     "title": "Chile",
     "titleLink": "chile",
-    "destinos": []
+    "destinosEn": [],
+    "destinosES": []
   },
   {
     "title": "Brasil",
     "titleLink": "brazil",
-    "destinos": []
+    "destinosEn": [],
+    "destinosES": []
   },
   {
     "title": "Colombia",
     "titleLink": "colombia",
-    "destinos": []
+    "destinosEn": [],
+    "destinosES": []
   },
   {
     "title": "Bolivia",
     "titleLink": "bolivia",
-    "destinos": []
+    "destinosEn": [],
+    "destinosES": []
   }
 ];
 
-export const destinosEs=[... travelsPeruES];
-export const destinosEn=[... travelsPeruEN];
+export const destinosEs = [...travelsPeruES];
+export const destinosEn = [...travelsPeruEN];

@@ -29,7 +29,7 @@ if (!destino) {
 <MainContent>
 
   <section class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
-    {destino.destinosEN.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />)}
+    {destino.destinosEN && destino.destinosEN.length >= 1?destino.destinosEN.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />):"Destino NO definidos"}
   </section>
   <Certificaciones/>
 </MainContent>
