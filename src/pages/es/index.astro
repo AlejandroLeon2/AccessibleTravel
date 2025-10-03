@@ -32,7 +32,7 @@ const articulo = articulos.slice(0, 3);
     </h2>
     <Certificaciones />
     <Comentarios lenguaje={lenguaje} />
-    <BlogNew articulo={articulo} lenguaje={lenguaje} />
+    <BlogNew articulo={articulo} lenguaje={lenguaje} home="a" grid="grid grid-col-1 md:grid-cols-2" />
   </MainContent>
 
 </Layout>
@@ -45,6 +45,7 @@ const articulo = articulos.slice(0, 3);
     const imgEl = document.getElementById("slider-image");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
+
     const updateImage = (i) => {
       index = i;
       imgEl.src = lenguaje.banners[i].src;

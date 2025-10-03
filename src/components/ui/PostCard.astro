@@ -6,7 +6,7 @@ const { currentLocale } = Astro;
 const { post } = Astro.props
 ---
 
-<article class="  w-auto rounded-xl border border-gray-200 shadow overflow-hidden    ">
+<article class="  w-auto hover:scale-105 duration-300 active:scale-105 rounded-xl border border-gray-200 shadow overflow-hidden    ">
   <a href={post.url} class="  transition flex flex-col  lg:flex-row justify-between items-center">
     <img
       src={post.frontmatter.image ?? '/images/gato.jpg'}

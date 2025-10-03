@@ -16,7 +16,7 @@ const articulos = Object.values(
 );
 const articulo = articulos.slice(0, 3);
 
-const { currentLocale } = Astro;
+
 
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
@@ -72,7 +72,7 @@ const {lang, title, description, image, date, author, tags, imageAutor, bio } =
 
     <MainContent>
       <article
-        class="space-y-6 text-base leading-relaxed mx-auto:max-w-7xl gap-4 p-4 flex flex-col-reverse md:flex-row"
+        class="space-y-6 text-base leading-relaxed mx-auto:max-w-7xl gap-4 p-4 flex flex-col md:flex-row"
       >
         <div
           class="bg-white max-w-md md:py-12 lg:max-w-2xl xl:max-w-4xl rounded-lg overflow-hidden"

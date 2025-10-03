@@ -20,8 +20,8 @@ import { headerMenu } from "../../utils/headerSpañol";
       {
         groupTours.map((lugar) => (
           <div class="flex flex-col-reverse justify-between  mx-auto gap-4">
-            <CardDestino lenguaje={lenguaje} data={lugar} botones="justify-between md:flex-col md:justify-around" style="flex flex-col md:flex-row min-w-xs max-w-xs md:min-w-2xl max-w-4xl mx-auto" ruta="/group/" />
-            <div class="flex flex-col md:flex-row justify-between  px-4">
+            <CardDestino lenguaje={lenguaje} data={lugar} botones="justify-between md:flex-col md:justify-around" style="flex flex-col md:flex-row min-w-xs max-w-xs md:max-w-5xl mx-auto" ruta="/group/" />
+            <div class="flex flex-col md:flex-row justify-between border border-gray-100 shadow px-4 py-2 rounded-xl" >
               <p class="font-semibold my-auto max-w-xs flex text-xl flex-col text-azul-travel">{lenguaje.heroGroupUrgencia}<span class="font-normal text-sm text-black">{lenguaje.heroGroupTerminaEn}</span> </p>
               <Times lenguaje={lenguaje} data={lugar}/>
 

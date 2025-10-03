@@ -4,7 +4,7 @@ const { currentLocale } = Astro;
 const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
 ---
 
-<div class="bg-white border border-gray-200 flex max-w-xs rounded-lg shadow-sm overflow-hidden">
+<div class="bg-white border  border-gray-200 flex max-w-xs rounded-lg shadow-sm overflow-hidden">
   <a href={`/${currentLocale}${ruta}${data.titleLink}`} class="block">
     <img
       src={data.images[0].link}

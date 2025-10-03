@@ -21,7 +21,7 @@ const {
         src={data.images[0].link}
         alt={`Imagen del tour ${data.images[0].alt}`}
         title={`Imagen del tour ${data.images[0].title}`}
-        class="w-full h-52 object-cover"
+        class="w-full max-w-xs h-52 object-cover"
       />
       {
         data.recomendado && (
@@ -77,7 +77,7 @@ const {
 
     <a
       href={`/${currentLocale}${ruta}${data.titleLink}`}
-      class=`text-white ${style? "w-30 text-center":" "}  text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5`
+      class=`text-white ${style? "w-auto text-center":" "}  text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5`
       >{lenguaje.cardDestinoBoton}</a
     >
   </footer>

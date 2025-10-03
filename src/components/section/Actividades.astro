@@ -18,25 +18,21 @@ const {lenguaje}=Astro.props
     {
       lenguaje.servicesActividades.map((item) => (
         <button
-          class={`flex flex-col h-25 md:h-40 items-center text-azul-travel hover:scale-105 active:scale-95 duration-300 hover:text-white justify-center gap-2 px-2 py-4 rounded-lg transition ${
-            item.activo
-              ? "bg-azul-travel  text-white"
-              : "hover:bg-azul-travel group border active:scale-95 duration-300 active:bg-azul-travel border-gray-200 text-black dark:hover:bg-gray-800"
-          }`}
+          class={`flex flex-col h-25 md:h-40 items-center text-azul-travel hover:scale-105 active:scale-95 duration-300 hover:text-white justify-center gap-2 px-2 py-4 rounded-lg transition hover:bg-azul-travel group border focus:bg-azul-travel focus:text-white  active:bg-azul-travel border-gray-200 `}
           aria-current={item.activo ? "true" : undefined}
         >
           {item.icon === "carrito" && <Avion style="w-10 min-h-6 h-auto " />}
           {item.icon === "guia" && (
-            <Mapa style=" w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white" />
+            <Mapa style=" w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white group-focus:text-white " />
           )}
           {item.icon === "montanas" && (
-            <Montana style="w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white" />
+            <Montana style="w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white group-focus:text-white" />
           )}
           {item.icon === "corbata" && (
-            <Corbata style="w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white" />
+            <Corbata style="w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white group-focus:text-white" />
           )}
           {item.icon === "4x4" && (
-            <Carro style="w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white" />
+            <Carro style="w-10 h-auto min-h-6 text-azul-travel group-hover:text-white group-active:text-white group-focus:text-white" />
           )}
 
           <span class=" font-medium leading-snug">{item.title}</span>

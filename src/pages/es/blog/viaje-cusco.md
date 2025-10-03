@@ -7,7 +7,7 @@ author: "Accessible Travel Peru"
 role: "Agencia de Viajes Inclusiva"
 bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
 image: "/chincheros.jpg"
-imageAutor: "/images/autor.webp"
+imageAutor: "/images/francisco.webp"
 layout: "/src/layouts/BlogPostEs.astro"
 lang: "es"
 ---

@@ -11,7 +11,7 @@ const { currentLocale } = Astro;
   <!-- Perfil -->
       <section class="text-center">
         <img
-          src="/images/autor.webp"
+          src="/images/francisco.webp"
           alt={lenguaje.aboutTitle}
           title={`Foto de ${lenguaje.aboutTitle}`}
           class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"
@@ -25,6 +25,6 @@ const { currentLocale } = Astro;
         </div>
       </section>
   <!-- Noticias recientes -->
-  <BlogNew articulo={news} lenguaje={lenguaje} />
-  <DestinoAside lenguaje={lenguaje} destinos={destinos}/>
+  <BlogNew articulo={news} lenguaje={lenguaje} style="text-2xl"  />
+  <DestinoAside lenguaje={lenguaje} destinos={destinos} style="text-2xl"/>
 </aside>
