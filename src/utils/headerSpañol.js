@@ -20,9 +20,9 @@ export const headerMenu = [
     href: "/",
   },
   {
-    label: "Tour Destination",
-    href: "/tourDestino",
-    children: generateTourDestinationMenu(toursDestinos),
+    label:"All Tours Perú", //"Tour Destination",
+    href:"/destino/peru"   //"/tourDestino",
+   // children:generateTourDestinationMenu(toursDestinos),
   },
   {
     label: "Group Tours",

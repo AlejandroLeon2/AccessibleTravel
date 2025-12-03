@@ -11,24 +11,24 @@ const {lenguaje, articulo , style="text-4xl" ,home="md:px-0 lg:px-0",grid}=Astro
   <ul class={`space-y-4 gap-4 ${grid}`}>
     {
       articulo.slice(0, 3).map((newsa) => (
-        <article class="flex gap-4 hover:scale-105 duration-300 active:scale-105 border border-gray-200 h-full max-h-30 shadow">
+        <article class="flex gap-4 hover:scale-105 duration-300 active:scale-100 border border-gray-200 h-full max-h-30 shadow">
           <a href={`${newsa.url}`} class="flex">
             <img
               src={newsa.frontmatter.image ?? "/images/default-news.jpg"}
               alt={newsa.frontmatter.title}
-              class="w-full max-w-45  rounded object-cover "
+              class="  max-w-30 min-h-25 rounded object-cover "
             />
           </a>
 
-          <div class="w-auto py-2">
+          <div class="w-auto flex flex-col py-2 gap-4">
             <a
               href={`${newsa.url}`}
-              class="text-sm md:text-xs line-clamp-3 duration-300  font-semibold text-gray-800 hover:text-blue-600"
+              class="text-sm md:text-xs line-clamp-2 duration-300  font-semibold text-gray-800 hover:text-blue-600"
             >
               {newsa.frontmatter.title}
             </a>
             
-            <time class="block text-xs text-gray-500">
+            <time class="block text-xs text-gray-500 ">
               {newsa.frontmatter.date}
             </time>
           </div>

@@ -1,20 +1,20 @@
 ---
 import Certificaciones from "../section/Certificaciones.astro";
 import Pago from "../section/Pago.astro";
-const { data , lenguaje } = Astro.props;
+const { data, lenguaje } = Astro.props;
 ---
 
 <section
-  class="flex flex-col md:grid  md:grid-cols-2 lg:flex lg:flex-col w-full h-full gap-4 space-y-4 rounded-2xl py-12 px-4 lg:max-w-xs"
+  class="flex md:sticky md:top-24 flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col w-full h-full gap-4 space-y-4 rounded-2xl py-12 px-4 lg:max-w-xs"
 >
   <div
     class="px-4 py-2 max-h-45 bg-gray-100 flex flex-col border space-y-2 border-gray-200"
   >
-    <p class="flex justify-between text-sm">
+    <!--  <p class="flex justify-between text-sm">
       {lenguaje.asideTotal} <span class="text-azul-travel text-lg"
         >{data.packages[0].price}</span
       >
-    </p>
+    </p> -->
     <a
       href={data.links.book}
       class="w-auto text-white text-center px-4 py-2 bg-gray-700 hover:bg-azul-travel active:scale-95 active:bg-azul-travel hover:scale-105 duration-300 rounded-full"
@@ -40,34 +40,29 @@ const { data , lenguaje } = Astro.props;
     </h2>
     <ul class="flex flex-col gap-2 p-4 text-sm text-gray-700" role="list">
       <li class="flex items-center gap-2">
-        
         <span>{lenguaje.asideList.atencionCliente}</span>
       </li>
       <li class="flex items-center gap-2">
-        
         <span>{lenguaje.asideList.seleccionActividades}</span>
       </li>
       <li class="flex items-center gap-2">
-        
         <span>{lenguaje.asideList.garantiaPrecio}</span>
       </li>
     </ul>
   </section>
   <section class="p-4 col-span-2 lg:col-span-1">
-  <h2 class="font-semibold">{lenguaje.tituloMiembros}</h2>
-  <Certificaciones
-    base="md:col-span-2 md:px-8 lg:col-span-1"
-    style="grid grid-cols-5 lg:grid-cols-2 gap-4"
-  />
+    <h2 class="font-semibold">{lenguaje.tituloMiembros}</h2>
+    <Certificaciones
+      base="md:col-span-2 md:px-8 lg:col-span-1"
+      style="grid grid-cols-5 lg:grid-cols-2 gap-4"
+    />
   </section>
 
   <section class="p-4 col-span-2 lg:col-span-1">
     <h2 class="font-semibold">{lenguaje.asidePago}</h2>
     <Pago
-        base="md:col-span-2 md:px-8 lg:col-span-1"
-    style="grid grid-cols-4 lg:grid-cols-2 gap-4"
+      base="md:col-span-2 md:px-8 lg:col-span-1"
+      style="grid grid-cols-4 lg:grid-cols-2 gap-4"
     />
-  </section>
-
   </section>
 </section>

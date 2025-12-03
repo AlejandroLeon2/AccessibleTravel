@@ -6,7 +6,7 @@ const { currentLocale } = Astro;
 ---
 
 <aside
-  class="w-full md:max-w-xs my-12 md:w-80 p-4 space-y-2 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
+  class="w-full  md:max-w-sm my-12 md:w-80 p-4 space-y-2 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
 >
   <!-- Perfil -->
       <section class="text-center">
@@ -16,7 +16,7 @@ const { currentLocale } = Astro;
           title={`Foto de ${lenguaje.aboutTitle}`}
           class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"
         />
-        <h2 class="mt-4 text-lg font-bold text-gray-900">
+        <h2 class="mt-4 text-lg font-bold text-gray-900 line-clamp-2">
           {lenguaje.aboutTitle }
         </h2>
         <p class="text-sm text-gray-500">{lenguaje.asideBlogSub}</p>

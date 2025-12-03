@@ -94,21 +94,17 @@ import { groupTours as grouptour } from "../../data/groupTours";
   document.addEventListener("DOMContentLoaded", () => {
     const contadores = document.querySelectorAll(".contador");
 
-    contadores.forEach((contador, index) => {
-      const start = new Date(contador.dataset.start);
-      const end = new Date(contador.dataset.end);
+    function updateAllCounters() {
+      const now = new Date();
 
-      const unidades = contador.querySelectorAll(".unidad");
+      contadores.forEach((contador) => {
+        const end = new Date(contador.dataset.end);
+        const unidades = contador.querySelectorAll(".unidad");
 
-      function updateCounter() {
-        const now = new Date();
         const diff = end - now;
 
         if (diff <= 0) {
-          unidades.forEach((el) => {
-            el.textContent = "00";
-          });
-          clearInterval(intervalo);
+          unidades.forEach((el) => (el.textContent = "00"));
           return;
         }
 
@@ -121,10 +117,13 @@ import { groupTours as grouptour } from "../../data/groupTours";
         valores.forEach((val, i) => {
           unidades[i].textContent = String(val).padStart(2, "0");
         });
-      }
+      });
+    }
 
-      updateCounter();
-      const intervalo = setInterval(updateCounter, 1000);
-    });
+    // Ejecuta una vez al inicio
+    updateAllCounters();
+    // Una sola instancia de intervalo para todos
+    setInterval(updateAllCounters, 1000);
   });
 </script>
+

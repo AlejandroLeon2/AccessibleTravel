@@ -2,8 +2,8 @@ export const groupTours =[
   {
     "title": "Accessible Sacred Valley & Machu Picchu",
     "titleLink": "accessible-sacred-valley-machu-picchu",
-    startDate: new Date("2025-02-20"),
-    endDate: new Date("2025-11-20"),
+    startDate: new Date("2025-01-20"),
+    endDate: new Date("2026-01-20T08:00:00"),
     unidades: ["DAYS", "HOURS", "MINUTES", "SECONDS"],
     "location": "Cusco, Perú",
     "operator": "Accessible Travel Peru",

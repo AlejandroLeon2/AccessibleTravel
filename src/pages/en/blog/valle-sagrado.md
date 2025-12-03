@@ -9,7 +9,6 @@ tags: ["cusco", "travel", "accessible tourism", "peru"]
 date: "2025-08-07"
 author: "Francisco"
 ---
-
 The Sacred Valley, located between Cusco and Machu Picchu 🇵🇪, offers a unique experience for travelers who require accessibility without giving up cultural authenticity or contact with nature.
 
 ## **Adapted destinations**

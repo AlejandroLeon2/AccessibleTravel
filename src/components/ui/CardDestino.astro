@@ -73,11 +73,11 @@ const {
   </main>
 
   <footer class=`flex w-auto  items-center ${botones}  px-4 pb-4 pt-2`>
-    <p class="text-azul-travel font-semibold">{data.packages[0].price}</p>
+    <!-- <p class="text-azul-travel font-semibold">{data.packages[0].price}</p> -->
 
     <a
       href={`/${currentLocale}${ruta}${data.titleLink}`}
-      class=`text-white ${style? "w-auto text-center":" "}  text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-1.5`
+      class=`text-white ${style? "w-full text-center":" "}  text-sm bg-azul-travel hover:bg-azul-travel-hover hover:scale-105 active:scale-95 duration-300 rounded-3xl px-6 py-2`
       >{lenguaje.cardDestinoBoton}</a
     >
   </footer>

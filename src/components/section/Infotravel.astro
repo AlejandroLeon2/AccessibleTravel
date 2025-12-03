@@ -1,6 +1,7 @@
 ---
 import Acordeon from "../constructor/Acordeon.astro";
 import AsideTravel from "../ui/AsideTravel.astro";
+import { Fragment } from "astro/jsx-runtime";
 const { data, lenguaje } = Astro.props;
 const tour = {
   title: "Africa – Amazing African Safari",
@@ -44,7 +45,7 @@ const tour = {
         >
           {
             data.recomendado ? (
-              <span class="w-auto z-10 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded mb-2">
+              <span class="w-auto z-10 bg-azul-travel text-white text-xs font-semibold px-3 py-1 rounded mb-2">
                 {lenguaje.infoRecomendado}
               </span>
             ) : (
@@ -73,33 +74,33 @@ const tour = {
           >
             {"★".repeat(data.rating)}{"☆".repeat(5 - data.rating)}
             <span class="text-gray-500 text-xs"
-              >({tour.reviews} {lenguaje.infoReseñas})</span
+              >({data.reseñas} {lenguaje.infoReseñas})</span
             >
           </p>
-          <p class="text-azul-travel font-semibold text-lg lg:text-2xl">
+          <!--  <p class="text-azul-travel font-semibold text-lg lg:text-2xl">
             {data.packages[0].price}
-          </p>
+          </p> -->
         </div>
       </div>
-      <div class="flex flex-col lg:flex-row gap-4">
+      <div class="flex flex-col lg:flex-row gap-4 justify-around">
         <img
           src={data.images[1].link}
           alt={`Tour image `}
-          class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
+          class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-sm xl:max-w-3/7 object-cover rounded-xl"
         />
         <img
           src={data.images[2].link}
           alt={`Tour image `}
-          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
+          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7  object-cover rounded-xl"
         />
         <img
           src={data.images[3].link}
           alt={`Tour image `}
-          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 object-cover rounded-xl"
+          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7  object-cover rounded-xl"
         />
       </div>
       <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
-        <section class="py-12 max-w-xl px-4 bg-white mx-auto space-y-10">
+        <section class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10">
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
           </h2>
@@ -154,8 +155,12 @@ const tour = {
             )
           }
           <h2 class="text-lg font-semibold mb-2">{lenguaje.infoPaquetes}</h2>
+          <div>
+
+<div><script src="https://cdn.wetravel.com/widgets/embed_reviews.js" id="wetravel_review_widget" data-env="https://www.wetravel.com" data-version="v0.3" data-userslug="pedro-alejandro-leon" data-uid="1765576" data-showstars="true" data-showcount="true" data-name="WeTravel Review Widget"></script></div>
           {
             Array.isArray(data?.packages) && data.packages.length > 0 && (
+              
               <div class="grid grid-cols-1 gap-6">
                 {data.packages.map((pkg) => (
                   <article class="border border-gray-200 flex flex-col md:flex-row px-4 py-2 justify-center md:justify-between md:items-start items-center rounded-lg shadow-sm bg-white">
@@ -205,7 +210,7 @@ const tour = {
             <ul class="" role="list">
               {
                 data.addOns.map((addon) => (
-                  <li class="border-b border-gray-200 rounded-lg p-4 ">
+                  <li class="border-b border-gray-200  py-4 ">
                     <h3 class=" flex justify-between text-lg font-semibold text-gray-800">
                       {addon.name}{" "}
                       <span class="text-sm font-medium text-azul-travel mt-2">
