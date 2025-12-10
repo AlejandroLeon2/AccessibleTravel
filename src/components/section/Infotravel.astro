@@ -2,7 +2,6 @@
 import Acordeon from "../constructor/Acordeon.astro";
 import AsideTravel from "../ui/AsideTravel.astro";
 import { Fragment } from "astro/jsx-runtime";
-const { data, lenguaje } = Astro.props;
 const tour = {
   title: "Africa – Amazing African Safari",
   duration: "5 Hours",
@@ -15,6 +14,16 @@ const tour = {
   featured: true,
   images: ["/images/gato.jpg", "/images/gato.jpg", "/images/gato.jpg"],
 };
+// WeTravelWidget.astro
+
+const {
+  color = "1666F4",
+  text = "Book Now",
+  showReviews = true,
+  env = "https://www.wetravel.com",
+
+  data, lenguaje 
+} = Astro.props;
 ---
 
 <section class="bg-white py-6 relative px-4 mx-auto">
@@ -99,7 +108,7 @@ const tour = {
           class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7  object-cover rounded-xl"
         />
       </div>
-      <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
+<div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
         <section class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10">
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
@@ -157,47 +166,19 @@ const tour = {
           <h2 class="text-lg font-semibold mb-2">{lenguaje.infoPaquetes}</h2>
           <div>
 
-<div><script src="https://cdn.wetravel.com/widgets/embed_reviews.js" id="wetravel_review_widget" data-env="https://www.wetravel.com" data-version="v0.3" data-userslug="pedro-alejandro-leon" data-uid="1765576" data-showstars="true" data-showcount="true" data-name="WeTravel Review Widget"></script></div>
-          {
-            Array.isArray(data?.packages) && data.packages.length > 0 && (
-              
-              <div class="grid grid-cols-1 gap-6">
-                {data.packages.map((pkg) => (
-                  <article class="border border-gray-200 flex flex-col md:flex-row px-4 py-2 justify-center md:justify-between md:items-start items-center rounded-lg shadow-sm bg-white">
-                    <header>
-                      <h3 class="text-lg max-w-50 font-semibold min-w-40">
-                        {pkg.name}
-                      </h3>
-                    </header>
 
-                    <section class="space-y-1 mt-2">
-                      <p class="text-sm  text-gray-700">
-                        <span class="font-semibold">
-                          {lenguaje.infoPrecio}:
-                        </span>{" "}
-                        {pkg.price}
-                      </p>
-                      <p class="text-sm  text-gray-700">
-                        <span class="font-semibold">
-                          {lenguaje.infoDeposito}:
-                        </span>{" "}
-                        {pkg.deposit}
-                      </p>
-                    </section>
-
-                    <footer class="mt-4">
-                      <a
-                        href={data.links.book}
-                        class="inline-block hover:bg-azul-travel hover:scale-105 active:scale-95 duration-300 rounded-full py-2 px-4 bg-gray-700 text-white"
-                      >
-                        {lenguaje.infoReserva}
-                      </a>
-                    </footer>
-                  </article>
-                ))}
-              </div>
-            )
-          }
+  <div 
+    id="wetravel_package_listing"
+    data-uid={data.uid}
+    data-uuid={data.uuid}
+    data-color={color}
+    data-text={lenguaje.infoReserva}
+    data-showreviews={showReviews}
+    data-env={env}
+    class="w-full h-full flex justify-center scroll-mt-40  my-8"
+  >
+    <!-- El iframe se insertará aquí -->
+  </div>
 
           <section aria-labelledby="add-ons-heading" class="mt-4">
             <h2
@@ -270,3 +251,95 @@ const tour = {
     });
   </script>
 </section>
+<script>
+  // Inicializar el widget cuando el DOM esté listo
+  function initWeTravelWidget() {
+    const container = document.getElementById('wetravel_package_listing');
+    if (!container) return;
+
+    const { uid, uuid, color, text, showreviews, env } = container.dataset;
+    
+    const iframeSrc = `${env}/packages_embed?uuid=${uuid}&btn_color=${color}&btn_name=${encodeURIComponent(text)}&show_reviews=${showreviews}&env=${env}`;
+    
+    // Crear iframe principal
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('frameborder', '0');
+    iframe.src = iframeSrc;
+    iframe.className = 'flex w-full h-full justify-center min-h-130';
+    
+    // Reemplazar el contenido del container con el iframe
+    container.innerHTML = '';
+    container.appendChild(iframe);
+
+    // Listener para el checkout
+    window.addEventListener('message', (event) => {
+      if (!event.data) return;
+
+      // Abrir checkout
+      if (typeof event.data === 'string' && event.data.includes('WTRVL_checkout')) {
+        const [, checkoutUrl] = event.data.split('WTRVL_checkout');
+        if (checkoutUrl) {
+          openCheckout(checkoutUrl);
+        }
+      }
+
+      // Cerrar checkout
+      if (event.data === 'wtrvlCheckoutClosed') {
+        closeCheckout();
+      }
+    });
+
+    // Enviar analytics
+    sendAnalytics('load', uid, env);
+  }
+
+  // Abrir modal de checkout
+  function openCheckout(url) {
+    if (document.querySelector('.wtrvl-checkout-iframe')) return;
+
+    const checkoutIframe = document.createElement('iframe');
+    checkoutIframe.className = 'wtrvl-checkout-iframe fixed top-0 left-0 w-screen h-screen border-0';
+    checkoutIframe.style.zIndex = '999999';
+    checkoutIframe.src = url;
+
+    document.body.classList.add('overflow-hidden');
+    document.body.appendChild(checkoutIframe);
+
+    setTimeout(() => {
+      checkoutIframe.contentWindow?.postMessage('packageWidget', '*');
+    }, 3000);
+  }
+
+  // Cerrar modal de checkout
+  function closeCheckout() {
+    const checkoutIframe = document.querySelector('.wtrvl-checkout-iframe');
+    if (checkoutIframe) {
+      checkoutIframe.remove();
+      document.body.classList.remove('overflow-hidden');
+    }
+  }
+
+  // Enviar analytics a WeTravel
+  function sendAnalytics(actionType, uid, env) {
+    const data = {
+      version: 'v0.3',
+      user_id: uid,
+      embed_type: 'packages',
+      action_type: actionType,
+      url: window.location.href
+    };
+
+    fetch('https://t.wetravel.com/widgets', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {}); // Ignorar errores de analytics
+  }
+
+  // Iniciar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWeTravelWidget);
+  } else {
+    initWeTravelWidget();
+  }
+</script>
