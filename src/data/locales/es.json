@@ -1,4 +1,25 @@
 {
+
+
+"heroGroupUltimaOportunidad": "¡Última oportunidad!",
+"heroGroupCierraEn": "El evento cierra en:",
+
+
+"heroGroupTiempoLimitado": "Tiempo limitado",
+"heroGroupDisponibleHasta": "Disponible hasta:",
+"heroGroupPreparado": "¡Prepárate para la experiencia!",
+"heroGroupComienzaEn": "Comienza en:",
+
+"heroGroupNoTeLoPierdas": "¡No te lo pierdas!",
+"heroGroupFinalizaEn": "Finaliza en:",
+
+
+"heroGroupCuentaRegresiva": "Cuenta regresiva activa",
+"heroGroupTerminaPronto": "Termina pronto:",
+
+
+"heroGroupEventoHoy": "¡Es hoy!",
+"heroGroupQuedaPoco": "Queda poco tiempo:",
   "titleDinamico": "TOUR, VIAJES Y CAMPAMENTO DE AVENTURA",
   "subtitleDinamico": "¡Bienvenido a Accessible Travel Peru! Somos una agencia de viajes especializada en turismo accesible, confiable y profesional. Ofrecemos experiencias únicas por Perú.",
   "botonDinamico1": "Tour en Grupo",

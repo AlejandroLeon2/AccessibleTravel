@@ -1,5 +1,134 @@
 [
   {
+  "title": "WHEELCHAIR AIRPORT TRANSFERS or DISPOSAL♿🚐",
+  "titleLink": "wheelchair-airport-transfers-lima",
+  "operator": "Accessible Travel Peru",
+  "duration": "1",
+  "uid": "67259",
+  "uuid": "19229364",
+  "rating": 5,
+  "reseñas": 5,
+  "recomendado": false,
+  "groupSize": "1 - 999",
+  "location": "Lima, Perú",
+  "description": "Traslados y excursiones desde el Aeropuerto hasta su hotel en la ciudad de Lima, Perú",
+  "highlights": [],
+  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+  "contact": "",
+  "includes": [
+    "VAN accesible (Van adaptada para sillas de ruedas eléctricas y manuales 1 silla de ruedas + 3 acompañantes)",
+    "Boletos e impuestos (Boletos de estacionamiento e impuestos)"
+  ],
+  "excludes": [
+    "Propinas"
+  ],
+  "packages": [
+    {
+      "name": "Apto - Lince, San Isidro, Miraflores",
+      "price": "$45",
+      "deposit": ""
+    },
+    {
+      "name": "Apto - Barranco, Chorrillos, Surco",
+      "price": "$50",
+      "deposit": ""
+    },
+    {
+      "name": "Apto - Casuarinas, La Molina, Ate",
+      "price": "$65",
+      "deposit": ""
+    },
+    {
+      "name": "Precio por hora",
+      "price": "$40",
+      "deposit": ""
+    }
+  ],
+  "addOns": [],
+  "itinerary": [],
+  "images": [
+     {
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/orMIQiGKSBmR5gmPtYxn",
+        "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+        "title": "Vehículo de Expedición Todo Terreno"
+      }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/wheelchair-airport-transfers",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  }
+},
+  {
+  "title": "DISCOVER LIMA AND HUACA PUCLLANA - ACCESSIBLE FULL DAY TOUR ♿",
+  "titleLink": "lima-huaca-pucllana-accessible-tour",
+  "operator": "Accessible Travel Peru",
+  "duration": "1",
+  "uid": "67258",
+  "uuid": "33347775",
+  "rating": 5,
+  "reseñas": 5,
+  "recomendado": false,
+  "groupSize": "1 - 25",
+  "location": "Lima, Perú",
+  "description": "En Accessible Travel Perú, nos especializamos en crear experiencias de viaje inolvidables e inclusivas para personas con discapacidad. Con más de 10 años de experiencia, somos una empresa formal, registrada ante MINCETUR y orgullosos miembros de ENAT. Nuestro Tour de Día Completo en Lima está diseñado para ofrecerte un viaje cómodo y accesible, visitando el antiguo Complejo Arqueológico Huaca Pucllana y explorando el Centro Histórico de Lima. 🏛️🌍\n\nAseguramos que cada momento de tu viaje sea fluido y agradable, con transporte accesible y guías expertos. 🚌✨\n\nPara más información o reservar tu tour, visita nuestro sitio web en www.accessibletravelperu.com o contáctanos al +51 944 731 223. ¡Permítenos ayudarte a descubrir Lima con comodidad y facilidad! 🌟",
+  "highlights": [
+    "Visita al Complejo Arqueológico Huaca Pucllana",
+    "Recorrido por el Centro Histórico de Lima incluyendo Plaza Mayor y Convento de Santo Domingo",
+    "Transporte accesible y rutas adaptadas para personas con movilidad reducida",
+    "Guías expertos especializados en turismo accesible"
+  ],
+  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+  "contact": "Visite nuestro sitio web en www.accessibletravelperu.com o contáctenos al +51 944 731 223",
+  "includes": [
+    "VAN Accesible (WAV)",
+    "Tours (Todos los tours descritos en el itinerario)",
+    "Entradas (Todas las entradas)",
+    "Guía de turismo (Guía especializado en turismo accesible)",
+    "Almuerzo (Almuerzo en restaurante local)"
+  ],
+  "excludes": [
+    "Tours no mencionados (tours no mencionados en el programa)",
+    "Alojamiento (Hotel)"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "price": "$190",
+      "deposit": ""
+    },
+    {
+      "name": "Acompañante",
+      "price": "$150",
+      "deposit": ""
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Traslados ida y vuelta",
+      "price": "$50",
+      "description": "Inicio y final en el aeropuerto Jorge Chávez en Lima o en el puerto del Callao"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "TOUR ACCESIBLE DE DÍA COMPLETO EN LIMA🏛️🌍",
+      "description": "08:00 AM – Recogida en el hotel\nEl día comienza con un traslado cómodo y seguro en un vehículo accesible, especialmente diseñado para personas con movilidad reducida. Nuestro transporte adaptado garantizará que cada momento del día sea lo más cómodo posible.\n\n08:30 AM – Visita al Complejo Arqueológico Huaca Pucllana\nComenzamos el día visitando el impresionante Complejo Arqueológico Huaca Pucllana, un antiguo templo preinca ubicado en el corazón de Miraflores. Este sitio arqueológico es uno de los íconos más representativos de Lima.\n\n10:30 AM – Recorrido por el Centro Histórico de Lima\nEste recorrido nos lleva por los principales atractivos de Lima, con un enfoque en la accesibilidad para todos los visitantes:\nPlaza Mayor: Comenzamos con una visita a la Plaza Mayor, el corazón de la ciudad, donde encontrarás el Palacio de Gobierno, la Catedral de Lima y otros edificios históricos. Todas las entradas están adaptadas para personas con problemas de movilidad.\nMalecón de Miraflores: A continuación, nos dirigimos al Malecón de Miraflores, un punto de referencia donde podrás disfrutar de hermosas vistas del mar y parques accesibles en el camino.\nDistrito de San Isidro: Exploramos el elegante y tranquilo barrio de San Isidro, famoso por sus parques y jardines bien mantenidos, con amplias aceras y accesibilidad para personas con movilidad reducida.\nConvento e Iglesia de Santo Domingo: La última parada del recorrido es el histórico Convento de Santo Domingo, donde podrás apreciar la arquitectura colonial y disfrutar de su ambiente sereno. Este lugar también es accesible para sillas de ruedas.\n\n01:30 PM – Almuerzo accesible en un restaurante\nDisfrutaremos de un delicioso almuerzo en un restaurante accesible, donde podrás saborear lo mejor de la cocina peruana con opciones adaptadas a todas las necesidades. Te espera un menú variado, saludable y sabroso.\n\n03:00 PM – Regreso al hotel\nAl terminar el día, nuestro transporte accesible te llevará de regreso a tu hotel, asegurando un retorno cómodo y relajante."
+    }
+  ],
+  "images": [   {
+        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/orMIQiGKSBmR5gmPtYxn",
+        "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+        "title": "Vehículo de Expedición Todo Terreno"
+      }],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/discover-lima-and-huaca-pucllana-accessible-full-day-tour",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  }
+},
+  {
     "title": "Perú por Tierra: Expedición Accesible Fuera de Carretera a Través de Perú",
     "titleLink": "peru-accessible-offroad-expedition",
     "operator": "Accessible Travel Peru",

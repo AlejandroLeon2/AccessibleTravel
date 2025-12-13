@@ -1,26 +1,520 @@
 ---
 
-const {data, lenguaje}=Astro.props;
+
+const { data, lenguaje } = Astro.props;
 ---
- <div
-      class="flex max-w-xs gap-2 mt-2 contador justify-center"
-      
-      data-start={ data.startDate.toISOString() }
-      data-end={ data.endDate.toISOString()  }
-    >
+
+<div
+  class="contador relative flex  w-full gap-2 mt-2 justify-center"
+  data-start={data.startDate.toISOString()}
+  data-end={data.endDate.toISOString()}
+  data-siempre-fecha={data.siempreFecha ? "true" : "false"}
+>
+  <!-- Estado: Error de configuración -->
+  <div class="estado-error hidden w-full flex flex-col md:flex-row gap-2 justify-center">
+    <div class="text-center w-16 py-2 space-y-2">
+      <p
+        class="text-red-600 border border-red-200 rounded-full px-2 py-4 bg-white text-xl font-bold"
+      >
+        ⚠️
+      </p>
+      <p class="text-xs font-semibold text-red-700 mensaje-error">Error</p>
+    </div>
+  </div>
+
+  <!-- Estado: Antes de comenzar -->
+  <div class="estado-antes-inicio hidden flex flex-col md:flex-row justify-between items-center w-full">
+    <div class="mb-2 ">
+      <p
+        class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
+      >
+        {lenguaje.heroGroupPreparado}<span class="font-normal text-sm text-black"
+          >{lenguaje.heroGroupComienzaEn}</span
+        >
+      </p>
+    </div>
+    <div class="flex gap-2 justify-center">
       {
-        
         lenguaje.heroGroupUnidades.map((unidad) => (
-          <div class="text-center  w-16 py-2 space-y-2">
+          <div class="text-center w-16 py-2 space-y-2">
+            <p class="text-azul-travel unidad-antes border border-gray-200 rounded-full px-2 py-4 bg-white text-xl font-bold">
+              --
+            </p>
+            <p class="text-xs font-semibold text-gray-700">{unidad}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Estado: Evento del mismo día -->
+  <div class="estado-mismo-dia hidden flex flex-col md:flex-row justify-between items-center w-full">
+    <div class="mb-2 ">
+      <p
+        class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
+      >
+        {lenguaje.heroGroupUltimaOportunidad}<span class="font-normal text-sm text-black"
+          >{lenguaje.heroGroupCierraEn}</span
+        >
+      </p>
+    </div>
+    <div class="flex gap-2 justify-center">
+      {
+        lenguaje.heroGroupUnidades.slice(1).map((unidad) => (
+          <div class="text-center w-16 py-2 space-y-2">
+            <p class="text-amber-600 unidad-mismo-dia border border-amber-200 rounded-full px-2 py-4 bg-white text-xl font-bold">
+              --
+            </p>
+            <p class="text-xs font-semibold text-gray-700">{unidad}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Estado: Contador activo -->
+  <div class="estado-activo flex flex-col md:flex-row justify-around items-center w-full border">
+    <div class="mb-2 ">
+      <p
+        class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
+      >
+        {lenguaje.heroGroupUrgencia}<span class="font-normal text-sm text-black"
+          >{lenguaje.heroGroupTerminaEn}</span
+        >
+      </p>
+    </div>
+    <div class="flex gap-2 justify-center">
+      {
+        lenguaje.heroGroupUnidades.map((unidad, index) => (
+          <div class="text-center w-16 py-2 space-y-2">
             <p
-              class={ ` text-azul-travel unidad border border-gray-200 rounded-full px-2 py-4 bg-white text-xl font-bold`}
-             
+              class="text-blue-600 unidad border border-gray-200 rounded-full px-2 py-4 bg-white text-xl font-bold"
+              data-index={index}
             >
               --
             </p>
-            <p class="text-xs font-semibold">{unidad}</p>
+            <p class="text-xs font-semibold text-gray-700">{unidad}</p>
           </div>
         ))
-
       }
     </div>
+  </div>
+
+  <!-- Estado: Finalizado -->
+  <div
+    class="estado-finalizado hidden w-full flex gap-2 justify-center flex-col items-center"
+  >
+    <p class="texto-finalizado text-xs font-semibold text-gray-500 text-center">
+    </p>
+  </div>
+
+  <!-- Estado: Evento anual próximo año -->
+  <div
+    class="estado-proximo-año hidden flex flex-col md:flex-row justify-around  items-center w-full"
+  >
+    <div class="mb-2  w-full min-w-30">
+      <p
+        class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
+      >
+        {lenguaje.heroGroupPreparado}<span class="font-normal text-sm text-black"
+          >{lenguaje.heroGroupComienzaEn}</span
+        >
+      </p>
+    </div>
+    <div class="flex gap-2 justify-center w-full">
+      {
+        lenguaje.heroGroupUnidades.map((unidad) => (
+          <div class="text-center w-16 py-2 space-y-2">
+            <p class="text-purple-600a text-azul-travel-hover unidad-proximo border border-blue-200 rounded-full px-2 py-4 bg-white text-xl font-bold">
+              --
+            </p>
+            <p class="text-xs font-semibold text-gray-700">{unidad}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  interface CounterState {
+    start: Date;
+    end: Date;
+    isActive: boolean;
+    hasStarted: boolean;
+    hasEnded: boolean;
+    isSameDay: boolean;
+    hasError: boolean;
+    siempreFecha: boolean;
+    nextYearStart?: Date;
+    nextYearEnd?: Date;
+  }
+
+  class CountdownTimer {
+    private counter: HTMLElement;
+    private units: NodeListOf<HTMLElement>;
+    private unidadesAntes: NodeListOf<HTMLElement>;
+    private unidadesMismoDia: NodeListOf<HTMLElement>;
+    private unidadesProximo: NodeListOf<HTMLElement>;
+    private state: CounterState;
+    private intervalId: number | null = null;
+
+    private estadoError: HTMLElement | null;
+    private estadoAntesInicio: HTMLElement | null;
+    private estadoMismoDia: HTMLElement | null;
+    private estadoActivo: HTMLElement | null;
+    private estadoFinalizado: HTMLElement | null;
+    private estadoProximoAño: HTMLElement | null;
+    private mensajeError: HTMLElement | null;
+    private textoFinalizado: HTMLElement | null;
+
+    constructor(counterElement: HTMLElement) {
+      this.counter = counterElement;
+      this.units = counterElement.querySelectorAll(".unidad");
+      this.unidadesAntes = counterElement.querySelectorAll(".unidad-antes");
+      this.unidadesMismoDia =
+        counterElement.querySelectorAll(".unidad-mismo-dia");
+      this.unidadesProximo = counterElement.querySelectorAll(".unidad-proximo");
+
+      this.estadoError = counterElement.querySelector(".estado-error");
+      this.estadoAntesInicio = counterElement.querySelector(
+        ".estado-antes-inicio"
+      );
+      this.estadoMismoDia = counterElement.querySelector(".estado-mismo-dia");
+      this.estadoActivo = counterElement.querySelector(".estado-activo");
+      this.estadoFinalizado =
+        counterElement.querySelector(".estado-finalizado");
+      this.estadoProximoAño = counterElement.querySelector(
+        ".estado-proximo-año"
+      );
+      this.mensajeError = counterElement.querySelector(".mensaje-error");
+      this.textoFinalizado = counterElement.querySelector(".texto-finalizado");
+
+      const startStr = counterElement.dataset.start;
+      const endStr = counterElement.dataset.end;
+      const siempreFechaStr = counterElement.dataset.siempreFecha;
+
+      if (!startStr || !endStr) {
+        this.showError("Faltan fechas");
+        return;
+      }
+
+      const siempreFecha = siempreFechaStr === "true";
+
+      this.state = {
+        start: new Date(startStr),
+        end: new Date(endStr),
+        isActive: false,
+        hasStarted: false,
+        hasEnded: false,
+        isSameDay: false,
+        hasError: false,
+        siempreFecha: siempreFecha,
+      };
+
+      if (!this.validateDates()) {
+        return;
+      }
+
+      // Si es fecha recurrente, calcular próxima ocurrencia
+      if (this.state.siempreFecha) {
+        this.calculateNextOccurrence();
+      }
+
+      this.init();
+    }
+
+    private calculateNextOccurrence(): void {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+
+      // Crear fechas para el año actual
+      const startThisYear = new Date(this.state.start);
+      startThisYear.setFullYear(currentYear);
+
+      const endThisYear = new Date(this.state.end);
+      endThisYear.setFullYear(currentYear);
+
+      // Si ya pasó este año, usar el próximo
+      if (now > endThisYear) {
+        this.state.nextYearStart = new Date(startThisYear);
+        this.state.nextYearStart.setFullYear(currentYear + 1);
+
+        this.state.nextYearEnd = new Date(endThisYear);
+        this.state.nextYearEnd.setFullYear(currentYear + 1);
+      } else {
+        // Usar fechas de este año
+        this.state.start = startThisYear;
+        this.state.end = endThisYear;
+      }
+    }
+
+    private validateDates(): boolean {
+      if (
+        isNaN(this.state.start.getTime()) ||
+        isNaN(this.state.end.getTime())
+      ) {
+        this.showError("Fechas inválidas");
+        return false;
+      }
+
+      if (this.state.end < this.state.start && !this.state.siempreFecha) {
+        this.showError("Fin antes de inicio");
+        return false;
+      }
+
+      const diffMs = this.state.end.getTime() - this.state.start.getTime();
+
+      if (diffMs === 0 && !this.state.siempreFecha) {
+        this.showError("Fechas idénticas");
+        return false;
+      }
+
+      if (diffMs < 60000 && !this.state.siempreFecha) {
+        this.showError("Muy corto (min. 1m)");
+        return false;
+      }
+
+      const sameDay =
+        this.state.start.getFullYear() === this.state.end.getFullYear() &&
+        this.state.start.getMonth() === this.state.end.getMonth() &&
+        this.state.start.getDate() === this.state.end.getDate();
+
+      if (sameDay) {
+        this.state.isSameDay = true;
+      }
+
+      return true;
+    }
+
+    private showError(message: string): void {
+      this.state.hasError = true;
+
+      if (this.mensajeError) {
+        this.mensajeError.textContent = message;
+      }
+
+      this.hideAllStates();
+      this.estadoError?.classList.remove("hidden");
+    }
+
+    private hideAllStates(): void {
+      this.estadoError?.classList.add("hidden");
+      this.estadoAntesInicio?.classList.add("hidden");
+      this.estadoMismoDia?.classList.add("hidden");
+      this.estadoActivo?.classList.add("hidden");
+      this.estadoFinalizado?.classList.add("hidden");
+      this.estadoProximoAño?.classList.add("hidden");
+    }
+
+    private init(): void {
+      this.updateCounter();
+      this.intervalId = window.setInterval(() => this.updateCounter(), 1000);
+    }
+
+    private updateCounter(): void {
+      if (this.state.hasError) return;
+
+      const now = new Date();
+
+      // Manejo especial para fechas recurrentes
+      if (this.state.siempreFecha) {
+        this.handleRecurringDate(now);
+        return;
+      }
+
+      // Lógica normal
+      if (now < this.state.start) {
+        this.showBeforeStart(now);
+        return;
+      }
+
+      if (
+        this.state.isSameDay &&
+        now >= this.state.start &&
+        now < this.state.end
+      ) {
+        this.showSameDay(now);
+        return;
+      }
+
+      if (now >= this.state.start && now < this.state.end) {
+        this.showActive(now);
+        return;
+      }
+
+      if (now >= this.state.end) {
+        this.showFinished();
+        return;
+      }
+    }
+
+    private handleRecurringDate(now: Date): void {
+      // Si estamos en el período activo
+      if (now >= this.state.start && now < this.state.end) {
+        if (this.state.isSameDay) {
+          this.showSameDay(now);
+        } else {
+          this.showActive(now);
+        }
+        return;
+      }
+
+      // Si aún no comienza este año
+      if (now < this.state.start) {
+        this.showBeforeStart(now);
+        return;
+      }
+
+      // Si ya pasó este año, mostrar countdown para el próximo
+      if (now >= this.state.end && this.state.nextYearStart) {
+        this.showNextYear(now);
+        return;
+      }
+    }
+
+    private showBeforeStart(now: Date): void {
+      if (!this.state.hasStarted) {
+        this.hideAllStates();
+        this.estadoAntesInicio?.classList.remove("hidden");
+      }
+
+      const diff = this.state.start.getTime() - now.getTime();
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const values = [days, hours, minutes, seconds];
+
+      values.forEach((val, i) => {
+        if (this.unidadesAntes[i]) {
+          const newValue = String(val).padStart(2, "0");
+          if (this.unidadesAntes[i].textContent !== newValue) {
+            this.unidadesAntes[i].textContent = newValue;
+          }
+        }
+      });
+    }
+
+    private showSameDay(now: Date): void {
+      if (!this.state.isActive) {
+        this.state.isActive = true;
+        this.state.hasStarted = true;
+        this.hideAllStates();
+        this.estadoMismoDia?.classList.remove("hidden");
+      }
+
+      const diff = this.state.end.getTime() - now.getTime();
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const values = [hours, minutes, seconds];
+
+      values.forEach((val, i) => {
+        if (this.unidadesMismoDia[i]) {
+          const newValue = String(val).padStart(2, "0");
+          if (this.unidadesMismoDia[i].textContent !== newValue) {
+            this.unidadesMismoDia[i].textContent = newValue;
+          }
+        }
+      });
+    }
+
+    private showActive(now: Date): void {
+      if (!this.state.isActive) {
+        this.state.isActive = true;
+        this.state.hasStarted = true;
+        this.hideAllStates();
+        this.estadoActivo?.classList.remove("hidden");
+      }
+
+      const diff = this.state.end.getTime() - now.getTime();
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const values = [days, hours, minutes, seconds];
+
+      values.forEach((val, i) => {
+        if (this.units[i]) {
+          const newValue = String(val).padStart(2, "0");
+          if (this.units[i].textContent !== newValue) {
+            this.units[i].textContent = newValue;
+          }
+        }
+      });
+    }
+
+    private showFinished(): void {
+      if (!this.state.hasEnded) {
+        this.state.hasEnded = true;
+        this.state.isActive = false;
+
+        this.hideAllStates();
+        this.estadoFinalizado?.classList.remove("hidden");
+
+        if (this.textoFinalizado) {
+          if (this.state.siempreFecha && this.state.nextYearStart) {
+            const nextYear = this.state.nextYearStart.getFullYear();
+            this.textoFinalizado.textContent = `Vuelve en ${nextYear}`;
+          } else {
+            this.textoFinalizado.textContent = "Evento finalizado";
+          }
+        }
+
+        if (this.intervalId !== null && !this.state.siempreFecha) {
+          clearInterval(this.intervalId);
+          this.intervalId = null;
+        }
+      }
+    }
+
+    private showNextYear(now: Date): void {
+      if (!this.state.nextYearStart) return;
+
+      this.hideAllStates();
+      this.estadoProximoAño?.classList.remove("hidden");
+
+      const diff = this.state.nextYearStart.getTime() - now.getTime();
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const values = [days, hours, minutes, seconds];
+
+      values.forEach((val, i) => {
+        if (this.unidadesProximo[i]) {
+          const newValue = String(val).padStart(2, "0");
+          if (this.unidadesProximo[i].textContent !== newValue) {
+            this.unidadesProximo[i].textContent = newValue;
+          }
+        }
+      });
+    }
+
+    public destroy(): void {
+      if (this.intervalId !== null) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll<HTMLElement>(".contador");
+    const timerInstances: CountdownTimer[] = [];
+
+    counters.forEach((counter) => {
+      timerInstances.push(new CountdownTimer(counter));
+    });
+
+    window.addEventListener("beforeunload", () => {
+      timerInstances.forEach((timer) => timer.destroy());
+    });
+  });
+</script>

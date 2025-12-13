@@ -22,7 +22,8 @@ const {
   showReviews = true,
   env = "https://www.wetravel.com",
 
-  data, lenguaje 
+  data,
+  lenguaje,
 } = Astro.props;
 ---
 
@@ -37,13 +38,16 @@ const {
     >
       {lenguaje.infoBotonDescripcion}
     </button>
-    <button
-      id="tab-plan"
-      class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg transition text-black hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
-      data-tab="plan"
-    >
-      {lenguaje.infoBotonPlanificacion}
-    </button>
+{data.itinerary && data.itinerary.length > 0 && (
+  <button
+    id="tab-plan"
+    class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg transition text-black hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
+    data-tab="plan"
+  >
+    {lenguaje.infoBotonPlanificacion}
+  </button>
+)}
+
   </div>
 
   <div class="flex flex-col lg:flex-row justify-between gap-6">
@@ -92,23 +96,46 @@ const {
         </div>
       </div>
       <div class="flex flex-col lg:flex-row gap-4 justify-around">
-        <img
-          src={data.images[1].link}
-          alt={`Tour image `}
-          class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-sm xl:max-w-3/7 object-cover rounded-xl"
-        />
-        <img
-          src={data.images[2].link}
-          alt={`Tour image `}
-          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7  object-cover rounded-xl"
-        />
-        <img
-          src={data.images[3].link}
-          alt={`Tour image `}
-          class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7  object-cover rounded-xl"
-        />
+        {
+          !data.images?.[1] && (
+            <img
+              src={data.images[0].link}
+              alt="Tour image"
+              class="w-full  h-52 lg:h-[60svh] max-h-100  object-cover rounded-xl"
+            />
+          )
+        }
+        {
+          data.images?.[1] && (
+            <img
+              src={data.images[1].link}
+              alt="Tour image"
+              class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-sm xl:max-w-3/7 object-cover rounded-xl"
+            />
+          )
+        }
+
+        {
+          data.images?.[2] && (
+            <img
+              src={data.images[2].link}
+              alt="Tour image"
+              class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7 object-cover rounded-xl"
+            />
+          )
+        }
+
+        {
+          data.images?.[3] && (
+            <img
+              src={data.images[3].link}
+              alt="Tour image"
+              class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7 object-cover rounded-xl"
+            />
+          )
+        }
       </div>
-<div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
+      <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
         <section class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10">
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
@@ -165,181 +192,187 @@ const {
           }
           <h2 class="text-lg font-semibold mb-2">{lenguaje.infoPaquetes}</h2>
           <div>
-
-
-  <div 
-    id="wetravel_package_listing"
-    data-uid={data.uid}
-    data-uuid={data.uuid}
-    data-color={color}
-    data-text={lenguaje.infoReserva}
-    data-showreviews={showReviews}
-    data-env={env}
-    class="w-full h-full flex justify-center scroll-mt-40  my-8"
-  >
-    <!-- El iframe se insertará aquí -->
-  </div>
-
-          <section aria-labelledby="add-ons-heading" class="mt-4">
-            <h2
-              id="add-ons-heading"
-              class="text-xl font-semibold text-black mb-4"
+            <div
+              id="wetravel_package_listing"
+              data-uid={data.uid}
+              data-uuid={data.uuid}
+              data-color={color}
+              data-text={lenguaje.infoReserva}
+              data-showreviews={showReviews}
+              data-env={env}
+              class="w-full h-full flex justify-center scroll-mt-40 my-8"
             >
-              {lenguaje.infoComplementos}
-            </h2>
+              <!-- El iframe se insertará aquí -->
+            </div>
 
-            <ul class="" role="list">
-              {
-                data.addOns.map((addon) => (
-                  <li class="border-b border-gray-200  py-4 ">
-                    <h3 class=" flex justify-between text-lg font-semibold text-gray-800">
-                      {addon.name}{" "}
-                      <span class="text-sm font-medium text-azul-travel mt-2">
-                        {addon.price}
-                      </span>
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-1">
-                      {addon.description}
-                    </p>
-                  </li>
-                ))
-              }
-            </ul>
-          </section>
+{data.addOns && data.addOns.length > 0 && (
+  <section aria-labelledby="add-ons-heading" class="mt-4">
+    <h2
+      id="add-ons-heading"
+      class="text-xl font-semibold text-black mb-4"
+    >
+      {lenguaje.infoComplementos}
+    </h2>
+
+    <ul role="list">
+      {data.addOns.map((addon) => (
+        <li  class="border-b border-gray-200 py-4">
+          <h3 class="flex justify-between text-lg font-semibold text-gray-800">
+            {addon.name}
+            <span class="text-sm font-medium text-azul-travel mt-2">
+              {addon.price}
+            </span>
+          </h3>
+          <p class="text-sm text-gray-600 mt-1">{addon.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+          </div>
         </section>
         <AsideTravel lenguaje={lenguaje} data={data} />
       </div>
+       </section>
+      <section
+        id="tab-content-plan"
+        class="text-gray-700 flex flex-col lg:flex-row hidden w-full"
+      >
+        <Acordeon data={data} lenguaje={lenguaje} />
+        <AsideTravel lenguaje={lenguaje} data={data} />
+      </section>
     </section>
-    <section
-      id="tab-content-plan"
-      class="text-gray-700 flex flex-col lg:flex-row hidden w-full"
-    >
-      <Acordeon data={data} lenguaje={lenguaje} />
-      <AsideTravel lenguaje={lenguaje} data={data} />
-    </section>
-  </div>
 
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-      const tabs = document.querySelectorAll(".tab-btn");
-      const contents = {
-        info: document.getElementById("tab-content-info"),
-        plan: document.getElementById("tab-content-plan"),
-      };
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".tab-btn");
+        const contents = {
+          info: document.getElementById("tab-content-info"),
+          plan: document.getElementById("tab-content-plan"),
+        };
 
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          // reset all
-          tabs.forEach((t) => {
-            t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
-            t.classList.add("text-gray-500", "border-transparent");
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            // reset all
+            tabs.forEach((t) => {
+              t.classList.remove(
+                "text-[-azul-travel]",
+                "border-[-azul-travel]"
+              );
+              t.classList.add("text-gray-500", "border-transparent");
+            });
+            Object.values(contents).forEach((c) => c.classList.add("hidden"));
+
+            // activate clicked
+            const selected = tab.dataset.tab;
+            tab.classList.remove("text-gray-500", "border-transparent");
+            tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+            contents[selected].classList.remove("hidden");
           });
-          Object.values(contents).forEach((c) => c.classList.add("hidden"));
-
-          // activate clicked
-          const selected = tab.dataset.tab;
-          tab.classList.remove("text-gray-500", "border-transparent");
-          tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
-          contents[selected].classList.remove("hidden");
         });
+
+        // default active tab
+        document
+          .getElementById("tab-info")
+          .classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+      });
+    </script>
+  </div>
+  <script>
+    // Inicializar el widget cuando el DOM esté listo
+    function initWeTravelWidget() {
+      const container = document.getElementById("wetravel_package_listing");
+      if (!container) return;
+
+      const { uid, uuid, color, text, showreviews, env } = container.dataset;
+
+      const iframeSrc = `${env}/packages_embed?uuid=${uuid}&btn_color=${color}&btn_name=${encodeURIComponent(text)}&show_reviews=${showreviews}&env=${env}`;
+
+      // Crear iframe principal
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute("frameborder", "0");
+      iframe.src = iframeSrc;
+      iframe.className = "flex w-full h-full justify-center min-h-130";
+
+      // Reemplazar el contenido del container con el iframe
+      container.innerHTML = "";
+      container.appendChild(iframe);
+
+      // Listener para el checkout
+      window.addEventListener("message", (event) => {
+        if (!event.data) return;
+
+        // Abrir checkout
+        if (
+          typeof event.data === "string" &&
+          event.data.includes("WTRVL_checkout")
+        ) {
+          const [, checkoutUrl] = event.data.split("WTRVL_checkout");
+          if (checkoutUrl) {
+            openCheckout(checkoutUrl);
+          }
+        }
+
+        // Cerrar checkout
+        if (event.data === "wtrvlCheckoutClosed") {
+          closeCheckout();
+        }
       });
 
-      // default active tab
-      document
-        .getElementById("tab-info")
-        .classList.add("text-[-azul-travel]", "border-[-azul-travel]");
-    });
+      // Enviar analytics
+      sendAnalytics("load", uid, env);
+    }
+
+    // Abrir modal de checkout
+    function openCheckout(url) {
+      if (document.querySelector(".wtrvl-checkout-iframe")) return;
+
+      const checkoutIframe = document.createElement("iframe");
+      checkoutIframe.className =
+        "wtrvl-checkout-iframe fixed top-0 left-0 w-screen h-screen border-0";
+      checkoutIframe.style.zIndex = "999999";
+      checkoutIframe.src = url;
+
+      document.body.classList.add("overflow-hidden");
+      document.body.appendChild(checkoutIframe);
+
+      setTimeout(() => {
+        checkoutIframe.contentWindow?.postMessage("packageWidget", "*");
+      }, 3000);
+    }
+
+    // Cerrar modal de checkout
+    function closeCheckout() {
+      const checkoutIframe = document.querySelector(".wtrvl-checkout-iframe");
+      if (checkoutIframe) {
+        checkoutIframe.remove();
+        document.body.classList.remove("overflow-hidden");
+      }
+    }
+
+    // Enviar analytics a WeTravel
+    function sendAnalytics(actionType, uid, env) {
+      const data = {
+        version: "v0.3",
+        user_id: uid,
+        embed_type: "packages",
+        action_type: actionType,
+        url: window.location.href,
+      };
+
+      fetch("https://t.wetravel.com/widgets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }).catch(() => {}); // Ignorar errores de analytics
+    }
+
+    // Iniciar cuando el DOM esté listo
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initWeTravelWidget);
+    } else {
+      initWeTravelWidget();
+    }
   </script>
 </section>
-<script>
-  // Inicializar el widget cuando el DOM esté listo
-  function initWeTravelWidget() {
-    const container = document.getElementById('wetravel_package_listing');
-    if (!container) return;
-
-    const { uid, uuid, color, text, showreviews, env } = container.dataset;
-    
-    const iframeSrc = `${env}/packages_embed?uuid=${uuid}&btn_color=${color}&btn_name=${encodeURIComponent(text)}&show_reviews=${showreviews}&env=${env}`;
-    
-    // Crear iframe principal
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('frameborder', '0');
-    iframe.src = iframeSrc;
-    iframe.className = 'flex w-full h-full justify-center min-h-130';
-    
-    // Reemplazar el contenido del container con el iframe
-    container.innerHTML = '';
-    container.appendChild(iframe);
-
-    // Listener para el checkout
-    window.addEventListener('message', (event) => {
-      if (!event.data) return;
-
-      // Abrir checkout
-      if (typeof event.data === 'string' && event.data.includes('WTRVL_checkout')) {
-        const [, checkoutUrl] = event.data.split('WTRVL_checkout');
-        if (checkoutUrl) {
-          openCheckout(checkoutUrl);
-        }
-      }
-
-      // Cerrar checkout
-      if (event.data === 'wtrvlCheckoutClosed') {
-        closeCheckout();
-      }
-    });
-
-    // Enviar analytics
-    sendAnalytics('load', uid, env);
-  }
-
-  // Abrir modal de checkout
-  function openCheckout(url) {
-    if (document.querySelector('.wtrvl-checkout-iframe')) return;
-
-    const checkoutIframe = document.createElement('iframe');
-    checkoutIframe.className = 'wtrvl-checkout-iframe fixed top-0 left-0 w-screen h-screen border-0';
-    checkoutIframe.style.zIndex = '999999';
-    checkoutIframe.src = url;
-
-    document.body.classList.add('overflow-hidden');
-    document.body.appendChild(checkoutIframe);
-
-    setTimeout(() => {
-      checkoutIframe.contentWindow?.postMessage('packageWidget', '*');
-    }, 3000);
-  }
-
-  // Cerrar modal de checkout
-  function closeCheckout() {
-    const checkoutIframe = document.querySelector('.wtrvl-checkout-iframe');
-    if (checkoutIframe) {
-      checkoutIframe.remove();
-      document.body.classList.remove('overflow-hidden');
-    }
-  }
-
-  // Enviar analytics a WeTravel
-  function sendAnalytics(actionType, uid, env) {
-    const data = {
-      version: 'v0.3',
-      user_id: uid,
-      embed_type: 'packages',
-      action_type: actionType,
-      url: window.location.href
-    };
-
-    fetch('https://t.wetravel.com/widgets', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).catch(() => {}); // Ignorar errores de analytics
-  }
-
-  // Iniciar cuando el DOM esté listo
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initWeTravelWidget);
-  } else {
-    initWeTravelWidget();
-  }
-</script>

@@ -1,4 +1,17 @@
 {
+    "heroGroupUltimaOportunidad": "Last chance!",
+  "heroGroupCierraEn": "The event closes in:",
+
+  "heroGroupTiempoLimitado": "Limited time",
+  "heroGroupDisponibleHasta": "Available until:",
+  "heroGroupPreparado": "Get ready for the experience!",
+  "heroGroupComienzaEn": "Starts in:",
+
+  "heroGroupNoTeLoPierdas": "Don't miss it!",
+  "heroGroupFinalizaEn": "Ends in:",
+
+  "heroGroupCuentaRegresiva": "Active countdown",
+  "heroGroupTerminaPronto": "Ends soon:",
   "titleDinamico": "TOUR, TRAVEL AND ADVENTURE CAMP",
   "subtitleDinamico": "Welcome to Accessible Travel Peru! We are a travel agency specialized in accessible, reliable, and professional tourism. We offer unique experiences across Peru.",
   "botonDinamico1": "Group Tour",
