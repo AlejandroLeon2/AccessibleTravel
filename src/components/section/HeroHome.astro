@@ -1,11 +1,10 @@
 ---
 import Play from "../svg/Play.astro";
 const data = {
-autor: "/images/francisco.webp",
-
+  autor: "/images/francisco.webp",
 };
 const { currentLocale } = Astro;
-const {lenguaje}=Astro.props
+const { lenguaje } = Astro.props;
 ---
 
 <section
@@ -14,20 +13,21 @@ const {lenguaje}=Astro.props
   <div
     class="relative w-full items-center justify-center h-[70svh] max-w-4xl max-h-100 flex"
   >
-  <iframe
-  id="youtube-player"
-   class="w-full h-[60svh] max-h-100 lg:max-w-5xl rounded-2xl"
-    src="https://www.youtube.com/embed/PBF2y98Bdn0?si=cL-cuBrIkc3mjlb3"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen></iframe>
-
+    <iframe
+      id="youtube-player"
+      class="w-full h-[60svh] max-h-100 lg:max-w-5xl rounded-2xl"
+      src="https://www.youtube.com/embed/PBF2y98Bdn0?si=cL-cuBrIkc3mjlb3"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   </div>
 
   <div>
-    <p class="text-azul-travel font-semibold text-sm mb-2">{lenguaje.subtituloHeroHome}</p>
+    <p class="text-azul-travel font-semibold text-sm mb-2">
+      {lenguaje.subtituloHeroHome}
+    </p>
     <h2 class="text-3xl font-extrabold text-gray-900 leading-tight mb-4">
       {lenguaje.tituloHeroHome}
     </h2>
@@ -36,7 +36,9 @@ const {lenguaje}=Astro.props
       {
         lenguaje.itemsHeroHome.map((item) => (
           <div class="flex flex-col  items-start gap-3">
-            <h4 class="text-base font-semibold text-gray-800">{item.tituloHeroHome}</h4>
+            <h4 class="text-base font-semibold text-gray-800">
+              {item.tituloHeroHome}
+            </h4>
             <p class="text-sm text-gray-600">{item.textoHeroHome}</p>
           </div>
         ))
@@ -55,11 +57,19 @@ const {lenguaje}=Astro.props
           src={data.autor}
           alt={lenguaje.autorHeroHome.nombreHeroHome}
           class="w-10 h-10 rounded-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
         <div>
-          <p class="font-semibold text-gray-800 text-sm">{lenguaje.autorHeroHome.nombreHeroHome}</p>
-          <p class="text-xs text-azul-travel">{lenguaje.autorHeroHome.cargoHeroHome}</p>
-          <p class="text-xs text-gray-500 italic">{lenguaje.autorHeroHome.mensajeHeroHome}</p>
+          <p class="font-semibold text-gray-800 text-sm">
+            {lenguaje.autorHeroHome.nombreHeroHome}
+          </p>
+          <p class="text-xs text-azul-travel">
+            {lenguaje.autorHeroHome.cargoHeroHome}
+          </p>
+          <p class="text-xs text-gray-500 italic">
+            {lenguaje.autorHeroHome.mensajeHeroHome}
+          </p>
         </div>
       </div>
     </div>

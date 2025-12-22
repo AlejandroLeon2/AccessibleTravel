@@ -9,7 +9,7 @@ import lenguaje from "../../data/locales/en.json";
 import { headerMenu } from "../../utils/headerSpañol";
 import infoEmpresa from "../../data/accessibleTravel.json";
 ---
-<Layout headerMenu={headerMenu} lenguaje={lenguaje}>
+<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
 <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="About Us"/>
 
 <MainContent>

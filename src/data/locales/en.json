@@ -1,5 +1,27 @@
 {
-    "heroGroupUltimaOportunidad": "Last chance!",
+  "title": "Accessible Travel Peru | Inclusive Tours for People with Disabilities",
+  "description": "Discover Peru without limits with Accessible Travel Peru. We specialize in inclusive tourism for people with mobility disabilities, offering accessible hotels, adapted routes, specialized equipment, and expert guides. Explore Machu Picchu, Cusco, and Lake Titicaca with safety, comfort, and personalized support.",
+  "includes": [
+    "Accessible Hotels",
+    "Accessible Routes",
+    "Specialized Equipment",
+    "Official Tour Guides",
+    "Support Staff",
+    "Train Tickets & Entrances",
+    "Tourism Oriented",
+    "Climatic Events & Warnings"
+  ],
+  "detalles": [
+    "Double room",
+    "All legal documents and detailed list of events and conditions",
+    "All offer-based services (tours, equipment)",
+    "Bilingual local tour guides (Spanish / English)",
+    "Trained and ready to help at any time",
+    "Tickets and access to Machu Picchu + Return Tickets",
+    "A full focus on customer demands from the itinerary",
+    "Maybe... you like heavy raining in the tour"
+  ],
+  "heroGroupUltimaOportunidad": "Last chance!",
   "heroGroupCierraEn": "The event closes in:",
 
   "heroGroupTiempoLimitado": "Limited time",

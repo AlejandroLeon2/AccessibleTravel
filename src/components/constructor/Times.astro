@@ -1,16 +1,14 @@
 ---
-
-
 const { data, lenguaje } = Astro.props;
 ---
 
 <div
-  class="contador relative flex  w-full gap-2 mt-2 justify-center"
+  class="contador relative flex  w-full  gap-2 mt-2 justify-center"
   data-start={data.startDate.toISOString()}
   data-end={data.endDate.toISOString()}
   data-siempre-fecha={data.siempreFecha ? "true" : "false"}
 >
-  <!-- Estado: Error de configuración -->
+
   <div class="estado-error hidden w-full flex flex-col md:flex-row gap-2 justify-center">
     <div class="text-center w-16 py-2 space-y-2">
       <p
@@ -22,7 +20,7 @@ const { data, lenguaje } = Astro.props;
     </div>
   </div>
 
-  <!-- Estado: Antes de comenzar -->
+
   <div class="estado-antes-inicio hidden flex flex-col md:flex-row justify-between items-center w-full">
     <div class="mb-2 ">
       <p

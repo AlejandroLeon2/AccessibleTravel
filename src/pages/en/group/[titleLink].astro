@@ -7,13 +7,13 @@ import MainContent from "../../../components/constructor/MainContent.astro";
 import lenguaje from "../../../data/locales/en.json";
 import { headerMenu } from "../../../utils/headerSpañol";
 
-export function getStaticPaths() {
-  const paths = groupTours.map((item) => ({
-    params: { titleLink: item.titleLink }
+export async function getStaticPaths() {
+  return groupTours.map((tour) => ({
+    params: { titleLink: tour.titleLink },
+    props: { tour },
   }));
-
-  return paths;
 }
+
 
 // 🧩 Accede al parámetro y busca el destino en el array
 const { titleLink } = Astro.params;

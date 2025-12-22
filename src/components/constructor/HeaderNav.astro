@@ -29,6 +29,7 @@ const { data, style } = Astro.props;
                 <a
                   class="hover:text-blue-600 "
                   href={`/${currentLocale}${item.href}`}
+                  title={`LinkPage ${item.href}`}
                 >
                   {item.label}
                 </a>
@@ -44,6 +45,7 @@ const { data, style } = Astro.props;
                   <a
                     href={`/${currentLocale}${child.href}`}
                     class="block  px-4 py-2 hover:bg-gray-100"
+                    title={`LinkPage ${child.href}`}
                   >
                     {child.label}
                   </a>
@@ -56,6 +58,7 @@ const { data, style } = Astro.props;
             <a
               href={`/${currentLocale}${item.href}`}
               class="hover:text-blue-600"
+              title={`LinkPage ${item.href}`}
             >
               {item.label}
             </a>

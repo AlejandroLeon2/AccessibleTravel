@@ -1,6 +1,6 @@
 ---
 
-const {lenguaje}=Astro.props;
+const {lenguaje , es}=Astro.props;
 const groupTours = [
   {
     title: "Machu Picchu and the Titicaca Lake",
@@ -74,13 +74,13 @@ import { groupTours as grouptour } from "../../data/groupTours";
     <h3 class="text-lg font-semibold mb-4">{lenguaje.heroGroupIncluyeTitulo}</h3>
     <ul class="space-y-3">
       {
-        groupTours[0].includes.map((item, i) => (
+        lenguaje.includes.map((item, i) => (
           <li class="flex items-start gap-2">
             <span class="text-green-600 font-bold">✓</span>
             <span>
               <span class="font-medium">{item}</span>:
               <span class="text-gray-600 text-sm">
-                {groupTours[0].detalles[i]}
+                {lenguaje.detalles[i]}
               </span>
             </span>
           </li>

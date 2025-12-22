@@ -1,30 +1,31 @@
 ---
 import BlogNew from "../section/BlogNew.astro";
 import DestinoAside from "../section/DestinoAside.astro";
-const {  lenguaje, destinos ,news} = Astro.props;
+const { lenguaje, destinos, news } = Astro.props;
 const { currentLocale } = Astro;
 ---
 
 <aside
-  class="w-full  md:max-w-sm my-12 md:w-80 p-4 space-y-2 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
+  class="w-full md:max-w-sm my-12 md:w-80 p-4 space-y-2 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
 >
   <!-- Perfil -->
-      <section class="text-center">
-        <img
-          src="/images/francisco.webp"
-          alt={lenguaje.aboutTitle}
-          title={`Foto de ${lenguaje.aboutTitle}`}
-          class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"
-        />
-        <h2 class="mt-4 text-lg font-bold text-gray-900 line-clamp-2">
-          {lenguaje.aboutTitle }
-        </h2>
-        <p class="text-sm text-gray-500">{lenguaje.asideBlogSub}</p>
-        <p class="mt-3 text-gray-600 text-sm">{lenguaje.asideBlogDescripcion}</p>
-        <div class="flex justify-center gap-4 mt-4 text-gray-500">
-        </div>
-      </section>
+  <section class="text-center">
+    <img
+      src="/images/francisco.webp"
+      alt={lenguaje.aboutTitle}
+      title={`Foto de ${lenguaje.aboutTitle}`}
+      class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"
+      loading="lazy"
+      decoding="async"
+    />
+    <h2 class="mt-4 text-lg font-bold text-gray-900 line-clamp-2">
+      {lenguaje.aboutTitle}
+    </h2>
+    <p class="text-sm text-gray-500">{lenguaje.asideBlogSub}</p>
+    <p class="mt-3 text-gray-600 text-sm">{lenguaje.asideBlogDescripcion}</p>
+    <div class="flex justify-center gap-4 mt-4 text-gray-500"></div>
+  </section>
   <!-- Noticias recientes -->
-  <BlogNew articulo={news} lenguaje={lenguaje} style="text-2xl"  />
-  <DestinoAside lenguaje={lenguaje} destinos={destinos} style="text-2xl"/>
+  <BlogNew articulo={news} lenguaje={lenguaje} style="text-2xl" />
+  <DestinoAside lenguaje={lenguaje} destinos={destinos} style="text-2xl" />
 </aside>

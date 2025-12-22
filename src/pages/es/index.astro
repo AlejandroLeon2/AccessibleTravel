@@ -18,7 +18,7 @@ const articulos = Object.values(
 const articulo = articulos.slice(0, 3);
 ---
 
-<Layout title="" description="" headerMenu={headerMenu} lenguaje={lenguaje}>
+<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
   <PortadaDinamica lenguaje={lenguaje} />
 
   <MainContent>

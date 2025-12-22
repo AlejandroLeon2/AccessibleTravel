@@ -16,12 +16,14 @@ const {
 
 <article class=`bg-white ${style}  rounded-xl shadow-md overflow-hidden `>
   <header class="">
-    <a href={`/${currentLocale}${ruta}${data.titleLink}`} class="relative">
+    <a href={`/${currentLocale}${ruta}${data.titleLink}`} title={`tour ${data.title}`} class="relative">
       <img
         src={data.images[0].link}
         alt={`Imagen del tour ${data.images[0].alt}`}
         title={`Imagen del tour ${data.images[0].title}`}
-        class="w-full max-w-xs h-52 object-cover"
+        class=`w-full max-w-xs h-52 object-cover`
+        loading="lazy"
+        decoding="async"
       />
       {
         data.recomendado && (
@@ -33,13 +35,13 @@ const {
     </a>
   </header>
 
-  <main class=`${style? "max-w-xs":" "} p-4 space-y-2`>
+  <main class=`${style? "max-w-[290px]":" "} p-4 space-y-2`>
     <p class="text-sm flex items-center gap-1">
       <Ubicacion style=" text-azul-travel" />
       {data.location ?? locacion}
     </p>
 
-    <h2 class="text-base font-semibold text-gray-800 leading-snug">
+    <h2 class="text-base font-semibold line-clamp-2 text-gray-800 leading-snug">
       {data.title}
     </h2>
 

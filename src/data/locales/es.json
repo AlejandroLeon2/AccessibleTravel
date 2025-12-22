@@ -1,25 +1,43 @@
 {
+  "title": "Accessible Travel Peru | Viajes inclusivos para personas con discapacidad",
+  "description": "Descubre el Perú sin barreras con Accessible Travel Peru. Somos especialistas en turismo inclusivo para personas con discapacidades motrices, ofreciendo hoteles accesibles, rutas adaptadas, equipamiento especializado y guías expertos. Explora Machu Picchu, Cusco y el Lago Titicaca con seguridad, comodidad y asistencia personalizada.",
+  "includes": [
+    "Hoteles accesibles",
+    "Rutas accesibles",
+    "Equipamiento especializado",
+    "Guías oficiales de turismo",
+    "Personal de apoyo",
+    "Entradas y boletos de tren",
+    "Orientado al turismo",
+    "Eventos climáticos y advertencias"
+  ],
+  "detalles": [
+    "Habitación doble",
+    "Todos los documentos legales y lista detallada de eventos y condiciones",
+    "Todos los servicios ofrecidos (tours, equipamiento)",
+    "Guías locales bilingües (Español / Inglés)",
+    "Personal capacitado y listo para ayudar en cualquier momento",
+    "Entradas y acceso a Machu Picchu + boletos de retorno",
+    "Enfoque total en las demandas del cliente según el itinerario",
+    "Tal vez... te guste la lluvia intensa durante el tour"
+  ],
 
+  "heroGroupUltimaOportunidad": "¡Última oportunidad!",
+  "heroGroupCierraEn": "El evento cierra en:",
 
-"heroGroupUltimaOportunidad": "¡Última oportunidad!",
-"heroGroupCierraEn": "El evento cierra en:",
+  "heroGroupTiempoLimitado": "Tiempo limitado",
+  "heroGroupDisponibleHasta": "Disponible hasta:",
+  "heroGroupPreparado": "¡Prepárate para la experiencia!",
+  "heroGroupComienzaEn": "Comienza en:",
 
+  "heroGroupNoTeLoPierdas": "¡No te lo pierdas!",
+  "heroGroupFinalizaEn": "Finaliza en:",
 
-"heroGroupTiempoLimitado": "Tiempo limitado",
-"heroGroupDisponibleHasta": "Disponible hasta:",
-"heroGroupPreparado": "¡Prepárate para la experiencia!",
-"heroGroupComienzaEn": "Comienza en:",
+  "heroGroupCuentaRegresiva": "Cuenta regresiva activa",
+  "heroGroupTerminaPronto": "Termina pronto:",
 
-"heroGroupNoTeLoPierdas": "¡No te lo pierdas!",
-"heroGroupFinalizaEn": "Finaliza en:",
-
-
-"heroGroupCuentaRegresiva": "Cuenta regresiva activa",
-"heroGroupTerminaPronto": "Termina pronto:",
-
-
-"heroGroupEventoHoy": "¡Es hoy!",
-"heroGroupQuedaPoco": "Queda poco tiempo:",
+  "heroGroupEventoHoy": "¡Es hoy!",
+  "heroGroupQuedaPoco": "Queda poco tiempo:",
   "titleDinamico": "TOUR, VIAJES Y CAMPAMENTO DE AVENTURA",
   "subtitleDinamico": "¡Bienvenido a Accessible Travel Peru! Somos una agencia de viajes especializada en turismo accesible, confiable y profesional. Ofrecemos experiencias únicas por Perú.",
   "botonDinamico1": "Tour en Grupo",

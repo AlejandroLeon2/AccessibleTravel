@@ -3,32 +3,35 @@ const images = [
   {
     src: "/images/logos/mincetur.webp",
     alt: "Institutional logo of the Ministry of Foreign Trade and Tourism of Peru (MINCETUR)",
-    titleLink: "ministry-foreign-trade-tourism-peru-mincetur"
+    titleLink: "ministry-foreign-trade-tourism-peru-mincetur",
   },
   {
     src: "/images/logos/PANTOU-min.webp",
     alt: "Official logo of PANTOU, the European Accessible Tourism Directory",
-    titleLink: "european-accessible-tourism-directory-pantou"
+    titleLink: "european-accessible-tourism-directory-pantou",
   },
   {
     src: "/images/logos/WeTravel.webp",
     alt: "Logo of WeTravel, global platform for travel bookings and group trip management",
-    titleLink: "travel-booking-platform-wetravel"
+    titleLink: "travel-booking-platform-wetravel",
   },
   {
     src: "/images/logos/Enat.webp",
     alt: "Logo of ENAT, European Network for Accessible Tourism and Inclusion",
-    titleLink: "european-network-accessible-tourism-enat"
+    titleLink: "european-network-accessible-tourism-enat",
   },
   {
     src: "/images/logos/AccessibleTravel.webp",
     alt: "Logo of Accessible Travel Peru, inclusive travel agency for accessible adventures in Peru",
-    titleLink: "inclusive-travel-agency-peru-accessible-travel"
-  }
+    titleLink: "inclusive-travel-agency-peru-accessible-travel",
+  },
 ];
 
-const {style ="grid grid-cols-5 px-4 py-4 gap-6 ",bandera , base}=Astro.props;
-
+const {
+  style = "grid grid-cols-5 px-4 py-4 gap-6 ",
+  bandera,
+  base,
+} = Astro.props;
 ---
 
 <section class=` py-6 bg-white ${base} `>
@@ -39,8 +42,9 @@ const {style ="grid grid-cols-5 px-4 py-4 gap-6 ",bandera , base}=Astro.props;
           src={img.src}
           alt={img.alt}
           title={img.titleLink}
-          class={`w-full xl:w-30 h-auto ${bandera?"max-w-35":""}  hover:scale-105 duration-300 filter grayscale hover:filter-none object-cover group-hover:opacity-90 transition`}
+          class={`w-full xl:w-30 h-auto ${bandera ? "max-w-35" : ""}  hover:scale-105 duration-300 filter grayscale hover:filter-none object-cover group-hover:opacity-90 transition`}
           loading="lazy"
+          decoding="async"
         />
       ))
     }

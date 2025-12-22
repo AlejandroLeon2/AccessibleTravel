@@ -23,6 +23,9 @@ const {lenguaje}=Astro.props
           id={`imagen-principal-${index}`}
           hidden={index !== activo}
           aria-hidden={index !== activo}
+            loading="lazy"
+  decoding="async"
+  title={`Foto de ${persona.nombre}`}
         />
  <img
   src={persona.imagen2}
@@ -31,6 +34,9 @@ const {lenguaje}=Astro.props
   id={`imagen-secundaria-${index}`}
   hidden={index !== activo}
   aria-hidden={index !== activo}
+    loading="lazy"
+  decoding="async"
+  title={`Foto de ${persona.nombre}`}
 />
 
       ))
@@ -75,6 +81,9 @@ const {lenguaje}=Astro.props
             <img
               src={persona.imagen}
               alt={persona.nombre}
+              title={`foto de ${persona.nombre}`}
+  loading="lazy"
+  decoding="async"
               class="w-12 h-12 object-cover rounded-full group-hover:ring-2 group-hover:ring-indigo-400 transition"
             />
           </button>
