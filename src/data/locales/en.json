@@ -39,7 +39,7 @@
   "botonDinamico1": "Group Tour",
   "botonDinamico2": "About Us",
   "cantidadClientesHeroHome": "Over 5,000 clients worldwide",
-  "aniosExperienciaHeroHome": "20 years of experience",
+  "aniosExperienciaHeroHome": "10 years of experience",
   "subtituloHeroHome": "Discover Peru without limits",
   "tituloHeroHome": "A great adventure awaits you. Traveling is a right, not a privilege.",
   "itemsHeroHome": [
@@ -126,8 +126,8 @@
   "infoDeposito": "Deposit",
   "infoReserva": "Book now",
   "asideTotal": "Total",
-  "asideProceso": "Booking processed",
-  "asideDescripcionProceso": "When continuing, you will be redirected to a secure platform to complete the deposit.",
+  "asideProceso": "Check the itinerary on WeTravel",
+  "asideDescripcionProceso": "You will be redirected to WeTravel, a secure platform to review your itinerary.",
   "asideConfianza": "Book with confidence",
   "asideList": {
     "atencionCliente": "Customer service available 24/7",
@@ -153,7 +153,7 @@
     {
       "alt": "Cliff view",
       "src": "/images/banner7.webp",
-      "title": "Maker Your Dream Vacations Come True"
+      "title": "Make tour Dream Vacations Come True"
     },
     {
       "alt": "Hiking rocky terrain",
@@ -163,9 +163,9 @@
     {
       "alt": "Tent near lake",
       "src": "/images/banner1.webp",
-      "title": "The Best Accessible Service in Machu Picchu"
+      "title": "The Best Accessible Service in Peru"
     }
   ],
   "aboutCantidadClientes": "2,000+ Clients worldwide",
-  "aboutAniosExperiencia": "20 Years of experience"
+  "aboutAniosExperiencia": "10 Years of experience"
 }

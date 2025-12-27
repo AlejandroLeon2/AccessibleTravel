@@ -111,7 +111,7 @@ export const groupTours = [
       "title": "image de Machupicchu"
     }],
     "links": {
-      "book": "https://accessibletravelperu.wetravel.com/trips/tour-grupal-peru-2026",
+      "book": "https://accessibletravelperu.wetravel.com/trips/tour-grupal-peru-2026-accessible-travel-peru-14373054",
       "brochure": "Descargar folleto",
       "inquire": "Hacer una pregunta"
     }
@@ -238,7 +238,7 @@ export const groupTours = [
       "title": "Imagen de Machu Picchu"
     }],
     "links": {
-      "book": "https://accessibletravelperu.wetravel.com/trips/tour-grupal-peru-2026",
+      "book": "https://accessibletravelperu.wetravel.com/trips/group-tour-to-machu-picchu-titicaca-lake-september-2026-accessible-travel-peru-0188439377",
       "brochure": "Descargar folleto",
       "inquire": "Hacer una pregunta"
     }

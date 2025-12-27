@@ -43,7 +43,7 @@
   "botonDinamico1": "Tour en Grupo",
   "botonDinamico2": "Sobre Nosotros",
   "cantidadClientesHeroHome": "Más de 5,000 clientes en todo el mundo",
-  "aniosExperienciaHeroHome": "20 años de experiencia",
+  "aniosExperienciaHeroHome": "10 años de experiencia",
   "subtituloHeroHome": "Descubre Perú sin límites",
   "tituloHeroHome": "Una gran aventura te espera. Viajar es un derecho, no un privilegio.",
   "itemsHeroHome": [
@@ -130,8 +130,8 @@
   "infoDeposito": "Depósito",
   "infoReserva": "Reserva ahora",
   "asideTotal": "Total",
-  "asideProceso": "Reserva procesada",
-  "asideDescripcionProceso": "Al continuar, serás redirigido a una plataforma segura para completar el depósito.",
+  "asideProceso": "Verifica el itinerario en WeTravel",
+  "asideDescripcionProceso": "Serás dirigido a WeTravel, una plataforma segura donde podrás consultar tu itinerario.",
   "asideConfianza": "Reserva con confianza",
   "asideList": {
     "atencionCliente": "Atención al cliente disponible 24/7",
@@ -167,9 +167,9 @@
     {
       "alt": "Tienda junto al lago",
       "src": "/images/banner1.webp",
-      "title": "El mejor servicio accesible en Machu Picchu"
+      "title": "El mejor servicio accesible en Peru"
     }
   ],
   "aboutCantidadClientes": "2,000+ Clientes en todo el mundo",
-  "aboutAniosExperiencia": "20 Años de experiencia"
+  "aboutAniosExperiencia": "10 Años de experiencia"
 }
