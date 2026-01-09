@@ -2,32 +2,31 @@
   "title": "Accessible Travel Peru | Viajes inclusivos para personas con discapacidad",
   "description": "Descubre el Perú sin barreras con Accessible Travel Peru. Somos especialistas en turismo inclusivo para personas con discapacidades motrices, ofreciendo hoteles accesibles, rutas adaptadas, equipamiento especializado y guías expertos. Explora Machu Picchu, Cusco y el Lago Titicaca con seguridad, comodidad y asistencia personalizada.",
   "includes": [
-    "Hoteles accesibles",
+    "Hoteles adaptados",
     "Rutas accesibles",
     "Equipamiento especializado",
-    "Guías oficiales de turismo",
+    "Guías turísticos oficiales",
     "Personal de apoyo",
-    "Entradas y boletos de tren",
-    "Orientado al turismo",
+    "Boletos de tren y entradas",
+    "Vuelos nacionales",
     "Eventos climáticos y advertencias"
   ],
   "detalles": [
-    "Habitación doble",
-    "Todos los documentos legales y lista detallada de eventos y condiciones",
-    "Todos los servicios ofrecidos (tours, equipamiento)",
-    "Guías locales bilingües (Español / Inglés)",
-    "Personal capacitado y listo para ayudar en cualquier momento",
-    "Entradas y acceso a Machu Picchu + boletos de retorno",
-    "Enfoque total en las demandas del cliente según el itinerario",
-    "Tal vez... te guste la lluvia intensa durante el tour"
+    "Habitación doble.",
+    "Tours accesibles diseñados con experiencia para un viaje sin contratiempos y la mejor experiencia del visitante.",
+    "Todos los servicios incluidos en la oferta (tours, equipamiento).",
+    "Guías turísticos locales bilingües (español / inglés).",
+    "Personal de apoyo disponible en todo momento y una enfermera calificada para asistencia de primeros auxilios.",
+    "Entradas y acceso a Machu Picchu + boletos de tren de ida y vuelta.",
+    "Incluye todos los vuelos nacionales de ida y vuelta dentro del Perú.",
+    "Tal vez... disfrutes de fuertes lluvias durante el tour."
   ],
-
   "heroGroupUltimaOportunidad": "¡Última oportunidad!",
   "heroGroupCierraEn": "El evento cierra en:",
 
   "heroGroupTiempoLimitado": "Tiempo limitado",
   "heroGroupDisponibleHasta": "Disponible hasta:",
-  "heroGroupPreparado": "¡Prepárate para la experiencia!",
+  "heroGroupPreparado": "Reserva ahora y prepárate para la experiencia con un 10% de descuento.",
   "heroGroupComienzaEn": "Comienza en:",
 
   "heroGroupNoTeLoPierdas": "¡No te lo pierdas!",
@@ -147,7 +146,7 @@
   "aboutSubtitle": "Tu puerta a aventuras inclusivas",
   "aboutDescription": "Bienvenido a Viajes Accesibles Perú, tu especialista de confianza en turismo accesible. Nuestro equipo dedicado está comprometido con hacer que las maravillas del Perú sean accesibles para todos, ofreciendo tours personalizados y servicios adaptados a las necesidades individuales. Con años de experiencia y una pasión por la inclusión, garantizamos que los sueños de cada viajero se hagan realidad.",
   "aboutTagline": "Vive el Perú sin barreras: donde cada viaje es accesible, inclusivo e inolvidable.",
-  "heroGroupDescuento": "25",
+  "heroGroupDescuento": "10",
   "heroGroupDescripcion": "Descubre grandes ofertas accesibles en todo el Perú",
   "heroGroupUrgencia": "¡Apresúrate!",
   "heroGroupTerminaEn": "La oferta termina en:",
@@ -168,6 +167,11 @@
       "alt": "Tienda junto al lago",
       "src": "/images/banner1.webp",
       "title": "El mejor servicio accesible en Peru"
+    },
+    {
+      "alt": "Tent near lake",
+      "src": "/images/bannerAmaz.jpeg",
+      "title": "Libérate de la rutina y sumérgete en lo salvaje. Vive un Amazonas verdaderamente sin barreras."
     }
   ],
   "aboutCantidadClientes": "2,000+ Clientes en todo el mundo",
