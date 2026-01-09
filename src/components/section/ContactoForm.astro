@@ -25,28 +25,33 @@ const { lenguaje } = Astro.props;
 </section>
 
 <!-- EmailJS y reCAPTCHA (AJUSTA LOS IDs) -->
-<script type="module" is:inline>
-  import emailjs from "https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js";
-  emailjs.init("TU_USER_ID"); // remplaza con tu EmailJS user ID
 
-  const form = document.getElementById("contact-form");
-  const statusMsg = document.getElementById("form-status");
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+<script type="text/javascript">
+  emailjs.init('E6459n1o-mTYoqA3b')
+</script>
+<script is:inline>
 
-    try {
-      const result = await emailjs.sendForm(
-        "TU_SERVICE_ID",
-        "TU_TEMPLATE_ID",
-        form
-      );
-      console.log("SUCCESS!", result.status, result.text);
-      statusMsg.classList.remove("hidden");
-      form.reset();
-    } catch (error) {
-      console.error("FAILED...", error);
-      alert("There was an error sending your message. Please try again.");
-    }
-  });
+ const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'service_3iya7ah';
+   const templateID = 'template_zbmrdgd';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
 </script>
