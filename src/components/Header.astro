@@ -149,7 +149,7 @@ const { lenguaje, headerMenu } = Astro.props;
     <!-- Contenedor central -->
     <div class="flex w-full items-center justify-around">
       <!-- Navegación -->
-      <HeaderNav data={headerMenu} style=" " />
+      <HeaderNav data={headerMenu} lenguaje={lenguaje} style=" " />
 
       <!-- Idioma -->
       <div class="flex items-center gap-1 mx-1">
@@ -187,7 +187,7 @@ const { lenguaje, headerMenu } = Astro.props;
       id="openModalBtn"
       class="bg-blue-600 w-20 h-full overflow-hidden justify-center flex items-center cursor-pointer text-white"
     >
-      <Clip style=" w-10  h-13 text-center -rotate-45  " />
+      <Clip style=" w-10  h-13 text-center -rotate-45 animate-bounce " />
     </div>
   </div>
 </header>

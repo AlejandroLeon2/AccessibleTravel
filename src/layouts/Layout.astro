@@ -51,7 +51,7 @@ const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`;
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Accesibilidad y SEO -->
-    <link rel="icon" href="/images/icon.png" type="image/svg+xml" />
+<link rel="icon" href="/images/icon.png" type="image/png" />
     <meta name="theme-color" content="#ffffff" />
  
   </head>
@@ -63,24 +63,7 @@ const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`;
 
     <Footer lenguaje={lenguaje} />
     <Modalcontac lenguaje={lenguaje} />
-    <button
-      id="btn"
-      title="Open contact panel"
-      class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 duration-500 flex items-center justify-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="h-10 w-10"
-        ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"
-        ></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg
-      >
-    </button>
+
     <MensajeApp data={data} />
   </body>
 </html>

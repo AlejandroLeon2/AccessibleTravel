@@ -1,0 +1,21 @@
+---
+const { data } = Astro.props;
+---
+
+<a
+  href={data.valor}
+  target="_blank"
+  title={data.title}
+  aria-label={`Abrir conversación en Messenger con Qillary Tours`}
+  class=" z-50 w-14 h-14 rounded-full active:scale-95 duration-300 hover:scale-105 bg-[#0084FF] flex items-center justify-center shadow-lg"
+>
+  <svg
+    class="w-8 h-8 fill-white"
+    viewBox="0 0 32 32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 0C7.16406 0 0 6.96094 0 15.5469C0 20.5742 2.67578 25.0469 6.80859 27.8594V32L11.4805 29.6641C12.9219 30.0586 14.4297 30.2852 16 30.2852C24.8359 30.2852 32 23.3242 32 14.7383C32 6.15234 24.8359 0 16 0ZM16.6758 18.5469L13.2148 14.4336L5.19141 18.5469L15.5312 9.45312L18.7852 13.5664L26.8086 9.45312L16.6758 18.5469Z"
+    ></path>
+  </svg>
+</a>

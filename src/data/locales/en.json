@@ -11,6 +11,15 @@
     "Domestic flights",
     "Climatic Events & Warnings"
   ],
+  "header":{
+  "Home": "Home",
+  "AllToursPeru": "All Tours Peru",
+  "GroupTours": "Group Tours",
+  "Blog": "Blog",
+  "AboutUs": "About Us",
+  "children": { "ContactUs": "Contact Us", "TermsAndConditions": "Terms and Conditions", "AboutUs": "About Us" }
+},
+
   "detalles": [
     "Double room.",
     "Expertly crafted accessible tours designed for seamless travel and the ultimate visitor experience.",

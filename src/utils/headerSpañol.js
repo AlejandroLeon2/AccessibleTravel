@@ -20,12 +20,12 @@ export const headerMenu = [
     href: "/",
   },
   {
-    label:"All Tours Perú", //"Tour Destination",
+    label:"AllToursPeru", //"Tour Destination",
     href:"/destino/peru"   //"/tourDestino",
    // children:generateTourDestinationMenu(toursDestinos),
   },
   {
-    label: "Group Tours",
+    label: "GroupTours",
     href: "/groupTours",
   },
   {
@@ -33,12 +33,12 @@ export const headerMenu = [
     href: "/blog",
   },
   {
-    label: "About Us",
+    label: "AboutUs",
     href: "/about",
     children: [
-      { label: "Contact Us", href: "/contactUs" },
-      { label: "Términos y condiciones", href: "/terminosCondiciones" },
-      { label: "About Us", href: "/aboutUs" },
+      { label: "ContactUs", href: "/contactUs" },
+      { label: "TermsAndConditions", href: "/terminosCondiciones" },
+      { label: "AboutUs", href: "/aboutUs" },
     ],
   },
 ];

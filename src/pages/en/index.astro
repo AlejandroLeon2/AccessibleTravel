@@ -48,17 +48,17 @@ const articulo = articulos.slice(0, 3);
     const nextBtn = document.getElementById("next-btn");
     const updateImage = (i) => {
       index = i;
-      imgEl.src = lenguaje.banners[i].src;
-      imgEl.alt = lenguaje.banners[i].alt;
-      titleEl.textContent = lenguaje.banners[i].title;
+      imgEl!.src = lenguaje.banners[i].src;
+      imgEl!.alt = lenguaje.banners[i].alt;
+      titleEl!.textContent = lenguaje.banners[i].title;
     };
 
-    prevBtn.addEventListener("click", () => {
+    prevBtn!.addEventListener("click", () => {
       index = (index - 1 +lenguaje.banners.length) %lenguaje.banners.length;
       updateImage(index);
     });
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn!.addEventListener("click", () => {
       index = (index + 1) %lenguaje.banners.length;
       updateImage(index);
     });

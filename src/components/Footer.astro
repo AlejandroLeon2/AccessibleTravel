@@ -30,23 +30,26 @@ const { lenguaje } = Astro.props;
         {lenguaje.descripcionAccessible}
       </p>
       <ul class="text-sm space-y-2">
-        <li class="flex items-center gap-2">
-          <svg
-            class="text-azul-travel w-5"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            ></path>
-          </svg>
-          {empresaInfo.correo}
-        </li>
+<li class="flex items-center gap-2">
+  <svg
+    class="text-azul-travel w-5"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    ></path>
+  </svg>
+  <a href={`mailto:${empresaInfo.correo}`} class="hover:text-blue-600">
+    {empresaInfo.correo}
+  </a>
+</li>
+
         {
           empresaInfo.telefonos.map((telefono, index) => (
             <li class="flex items-center gap-2">

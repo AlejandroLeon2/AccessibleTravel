@@ -11,6 +11,15 @@
     "Vuelos nacionales",
     "Eventos climáticos y advertencias"
   ],
+  "header":{
+  "Home": "Inicio",
+  "AllToursPeru": "Todos los Tours Perú",
+  "GroupTours": "Tours en Grupo",
+  "Blog": "Blog",
+  "AboutUs": "Sobre Nosotros",
+  "children": { "ContactUs": "Contáctanos", "TermsAndConditions": "Términos y condiciones", "AboutUs": "Sobre Nosotros" }
+},
+
   "detalles": [
     "Habitación doble.",
     "Tours accesibles diseñados con experiencia para un viaje sin contratiempos y la mejor experiencia del visitante.",

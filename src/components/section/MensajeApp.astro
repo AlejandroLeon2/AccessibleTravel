@@ -1,54 +1,364 @@
 ---
 import WhatsappPop from "../ui/WhatsappPop.astro";
+import MessengerPop from "../ui/MessengerPop.astro";
 import data from "../../data/accessibleTravel.json";
+import Messenger from "../svg/Messenger.astro";
 ---
 
-<div
-  id="mover"
-  class="fixed flex flex-col space-y-1 duration-300 translate-y-60 z-50 bottom-5 right-1 md:right-5"
+<!-- Botón principal para abrir -->
+<button
+  id="whatsapp-open-btn"
+  title="Abrir panel de contacto"
+  aria-label="Abrir panel de contacto de WhatsApp"
+  class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 hover:bg-amber-500 active:scale-95 hover:scale-105 duration-300 flex items-center justify-center shadow-lg transition-all"
 >
-  <button id="btn-cerrar" class="text-center active:scale-95 hover:scale-105">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="h-10 w-10"
+  >
+    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+    <path d="M8 12h.01"></path>
+    <path d="M12 12h.01"></path>
+    <path d="M16 12h.01"></path>
+  </svg>
+</button>
+
+<!-- Panel de WhatsApp -->
+<div
+  id="whatsapp-panel"
+  class="fixed flex flex-col space-y-1 duration-300 translate-y-[200%] opacity-0 z-50 bottom-5 right-1 md:right-5 pointer-events-none"
+  role="dialog"
+  aria-labelledby="whatsapp-panel-title"
+  aria-hidden="true"
+>
+  <!-- Botón cerrar -->
+  <button
+    id="whatsapp-close-btn"
+    class="text-center mx-auto active:scale-95 hover:scale-105 transition-transform self-end"
+    aria-label="Cerrar panel de WhatsApp"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      stroke-width="2"
+      stroke-width="2.5"
       stroke="currentColor"
-      class="w-full h-10 text-amber-400"
+      class="w-10 h-10 text-amber-400 drop-shadow-lg"
     >
       <path
         stroke-linecap="round"
         stroke-linejoin="round"
         d="M6 18L18 6M6 6l12 12"></path>
-    </svg></button >
-  <WhatsappPop data={data.whatsapp1} />
-  <WhatsappPop data={data.whatsapp2} />
-  
+    </svg>
+  </button>
+
+  <!-- Título invisible para accesibilidad -->
+  <h2 id="whatsapp-panel-title" class="sr-only">Panel de contacto de WhatsApp</h2>
+
+  <!-- Contenido del panel -->
+  <div class="flex flex-col space-y-2">
+    <!-- Item 1 con tooltip -->
+    <div class="relative group">
+      <WhatsappPop data={data.whatsapp1} />
+      <!-- Tooltip que aparece al hacer hover -->
+      <div 
+        class="absolute right-5 bottom-full mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50 pointer-events-none"
+        role="tooltip"
+      >
+        <span class="font-medium">{data.whatsapp1.tooltipText || "Chatea con nosotros por WhatsApp"}</span>
+        <!-- Flecha del tooltip -->
+        <div class="absolute right-4 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-900"></div>
+      </div>
+    </div>
+
+    <!-- Item 2 con tooltip -->
+    <div class="relative group">
+      <WhatsappPop data={data.whatsapp2} />
+      <!-- Tooltip que aparece al hacer hover -->
+      <div 
+        class="absolute right-5 bottom-full mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50 pointer-events-none"
+        role="tooltip"
+      >
+        <span class="font-medium">{data.whatsapp2.tooltipText || "Chatea con nosotros por WhatsApp"}</span>
+        <!-- Flecha del tooltip -->
+        <div class="absolute right-4 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-900"></div>
+      </div>
+    </div>
+  </div>
+      <div class="relative group">
+      <MessengerPop data={data.Messenger} />
+      <!-- Tooltip que aparece al hacer hover -->
+      <div 
+        class="absolute right-5 bottom-full mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap z-50 pointer-events-none"
+        role="tooltip"
+      >
+        <span class="font-medium">{data.Messenger.tooltipText || "Chatea con nosotros por Messenger"}</span>
+        <!-- Flecha del tooltip -->
+        <div class="absolute right-4 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-900"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("btn");
-    const mover = document.getElementById("mover");
-    const cerrar = document.getElementById("btn-cerrar");
+<script>
+  // ========================================
+  // CONFIGURACIÓN
+  // ========================================
+  const CONFIG = {
+    classes: {
+      hidden: ['translate-y-[200%]', 'opacity-0', 'pointer-events-none'],
+      visible: ['translate-y-0', 'opacity-100', 'pointer-events-auto'],
+    },
+    animationDuration: 300, // ms
+  } as const;
 
-    if (!btn || !mover || !cerrar) return;
+  // ========================================
+  // ESTADO
+  // ========================================
+  let isOpen = false;
 
-    // Mostrar automáticamente después de 15 segundos
+  // ========================================
+  // ELEMENTOS DEL DOM
+  // ========================================
+  const openBtn = document.getElementById('whatsapp-open-btn') as HTMLButtonElement | null;
+  const closeBtn = document.getElementById('whatsapp-close-btn') as HTMLButtonElement | null;
+  const panel = document.getElementById('whatsapp-panel') as HTMLDivElement | null;
 
+  // ========================================
+  // VALIDACIÓN
+  // ========================================
+  function validateElements(): boolean {
+    if (!openBtn) {
+      console.error('WhatsApp Pop: No se encontró el botón de apertura (#whatsapp-open-btn)');
+      return false;
+    }
+    if (!closeBtn) {
+      console.error('WhatsApp Pop: No se encontró el botón de cierre (#whatsapp-close-btn)');
+      return false;
+    }
+    if (!panel) {
+      console.error('WhatsApp Pop: No se encontró el panel (#whatsapp-panel)');
+      return false;
+    }
+    return true;
+  }
 
-    // Abrir manualmente
-    btn.addEventListener("click", () => {
-      mover.classList.remove("translate-y-60");
-      btn.classList.add("translate-y-60");
+  // ========================================
+  // FUNCIONES DE CONTROL
+  // ========================================
+
+  /**
+   * Oculta un elemento aplicando clases de Tailwind
+   */
+  function hideElement(element: HTMLElement, classes: string[]): void {
+    classes.forEach(cls => {
+      element.classList.add(...cls.split(' '));
+    });
+  }
+
+  /**
+   * Muestra un elemento removiendo clases de Tailwind
+   */
+  function showElement(element: HTMLElement, classes: string[]): void {
+    classes.forEach(cls => {
+      element.classList.remove(...cls.split(' '));
+    });
+  }
+
+  /**
+   * Abre el panel de WhatsApp
+   */
+  function openPanel(): void {
+    if (!openBtn || !panel || isOpen) return;
+
+    isOpen = true;
+
+    // Ocultar botón de apertura
+    hideElement(openBtn, CONFIG.classes.hidden);
+    openBtn.setAttribute('aria-hidden', 'true');
+    openBtn.disabled = true;
+
+    // Mostrar panel con un pequeño delay para asegurar la transición
+    requestAnimationFrame(() => {
+      showElement(panel, CONFIG.classes.hidden);
+      panel.setAttribute('aria-hidden', 'false');
     });
 
-    // Cerrar manualmente
-    cerrar.addEventListener("click", () => {
-      mover.classList.add("translate-y-60");
-      btn.classList.remove("translate-y-60");
-    });
-  });
+    // Focus en el botón de cerrar después de la animación
+    setTimeout(() => {
+      closeBtn?.focus();
+    }, CONFIG.animationDuration);
+  }
+
+  /**
+   * Cierra el panel de WhatsApp
+   */
+  function closePanel(): void {
+    if (!openBtn || !panel || !isOpen) return;
+
+    isOpen = false;
+
+    // Ocultar panel
+    hideElement(panel, CONFIG.classes.hidden);
+    panel.setAttribute('aria-hidden', 'true');
+
+    // Mostrar botón de apertura después de la animación
+    setTimeout(() => {
+      showElement(openBtn, CONFIG.classes.hidden);
+      openBtn.setAttribute('aria-hidden', 'false');
+      openBtn.disabled = false;
+      openBtn.focus();
+    }, CONFIG.animationDuration);
+  }
+
+  /**
+   * Alterna entre abrir y cerrar
+   */
+  function togglePanel(): void {
+    if (isOpen) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  }
+
+  // ========================================
+  // MANEJADORES DE EVENTOS
+  // ========================================
+
+  /**
+   * Maneja la tecla ESC para cerrar
+   */
+  function handleKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Escape' && isOpen) {
+      closePanel();
+    }
+  }
+
+  /**
+   * Maneja clicks fuera del panel para cerrarlo
+   */
+  function handleClickOutside(event: MouseEvent): void {
+    if (!isOpen || !panel) return;
+
+    const target = event.target as HTMLElement;
+
+    // Si el click fue fuera del panel y no es el botón de abrir
+    if (!panel.contains(target) && target !== openBtn && !openBtn?.contains(target)) {
+      closePanel();
+    }
+  }
+
+  // ========================================
+  // LIMPIEZA
+  // ========================================
+  function cleanup(): void {
+    document.removeEventListener('keydown', handleKeydown);
+    document.removeEventListener('click', handleClickOutside);
+  }
+
+  // ========================================
+  // INICIALIZACIÓN
+  // ========================================
+  function init(): void {
+    // Validar que todos los elementos existan
+    if (!validateElements()) {
+      console.warn('WhatsApp Pop: Componente no inicializado por falta de elementos');
+      return;
+    }
+
+    // Event listeners para los botones
+    openBtn?.addEventListener('click', openPanel);
+    closeBtn?.addEventListener('click', closePanel);
+
+    // Event listener para ESC
+    document.addEventListener('keydown', handleKeydown);
+
+    // Event listener para clicks fuera (con delay para evitar conflicto con el click de apertura)
+    setTimeout(() => {
+      document.addEventListener('click', handleClickOutside);
+    }, 100);
+
+    // Limpiar eventos al desmontar la página
+    window.addEventListener('beforeunload', cleanup);
+
+    console.log('WhatsApp Pop: Componente inicializado correctamente');
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 </script>
 
+<style>
+  /* Clase de utilidad para lectores de pantalla */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 
+  /* Asegurar transiciones suaves en todos los elementos */
+  #whatsapp-open-btn,
+  #whatsapp-panel {
+    transition-property: transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  /* Animación del botón de apertura */
+  #whatsapp-open-btn:not([aria-hidden="true"]) {
+    animation: bounce-in 0.5s ease-out;
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Sombra más pronunciada en hover */
+  #whatsapp-open-btn:hover {
+    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.5);
+  }
+
+  /* Respetar preferencias de movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    #whatsapp-open-btn,
+    #whatsapp-panel {
+      transition: none;
+      animation: none;
+    }
+  }
+
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    #whatsapp-panel {
+      right: 0.25rem;
+      max-width: calc(100vw - 0.5rem);
+    }
+  }
+</style>
