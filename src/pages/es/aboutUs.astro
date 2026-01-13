@@ -10,7 +10,7 @@ import { headerMenu } from "../../utils/headerSpañol";
 import infoEmpresa from "../../data/accessibleTravel.json";
 ---
 <Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
-<PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto="About Us"/>
+<PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={lenguaje.header.AboutUs}/>
 <MainContent>
 <HeroAbout lenguaje={lenguaje}/>
 <Certificaciones/>

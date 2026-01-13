@@ -46,28 +46,39 @@ const { lenguaje } = Astro.props;
     </div>
 
     <!-- Información de contacto -->
-    <div class="mt-6 space-y-3 text-sm text-gray-700">
-      <p class="flex items-center gap-2">
-        <Ubicacion style="text-azul-travel w-7" />
+<ul class="mt-6 space-y-3 text-sm text-gray-700">
+  <li class="flex items-center gap-2">
+    <Ubicacion style="text-azul-travel w-7" />
+    <span>{empresaInfo.direccion.toLowerCase()}</span>
+  </li>
 
-        {empresaInfo.direccion.toLowerCase()}
-      </p>
-      {
-        empresaInfo.telefonos.map((t) => (
-          <p class="flex items-center gap-2">
-            <Telefono style="text-azul-travel  w-7" />
-            {t}
-          </p>
-        ))
-      }
+  {empresaInfo.telefonos.map((t, index) => (
+    <li  class="flex items-center gap-2">
+      <Telefono style="text-azul-travel w-7" />
+      <a
+        href={`${t.url}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-azul-travel hover:underline break-all"
+      >
+        {t.numero} {t.pais}
+      </a>
+    </li>
+  ))}
 
-      <p class="flex items-center gap-2">
-        <Mail style="text-azul-travel  w-6 " />
-        {empresaInfo.correo}
-      </p>
-    </div>
+  <li class="flex items-center gap-2">
+    <Mail style="text-azul-travel w-6" />
+    <a
+      href={`mailto:${empresaInfo.correo}`}
+      class="hover:text-azul-travel hover:underline break-all"
+    >
+      {empresaInfo.correo}
+    </a>
+  </li>
+</ul>
 
-    <div class="mt-6 flex justify-center gap-4">
+
+    <div class="mt-6 grid grid-cols-3 justify-items-center gap-4">
       {
         empresaInfo.redes.map((red) => (
           <a

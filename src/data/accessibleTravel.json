@@ -4,24 +4,35 @@
   "correo": "contact@accessibletravelperu.com",
   "whatsapp1": {
     "numero": "+51 944 731 223",
-    "tooltipText": "Whatsapp Lat",
+    "tooltipText": "Whatsapp Perú",
     "mensaje": "¡Hola! Estoy interesado en conocer más sobre sus servicios de turismo accesible en Perú.",
     "title": "Contacto directo desde Perú para información sobre viajes accesibles"
   },
   "whatsapp2": {
     "numero": "+1 908 935 6769",
-    "tooltipText": "Whatsapp US",
+    "tooltipText": "Whatsapp USA",
     "mensaje": "Hi! I'm reaching out to learn more about your accessible travel experiences from the USA.",
     "title": "Reach out from the USA for accessible travel inquiries"
   },
- "Messenger":{
-                "valor": "https://m.me/156748394679043",
-                "tooltipText": "Chat Messenger",
-                "mensaje": "Hola, me gustaría obtener más información sobre los tours de Qillary. ¿Pueden ayudarme? ¡Gracias!",
-               " title": "Chatea con nosotros por Facebook Messenger"
-            },
-  "imagenPortadaGeneral":"/images/vicunas.png",
-  "telefonos": ["Peru: +51 944 731 223", "USA: +1 908-935-6769"],
+  "Messenger": {
+    "valor": "https://m.me/156748394679043",
+    "tooltipText": "Chat Messenger",
+    "mensaje": "Hola, me gustaría obtener más información sobre los tours de Qillary. ¿Pueden ayudarme? ¡Gracias!",
+    " title": "Chatea con nosotros por Facebook Messenger"
+  },
+  "imagenPortadaGeneral": "/images/vicunas.png",
+  "telefonos": [
+    {
+      "pais": "🇵🇪",
+      "numero": "+51 944 731 223",
+      "url": "https://wa.me/51944731223"
+    },
+    {
+      "pais": "🇺🇸",
+      "numero": "+1 908-935-6769",
+      "url": "https://wa.me/19089356769"
+    }
+  ],
   "direccion": "465, FRAY LUIS DE LEON ST",
   "redes": [
     {
@@ -46,8 +57,13 @@
     },
     {
       "icono": "whatsapp",
-      "url": "#",
-      "handle": "+51 944 731 223"
+      "url": "https://wa.me/51944731223",
+      "handle": "+51 944 731 223 🇵🇪"
+    },
+        {
+      "icono": "whatsapp",
+      "url": "https://wa.me/19089356769",
+      "handle": "+1 908-935-6769 🇺🇸"
     }
   ],
   "galleryLogos": [
