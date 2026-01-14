@@ -11,6 +11,13 @@
     "Vuelos nacionales",
     "Eventos climáticos y advertencias"
   ],
+    "servicios": [
+    "Tours accesibles",
+    "Itinerarios personalizados",
+    "Servicios de transporte",
+    "Alojamientos accesibles",
+    "Consultoría de viajes"
+  ],
   "header":{
   "Home": "Inicio",
   "AllToursPeru": "Todos los Tours Perú",

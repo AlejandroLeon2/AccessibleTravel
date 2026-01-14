@@ -31,8 +31,8 @@ export const terminos = [
         items: [
           "Changes: Request 30+ days in advance (additional charges may apply)",
           "Client cancellation:",
-          "   - 30+ days: Partial refund minus expenses",
-          "   - Within 20 days: No refund (NO SHOW)",
+          "30+ days: Partial refund minus expenses",
+          "Within 20 days: No refund (NO SHOW)",
           "Agency cancellation (force majeure): Full refund or rescheduling",
         ],
       },

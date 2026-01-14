@@ -28,7 +28,7 @@ const {lenguaje}=Astro.props;
         {lenguaje.contactoNumero}
       </h3>{
         empresaInfo.telefonos.map((data) => (
-          <p class="text-sm text-gray-500">{data}</p>
+          <p class="text-sm text-gray-500">{data.numero} {data.pais}</p>
         ))
       }
     </article>

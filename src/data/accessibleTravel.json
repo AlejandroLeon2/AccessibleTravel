@@ -87,27 +87,6 @@
       "src": "/images/logos/AccessibleTravel.webp",
       "alt": "Accessible Travel"
     }
-  ],
-  "servicios": [
-    {
-      "nombre": "Accessible Tours",
-      "url": "#"
-    },
-    {
-      "nombre": "Custom Itineraries",
-      "url": "#"
-    },
-    {
-      "nombre": "Transportation Services",
-      "url": "#"
-    },
-    {
-      "nombre": "Accessible Accommodations",
-      "url": "#"
-    },
-    {
-      "nombre": "Travel Consultation",
-      "url": "#"
-    }
   ]
+
 }

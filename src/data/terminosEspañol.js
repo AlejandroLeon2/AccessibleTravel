@@ -31,8 +31,8 @@ export const terminos = [
         items: [
           "Cambios: Solicitar 30+ días antes (pueden aplicar cargos adicionales)",
           "Cancelación cliente:",
-          "   - 30+ días: Reembolso parcial menos gastos",
-          "   - Dentro de 20 días: Sin reembolso (NO SHOW)",
+          "30+ días: Reembolso parcial menos gastos",
+          "Dentro de 20 días: Sin reembolso (NO SHOW)",
           "Cancelación agencia (fuerza mayor): Reembolso completo o reprogramación",
         ],
       },

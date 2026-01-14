@@ -11,14 +11,25 @@
     "Domestic flights",
     "Climatic Events & Warnings"
   ],
-  "header":{
-  "Home": "Home",
-  "AllToursPeru": "All Tours Peru",
-  "GroupTours": "Group Tours",
-  "Blog": "Blog",
-  "AboutUs": "About Us",
-  "children": { "ContactUs": "Contact Us", "TermsAndConditions": "Terms and Conditions", "AboutUs": "About Us" }
-},
+  "servicios": [
+    "Accessible Tours",
+    "Custom Itineraries",
+    "Transportation Services",
+    "Accessible Accommodations",
+    "Travel Consultation"
+  ],
+  "header": {
+    "Home": "Home",
+    "AllToursPeru": "All Tours Peru",
+    "GroupTours": "Group Tours",
+    "Blog": "Blog",
+    "AboutUs": "About Us",
+    "children": {
+      "ContactUs": "Contact Us",
+      "TermsAndConditions": "Terms and Conditions",
+      "AboutUs": "About Us"
+    }
+  },
 
   "detalles": [
     "Double room.",
@@ -173,7 +184,8 @@
       "alt": "Tent near lake",
       "src": "/images/banner1.webp",
       "title": "The Best Accessible Service in Peru"
-    },    {
+    },
+    {
       "alt": "Tent near lake",
       "src": "/images/bannerAmaz.jpeg",
       "title": "break free from the routine and dive into the wild. Experience a truly barrier-free Amazon."

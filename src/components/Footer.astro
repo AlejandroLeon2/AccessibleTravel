@@ -110,10 +110,10 @@ const { lenguaje } = Astro.props;
       <h3 class="font-semibold text-lg mb-4">{lenguaje.footerServicios}</h3>
       <ul class="space-y-2 text-sm">
         {
-          empresaInfo.servicios.map((servicio, index) => (
+          lenguaje.servicios.map(item => (
             <li>
-              <p class="hover:text-azul-travel transition-colors">
-                {servicio.nombre}
+              <p class="">
+                {item}
               </p>
             </li>
           ))
