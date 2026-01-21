@@ -1,11 +1,8 @@
 ---
-title: "Valle Sagrado: Naturaleza, Historia y Accesibilidad en los Andes"
+title: "Valle Sagrado: Naturaleza, Historia y Accesibilidad en los Andes" 
 description: "Explore the Sacred Valley of the Incas with accessible routes, cultural experiences, and landscapes that connect you with what matters most"
-layout: "/src/layouts/BlogPostEn.astro"
+layout: "/src/layouts/BlogPostEn.astro" 
 image: "/moray.jpg"
-imageAutor: "/images/francisco.webp"
-bio: "Specialized in accessible tourism for people with disabilities. We connect adventure and accessibility throughout Peru."
-tags: ["cusco", "travel", "accessible tourism", "peru"]
 date: "2025-08-07"
 author: "Francisco"
 ---

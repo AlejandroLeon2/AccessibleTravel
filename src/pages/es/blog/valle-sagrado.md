@@ -3,12 +3,9 @@ title: "Valle Sagrado: Naturaleza, Historia y Accesibilidad en los Andes"
 description: "Explora el Valle Sagrado de los Incas con rutas accesibles, experiencias culturales y paisajes que te conectan con lo esencial"
 layout: "/src/layouts/BlogPostEs.astro"
 image: "/moray.jpg"
-imageAutor: "/images/francisco.webp"
-bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
-tags: ["cusco", "viajes", "turismo accesible", "perú"]
 date: "2025-08-07"
 author: "Francisco"
-lang: "es"
+
 ---
 
 El Valle Sagrado, ubicado entre Cusco y Machu Picchu 🇵🇪, ofrece una experiencia única para viajeros que requieren accesibilidad sin renunciar a la autenticidad cultural ni al contacto con la naturaleza.

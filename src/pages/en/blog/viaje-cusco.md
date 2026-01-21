@@ -2,12 +2,8 @@
 title: "Descubre Cusco: Historia, Cultura y Aventura en el Corazón del Perú"
 description: "Explore Cusco, the historic capital of the Inca Empire, with accessible experiences, local cuisine, and unforgettable landscapes."
 date: "2025-03-07"
-tags: ["cusco", "travel", "accessible tourism", "peru"]
 author: "Accessible Travel Peru"
-role: "Inclusive Travel Agency"
-bio: "Specialized in accessible tourism for people with disabilities. We connect adventure and accessibility throughout Peru."
 image: "/chincheros.jpg"
-imageAutor: "/images/francisco.webp"
 layout: "/src/layouts/BlogPostEn.astro"
 ---
 
