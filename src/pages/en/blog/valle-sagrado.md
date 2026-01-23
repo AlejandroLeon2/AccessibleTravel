@@ -1,5 +1,5 @@
 ---
-title: "Valle Sagrado: Naturaleza, Historia y Accesibilidad en los Andes" 
+title: "Sacred Valley: Nature, History and Accessibility in the Andes" 
 description: "Explore the Sacred Valley of the Incas with accessible routes, cultural experiences, and landscapes that connect you with what matters most"
 layout: "/src/layouts/BlogPostEn.astro" 
 image: "/moray.jpg"

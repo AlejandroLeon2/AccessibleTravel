@@ -24,7 +24,7 @@ if (!destino) {
 }
 ---
 
-<Layout headerMenu={headerMenu} lenguaje={lenguaje}>
+<Layout title={destino.title} description={destino.description} headerMenu={headerMenu} lenguaje={lenguaje} >
     <PortadaStatic url={destino.images[0].link} title={destino.images[0].alt}/>
 <MainContent>
   <Infotravel lenguaje={lenguaje}  data={destino}/>

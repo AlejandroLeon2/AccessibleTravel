@@ -1,12 +1,13 @@
 ---
 import BlogNew from "../section/BlogNew.astro";
 import DestinoAside from "../section/DestinoAside.astro";
+import FormAside from "./FormAside.astro";
 const { lenguaje, destinos, news } = Astro.props;
 const { currentLocale } = Astro;
 ---
 
 <aside
-  class="w-full md:max-w-sm my-12 md:w-80 p-4 space-y-2 h-full bg-white border border-gray-200 rounded-lg shadow-sm"
+  class="w-full md:max-w-xs lg:max-w-sm my-12  p-4 space-y-2 h-full rounded-lg border border-gray-200"
 >
   <!-- Perfil -->
   <section class="text-center">
@@ -25,7 +26,41 @@ const { currentLocale } = Astro;
     <p class="mt-3 text-gray-600 text-sm">{lenguaje.asideBlogDescripcion}</p>
     <div class="flex justify-center gap-4 mt-4 text-gray-500"></div>
   </section>
+  <FormAside style="md:flex-col lg:gap-3 " enlaces="md:flex-col  " lenguaje={lenguaje}/>
   <!-- Noticias recientes -->
   <BlogNew articulo={news} lenguaje={lenguaje} style="text-2xl" />
   <DestinoAside lenguaje={lenguaje} destinos={destinos} style="text-2xl" />
 </aside>
+
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('E6459n1o-mTYoqA3b')
+</script>
+<script is:inline>
+
+document.querySelectorAll('.formAside').forEach(form => {
+  // Selecciona el botón dentro de cada formulario
+  const btn = form.querySelector('.btn-submit');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    btn.value = 'Sending...';
+
+    const serviceID = 'service_3iya7ah';
+    const templateID = 'template_zbmrdgd';
+
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        btn.value = 'Send Email';
+        alert('Sent!');
+        form.reset();
+      }, (err) => {
+        btn.value = 'Send Email';
+        alert(JSON.stringify(err));
+      });
+  });
+});
+</script>

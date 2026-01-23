@@ -1,6 +1,13 @@
 {
   "title": "Accessible Travel Peru | Viajes inclusivos para personas con discapacidad",
   "description": "Descubre el Perú sin barreras con Accessible Travel Peru. Somos especialistas en turismo inclusivo para personas con discapacidades motrices, ofreciendo hoteles accesibles, rutas adaptadas, equipamiento especializado y guías expertos. Explora Machu Picchu, Cusco y el Lago Titicaca con seguridad, comodidad y asistencia personalizada.",
+  "talkAboutTrip": "¿Hablamos de tu viaje?",
+  "leaveEmail": "Déjanos tu email y te contactamos para contarte todo sobre el Perú.",
+  "whatsYourName": "¿Cómo te llamas?",
+  "enterEmail": "Ingresa tu email",
+  "tripType": "Cuéntanos: ¿qué tipo de viaje buscas? ¿aventura, relax, cultura...?",
+  "contactMe": "Quiero que me contacten",
+  "writeUsDirectly": "O escríbenos directamente por:",
   "includes": [
     "Hoteles adaptados",
     "Rutas accesibles",
@@ -11,21 +18,25 @@
     "Vuelos nacionales",
     "Eventos climáticos y advertencias"
   ],
-    "servicios": [
+  "servicios": [
     "Tours accesibles",
     "Itinerarios personalizados",
     "Servicios de transporte",
     "Alojamientos accesibles",
     "Consultoría de viajes"
   ],
-  "header":{
-  "Home": "Inicio",
-  "AllToursPeru": "Todos los Tours Perú",
-  "GroupTours": "Tours en Grupo",
-  "Blog": "Blog",
-  "AboutUs": "Sobre Nosotros",
-  "children": { "ContactUs": "Contáctanos", "TermsAndConditions": "Términos y condiciones", "AboutUs": "Sobre Nosotros" }
-},
+  "header": {
+    "Home": "Inicio",
+    "AllToursPeru": "Todos los Tours Perú",
+    "GroupTours": "Tours en Grupo",
+    "Blog": "Blog",
+    "AboutUs": "Sobre Nosotros",
+    "children": {
+      "ContactUs": "Contáctanos",
+      "TermsAndConditions": "Términos y condiciones",
+      "AboutUs": "Sobre Nosotros"
+    }
+  },
 
   "detalles": [
     "Habitación doble.",

@@ -248,6 +248,40 @@ const {
       <AsideTravel lenguaje={lenguaje} data={data} />
     </section>
   </div>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('E6459n1o-mTYoqA3b')
+</script>
+<script is:inline>
+// Selecciona todos los formularios con clase "formAside"
+document.querySelectorAll('.formAside').forEach(form => {
+  // Selecciona el botón dentro de cada formulario
+  const btn = form.querySelector('.btn-submit');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    btn.value = 'Sending...';
+
+    const serviceID = 'service_3iya7ah';
+    const templateID = 'template_zbmrdgd';
+
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        btn.value = 'Send Email';
+        alert('Sent!');
+      }, (err) => {
+        btn.value = 'Send Email';
+        alert(JSON.stringify(err));
+      });
+  });
+});
+
+</script>
+
+
 
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {

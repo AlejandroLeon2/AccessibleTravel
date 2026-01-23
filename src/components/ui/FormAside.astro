@@ -1,0 +1,85 @@
+---
+import Whatsapp from "../svg/Whatsapp.astro";
+import Mail from "../svg/Mail.astro";
+import WhatsappPop from "./WhatsappPop.astro";
+import empresaInfo from "../../data/accessibleTravel.json";
+import Telefono from "../svg/Telefono.astro";
+const {
+  style = " lg:space-y-3 lg:flex-col",
+  enlaces = " ",
+  lenguaje,
+} = Astro.props;
+---
+
+<div id="variant-3" class="variant-form col-span-2 border border-gray-200">
+  <div class="bg-white p-5">
+    <div class="mb-6 text-center">
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">
+        {lenguaje.talkAboutTrip}
+      </h3>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        {lenguaje.leaveEmail}
+      </p>
+    </div>
+
+    <form  class="space-y-3 formAside">
+      <div class=`${style} gap-3 sm:flex-row  lg:gap-0 flex flex-col `>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder={lenguaje.whatsYourName}
+          class="w-full px-4 py-3 text-sm border border-gray-200 rounded-sm input-focus"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder={lenguaje.enterEmail}
+          class="w-full px-4 py-3 text-sm border border-gray-200 rounded-sm input-focus"
+          required
+        />
+      </div>
+
+      <div>
+        <textarea
+          placeholder={lenguaje.tripType}
+          rows="4"
+          id="message"
+          name="message"
+          class="w-full px-4 py-3 text-sm border border-gray-200 rounded-sm input-focus resize-none"
+        ></textarea>
+      </div>
+
+      <input
+        type="submit"
+        value={lenguaje.contactMe}
+        class="bg-azul-travel btn-submit cursor-pointer submit-btn active:scale-95 duration-300 w-full hover:bg-azul-travel-hover active:bg-azul-travel-hover bg-gray-900 text-white py-3 rounded-sm text-sm font-medium"
+      />
+        <p id="form-status" class="text-sm text-green-600 hidden">
+    Message sent successfully!
+  </p>
+    </form  >
+
+    <div class="pt-2 flex flex-col border-t border-gray-200 mt-4">
+      <p class="text-xs text-gray-500 text-center mb-3">
+        {lenguaje.writeUsDirectly}
+      </p>
+      <div class={`${enlaces} flex flex-col justify-items-center  sm:flex-row lg:flex-col mx-auto w-42 sm:gap-4 sm:w-full sm:justify-center lg:w-42  justify-start gap-2`}>
+        {
+          empresaInfo.telefonos.map((tel, index) => (
+            <a
+              href={tel.url}
+              class="flex  items-center justify-start gap-2 text-sm text-gray-800 hover:text-azul-travel-hover"
+            >
+              <Whatsapp style="w-5" />
+              WhatsApp {tel.pais === "🇵🇪" ? "Perú" : "USA"}{" "}
+              <span>{tel.pais}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

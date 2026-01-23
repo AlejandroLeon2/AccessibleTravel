@@ -1,5 +1,5 @@
 ---
-title: "Descubre Cusco: Historia, Cultura y Aventura en el Corazón del Perú"
+title: "Discover Cusco: History, Culture and Adventure in the Heart of Peru"
 description: "Explore Cusco, the historic capital of the Inca Empire, with accessible experiences, local cuisine, and unforgettable landscapes."
 date: "2025-03-07"
 author: "Accessible Travel Peru"

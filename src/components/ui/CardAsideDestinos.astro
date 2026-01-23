@@ -5,20 +5,20 @@ const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
 ---
 
 <div
-  class="bg-white border border-gray-200 flex rounded-lg shadow-sm overflow-hidden"
+  class="bg-white border border-gray-200 grid grid-cols-3 rounded-lg shadow-sm overflow-hidden"
 >
-  <a href={`/${currentLocale}${ruta}${data.titleLink}`} class="block">
+  <a href={`/${currentLocale}${ruta}${data.titleLink}`} class="overflow-hidden group flex">
     <img
       src={data.images[0].link}
       alt={data.images[0].alt}
       title={data.images[0].title}
-      class="max-w-30 h-full max-h-40 object-cover"
+      class=" h-full max-h-40 object-cover duration-300 group-hover:scale-105"
       loading="lazy"
       decoding="async"
     />
   </a>
 
-  <div class="p-2">
+  <div class="p-4 col-span-2 gap-1 flex flex-col">
     <a
       href={`/${currentLocale}${ruta}${data.titleLink}`}
       class="text-white transition"
@@ -29,21 +29,19 @@ const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
         {data.title}
       </h3>
     </a>
-    <p class="text-xs flex items-center gap-1 text-gray-500">
-      <Ubicacion style="text-azul-travel" />
+
+    <p class="text-xs flex items-center  gap-1 text-gray-500">
+      <Ubicacion style="w-4 text-azul-travel" />
       {data.location ?? locacion}
     </p>
 
-    <div class="flex justify-between items-center pt-2">
-      <!--  <span class="text-azul-travel font-semibold text-sm">
-        {data.packages[0].price}
-      </span> -->
+
       <a
         href={`/${currentLocale}${ruta}${data.titleLink}`}
         class="text-[0.675rem] text-center bg-azul-travel text-white px-3 py-2 rounded-full hover:bg-azul-travel-hover transition"
       >
         {lenguaje.cardDestinoBoton}
       </a>
-    </div>
+
   </div>
 </div>

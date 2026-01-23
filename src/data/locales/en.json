@@ -1,6 +1,13 @@
 {
   "title": "Accessible Travel Peru | Inclusive Tours for People with Disabilities",
   "description": "Discover Peru without limits with Accessible Travel Peru. We specialize in inclusive tourism for people with mobility disabilities, offering accessible hotels, adapted routes, specialized equipment, and expert guides. Explore Machu Picchu, Cusco, and Lake Titicaca with safety, comfort, and personalized support.",
+  "talkAboutTrip": "Shall we talk about your trip?",
+  "leaveEmail": "Leave us your email and we’ll contact you to tell you all about Peru.",
+  "whatsYourName": "What’s your name?",
+  "enterEmail": "Enter your email",
+  "tripType": "Tell us: what type of trip are you looking for? Adventure, relaxation, culture...?",
+  "contactMe": "I want to be contacted",
+  "writeUsDirectly": "Or write to us directly via:",
   "includes": [
     "Adapted Hotels",
     "Accessible Routes",

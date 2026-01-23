@@ -1,4 +1,6 @@
 ---
+import Calendario from "../svg/Calendario.astro";
+import Persona from "../svg/Persona.astro";
 const {
   lenguaje,
   articulo,
@@ -17,29 +19,38 @@ const {
   <ul class={`space-y-4 gap-4 ${grid}`}>
     {
       articulo.slice(0, 3).map((newsa) => (
-        <article class="flex gap-4 hover:scale-105 duration-300 active:scale-100 border border-gray-200 h-full max-h-30 shadow">
-          <a href={`${newsa.url}`} title={newsa.frontmatter.title} class="flex">
+        <article class="grid grid-cols-3  duration-300 active:scale-100 border border-gray-200 h-full max-h-30 shadow">
+          <a href={`${newsa.url}`} title={newsa.frontmatter.title} class=" group overflow-hidden ">
             <img
               src={newsa.frontmatter.image ?? "/images/default-news.jpg"}
               alt={newsa.frontmatter.title}
-              class="  max-w-30 min-h-25 rounded object-cover "
+              class="w-full duration-300 h-full  rounded group-hover:scale-105 object-cover "
               loading="lazy"
               decoding="async"
               title={newsa.frontmatter.title}
             />
           </a>
 
-          <div class="w-auto flex flex-col py-2 gap-4">
+          <div class="w-auto flex flex-col py-2 px-4 col-span-2 space-y-1">
             <a
               href={`${newsa.url}`}
               class="text-sm md:text-xs line-clamp-2 duration-300  font-semibold text-gray-800 hover:text-blue-600"
             >
               {newsa.frontmatter.title}
             </a>
+            <p class="text-xs flex gap-2 items-center text-gray-700">
+              <span><Persona style="w-4"/></span>
+              {newsa.frontmatter.author}
+            </p>
 
-            <time class="block text-xs text-gray-500 ">
-              {newsa.frontmatter.date}
-            </time>
+            <p class="text-xs flex gap-2 items-center text-gray-700">
+              <span><Calendario style="w-4"/></span>
+              {new Date(newsa.frontmatter.date).toLocaleDateString(undefined, {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </p>
           </div>
         </article>
       ))

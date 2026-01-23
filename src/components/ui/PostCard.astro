@@ -1,29 +1,47 @@
 ---
+import Calendario from "../svg/Calendario.astro";
+import Persona from "../svg/Persona.astro";
 const { currentLocale } = Astro;
+
 
 const { post } = Astro.props;
 ---
 
 <article
-  class="w-auto group duration-300 active:scale-105 rounded-xl border border-gray-200 shadow overflow-hidden"
+  class="w-auto group duration-300 mx-auto active:scale-105 rounded-sm border border-gray-200 shadow overflow-hidden"
 >
   <a
     href={post.url}
-    class="transition flex flex-col lg:flex-row justify-between items-center"
+    class="transition flex md:grid grid-cols-2"
   >
+  <div class=" min-w-10 max-w-40 md:max-w-none md:h-full overflow-hidden ">
     <img
       src={post.frontmatter.image ?? "/images/gato.jpg"}
       alt={post.frontmatter.title}
-      class="w-full md:w-full h-50 duration-300 object-cover group-hover:scale-105"
+      class="w-full md:w-full  h-full duration-300 object-cover group-hover:scale-105"
       loading="lazy"
       decoding="async"
     />
+  </div>
+
     <div class="text-black p-4 border-black">
       <h2 class="text-lg font-bold mb-2">{post.frontmatter.title}</h2>
       <p class="text-xs mb-2">{post.frontmatter.description}</p>
-      <p class="text-xs block text-gray-700">
-        {post.frontmatter.date}
-      </p>
+<div class="flex gap-2 md:flex-col lg:flex-row">
+  <p class="text-xs flex gap-2 items-center text-gray-700">
+   <span><Calendario style="w-4"/></span>
+  {new Date(post.frontmatter.date).toLocaleDateString(undefined, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })}
+</p>
+            <p class="text-xs flex gap-2 items-center text-gray-700">
+              <span><Persona style="w-4"/></span>
+              {post.frontmatter.author}
+            </p>
+</div>
+
     </div>
   </a>
 </article>

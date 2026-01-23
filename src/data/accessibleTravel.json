@@ -34,6 +34,11 @@
     }
   ],
   "direccion": "465, FRAY LUIS DE LEON ST",
+  "direccionHeader": {
+    "pais": "🇵🇪",
+    "texto": "465, FRAY LUIS DE LEON ST",
+    "url": "https://www.google.com/maps/place/Jr.+Fray+Luis+de+Le%C3%B3n+464,+San+Borja+15036/@-12.0983481,-77.0063461,17z/data=!3m1!4b1!4m6!3m5!1s0x9105c7dbcd057b65:0x7aec0f238a0cb0f1!8m2!3d-12.0983534!4d-77.0037712!16s%2Fg%2F11w7qw9t2z?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
+  },
   "redes": [
     {
       "icono": "facebook",
@@ -58,12 +63,14 @@
     {
       "icono": "whatsapp",
       "url": "https://wa.me/51944731223",
-      "handle": "+51 944 731 223 🇵🇪"
+      "handle": "+51 944 731 223 🇵🇪",
+      "pais": "🇵🇪"
     },
-        {
+    {
       "icono": "whatsapp",
       "url": "https://wa.me/19089356769",
-      "handle": "+1 908-935-6769 🇺🇸"
+      "handle": "+1 908-935-6769 🇺🇸",
+      "pais": "🇺🇸"
     }
   ],
   "galleryLogos": [
@@ -88,5 +95,4 @@
       "alt": "Accessible Travel"
     }
   ]
-
 }
