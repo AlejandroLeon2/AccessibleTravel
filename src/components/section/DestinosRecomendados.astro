@@ -11,8 +11,10 @@ const {lenguaje, destinos}=Astro.props;
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-4 py-8 gap-4 place-items-center"
   >
     {
-      destinos.map((lugar) => (
-        <CardDestino lenguaje={lenguaje} data={lugar} locacion={lugar.title} />
+      destinos.map((lugar, index) => (
+        <div class={`animate-on-scroll fade-up delay-${(index % 4) * 100} w-full flex justify-center`}>
+          <CardDestino lenguaje={lenguaje} data={lugar} locacion={lugar.title} />
+        </div>
       ))
     }
   </div>

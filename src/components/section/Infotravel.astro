@@ -1,6 +1,7 @@
 ---
 import Acordeon from "../constructor/Acordeon.astro";
 import AsideTravel from "../ui/AsideTravel.astro";
+import GaleriaModal from "./GaleriaModal.astro";
 import { Fragment } from "astro/jsx-runtime";
 const tour = {
   title: "Africa – Amazing African Safari",
@@ -53,7 +54,7 @@ const {
 
   <div class="flex flex-col lg:flex-row justify-between gap-6">
     <section id="tab-content-info" class="block w-full">
-      <div class="flex flex-col lg:flex-row w-full">
+      <div class="flex flex-col lg:flex-row w-full animate-on-scroll fade-up delay-100">
         <div
           class="flex items-center gap-2 md:gap-4 text-sm text-gray-500 mb-4 flex-wrap"
         >
@@ -91,77 +92,23 @@ const {
               >({data.reseñas} {lenguaje.infoReseñas})</span
             >
           </p>
-          <!--  <p class="text-azul-travel font-semibold text-lg lg:text-2xl">
-            {data.packages[0].price}
-          </p> -->
         </div>
       </div>
-      <div class="flex flex-col lg:flex-row gap-4 justify-around">
-        {
-          !data.images?.[1] && (
-            <img
-              src={data.images[0].link}
-              alt="Tour image"
-              class="w-full  h-52 lg:h-[60svh] max-h-100  object-cover rounded-xl"
-
-            />
-          )
-        }
-        {
-          data.images?.[1] && (
-            <img
-              src={data.images[1].link}
-              alt="Tour image"
-              class="w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-sm xl:max-w-3/7 object-cover rounded-xl"
-            />
-          )
-        }
-
-        {
-          data.images?.[2] && (
-            <img
-              src={data.images[2].link}
-              alt="Tour image"
-              class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7 object-cover rounded-xl"
-            />
-          )
-        }
-
-        {
-          data.images?.[3] && (
-            <img
-              src={data.images[3].link}
-              alt="Tour image"
-              class="w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7 object-cover rounded-xl"
-            />
-          )
-        }
-      </div>
-      <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full">
-        <section class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10">
+<div class="animate-on-scroll fade-up delay-200">
+<GaleriaModal images={data.images} />
+</div>
+      <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full mt-4">
+        <section class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10 animate-on-scroll fade-right delay-200">
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
           </h2>
           <p class="py-4">
             {data.description}
           </p>
-          <!-- 
-          {
-            Array.isArray(data?.highlights) && data.highlights.length > 0 && (
-              <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-                {data.highlights.map((text) => (
-                  <li class="text-sm font-semibold">
-                    <span class="text-green-700">✔</span> {text}
-                  </li>
-                ))}
-              </ul>
-            )
-          }
-            -->
 
           {
             Array.isArray(data?.includes) && data.includes.length > 0 && (
-              <div>
+              <div class="animate-on-scroll fade-up">
                 <h2 class="text-lg font-semibold  mb-2">
                   {lenguaje.infoIncluye}:
                 </h2>
@@ -178,7 +125,7 @@ const {
 
           {
             Array.isArray(data?.excludes) && data.excludes.length > 0 && (
-              <div>
+              <div class="animate-on-scroll fade-up">
                 <h2 class="text-lg font-semibold  mb-2">
                   {lenguaje.infoNoIncluye}:
                 </h2>
@@ -192,7 +139,7 @@ const {
               </div>
             )
           }
-          <h2 class="text-lg font-semibold mb-2">{lenguaje.infoPaquetes}</h2>
+          <h2 class="text-lg font-semibold mb-2 animate-on-scroll fade-up">{lenguaje.infoPaquetes}</h2>
           <div>
             <div
               id="wetravel_package_listing"
@@ -202,14 +149,14 @@ const {
               data-text={lenguaje.infoReserva}
               data-showreviews={showReviews}
               data-env={env}
-              class="w-full h-full flex justify-center scroll-mt-40 my-8"
+              class="w-full h-full flex justify-center scroll-mt-40 my-8 animate-on-scroll fade-up"
             >
               <!-- El iframe se insertará aquí -->
             </div>
 
             {
               data.addOns && data.addOns.length > 0 && (
-                <section aria-labelledby="add-ons-heading" class="mt-4">
+                <section aria-labelledby="add-ons-heading" class="mt-4 animate-on-scroll fade-up">
                   <h2
                     id="add-ons-heading"
                     class="text-xl font-semibold text-black mb-4"
@@ -237,15 +184,19 @@ const {
             }
           </div>
         </section>
-        <AsideTravel lenguaje={lenguaje} data={data} />
+        <div class="animate-on-scroll fade-left delay-300 w-full lg:w-auto">
+          <AsideTravel lenguaje={lenguaje} data={data} />
+        </div>
       </div>
     </section>
     <section
       id="tab-content-plan"
-      class="text-gray-700 flex flex-col lg:flex-row hidden w-full"
+      class="text-gray-700 flex flex-col lg:flex-row hidden w-full animate-on-scroll fade-up"
     >
       <Acordeon data={data} lenguaje={lenguaje} />
-      <AsideTravel lenguaje={lenguaje} data={data} />
+      <div class="animate-on-scroll fade-left w-full lg:w-auto mt-4 lg:mt-0 lg:ml-6">
+        <AsideTravel lenguaje={lenguaje} data={data} />
+      </div>
     </section>
   </div>
 <script type="text/javascript"

@@ -1,189 +1,348 @@
 ---
 import testimonios from "../../data/testimonios.json";
-let activo = 0;
 
-const {lenguaje}=Astro.props
+const { lenguaje } = Astro.props;
 ---
 
-<section
-  class=" min-h-180 p-4 md:min-h-140 md:h-[80svh] md:max-h-150 md:rounded-xl lg:max-w-4xl xl:max-w-5xl flex flex-col justify-between xl:justify-around gap-4 mx-auto overflow-hidden island-team"
->
-  <span class="text-azul-travel font-semibold">{lenguaje.subtituloComentarios}</span>
-  <h2 class="text-4xl font-bold">{lenguaje.tituloRecomendado}</h2>
-<section class="flex flex-col md:flex-row bg-sky-100/50">
-<div
-    class="min-h-100 md:h-full w-full md:w-4/7 justify-center items-center flex relative overflow-hidden"
+<slider-comentarios class="block w-full">
+  <section
+    class="min-h-180 p-4 md:min-h-140 md:h-[80svh] md:max-h-150 md:rounded-xl lg:max-w-4xl xl:max-w-5xl flex flex-col justify-between xl:justify-around gap-4 mx-auto overflow-hidden island-team"
   >
-    {
-      testimonios.map((persona, index) => (
-        <img
-          src={persona.imagen}
-          alt={`Foto de ${persona.nombre}`}
-          class={`w-60 ${persona.nombre == "Franciely"?"object-top":""} -rotate-25 outline-2 outline-gray-300 border-8 border-white border-b-50 md:top-20 z-1 left-12 lg:left-20 xl:left-30 absolute h-auto min-h-70 max-h-80 object-cover`}
-          id={`imagen-principal-${index}`}
-          hidden={index !== activo}
-          aria-hidden={index !== activo}
-            loading="lazy"
-  decoding="async"
-  title={`Foto de ${persona.nombre}`}
-        />
- <img
-  src={persona.imagen2}
-  alt={`Foto de ${persona.nombre}`}
-  class={`w-60 border-8 ${persona.nombre == "Neto & Cristina Davanzo"?"object-left":""} outline-1 outline-gray-300 border-white border-b-50 rotate-25 top-30 md:top-30 left-28 lg:left-40 xl:left-50 absolute h-auto min-h-70 max-h-80 object-cover`}
-  id={`imagen-secundaria-${index}`}
-  hidden={index !== activo}
-  aria-hidden={index !== activo}
-    loading="lazy"
-  decoding="async"
-  title={`Foto de ${persona.nombre}`}
-/>
-
-      ))
-    }
-
-  </div>
-
-  <div class="py-6 px-4 md:max-w-xs lg:max-w-sm flex flex-col gap-4">
-    {
-      testimonios.map((persona, index) => (
-        <article
-          id={`testimonio-${index}`}
-          class="transition-opacity duration-300 ease-in-out"
-          hidden={index !== activo}
-          aria-hidden={index !== activo}
-        >
-          <h2 class="text-lg font-bold md:min-h-14 flex flex-col text-black ">
-            {persona.nombre}
-            <span class="text-xs text-azul-travel ">{persona.pais}</span>
-          </h2>
-          
-          <blockquote class="mt-2 md:min-h-60 text-gray-600  italic">
-            {persona.comentario}
-          </blockquote>
-        </article>
-      ))
-    }
-
-    <div
-      class="grid grid-flow-col py-4 gap-2 mx-auto w-70 md:w-60 relative place-items-center"
+    <span
+      class="text-azul-travel font-semibold animate-on-scroll fade-up delay-300"
+      >{lenguaje.subtituloComentarios}</span
     >
-      {
-        testimonios.map((persona, index) => (
+    <h2 class="text-4xl font-bold animate-on-scroll fade-up delay-400">
+      {lenguaje.tituloRecomendado}
+    </h2>
+    <section
+      class="flex flex-col md:flex-row bg-sky-100/50 animate-on-scroll zoom-in delay-500"
+    >
+      <div
+        class="min-h-100 md:h-full w-full md:w-4/7 justify-center items-center flex relative overflow-hidden"
+      >
+        {
+          testimonios.map((persona, index) => (
+            <div
+              class={`testimonio-img-group absolute inset-0 transition-opacity duration-500 ${index === 0 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
+              data-index={index}
+            >
+              <img
+                src={persona.imagen}
+                alt={`Foto de ${persona.nombre}`}
+                class={`w-60 ${persona.nombre == "Franciely" ? "object-top" : ""} -rotate-25 outline-2 outline-gray-300 border-8 border-white border-b-50 md:top-20 z-[20] left-12 lg:left-20 xl:left-30 absolute h-auto min-h-70 max-h-80 object-cover imagen-principal transition-all duration-500`}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                title={`Foto de ${persona.nombre}`}
+              />
+              <img
+                src={persona.imagen2}
+                alt={`Foto de ${persona.nombre}`}
+                class={`w-60 border-8 ${persona.nombre == "Neto & Cristina Davanzo" ? "object-left" : ""} outline-1 outline-gray-300 border-white border-b-50 rotate-25 top-30 md:top-30 z-[10] left-28 lg:left-40 xl:left-50 absolute h-auto min-h-70 max-h-80 object-cover imagen-secundaria transition-all duration-500 ease-in-out`}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                title={`Foto de ${persona.nombre}`}
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="py-6 px-4 md:max-w-xs lg:max-w-sm flex flex-col gap-4">
+        <div class="grid w-full">
+          {
+            testimonios.map((persona, index) => (
+              <article
+                class={`testimonio-text [grid-area:1/1] transition-opacity duration-300 ease-in-out ${index === 0 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
+                data-index={index}
+              >
+                <h2 class="text-lg font-bold md:min-h-14 flex flex-col text-black ">
+                  {persona.nombre}
+                  <span class="text-xs text-azul-travel ">{persona.pais}</span>
+                </h2>
+
+                <blockquote class="mt-2 md:min-h-60 text-gray-600 italic">
+                  {persona.comentario}
+                </blockquote>
+              </article>
+            ))
+          }
+        </div>
+
+        <div
+          class="grid grid-flow-col py-4 gap-2 mx-auto w-70 md:w-60 relative place-items-center"
+        >
+          {
+            testimonios.map((persona, index) => (
+              <button
+                type="button"
+                class="btn-avatar group rounded-full w-13 border-2 border-white dark:border-gray-800 ring-offset-2 ring-indigo-500 focus:ring transition-transform active:scale-95"
+                aria-label={`Ver perfil de ${persona.nombre}`}
+                data-index={index}
+                hidden={index >= 3}
+              >
+                <img
+                  src={persona.imagen}
+                  alt={persona.nombre}
+                  title={`foto de ${persona.nombre}`}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-12 h-12 object-cover rounded-full group-hover:ring-2 group-hover:ring-indigo-400 transition"
+                />
+              </button>
+            ))
+          }
           <button
             type="button"
-            class="group rounded-full w-13 border-2 border-white dark:border-gray-800 ring-offset-2 ring-indigo-500 focus:ring"
-            aria-label={`Ver perfil de ${persona.nombre}`}
-            data-index={index}
-            id={`btn-${index}`}
-            hidden
+            id="prev-btnc"
+            class="text-azul-travel text-3xl font-bold absolute top-1/2 -translate-y-1/2 -left-8 active:scale-90 transition-transform"
+            >←</button
           >
-            <img
-              src={persona.imagen}
-              alt={persona.nombre}
-              title={`foto de ${persona.nombre}`}
-  loading="lazy"
-  decoding="async"
-              class="w-12 h-12 object-cover rounded-full group-hover:ring-2 group-hover:ring-indigo-400 transition"
-            />
-          </button>
-        ))
-      }
-      <button
-        type="button"
-        id="prev-btnc"
-        class="text-azul-travel text-3xl font-bold absolute top-0 bottom-0 -left-8"
-        >←</button
-      >
-      <button
-        type="button"
-        id="next-btnc"
-        class="text-azul-travel text-3xl font-bold absolute top-0 bottom-0 -right-8"
-        >→</button
-      >
+          <button
+            type="button"
+            id="next-btnc"
+            class="text-azul-travel text-3xl font-bold absolute top-1/2 -translate-y-1/2 -right-8 active:scale-90 transition-transform"
+            >→</button
+          >
+        </div>
+
+      </div>
+    </section>
+    
+    <div id="zoom-controls" class="fixed inset-0 z-50 pointer-events-none hidden opacity-0 transition-opacity duration-300">
+      <button id="zoom-prev" aria-label="Anterior imagen" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 pointer-events-auto text-white text-3xl md:text-5xl w-12 h-12 md:w-16 md:h-16 bg-black/40 hover:bg-black/80 rounded-full flex items-center justify-center transition-all cursor-pointer backdrop-blur-md active:scale-90">←</button>
+      <button id="zoom-next" aria-label="Siguiente imagen" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 pointer-events-auto text-white text-3xl md:text-5xl w-12 h-12 md:w-16 md:h-16 bg-black/40 hover:bg-black/80 rounded-full flex items-center justify-center transition-all cursor-pointer backdrop-blur-md active:scale-90">→</button>
     </div>
+  </section>
+</slider-comentarios>
 
-    <div class="flex justify-between w-full mt-2"></div>
-  </div>
-</section>
-  
-</section>
+<script>
+  class SliderComentarios extends HTMLElement {
+    constructor() {
+      super();
 
-<script is:inline>
-  let activo = 0;
-  const grupo = 3;
-  const total = document.querySelectorAll("[id^='testimonio-']").length;
+      let activo = 0;
+      const grupo = 3;
 
-  function actualizarTestimonio(index) {
-    activo = index;
+      /** @type {NodeListOf<HTMLElement>} */
+      const imgsGroup = this.querySelectorAll(".testimonio-img-group");
+      /** @type {NodeListOf<HTMLElement>} */
+      const textsGroup = this.querySelectorAll(".testimonio-text");
+      /** @type {NodeListOf<HTMLButtonElement>} */
+      const btnsGroup = this.querySelectorAll(".btn-avatar");
+      const total = textsGroup.length;
 
-    // Mostrar testimonio activo
-    document.querySelectorAll("[id^='testimonio-']").forEach((el, i) => {
-      el.hidden = i !== activo;
-      el.setAttribute("aria-hidden", i !== activo);
-    });
+      if (total === 0) return;
 
+      /** @type {ReturnType<typeof setTimeout> | undefined} */
+      let swapTimeout;
 
-    document.querySelectorAll("[id^='imagen-principal-']").forEach((img, i) => {
-      const visible = i === activo;
-      img.hidden = !visible;
-      img.setAttribute("aria-hidden", !visible);
-      img.style.zIndex = "2";
-      img.style.opacity = "1";
-    });
+      /** @param {number} index */
+      const actualizarTestimonio = (index) => {
+        if (imgsGroup[activo]) {
+          imgsGroup[activo].classList.remove("opacity-100", "z-10");
+          imgsGroup[activo].classList.add("opacity-0", "z-0", "pointer-events-none");
 
-    document.querySelectorAll("[id^='imagen-secundaria-']").forEach((img, i) => {
-      const visible = i === activo;
-      img.hidden = !visible;
-      img.setAttribute("aria-hidden", !visible);
-      img.style.zIndex = "1";
-      img.style.opacity = "1";
-    });
+          textsGroup[activo].classList.remove("opacity-100", "z-10");
+          textsGroup[activo].classList.add("opacity-0", "z-0", "pointer-events-none");
 
-    // Después de 5 segundos, la secundaria pasa al frente
-    setTimeout(() => {
-      document.querySelectorAll("[id^='imagen-secundaria-']").forEach((img, i) => {
-        if (i === activo) {
-          img.style.zIndex = "3";
-          img.style.transition = "z-index 0.5s ease";
+          /** @type {HTMLImageElement | null} */
+          const prevImg2 = imgsGroup[activo].querySelector(".imagen-secundaria");
+          if (prevImg2) prevImg2.style.zIndex = "10";
         }
+
+        activo = index;
+
+        if (imgsGroup[activo]) {
+          imgsGroup[activo].classList.remove("opacity-0", "z-0", "pointer-events-none");
+          imgsGroup[activo].classList.add("opacity-100", "z-50");
+
+          textsGroup[activo].classList.remove("opacity-0", "z-0", "pointer-events-none");
+          textsGroup[activo].classList.add("opacity-100", "z-50");
+
+          clearTimeout(swapTimeout);
+          swapTimeout = setTimeout(() => {
+            /** @type {HTMLImageElement | null} */
+            const activeImg2 = imgsGroup[activo].querySelector(".imagen-secundaria");
+            if (activeImg2) activeImg2.style.zIndex = "30";
+          }, 5000);
+        }
+
+        const grupoInicio = Math.floor(activo / grupo) * grupo;
+        const grupoFin = grupoInicio + grupo;
+
+        btnsGroup.forEach((btn, i) => {
+          const visible = i >= grupoInicio && i < grupoFin;
+          btn.hidden = !visible;
+        });
+      };
+
+      this.querySelector("#next-btnc")?.addEventListener("click", () => {
+        actualizarTestimonio((activo + 1) % total);
       });
-    }, 5000);
 
-    // Botones de grupo
-    const grupoInicio = Math.floor(activo / grupo) * grupo;
-    const grupoFin = grupoInicio + grupo;
+      this.querySelector("#prev-btnc")?.addEventListener("click", () => {
+        actualizarTestimonio((activo - 1 + total) % total);
+      });
 
-    document.querySelectorAll("[id^='btn-']").forEach((btn, i) => {
-      const visible = i >= grupoInicio && i < grupoFin;
-      btn.hidden = !visible;
-      btn.setAttribute("aria-hidden", !visible);
-    });
+      btnsGroup.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const index = parseInt(btn.dataset.index || "0", 10);
+          actualizarTestimonio(index);
+        });
+      });
+
+      swapTimeout = setTimeout(() => {
+        if (imgsGroup[0]) {
+          /** @type {HTMLImageElement | null} */
+          const img2 = imgsGroup[0].querySelector(".imagen-secundaria");
+          if (img2) img2.style.zIndex = "30";
+        }
+      }, 5000);
+
+      setInterval(() => {
+        actualizarTestimonio((activo + 1) % total);
+      }, 12000);
+
+      // Zoom Logic instead of generic Modal
+      const overlay = document.createElement("div");
+      overlay.className = "fixed inset-0 bg-[#000000d9] z-30 hidden cursor-zoom-out backdrop-blur-sm transition-opacity duration-300 opacity-0";
+      document.body.appendChild(overlay);
+
+      /** @type {NodeListOf<HTMLImageElement>} */
+      const imgsCliquables = this.querySelectorAll(".imagen-principal, .imagen-secundaria");
+      /** @type {HTMLImageElement[]} */
+      const imgsArray = Array.from(imgsCliquables);
+
+      /** @type {HTMLImageElement | null} */
+      let activeZoomImg = null;
+      /** @type {HTMLElement | null} */
+      let activeZoomParent = null;
+      /** @type {Node | null} */
+      let activeZoomNextSibling = null;
+      let currentZoomIndex = 0;
+
+      const zoomControls = this.querySelector('#zoom-controls');
+      const btnNextZoom = this.querySelector('#zoom-next');
+      const btnPrevZoom = this.querySelector('#zoom-prev');
+
+      // Fundamental: Sacamos los controles del contenedor animado y los alojamos en el body
+      if (zoomControls) {
+        document.body.appendChild(zoomControls);
+      }
+
+      const closeZoom = () => {
+        if (!activeZoomImg) return;
+        activeZoomImg.classList.remove("imagen-enlarged");
+        
+        if (activeZoomParent) {
+          activeZoomParent.insertBefore(activeZoomImg, activeZoomNextSibling);
+        }
+
+        activeZoomImg = null;
+        activeZoomParent = null;
+        activeZoomNextSibling = null;
+
+        overlay.classList.remove("opacity-100");
+        zoomControls?.classList.remove("opacity-100");
+        
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          zoomControls?.classList.add("hidden");
+        }, 300);
+        document.body.style.overflow = "";
+      };
+
+      const swapZoom = (newIndex) => {
+        if (activeZoomImg && activeZoomParent) {
+          activeZoomImg.classList.remove("imagen-enlarged");
+          activeZoomParent.insertBefore(activeZoomImg, activeZoomNextSibling);
+        }
+
+        const newTarget = imgsArray[newIndex];
+        activeZoomImg = newTarget;
+        activeZoomParent = newTarget.parentElement;
+        activeZoomNextSibling = newTarget.nextElementSibling;
+        currentZoomIndex = newIndex;
+
+        document.body.appendChild(newTarget);
+        newTarget.classList.add("imagen-enlarged");
+      };
+
+      btnNextZoom?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        swapZoom((currentZoomIndex + 1) % imgsArray.length);
+      });
+
+      btnPrevZoom?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        swapZoom((currentZoomIndex - 1 + imgsArray.length) % imgsArray.length);
+      });
+
+      overlay.addEventListener("click", closeZoom);
+      window.addEventListener("scroll", closeZoom, { passive: true });
+
+      imgsArray.forEach((img, index) => {
+        img.classList.add("cursor-zoom-in", "hover:scale-105");
+        img.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          /** @type {HTMLImageElement} */
+          const target = /** @type {HTMLImageElement} */ (e.currentTarget);
+          
+          if (activeZoomImg === target) {
+            closeZoom();
+            return;
+          }
+          
+          if (activeZoomImg) {
+            closeZoom(); // should not happen directly but safe
+          }
+
+          activeZoomImg = target;
+          activeZoomParent = target.parentElement;
+          activeZoomNextSibling = target.nextElementSibling;
+          currentZoomIndex = index;
+
+          document.body.appendChild(target);
+
+          target.classList.add("imagen-enlarged");
+          overlay.classList.remove("hidden");
+          zoomControls?.classList.remove("hidden");
+          
+          // force reflow for transition
+          void overlay.offsetWidth;
+          
+          overlay.classList.add("opacity-100");
+          zoomControls?.classList.add("opacity-100");
+          document.body.style.overflow = "hidden";
+        });
+      });
+    }
   }
 
-  document.getElementById("next-btnc").addEventListener("click", () => {
-    activo = (activo + 1) % total;
-    actualizarTestimonio(activo);
-  });
-
-  document.getElementById("prev-btnc").addEventListener("click", () => {
-    activo = (activo - 1 + total) % total;
-    actualizarTestimonio(activo);
-  });
-
-  document.querySelectorAll("[id^='btn-']").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const index = parseInt(btn.dataset.index);
-      actualizarTestimonio(index);
-    });
-  });
-
-  actualizarTestimonio(activo); // inicial
-
-  setInterval(() => {
-    activo = (activo + 1) % total;
-    actualizarTestimonio(activo);
-  }, 12000);
+  customElements.define("slider-comentarios", SliderComentarios);
 </script>
 
-
+<style is:global>
+  .imagen-enlarged {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    rotate: 0deg !important;
+    scale: 1 !important;
+    z-index: 40 !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    object-fit: contain !important;
+    border: none !important;
+    outline: none !important;
+    cursor: zoom-out !important;
+    margin: 0 !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem !important;
+  }
+</style>

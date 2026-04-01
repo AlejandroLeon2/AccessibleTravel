@@ -22,50 +22,35 @@ const articulo = articulos.slice(0, 3);
   <PortadaDinamica lenguaje={lenguaje} />
 
   <MainContent>
-    <HeroHome lenguaje={lenguaje} />
-    <Actividades lenguaje={lenguaje} />
-    <DestinosRecomendados lenguaje={lenguaje} {destinos} />
+    <div class="animate-on-scroll fade-up">
+      <HeroHome lenguaje={lenguaje} />
+    </div>
+    
+    <div class="animate-on-scroll fade-up delay-100">
+      <Actividades lenguaje={lenguaje} />
+    </div>
+    
+    <div class="animate-on-scroll fade-up delay-200">
+      <DestinosRecomendados lenguaje={lenguaje} {destinos} />
+    </div>
+    
     <h2
-      class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900"
+      class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900 animate-on-scroll fade-left"
     >
       {lenguaje.tituloMiembros}
     </h2>
-    <Certificaciones bandera={true} />
-    <Comentarios lenguaje={lenguaje} />
-    <BlogNew articulo={articulo} lenguaje={lenguaje} home="s" grid="grid grid-col-1 md:grid-cols-2" />
+    
+    <div class="animate-on-scroll fade-up delay-100">
+      <Certificaciones bandera={true} />
+    </div>
+    
+    <div class="animate-on-scroll fade-up delay-200">
+      <Comentarios lenguaje={lenguaje} />
+    </div>
+    
+    <div class="animate-on-scroll fade-up delay-300">
+      <BlogNew articulo={articulo} lenguaje={lenguaje} home="s" grid="grid grid-col-1 md:grid-cols-2" />
+    </div>
   </MainContent>
 
 </Layout>
-<script >
-  import lenguaje from "../../data/locales/en.json";
-  document.addEventListener("DOMContentLoaded", () => {
-
-    const titleEl = document.getElementById("slider-title");
-
-    let index = 0;
-    const imgEl = document.getElementById("slider-image");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    const updateImage = (i) => {
-      index = i;
-      imgEl!.src = lenguaje.banners[i].src;
-      imgEl!.alt = lenguaje.banners[i].alt;
-      titleEl!.textContent = lenguaje.banners[i].title;
-    };
-
-    prevBtn!.addEventListener("click", () => {
-      index = (index - 1 +lenguaje.banners.length) %lenguaje.banners.length;
-      updateImage(index);
-    });
-
-    nextBtn!.addEventListener("click", () => {
-      index = (index + 1) %lenguaje.banners.length;
-      updateImage(index);
-    });
-
-    setInterval(() => {
-      index = (index + 1) %lenguaje.banners.length;
-      updateImage(index);
-    }, 10000);
-  });
-</script>

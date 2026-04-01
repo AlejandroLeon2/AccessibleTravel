@@ -4,36 +4,85 @@ import FlechaCorta from "../svg/FlechaCorta.astro";
 const {lenguaje} =Astro.props;
 ---
 
-<section class="bg-white flex justify-center items-center relative mx-auto">
+<slider-portada class="block bg-white relative mx-auto w-full h-[50svh] sm:h-[60svh] md:h-[70svh] min-h-100 max-h-150 overflow-hidden group">
   <button
     id="prev-btn"
-    class="absolute  active:scale-95 hover:scale-105 duration-300 left-1 z-10 bg-white/30 rounded-full p-2 shadow hover:bg-white active:bg-white transition"
+    class="absolute active:scale-95 hover:scale-105 duration-300 left-1 top-1/2 -translate-y-1/2 z-20 bg-white/30 rounded-full p-2 shadow hover:bg-white active:bg-white transition"
+    aria-label="Previous banner"
   >
     <FlechaCorta style="rotate-90"/>
   </button>
-  <div
-    class="absolute mx-auto flex justify-start items-center h-full bg-black/20 left-0 right-0 px-12"
-  >
-    <h1
-      id="slider-title"
-      class="max-w-xs sm:max-w-sm  text-4xl sm:text-5xl   transition-opacity duration-500 md:text-5xl lg:text-6xl lg:max-w-xl font-bold text-white"
-    >
-      {lenguaje.banners[0].title}
-    </h1>
+
+  <div class="relative w-full h-full" id="slider-container">
+    {lenguaje.banners.map((banner, index) => (
+      <div 
+        class={`banner-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        data-index={index}
+      >
+        <div class="absolute inset-0 flex justify-start items-center bg-black/20 px-12 z-10">
+          <h1 class="max-w-xs sm:max-w-sm text-4xl sm:text-5xl transition-all duration-500 md:text-5xl lg:text-6xl lg:max-w-xl font-bold text-white drop-shadow-lg">
+            {banner.title}
+          </h1>
+        </div>
+        <img
+          src={banner.src}
+          alt={banner.alt}
+          class="w-full h-full object-cover"
+          loading={index === 0 ? "eager" : "lazy"}
+          fetchpriority={index === 0 ? "high" : "auto"}
+        />
+      </div>
+    ))}
   </div>
-  <img
-    id="slider-image"
-    src={lenguaje.banners[0].src}
-    alt={lenguaje.banners[0].alt}
-    class="w-full h-[50svh] sm:h-[60svh] md:h-[70svh]   min-h-100 max-h-150  object-cover transition-all duration-500 ease-in-out"
-  />
 
   <button
     id="next-btn"
-    class="absolute active:scale-95 hover:scale-105 duration-300 right-2 z-10 bg-white/30 text-center rounded-full p-2 shadow hover:bg-white active:bg-white transition"
+    class="absolute active:scale-95 hover:scale-105 duration-300 right-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 text-center rounded-full p-2 shadow hover:bg-white active:bg-white transition"
+    aria-label="Next banner"
   >
     <FlechaCorta style="-rotate-90"/>
   </button>
-</section>
+</slider-portada>
 
+<script>
+  class SliderPortada extends HTMLElement {
+    constructor() {
+      super();
+      
+      let index = 0;
+      const slides = this.querySelectorAll('.banner-slide');
+      const prevBtn = this.querySelector('#prev-btn');
+      const nextBtn = this.querySelector('#next-btn');
+      const totalSlides = slides.length;
 
+      if (totalSlides <= 1) return;
+
+      const updateActiveSlide = (newIndex) => {
+        slides[index].classList.remove('opacity-100', 'z-10');
+        slides[index].classList.add('opacity-0', 'z-0');
+        
+        index = newIndex;
+        
+        slides[index].classList.remove('opacity-0', 'z-0');
+        slides[index].classList.add('opacity-100', 'z-10');
+      };
+
+      prevBtn?.addEventListener("click", () => {
+        const newIndex = (index - 1 + totalSlides) % totalSlides;
+        updateActiveSlide(newIndex);
+      });
+
+      nextBtn?.addEventListener("click", () => {
+        const newIndex = (index + 1) % totalSlides;
+        updateActiveSlide(newIndex);
+      });
+
+      setInterval(() => {
+        const newIndex = (index + 1) % totalSlides;
+        updateActiveSlide(newIndex);
+      }, 10000);
+    }
+  }
+
+  customElements.define('slider-portada', SliderPortada);
+</script>

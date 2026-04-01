@@ -1,146 +1,149 @@
 [
   {
-  "title": "WHEELCHAIR AIRPORT TRANSFERS or DISPOSAL♿🚐",
-  "titleLink": "wheelchair-airport-transfers-lima",
-  "operator": "Accessible Travel Peru",
-  "duration": "1",
-  "uid": "67259",
-  "uuid": "19229364",
-  "rating": 5,
-  "reseñas": 5,
-  "recomendado": false,
-  "groupSize": "1 - 999",
-  "location": "Lima, Perú",
-  "description": "Transfers & Excursions from the Airport to your hotel in the city of Lima, Peru",
-  "highlights": [],
-  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
-  "contact": "",
-  "includes": [
-    "Accessible van (Van adapted for electric & manual wheelchairs 1 wheelchair + 3 accompaniers)",
-    "Tickets & Taxes (Parking tickets & Taxes)"
-  ],
-  "excludes": [
-    "Tips"
-  ],
-  "packages": [
-    {
-      "name": "Apto - Lince, San Isidro, Miraflores",
-      "price": "$45",
-      "deposit": ""
-    },
-    {
-      "name": "Apto - Barranco, Chorrillos, Surco",
-      "price": "$50",
-      "deposit": ""
-    },
-    {
-      "name": "Apto - Casuarinas, La Molina, Ate",
-      "price": "$65",
-      "deposit": ""
-    },
-    {
-      "name": "Price per hour",
-      "price": "$40",
-      "deposit": ""
-    }
-  ],
-  "addOns": [],
-  "itinerary": [],
-  "images": [ {
+    "title": "WHEELCHAIR AIRPORT TRANSFERS or DISPOSAL♿🚐",
+    "titleLink": "wheelchair-airport-transfers-lima",
+    "operator": "Accessible Travel Peru",
+    "duration": "1",
+    "uid": "67259",
+    "uuid": "19229364",
+    "rating": 5,
+    "reseñas": 5,
+    "recomendado": false,
+    "groupSize": "1 - 999",
+    "location": "Lima, Perú",
+    "description": "Transfers & Excursions from the Airport to your hotel in the city of Lima, Peru",
+    "highlights": [],
+    "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+    "contact": "",
+    "includes": [
+      "Accessible van (Van adapted for electric & manual wheelchairs 1 wheelchair + 3 accompaniers)",
+      "Tickets & Taxes (Parking tickets & Taxes)"
+    ],
+    "excludes": [
+      "Tips"
+    ],
+    "packages": [
+      {
+        "name": "Apto - Lince, San Isidro, Miraflores",
+        "price": "$45",
+        "deposit": ""
+      },
+      {
+        "name": "Apto - Barranco, Chorrillos, Surco",
+        "price": "$50",
+        "deposit": ""
+      },
+      {
+        "name": "Apto - Casuarinas, La Molina, Ate",
+        "price": "$65",
+        "deposit": ""
+      },
+      {
+        "name": "Price per hour",
+        "price": "$40",
+        "deposit": ""
+      }
+    ],
+    "addOns": [],
+    "itinerary": [],
+    "images": [
+      {
         "link": "/images/cart4.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
       },
-    {
+      {
         "link": "/images/cart1.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
       },
-    {
+      {
         "link": "/images/cart3.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
       },
-    {
+      {
         "link": "/images/cart2.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
-      }],
-  "links": {
-    "book": "https://accessibletravelperu.wetravel.com/trips/wheelchair-airport-transfers-or-disposal-accessible-travel-peru-19229364",
-    "brochure": "Download brochure",
-    "inquire": "Ask a question"
-  }
-},
+      }
+    ],
+    "links": {
+      "book": "https://accessibletravelperu.wetravel.com/trips/wheelchair-airport-transfers-or-disposal-accessible-travel-peru-19229364",
+      "brochure": "Download brochure",
+      "inquire": "Ask a question"
+    }
+  },
   {
-  "title": "DISCOVER LIMA AND HUACA PUCLLANA - ACCESSIBLE FULL DAY TOUR ♿",
-  "titleLink": "lima-huaca-pucllana-accessible-tour",
-  "operator": "Accessible Travel Peru",
-  "duration": "1",
-  "uid": "67258",
-  "uuid": "33347775",
-  "rating": 5,
-  "reseñas": 5,
-  "recomendado": false,
-  "groupSize": "1 - 25",
-  "location": "Lima, Perú",
-  "description": "At Accessible Travel Perú, we specialize in creating unforgettable and inclusive travel experiences for people with disabilities. With over 10 years of experience, we are a formal, registered company under MINCETUR and proud members of ENAT. Our Full Day Lima Tour is designed to offer you a comfortable and accessible journey, visiting the ancient Huaca Pucllana Archaeological Complex and exploring the Historic Center of Lima. 🏛️🌍\n\nWe ensure that each moment of your trip is smooth and enjoyable, with accessible transportation and expert guides. 🚌✨\n\nFor more information or to book your tour, visit our website at www.accessibletravelperu.com or contact us at +51 944 731 223. Let us help you discover Lima with comfort and ease! 🌟",
-  "highlights": [
-    "Visit to the Huaca Pucllana Archaeological Complex",
-    "Tour through Lima's Historic Center including Plaza Mayor and Santo Domingo Convent",
-    "Accessible transportation and routes for people with reduced mobility",
-    "Expert guides specialized in accessible tourism"
-  ],
-  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
-  "contact": "Contact us at +51 944 731 223 or visit www.accessibletravelperu.com",
-  "includes": [
-    "Accessible Van (WAV)",
-    "All tours described in the itinerary",
-    "All entrance fees",
-    "Tour guide specialized in accessible tourism",
-    "Lunch in local restaurant"
-  ],
-  "excludes": [
-    "Tours not mentioned in the program",
-    "Hotel accommodation"
-  ],
-  "packages": [
-    {
-      "name": "Wheelchair User",
-      "price": "$190",
-      "deposit": ""
-    },
-    {
-      "name": "Partner",
-      "price": "$150",
-      "deposit": ""
-    }
-  ],
-  "addOns": [
-    {
-      "name": "Round Trip Transfers",
-      "price": "$50",
-      "description": "Start and Finish in the airport jorge chavez in Lima or in callao port"
-    }
-  ],
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "ACCESSIBLE FULL DAY TOUR IN LIMA🏛️🌍",
-      "description": "08:00 AM – Pickup from the hotel\nThe day begins with a comfortable and safe transfer in an accessible vehicle, specially designed for people with reduced mobility. Our adapted transportation will ensure that every moment of the day is as comfortable as possible.\n\n08:30 AM – Visit to the Huaca Pucllana Archaeological Complex\nWe start the day by visiting the impressive Huaca Pucllana Archaeological Complex, an ancient pre-Inca temple located in the heart of Miraflores. This archaeological site is one of Lima's most iconic landmarks.\n\n10:30 AM – City Tour through Lima's Historic Center\nThis tour takes us through Lima’s main attractions, with a focus on accessibility for all visitors:\nPlaza Mayor: We start with a visit to Plaza Mayor, the heart of the city, where you’ll find the Palace of Government, the Lima Cathedral, and other historic buildings. All entrances are adapted for people with mobility issues.\nMiraflores Malecón: Next, we head to the Miraflores Malecón, a landmark where you can enjoy beautiful views of the sea and accessible parks along the way.\nSan Isidro District: We explore the elegant and peaceful San Isidro neighborhood, famous for its well-maintained parks and gardens, with wide sidewalks and accessibility for those with reduced mobility.\nConvento e Iglesia de Santo Domingo: The last stop of the tour is the historic Convento de Santo Domingo, where you can appreciate the colonial architecture and enjoy its serene environment. This place is also wheelchair accessible.\n\n01:30 PM – Accessible Lunch at a Restaurant\nWe’ll enjoy a delicious lunch at an accessible restaurant, where you can savor the best of Peruvian cuisine with options tailored to all needs. A varied, healthy, and tasty menu awaits.\n\n03:00 PM – Return to the hotel\nAs the day comes to a close, our accessible transport will take you back to your hotel, ensuring a comfortable and relaxing return."
-    }
-  ],
-  "images": [  {
+    "title": "DISCOVER LIMA AND HUACA PUCLLANA - ACCESSIBLE FULL DAY TOUR ♿",
+    "titleLink": "lima-huaca-pucllana-accessible-tour",
+    "operator": "Accessible Travel Peru",
+    "duration": "1",
+    "uid": "67258",
+    "uuid": "33347775",
+    "rating": 5,
+    "reseñas": 5,
+    "recomendado": false,
+    "groupSize": "1 - 25",
+    "location": "Lima, Perú",
+    "description": "At Accessible Travel Perú, we specialize in creating unforgettable and inclusive travel experiences for people with disabilities. With over 10 years of experience, we are a formal, registered company under MINCETUR and proud members of ENAT. Our Full Day Lima Tour is designed to offer you a comfortable and accessible journey, visiting the ancient Huaca Pucllana Archaeological Complex and exploring the Historic Center of Lima. 🏛️🌍\n\nWe ensure that each moment of your trip is smooth and enjoyable, with accessible transportation and expert guides. 🚌✨\n\nFor more information or to book your tour, visit our website at www.accessibletravelperu.com or contact us at +51 944 731 223. Let us help you discover Lima with comfort and ease! 🌟",
+    "highlights": [
+      "Visit to the Huaca Pucllana Archaeological Complex",
+      "Tour through Lima's Historic Center including Plaza Mayor and Santo Domingo Convent",
+      "Accessible transportation and routes for people with reduced mobility",
+      "Expert guides specialized in accessible tourism"
+    ],
+    "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+    "contact": "Contact us at +51 944 731 223 or visit www.accessibletravelperu.com",
+    "includes": [
+      "Accessible Van (WAV)",
+      "All tours described in the itinerary",
+      "All entrance fees",
+      "Tour guide specialized in accessible tourism",
+      "Lunch in local restaurant"
+    ],
+    "excludes": [
+      "Tours not mentioned in the program",
+      "Hotel accommodation"
+    ],
+    "packages": [
+      {
+        "name": "Wheelchair User",
+        "price": "$190",
+        "deposit": ""
+      },
+      {
+        "name": "Partner",
+        "price": "$150",
+        "deposit": ""
+      }
+    ],
+    "addOns": [
+      {
+        "name": "Round Trip Transfers",
+        "price": "$50",
+        "description": "Start and Finish in the airport jorge chavez in Lima or in callao port"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "ACCESSIBLE FULL DAY TOUR IN LIMA🏛️🌍",
+        "description": "08:00 AM – Pickup from the hotel\nThe day begins with a comfortable and safe transfer in an accessible vehicle, specially designed for people with reduced mobility. Our adapted transportation will ensure that every moment of the day is as comfortable as possible.\n\n08:30 AM – Visit to the Huaca Pucllana Archaeological Complex\nWe start the day by visiting the impressive Huaca Pucllana Archaeological Complex, an ancient pre-Inca temple located in the heart of Miraflores. This archaeological site is one of Lima's most iconic landmarks.\n\n10:30 AM – City Tour through Lima's Historic Center\nThis tour takes us through Lima’s main attractions, with a focus on accessibility for all visitors:\nPlaza Mayor: We start with a visit to Plaza Mayor, the heart of the city, where you’ll find the Palace of Government, the Lima Cathedral, and other historic buildings. All entrances are adapted for people with mobility issues.\nMiraflores Malecón: Next, we head to the Miraflores Malecón, a landmark where you can enjoy beautiful views of the sea and accessible parks along the way.\nSan Isidro District: We explore the elegant and peaceful San Isidro neighborhood, famous for its well-maintained parks and gardens, with wide sidewalks and accessibility for those with reduced mobility.\nConvento e Iglesia de Santo Domingo: The last stop of the tour is the historic Convento de Santo Domingo, where you can appreciate the colonial architecture and enjoy its serene environment. This place is also wheelchair accessible.\n\n01:30 PM – Accessible Lunch at a Restaurant\nWe’ll enjoy a delicious lunch at an accessible restaurant, where you can savor the best of Peruvian cuisine with options tailored to all needs. A varied, healthy, and tasty menu awaits.\n\n03:00 PM – Return to the hotel\nAs the day comes to a close, our accessible transport will take you back to your hotel, ensuring a comfortable and relaxing return."
+      }
+    ],
+    "images": [
+      {
         "link": "/images/lima.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
       },
-       {
+      {
         "link": "/images/grupal3.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
       },
-       {
+      {
         "link": "/images/lima2.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
@@ -149,13 +152,14 @@
         "link": "/images/lima.webp",
         "alt": "Vehículo accesible todo terreno en los Andes peruanos",
         "title": "Vehículo de Expedición Todo Terreno"
-      }],
-  "links": {
-    "book": "https://accessibletravelperu.wetravel.com/trips/discover-lima-and-huaca-pucllana-accessible-full-day-tour-accessible-travel-peru-33347775",
-    "brochure": "Download brochure",
-    "inquire": "Ask a question"
-  }
-},
+      }
+    ],
+    "links": {
+      "book": "https://accessibletravelperu.wetravel.com/trips/discover-lima-and-huaca-pucllana-accessible-full-day-tour-accessible-travel-peru-33347775",
+      "brochure": "Download brochure",
+      "inquire": "Ask a question"
+    }
+  },
   {
     "title": "Peru by Land: Accessible Off-Road Expedition Through Peru",
     "titleLink": "peru-accessible-offroad-expedition",
@@ -346,22 +350,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/orMIQiGKSBmR5gmPtYxn",
+        "link": "/images/tours/tour-orMIQiGKSBmR5gmPtYxn.webp",
         "alt": "Accessible off-road vehicle in Peruvian Andes",
         "title": "Off-Road Expedition Vehicle"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/hcVX7U6nRKqJgwxAJYpf",
+        "link": "/images/tours/tour-hcVX7U6nRKqJgwxAJYpf.webp",
         "alt": "Wheelchair user at Machu Picchu",
         "title": "Accessible Machu Picchu Tour"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/axXnc1s1RGSRothARS62",
+        "link": "/images/tours/tour-axXnc1s1RGSRothARS62.webp",
         "alt": "Colca Canyon with condors flying",
         "title": "Colca Canyon Viewpoint"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/2ORIr0IdRGyStPdyvGtp",
+        "link": "/images/tours/tour-2ORIr0IdRGyStPdyvGtp.webp",
         "alt": "Floating Uros Islands on Lake Titicaca",
         "title": "Lake Titicaca Experience"
       }
@@ -477,22 +481,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/JrfbKtBlR4GJjhhwOKr0",
+        "link": "/images/tours/tour-JrfbKtBlR4GJjhhwOKr0.webp",
         "alt": "Amazon River landscape",
         "title": "View of the Amazon River"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/0hy2UFuRPGjSbRnrPsqb",
+        "link": "/images/tours/tour-0hy2UFuRPGjSbRnrPsqb.webp",
         "alt": "Lima city view",
         "title": "Panoramic view of Lima"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/eOCh3aJRhopmNSGyhgEg",
+        "link": "/images/tours/tour-eOCh3aJRhopmNSGyhgEg.webp",
         "alt": "Accessible jungle lodge",
         "title": "Our accessible Amazon lodge"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/7kqCiexgRt6kWT8aizS4",
+        "link": "/images/tours/tour-7kqCiexgRt6kWT8aizS4.webp",
         "alt": "Wildlife rescue center",
         "title": "Amazonian animals at rescue center"
       }
@@ -654,22 +658,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/r1Sc8RQVREORME86GjDA",
+        "link": "/images/tours/tour-r1Sc8RQVREORME86GjDA.webp",
         "alt": "Accessible path at Machu Picchu",
         "title": "Machu Picchu Accessibility"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/xg7cvCHyQvCXJPCMv2zX",
+        "link": "/images/tours/tour-xg7cvCHyQvCXJPCMv2zX.webp",
         "alt": "Wheelchair user at Rainbow Mountain",
         "title": "Accessible Rainbow Mountain Tour"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/cXjkksuSW6kAcqm5nzdp",
+        "link": "/images/tours/tour-cXjkksuSW6kAcqm5nzdp.webp",
         "alt": "Accessible boat to Uros Islands",
         "title": "Lake Titicaca Accessibility"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/sn05OHvYSvSQRCH069f6",
+        "link": "/images/tours/tour-sn05OHvYSvSQRCH069f6.webp",
         "alt": "Wheelchair accessible tour in Cusco",
         "title": "Cusco City Accessibility"
       }
@@ -786,22 +790,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/e1Kp0AJRNy2r8xfABykw",
+        "link": "/images/tours/tour-e1Kp0AJRNy2r8xfABykw.webp",
         "alt": "Accessible city tour in Cusco",
         "title": "Cusco City Tour"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/DtdxsYr9TeKIX0SNoxdc",
+        "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
         "alt": "Wheelchair user in Sacred Valley",
         "title": "Sacred Valley Accessibility"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/DXa4j6oATRiSmsA1KmE4",
+        "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
         "alt": "Accessible view of Rainbow Mountain",
         "title": "Rainbow Mountain View"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/hdQ3AgvlTLqBjDY4LwDO",
+        "link": "/images/tours/tour-hdQ3AgvlTLqBjDY4LwDO.webp",
         "alt": "Accessible path at Machu Picchu",
         "title": "Machu Picchu Accessibility"
       }
@@ -997,22 +1001,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/PLME1AQRqcaEAPUponwH",
+        "link": "/images/tours/tour-PLME1AQRqcaEAPUponwH.webp",
         "alt": "Accessible tour in Machu Picchu",
         "title": "Machu Picchu Accessibility"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/TYzUlFAAQnWEphQ7Oe6X",
+        "link": "/images/tours/tour-TYzUlFAAQnWEphQ7Oe6X.webp",
         "alt": "Condors flying over Colca Canyon",
         "title": "Colca Canyon Viewpoint"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/KmmUEZUSSiEgNOqCZlgC",
+        "link": "/images/tours/tour-KmmUEZUSSiEgNOqCZlgC.webp",
         "alt": "Floating Uros Islands on Lake Titicaca",
         "title": "Lake Titicaca Experience"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/KMXRVtqRKW33rLycW96y",
+        "link": "/images/tours/tour-KMXRVtqRKW33rLycW96y.webp",
         "alt": "Panoramic view of Sacred Valley",
         "title": "Sacred Valley Landscape"
       }
@@ -1149,22 +1153,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/T6rqFanTwKF4BfdJ5dTM",
+        "link": "/images/tours/tour-T6rqFanTwKF4BfdJ5dTM.webp",
         "alt": "Cusco city view at sunset",
         "title": "Cusco Sunset"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/RcPpYAexR3SH8tTXyxfv",
+        "link": "/images/tours/tour-RcPpYAexR3SH8tTXyxfv.webp",
         "alt": "Panoramic view of Sacred Valley",
         "title": "Sacred Valley Landscape"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/LusfoBh7SmWgcwf8wWLt",
+        "link": "/images/tours/tour-LusfoBh7SmWgcwf8wWLt.webp",
         "alt": "Sunrise at Machu Picchu",
         "title": "Machu Picchu Sunrise"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/opRsbwtJT7KY73IID9Cy",
+        "link": "/images/tours/tour-opRsbwtJT7KY73IID9Cy.webp",
         "alt": "Traditional Andean textile weaving",
         "title": "Andean Textile Workshop"
       }
@@ -1305,22 +1309,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/Cf1ucBCeQ96LGsCKpSPW",
+        "link": "/images/tours/tour-Cf1ucBCeQ96LGsCKpSPW.webp",
         "alt": "Vibrant colors of Rainbow Mountain",
         "title": "Rainbow Mountain"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/qOpH8tZrQcefCDR9bXWg",
+        "link": "/images/tours/tour-qOpH8tZrQcefCDR9bXWg.webp",
         "alt": "Historic Cusco city view",
         "title": "Cusco City"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/LusfoBh7SmWgcwf8wWLt",
+        "link": "/images/tours/tour-LusfoBh7SmWgcwf8wWLt.webp",
         "alt": "Inca terraces in Sacred Valley",
         "title": "Sacred Valley"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/RcPpYAexR3SH8tTXyxfv",
+        "link": "/images/tours/tour-RcPpYAexR3SH8tTXyxfv.webp",
         "alt": "Accessible path at Machu Picchu",
         "title": "Machu Picchu Accessibility"
       }
@@ -1415,22 +1419,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/INcWyGzTnKtDfwkGnilg",
+        "link": "/images/tours/tour-INcWyGzTnKtDfwkGnilg.webp",
         "alt": "Panoramic view of Cusco city",
         "title": "Cusco City View"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/DXa4j6oATRiSmsA1KmE4",
+        "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
         "alt": "Terraces in Sacred Valley",
         "title": "Sacred Valley Landscape"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/DtdxsYr9TeKIX0SNoxdc",
+        "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
         "alt": "Machu Picchu citadel",
         "title": "Machu Picchu Wonder"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/FtYMHKMTYqoE5AHQ3S44",
+        "link": "/images/tours/tour-FtYMHKMTYqoE5AHQ3S44.webp",
         "alt": "Wheelchair accessible path in Cusco",
         "title": "Accessible Cusco"
       }
@@ -1461,7 +1465,10 @@
       "Tour guide specialized in accessible tourism",
       "Lunch in local restaurant"
     ],
-    "excludes": ["Tours not mentioned in the program", "Hotel accommodation"],
+    "excludes": [
+      "Tours not mentioned in the program",
+      "Hotel accommodation"
+    ],
     "packages": [
       {
         "name": "Wheelchair user",
@@ -1488,22 +1495,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/QITjIS97QXiinkc9ezMH",
+        "link": "/images/tours/tour-QITjIS97QXiinkc9ezMH.webp",
         "alt": "Accessible boat tour to Ballestas Islands",
         "title": "Wildlife Boat Tour"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/QITjIS97QXiinkc9ezMH",
+        "link": "/images/tours/tour-QITjIS97QXiinkc9ezMH.webp",
         "alt": "Accessible boat tour to Ballestas Islands",
         "title": "Wildlife Boat Tour"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/xKJItWlQyG7sEE4JnVHM",
+        "link": "/images/tours/tour-xKJItWlQyG7sEE4JnVHM.webp",
         "alt": "Accessible dune buggy adventure in Huacachina",
         "title": "Desert Buggy Ride"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/FtYMHKMTYqoE5AHQ3S44",
+        "link": "/images/tours/tour-FtYMHKMTYqoE5AHQ3S44.webp",
         "alt": "Accessible dune buggy adventure in Huacachina",
         "title": "Desert Buggy Ride"
       }
@@ -1571,7 +1578,10 @@
       "Tour guide specialized in accessible tourism",
       "Lunch in local restaurant"
     ],
-    "excludes": ["Tours not mentioned in the program", "Hotel accommodation"],
+    "excludes": [
+      "Tours not mentioned in the program",
+      "Hotel accommodation"
+    ],
     "packages": [
       {
         "name": "Wheelchair user",
@@ -1598,22 +1608,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/ESArl1VeQGmBnzyfvW44",
+        "link": "/images/tours/tour-ESArl1VeQGmBnzyfvW44.webp",
         "alt": "Accessible visit to traditional market in Lima",
         "title": "Local Market Experience"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/ESArl1VeQGmBnzyfvW44",
+        "link": "/images/tours/tour-ESArl1VeQGmBnzyfvW44.webp",
         "alt": "Accessible visit to traditional market in Lima",
         "title": "Local Market Experience"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/5LZA6mmyRwqIakPIRGwU",
+        "link": "/images/tours/tour-5LZA6mmyRwqIakPIRGwU.webp",
         "alt": "Accessible cooking class at El Bolivariano restaurant",
         "title": "Peruvian Cooking Demonstration"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/5LZA6mmyRwqIakPIRGwU",
+        "link": "/images/tours/tour-5LZA6mmyRwqIakPIRGwU.webp",
         "alt": "Accessible cooking class at El Bolivariano restaurant",
         "title": "Peruvian Cooking Demonstration"
       }
@@ -1749,22 +1759,22 @@
     ],
     "images": [
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:1000/quality=v:79/compress/cache=expiry:604800/0FR0NdnMRVCeXx5ZIJWs",
+        "link": "/images/tours/tour-0FR0NdnMRVCeXx5ZIJWs.webp",
         "alt": "Accessible tour to Rainbow Mountain in Peru",
         "title": "Rainbow Mountain Experience"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/82R7b1cFT3SMzfNiBCem",
+        "link": "/images/tours/tour-82R7b1cFT3SMzfNiBCem.webp",
         "alt": "Flight of the Condor in Colca Canyon",
         "title": "Andean Condor Sighting"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/eO9RiisGRRaQ8sCM9G9j",
+        "link": "/images/tours/tour-eO9RiisGRRaQ8sCM9G9j.webp",
         "alt": "Flight of the Condor in Colca Canyon",
         "title": "Andean Condor Sighting"
       },
       {
-        "link": "https://process.filestackapi.com/output=/resize=fit:clip,width:1440,height:720/quality=v:79/compress/cache=expiry:604800/YGaGsA0wTSycd44At8eA",
+        "link": "/images/tours/tour-YGaGsA0wTSycd44At8eA.webp",
         "alt": "Flight of the Condor in Colca Canyon",
         "title": "Andean Condor Sighting"
       }

@@ -1,0 +1,180 @@
+---
+const { images } = Astro.props;
+
+// Asegurar que pasen datos válidos (arreglo de al menos 1 longitud)
+const validImages = images && Array.isArray(images) ? images : [];
+
+// Función para minimizar el peso de imagen pidiendo a Filestack un recorte más ligero
+const optimizeUrl = (url, width) => {
+  if (!url) return '';
+  if (typeof url === 'string' && url.includes('filestackapi.com') && url.includes('resize=')) {
+    return url.replace(/width:\d+/, `width:${width}`);
+  }
+  return url;
+};
+---
+
+{validImages.length > 0 && (
+  <galeria-modal class="block w-full">
+    <div class="flex flex-col lg:flex-row gap-4 justify-around w-full">
+      {validImages.slice(0, 4).map((img, index) => {
+        let isVisible = true;
+        if (validImages.length > 1 && index === 0) {
+          isVisible = false;
+        }
+
+        let classes = "gallery-image object-cover rounded-xl cursor-pointer hover:opacity-90 transition duration-300 shadow-sm hover:shadow-md ";
+        
+        let thumbWidth = 500; // Por defecto miniatura de 500px
+
+        // Lógica de grid adaptativo
+        if (!isVisible) {
+          classes += "hidden";
+        } else if (validImages.length === 1) {
+          classes += "w-full h-52 lg:h-[60svh] max-h-100";
+          thumbWidth = 800; // Si es única, más grande
+        } else if (index === 1) {
+          classes += "w-full lg:w-3/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-sm xl:max-w-3/7";
+           thumbWidth = 800; // Índice 1 toma el espacio principal, mejor resolución
+        } else {
+          classes += "w-full lg:w-2/7 h-52 lg:h-[60svh] max-h-100 lg:max-w-xs xl:max-w-2/7";
+        }
+
+        const originalUrl = img.link || img.src || img;
+        const thumbnailUrl = optimizeUrl(originalUrl, thumbWidth);
+
+        return (
+          <img
+            src={thumbnailUrl}
+            data-highres={originalUrl}
+            alt={`Tour image ${index + 1}`}
+            class={classes}
+            data-index={index}
+            loading={index === 0 ? "eager" : "lazy"}
+            fetchpriority={index === 0 ? "high" : "auto"}
+            decoding="async"
+          />
+        );
+      })}
+    </div>
+
+    {/* Elemento Dialog Nativo para el Modal */}
+    <dialog id="image-modal" class="bg-black/95 backdrop-blur-md fixed inset-0 w-full h-full max-w-none max-h-none m-0 p-0 !z-[99999] opacity-0 transition-opacity duration-300 open:opacity-100 open:flex flex-col justify-center items-center overflow-hidden">
+      <button id="close-modal" class="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-red-400 p-2 z-[60] transition-colors rounded-full bg-white/10 hover:bg-white/20" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div class="relative w-full h-full flex justify-center items-center px-0 md:px-16" id="modal-content-area">
+        <button id="prev-modal-btn" class="absolute left-2 md:left-8 text-white hover:text-gray-300 p-3 z-[60] transition-transform active:scale-90 rounded-full bg-black/50 hover:bg-black/80" aria-label="Previous image">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        
+        <img id="modal-image" src="" alt="Modal Tour Image" class="w-auto max-w-[95vw] h-auto max-h-[90vh] object-contain select-none shadow-2xl rounded-sm transition-transform duration-300 scale-95" />
+        
+        <button id="next-modal-btn" class="absolute right-2 md:right-8 text-white hover:text-gray-300 p-3 z-[60] transition-transform active:scale-90 rounded-full bg-black/50 hover:bg-black/80" aria-label="Next image">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+      
+      <div class="absolute bottom-6 text-white text-sm font-medium tracking-widest bg-black/50 px-4 py-1.5 rounded-full" id="modal-counter">
+        1 / {validImages.length}
+      </div>
+    </dialog>
+  </galeria-modal>
+
+  <script>
+    class GaleriaModal extends HTMLElement {
+      constructor() {
+        super();
+        const images = Array.from(this.querySelectorAll('.gallery-image'));
+        const modal = this.querySelector('#image-modal');
+        const modalImg = this.querySelector('#modal-image');
+        const closeBtn = this.querySelector('#close-modal');
+        const prevBtn = this.querySelector('#prev-modal-btn');
+        const nextBtn = this.querySelector('#next-modal-btn');
+        const counter = this.querySelector('#modal-counter');
+        const contentArea = this.querySelector('#modal-content-area');
+        
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        if (totalImages === 0 || !modal || !modalImg) return;
+
+        const getHighResUrl = (imgElement) => {
+          return imgElement.dataset.highres || imgElement.src;
+        };
+
+        const updateModal = (index) => {
+          modalImg.classList.remove('scale-100');
+          modalImg.classList.add('scale-95', 'opacity-50');
+          
+          setTimeout(() => {
+            currentIndex = index;
+            modalImg.src = getHighResUrl(images[currentIndex]);
+            if (counter) {
+              counter.textContent = `${currentIndex + 1} / ${totalImages}`;
+            }
+            modalImg.classList.remove('scale-95', 'opacity-50');
+            modalImg.classList.add('scale-100', 'opacity-100');
+          }, 150);
+        };
+
+        const openModal = (index) => {
+          currentIndex = index;
+          modalImg.src = getHighResUrl(images[currentIndex]);
+          if (counter) {
+            counter.textContent = `${currentIndex + 1} / ${totalImages}`;
+          }
+          modalImg.classList.remove('scale-95');
+          modalImg.classList.add('scale-100');
+          
+          document.body.style.overflow = 'hidden';
+          modal.showModal();
+        };
+
+        const closeModal = () => {
+          modal.close();
+          document.body.style.overflow = '';
+        };
+
+        images.forEach((img) => {
+          img.addEventListener('click', () => {
+            // Buscamos dinámicamente el índice basándonos en el src actual o en el dataset
+            const clickedSrc = getHighResUrl(img);
+            const idx = images.findIndex(i => getHighResUrl(i) === clickedSrc);
+            openModal(idx !== -1 ? idx : 0);
+          });
+        });
+
+        closeBtn?.addEventListener('click', closeModal);
+        
+        // Cerrar al hacer click fuera de la imagen
+        contentArea?.addEventListener('click', (e) => {
+          if (e.target === contentArea) {
+            closeModal();
+          }
+        });
+
+        prevBtn?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          updateModal((currentIndex - 1 + totalImages) % totalImages);
+        });
+
+        nextBtn?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          updateModal((currentIndex + 1) % totalImages);
+        });
+        
+        // Keyboard shortcuts
+        window.addEventListener('keydown', (e) => {
+          if (!modal.open) return;
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowRight') nextBtn?.click();
+          if (e.key === 'ArrowLeft') prevBtn?.click();
+        });
+      }
+    }
+    
+    customElements.define('galeria-modal', GaleriaModal);
+  </script>
+)}

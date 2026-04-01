@@ -1,0 +1,55 @@
+/* animations.css - Animaciones Globales */
+
+/* 1. Clases base que controlan el estado inicial */
+.animate-on-scroll {
+  opacity: 0;
+  will-change: opacity, transform;
+  /* Transición suave para todos los efectos. Tiempo sutil: 0.6s */
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Modificadores direccionales y de escala */
+.fade-up {
+  transform: translateY(30px);
+}
+
+.fade-down {
+  transform: translateY(-30px);
+}
+
+.fade-left {
+  transform: translateX(40px);
+}
+
+.fade-right {
+  transform: translateX(-40px);
+}
+
+.zoom-in {
+  transform: scale(0.95);
+}
+
+/* 2. Clase de Activación */
+/* Cuando el IntersectionObserver añade esta clase, las propiedades regresan a su estado natural (0) */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* 3. Delays (Retrasos) para animaciones en cascada/secuenciales */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* Deshabilitar animaciones si el usuario prefiere movimiento reducido en el sistema (Accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
