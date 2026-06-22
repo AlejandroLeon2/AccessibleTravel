@@ -2,6 +2,10 @@
 import Acordeon from "../constructor/Acordeon.astro";
 import AsideTravel from "../ui/AsideTravel.astro";
 import GaleriaModal from "./GaleriaModal.astro";
+import Calendario from "../svg/Calendario.astro";
+import Persona from "../svg/Persona.astro";
+import LocationIcon from "../svg/LocationIcon.astro";
+import WhatsappCta from "../ui/WhatsappCta.astro";
 import { Fragment } from "astro/jsx-runtime";
 const tour = {
   title: "Africa – Amazing African Safari",
@@ -54,7 +58,9 @@ const {
 
   <div class="flex flex-col lg:flex-row justify-between gap-6">
     <section id="tab-content-info" class="block w-full">
-      <div class="flex flex-col lg:flex-row w-full animate-on-scroll fade-up delay-100">
+      <div
+        class="flex md:px-4 flex-col lg:flex-row w-full animate-on-scroll fade-up delay-100"
+      >
         <div
           class="flex items-center gap-2 md:gap-4 text-sm text-gray-500 mb-4 flex-wrap"
         >
@@ -71,13 +77,16 @@ const {
             {data.title}
           </h1>
           <p class="flex items-center gap-2">
+            <Calendario style="w-4 h-4" />
             {data.duration}
             {lenguaje.infoDias}
           </p>
           <p class="flex items-center gap-2">
+            <Persona style="w-4 h-4" />
             {lenguaje.infoHuespedes}: {data.groupSize}
           </p>
           <p class="flex items-center gap-2">
+            <LocationIcon width="16" height="16" class="w-4 h-4" />
             {data.location}
           </p>
         </div>
@@ -94,11 +103,16 @@ const {
           </p>
         </div>
       </div>
-<div class="animate-on-scroll fade-up delay-200">
-<GaleriaModal images={data.images} />
-</div>
+      <div class="animate-on-scroll fade-up delay-200">
+        <GaleriaModal images={data.images} />
+      </div>
+      <div class="animate-on-scroll fade-up delay-300">
+        <WhatsappCta lenguaje={lenguaje} variant="booking" />
+      </div>
       <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full mt-4">
-        <section class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10 animate-on-scroll fade-right delay-200">
+        <section
+          class="py-12 max-w-2xl px-4 bg-white mx-auto space-y-10 animate-on-scroll fade-right delay-200"
+        >
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
           </h2>
@@ -139,7 +153,9 @@ const {
               </div>
             )
           }
-          <h2 class="text-lg font-semibold mb-2 animate-on-scroll fade-up">{lenguaje.infoPaquetes}</h2>
+          <h2 class="text-lg font-semibold mb-2 animate-on-scroll fade-up">
+            {lenguaje.infoPaquetes}
+          </h2>
           <div>
             <div
               id="wetravel_package_listing"
@@ -156,7 +172,10 @@ const {
 
             {
               data.addOns && data.addOns.length > 0 && (
-                <section aria-labelledby="add-ons-heading" class="mt-4 animate-on-scroll fade-up">
+                <section
+                  aria-labelledby="add-ons-heading"
+                  class="mt-4 animate-on-scroll fade-up"
+                >
                   <h2
                     id="add-ons-heading"
                     class="text-xl font-semibold text-black mb-4"
@@ -188,51 +207,56 @@ const {
           <AsideTravel lenguaje={lenguaje} data={data} />
         </div>
       </div>
+      <iframe src="https://snapwidget.com/embed/12345" class="w-full h-[600px] border-0 border" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+
     </section>
     <section
       id="tab-content-plan"
       class="text-gray-700 flex flex-col lg:flex-row hidden w-full animate-on-scroll fade-up"
     >
       <Acordeon data={data} lenguaje={lenguaje} />
-      <div class="animate-on-scroll fade-left w-full lg:w-auto mt-4 lg:mt-0 lg:ml-6">
+      <div
+        class="animate-on-scroll fade-left w-full lg:w-auto mt-4 lg:mt-0 lg:ml-6"
+      >
         <AsideTravel lenguaje={lenguaje} data={data} />
       </div>
     </section>
   </div>
-<script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
 
-<script type="text/javascript">
-  emailjs.init('E6459n1o-mTYoqA3b')
-</script>
-<script is:inline>
-// Selecciona todos los formularios con clase "formAside"
-document.querySelectorAll('.formAside').forEach(form => {
-  // Selecciona el botón dentro de cada formulario
-  const btn = form.querySelector('.btn-submit');
+  <script type="text/javascript">
+    emailjs.init("E6459n1o-mTYoqA3b");
+  </script>
+  <script is:inline>
+    // Selecciona todos los formularios con clase "formAside"
+    document.querySelectorAll(".formAside").forEach((form) => {
+      // Selecciona el botón dentro de cada formulario
+      const btn = form.querySelector(".btn-submit");
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    btn.value = 'Sending...';
+        btn.value = "Sending...";
 
-    const serviceID = 'service_3iya7ah';
-    const templateID = 'template_zbmrdgd';
+        const serviceID = "service_3iya7ah";
+        const templateID = "template_zbmrdgd";
 
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(() => {
-        btn.value = 'Send Email';
-        alert('Sent!');
-      }, (err) => {
-        btn.value = 'Send Email';
-        alert(JSON.stringify(err));
+        emailjs.sendForm(serviceID, templateID, this).then(
+          () => {
+            btn.value = "Send Email";
+            alert("Sent!");
+          },
+          (err) => {
+            btn.value = "Send Email";
+            alert(JSON.stringify(err));
+          },
+        );
       });
-  });
-});
-
-</script>
-
-
+    });
+  </script>
 
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {

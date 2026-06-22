@@ -8,15 +8,24 @@ import ExperienciaAbout from "../../components/section/ExprerienciaAbout.astro";
 import lenguaje from "../../data/locales/en.json";
 import { headerMenu } from "../../utils/headerSpañol";
 import infoEmpresa from "../../data/accessibleTravel.json";
+import WhatsappCta from "../../components/ui/WhatsappCta.astro";
 ---
-<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
-<PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={lenguaje.header.AboutUs}/>
 
-<MainContent>
-<HeroAbout lenguaje={lenguaje}/>
-<Certificaciones/>
-<ExperienciaAbout lenguaje={lenguaje}/>
+<Layout
+  title={lenguaje.title}
+  description={lenguaje.description}
+  headerMenu={headerMenu}
+  lenguaje={lenguaje}
+>
+  <PortadaStatic
+    url={infoEmpresa.imagenPortadaGeneral}
+    texto={lenguaje.header.AboutUs}
+  />
 
-</MainContent>
-
+  <MainContent>
+    <HeroAbout lenguaje={lenguaje} />
+    <WhatsappCta lenguaje={lenguaje} variant="default" />
+    <Certificaciones />
+    <ExperienciaAbout lenguaje={lenguaje} />
+  </MainContent>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Formulario from "../ui/Formulario.astro";
+import WhatsappCta from "../ui/WhatsappCta.astro";
 const { lenguaje } = Astro.props;
 ---
 
@@ -22,36 +23,41 @@ const { lenguaje } = Astro.props;
 
     <Formulario lenguaje={lenguaje} />
   </div>
+  <div class="animate-on-scroll fade-up delay-300">
+    <WhatsappCta lenguaje={lenguaje} variant="urgent" />
+  </div>
 </section>
 
 <!-- EmailJS y reCAPTCHA (AJUSTA LOS IDs) -->
 
-<script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+></script>
 
 <script type="text/javascript">
-  emailjs.init('E6459n1o-mTYoqA3b')
+  emailjs.init("E6459n1o-mTYoqA3b");
 </script>
 <script is:inline>
+  const btn = document.getElementById("button");
 
- const btn = document.getElementById('button');
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
+    btn.value = "Sending...";
 
-   btn.value = 'Sending...';
+    const serviceID = "service_3iya7ah";
+    const templateID = "template_zbmrdgd";
 
-   const serviceID = 'service_3iya7ah';
-   const templateID = 'template_zbmrdgd';
-
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Send Email';
-      alert('Sent!');
-    }, (err) => {
-      btn.value = 'Send Email';
-      alert(JSON.stringify(err));
-    });
-});
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Send Email";
+        alert("Sent!");
+      },
+      (err) => {
+        btn.value = "Send Email";
+        alert(JSON.stringify(err));
+      },
+    );
+  });
 </script>

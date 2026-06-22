@@ -10,18 +10,28 @@ import BlogAside from "../components/ui/BlogAside.astro";
 import MainContent from "../components/constructor/MainContent.astro";
 import { headerMenu } from "../utils/headerSpañol";
 import lenguaje from "../data/locales/es.json";
+import WhatsappCta from "../components/ui/WhatsappCta.astro";
 import dest from "../data/peru/peru-en/travels.json";
 
-
 const articulos = Object.values(
-  await import.meta.glob("/src/pages/es/blog/*.md", { eager: true })
+  await import.meta.glob("/src/pages/es/blog/*.md", { eager: true }),
 );
 const articulo = articulos.slice(0, 3);
 
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
-const { lang, title, description, image, date, author, tags, imageAutor, bio } =
-  Astro.props.frontmatter;
+const {
+  lang,
+  title,
+  description,
+  image,
+  date,
+  author,
+  tags,
+  imageAutor,
+  bio,
+  index = true,
+} = Astro.props.frontmatter;
 
 // Obtener contenido compilado
 const { compiledContent } = Astro.props;
@@ -30,28 +40,46 @@ let content = await compiledContent();
 // Mejorar el HTML con clases
 content = content
   // Títulos H2
-  .replace(/<h2>/g, '<h2 class="text-3xl font-light text-gray-900 mt-12 mb-6 pb-3 border-b border-gray-200">')
+  .replace(
+    /<h2>/g,
+    '<h2 class="text-3xl font-light text-gray-900 mt-12 mb-6 pb-3 border-b border-gray-200">',
+  )
   // Títulos H3
   .replace(/<h3>/g, '<h3 class="text-2xl font-light text-gray-800 mt-8 mb-4">')
   // Párrafos
   .replace(/<p>/g, '<p class="text-base text-gray-700 leading-relaxed mb-6">')
   // Enlaces
-  .replace(/<a /g, '<a class="text-blue-600 hover:text-blue-700 underline underline-offset-2 transition-colors" ')
+  .replace(
+    /<a /g,
+    '<a class="text-blue-600 hover:text-blue-700 underline underline-offset-2 transition-colors" ',
+  )
   // Listas desordenadas
   .replace(/<ul>/g, '<ul class="space-y-3 my-6">')
-  .replace(/<li>/g, '<li class="flex items-start gap-3 text-gray-700"><svg class="w-2 h-2 mt-2 flex-shrink-0 text-blue-600" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg><span>')
-  .replace(/<\/li>/g, '</span></li>')
+  .replace(
+    /<li>/g,
+    '<li class="flex items-start gap-3 text-gray-700"><svg class="w-2 h-2 mt-2 flex-shrink-0 text-blue-600" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg><span>',
+  )
+  .replace(/<\/li>/g, "</span></li>")
   // Listas ordenadas
   .replace(/<ol>/g, '<ol class="space-y-3 my-6 list-decimal list-inside">')
   // Blockquotes
-  .replace(/<blockquote>/g, '<blockquote class="border-l-4 border-blue-600 pl-6 py-4 my-6 bg-gray-50 italic text-gray-700">')
+  .replace(
+    /<blockquote>/g,
+    '<blockquote class="border-l-4 border-blue-600 pl-6 py-4 my-6 bg-gray-50 italic text-gray-700">',
+  )
   // Imágenes
   .replace(/<img /g, '<img class="w-full rounded-lg my-8 shadow-sm" ')
   // Code blocks
-  .replace(/<pre>/g, '<pre class="bg-gray-900 text-gray-100 rounded-lg p-6 my-6 overflow-x-auto">')
+  .replace(
+    /<pre>/g,
+    '<pre class="bg-gray-900 text-gray-100 rounded-lg p-6 my-6 overflow-x-auto">',
+  )
   .replace(/<code>/g, '<code class="text-sm font-mono">')
   // Inline code
-  .replace(/<p>(.*?)<code>(.*?)<\/code>(.*?)<\/p>/g, '<p>$1<code class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono">$2</code>$3</p>')
+  .replace(
+    /<p>(.*?)<code>(.*?)<\/code>(.*?)<\/p>/g,
+    '<p>$1<code class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono">$2</code>$3</p>',
+  )
   // Strong/Bold
   .replace(/<strong>/g, '<strong class="font-semibold text-gray-900">')
   // Énfasis/Italic
@@ -67,16 +95,24 @@ content = content
 
     <!-- SEO básico -->
     <meta name="author" content={author} />
-    <meta name="keywords" content={`turismo accesible, viajes Perú, ${title}`} />
-    <meta name="robots" content="index, follow" />
-    {title && (
-      <link
-        rel="canonical"
-        href={`https://accessibletravelperu.com/blog/${title
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-")}`}
-      />
-    )}
+    <meta
+      name="keywords"
+      content={`turismo accesible, viajes Perú, ${title}`}
+    />
+    <meta
+      name="robots"
+      content={index ? "index, follow" : "noindex, nofollow"}
+    />
+    {
+      title && (
+        <link
+          rel="canonical"
+          href={`https://accessibletravelperu.com/blog/${title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")}`}
+        />
+      )
+    }
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -93,6 +129,24 @@ content = content
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1330796461770005');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1330796461770005&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <!-- End Meta Pixel Code -->
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800">
@@ -101,12 +155,10 @@ content = content
     <PortadaStatic url={data.imagenPortadaGeneral} />
 
     <MainContent>
-      <div class="max-w-7xl mx-auto  px-4 pb-8">
+      <div class="max-w-7xl mx-auto px-4 pb-8">
         <div class="flex flex-col md:flex-row gap-8">
-          
           <!-- Contenido Principal -->
-          <article class="flex-1 max-w-4xl py-12 mx-auto ">
-            
+          <article class="flex-1 max-w-4xl py-12 mx-auto">
             <!-- Hero Image -->
             <figure class="mb-12">
               <img
@@ -118,50 +170,84 @@ content = content
 
             <!-- Header del Post -->
             <header class="mb-12 pb-8 border-b border-gray-200">
-              <h1 class="text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight">
+              <h1
+                class="text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight"
+              >
                 {title}
               </h1>
 
-              <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+              <div
+                class="flex flex-wrap items-center gap-4 text-sm text-gray-500"
+              >
                 <time datetime={date} class="flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
                   </svg>
-                  {new Date(date).toLocaleDateString('es-PE', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+                  {
+                    new Date(date).toLocaleDateString("es-PE", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })
+                  }
                 </time>
 
                 <span class="flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    ></path>
                   </svg>
                   {author}
                 </span>
               </div>
 
-              {description && (
-                <p class="text-lg text-gray-600 mt-6 leading-relaxed">
-                  {description}
-                </p>
-              )}
+              {
+                description && (
+                  <p class="text-lg text-gray-600 mt-6 leading-relaxed">
+                    {description}
+                  </p>
+                )
+              }
             </header>
-
 
             <div class="prose-custom max-w-none">
               <Fragment set:html={content} />
             </div>
-
-
           </article>
 
           <!-- Sidebar -->
-          <aside class="lg:w-80 flex-shrink-0  mx-auto ">
-            <div class="md:sticky md:top-24 ">
+          <aside class="lg:w-80 flex-shrink-0 mx-auto">
+            <div class="md:sticky md:top-24">
               <BlogAside
-                data={{ title, description, image, date, author, tags, imageAutor, bio }}
+                data={{
+                  title,
+                  description,
+                  image,
+                  date,
+                  author,
+                  tags,
+                  imageAutor,
+                  bio,
+                }}
                 destinos={destinos}
                 news={articulo}
                 lenguaje={lenguaje}
@@ -170,13 +256,12 @@ content = content
           </aside>
         </div>
       </div>
+      <WhatsappCta lenguaje={lenguaje} variant="default" />
     </MainContent>
 
     <Footer headerMenu={headerMenu} lenguaje={lenguaje} />
     <Modalcontac lenguaje={lenguaje} />
-    
 
-    
     <MensajeApp data={data} />
   </body>
 </html>

@@ -1,0 +1,104 @@
+---
+const { lenguaje, variant = "default" } = Astro.props;
+import Whatsapp from "../svg/Whatsapp.astro";
+import Calendario from "../svg/Calendario.astro";
+import EmailIcon from "../svg/EmailIcon.astro";
+import accessibleTravel from "../../data/accessibleTravel.json";
+
+const variants = {
+  default: {
+    title: lenguaje.whatsappCtaDefaultTitle || "Contact us on WhatsApp",
+    message:
+      lenguaje.whatsappCtaDefaultMessage ||
+      "Get instant answers to your questions",
+    buttonText: lenguaje.whatsappCtaDefaultButton || "Chat with us",
+  },
+  urgent: {
+    title: lenguaje.whatsappCtaUrgentTitle || "Need help now?",
+    message:
+      lenguaje.whatsappCtaUrgentMessage ||
+      "Our team is ready to assist you immediately",
+    buttonText: lenguaje.whatsappCtaUrgentButton || "Contact us now",
+  },
+  booking: {
+    title: lenguaje.whatsappCtaBookingTitle || "Ready to book?",
+    message:
+      lenguaje.whatsappCtaBookingMessage ||
+      "Let us help you plan your perfect trip",
+    buttonText: lenguaje.whatsappCtaBookingButton || "Book via WhatsApp",
+  },
+};
+
+const currentVariant = variants[variant] || variants.default;
+
+// Usar datos de accessibleTravel.json
+const whatsappNumber = accessibleTravel.whatsapp1.numero
+  .replace(/\s/g, "")
+  .replace("+", "");
+const whatsappNumber2 = accessibleTravel.whatsapp2.numero
+  .replace(/\s/g, "")
+  .replace("+", "");
+const whatsappMessage = encodeURIComponent(
+  accessibleTravel.whatsapp1.mensaje || "Hello! I'm interested in this tour.",
+);
+const whatsappMessage2 = encodeURIComponent(
+  accessibleTravel.whatsapp2.mensaje || "Hello! I'm interested in this tour.",
+);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+const whatsappUrl2 = `https://wa.me/${whatsappNumber2}?text=${whatsappMessage2}`;
+const email = accessibleTravel.correo;
+const emailUrl = `mailto:${email}`;
+---
+
+<div
+  class="bg-white my-4 border md:mx-4 border-gray-200 rounded-sm px-4 py-4 hover:border-gray-300 transition-colors"
+>
+  <div class="flex items-start gap-3">
+    <div
+      class="w-full grid gris-col-1 md:grid-cols-3 justify-between items-center"
+    >
+      <div class="w-full">
+        <h3
+          class="text-lg flex items-center gap-2 font-medium text-gray-900 mb-1"
+        >
+          <Calendario height="34" width="34" />{currentVariant.title}
+        </h3>
+        <p class="text-sm pl-8 text-gray-500 mb-4 leading-relaxed">
+          {currentVariant.message}
+        </p>
+      </div>
+
+      <div
+        class=" col-span-2 grid grid-cols-1 md:grid-cols-2 w-full justify-around items-center gap-2"
+      >
+        <a
+          class="flex items-center cursor-pointer select-none active:scale-95 transition-transform duration-500 border border-gray-300 rounded-sm  hover:bg-azul-travel text-gray-700 hover:border-transparent hover:text-white px-4 py-2  justify-center flex-wrap gap-2"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Whatsapp height="28" width="28" />
+          {currentVariant.buttonText}
+          <span class="text-3xl">🇵🇪</span>
+        </a>
+        <a
+          class="flex items-center cursor-pointer select-none active:scale-95 transition-transform duration-500 border border-gray-300 rounded-sm  hover:bg-azul-travel text-gray-700 hover:border-transparent hover:text-white px-4 py-2  justify-center flex-wrap gap-2"
+          href={whatsappUrl2}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Whatsapp height="28" width="28" />
+          {currentVariant.buttonText}
+          <span class="text-3xl">🇺🇸</span>
+        </a>
+        <a
+          class="flex items-center md:col-span-2 cursor-pointer select-none active:scale-95 transition-transform duration-500 border border-gray-300 rounded-sm  hover:bg-azul-travel text-gray-700 hover:border-transparent hover:text-white px-4 py-2  justify-center flex-wrap gap-2"
+          href={emailUrl}
+        >
+          <EmailIcon height="28" width="28" />
+          {lenguaje.whatsappCtaEmailButton || "Send email to me"}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

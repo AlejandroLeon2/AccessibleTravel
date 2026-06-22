@@ -8,7 +8,7 @@ export const toursDestinos = [
     "url": "/images/machu.webp",
     "destinosEN": travelsPeruEN,
     "destinosES": travelsPeruES
-  },
+  },/*
   {
     "title": "Ecuador",
     "titleLink": "ecuador",
@@ -44,7 +44,7 @@ export const toursDestinos = [
     "titleLink": "bolivia",
     "destinosEn": [],
     "destinosES": []
-  }
+  }*/
 ];
 
 export const destinosEs = [...travelsPeruES];

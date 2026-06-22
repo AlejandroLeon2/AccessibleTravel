@@ -11,46 +11,59 @@ import lenguaje from "../../data/locales/en.json";
 import DestinosRecomendados from "../../components/section/DestinosRecomendados.astro";
 import HeroHome from "../../components/section/HeroHome.astro";
 import { headerMenu } from "../../utils/headerSpañol";
+import WhatsappCta from "../../components/ui/WhatsappCta.astro";
 const destinos = data.filter((item) => item.recomendado === true).slice(0, 4);
 const articulos = Object.values(
-  await import.meta.glob("/src/pages/en/blog/*.md", { eager: true })
+  await import.meta.glob("/src/pages/en/blog/*.md", { eager: true }),
 );
 const articulo = articulos.slice(0, 3);
 ---
 
-<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
+<Layout
+  title={lenguaje.title}
+  description={lenguaje.description}
+  headerMenu={headerMenu}
+  lenguaje={lenguaje}
+>
   <PortadaDinamica lenguaje={lenguaje} />
 
   <MainContent>
     <div class="animate-on-scroll fade-up">
       <HeroHome lenguaje={lenguaje} />
     </div>
-    
+
     <div class="animate-on-scroll fade-up delay-100">
       <Actividades lenguaje={lenguaje} />
     </div>
-    
+
     <div class="animate-on-scroll fade-up delay-200">
       <DestinosRecomendados lenguaje={lenguaje} {destinos} />
     </div>
-    
+
     <h2
       class="text-4xl mx-auto max-w-5xl mt-8 px-4 font-semibold text-gray-900 animate-on-scroll fade-left"
     >
       {lenguaje.tituloMiembros}
     </h2>
-    
+
     <div class="animate-on-scroll fade-up delay-100">
       <Certificaciones bandera={true} />
     </div>
-    
+
     <div class="animate-on-scroll fade-up delay-200">
       <Comentarios lenguaje={lenguaje} />
     </div>
-    
+
     <div class="animate-on-scroll fade-up delay-300">
-      <BlogNew articulo={articulo} lenguaje={lenguaje} home="s" grid="grid grid-col-1 md:grid-cols-2" />
+      <BlogNew
+        articulo={articulo}
+        lenguaje={lenguaje}
+        home="s"
+        grid="grid grid-col-1 md:grid-cols-2"
+      />
+    </div>
+    <div class="animate-on-scroll fade-up delay-300">
+      <WhatsappCta lenguaje={lenguaje} variant="booking" />
     </div>
   </MainContent>
-
 </Layout>

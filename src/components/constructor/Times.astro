@@ -1,15 +1,30 @@
 ---
-const { data, lenguaje } = Astro.props;
+const {
+  data,
+  lenguaje,
+  allSoldOut = false,
+  showSoldOut = true,
+  isHero = false,
+} = Astro.props;
 ---
 
 <div
-  class="contador relative flex  w-full  gap-2 mt-2 justify-center"
+  class="contador relative flex gap-2 justify-center"
   data-start={data.startDate.toISOString()}
   data-end={data.endDate.toISOString()}
   data-siempre-fecha={data.siempreFecha ? "true" : "false"}
+  data-agotado={data.agotado ? "true" : "false"}
+  data-all-sold-out={allSoldOut ? "true" : "false"}
+  data-show-sold-out={showSoldOut ? "true" : "false"}
+  data-is-hero={isHero ? "true" : "false"}
+  data-todos-agotados={lenguaje.heroGroupTodosAgotados || ""}
+  data-sigue-revisando={lenguaje.heroGroupSigueRevisando || ""}
+  data-todos-agotados-hero={lenguaje.heroGroupTodosAgotadosHero || ""}
+  data-sigue-revisando-hero={lenguaje.heroGroupSigueRevisandoHero || ""}
 >
-
-  <div class="estado-error hidden w-full flex flex-col md:flex-row gap-2 justify-center">
+  <div
+    class="estado-error hidden w-full flex flex-col md:flex-row gap-2 justify-center"
+  >
     <div class="text-center w-16 py-2 space-y-2">
       <p
         class="text-red-600 border border-red-200 rounded-full px-2 py-4 bg-white text-xl font-bold"
@@ -20,13 +35,49 @@ const { data, lenguaje } = Astro.props;
     </div>
   </div>
 
+  <!-- Estado agotado-->
+  <div
+    class={`estado-agotado hidden flex flex-col   ${isHero ? "" : " w-full bg-white justify-center items-center"}`}
+  >
+    <p class="flex items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={isHero ? "20" : "18"}
+        height={isHero ? "20" : "18"}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        class="text-azul-travel"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="m15 9-6 6"></path>
+        <path d="m9 9 6 6"></path>
+      </svg>
+      <span
+        class={`mensaje-agotado ${isHero ? "text-xl font-bold" : "text-lg font-semibold"} text-azul-travel`}
+      >
+        {lenguaje.heroGroupAgotado || "Sold out"}
+      </span>
+    </p>
+    <p
+      class={`mensaje-agotado-extra  ${isHero ? "text-sm " : "text-xs text-gray-500"}`}
+    >
+      {lenguaje.heroGroupSigueRevisando || "Check back for new dates"}
+    </p>
+  </div>
 
-  <div class="estado-antes-inicio hidden flex flex-col md:flex-row justify-between items-center w-full">
-    <div class=" ">
+  <div
+    class="estado-antes-inicio hidden flex flex-col md:flex-row justify-between items-center w-full"
+  >
+    <div class="">
       <p
         class="font-semibold flex md:max-w-100 text-xl flex-col text-azul-travel"
       >
-        {lenguaje.heroGroupPreparado}<span class="font-normal text-sm text-black"
+        {lenguaje.heroGroupPreparado}<span
+          class="font-normal text-sm text-black"
           >{lenguaje.heroGroupComienzaEn}</span
         >
       </p>
@@ -46,12 +97,15 @@ const { data, lenguaje } = Astro.props;
   </div>
 
   <!-- Estado: Evento del mismo día -->
-  <div class="estado-mismo-dia hidden flex flex-col md:flex-row justify-between items-center w-full">
-    <div class="mb-2 ">
+  <div
+    class="estado-mismo-dia hidden flex flex-col md:flex-row justify-between items-center w-full"
+  >
+    <div class="mb-2">
       <p
         class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
       >
-        {lenguaje.heroGroupUltimaOportunidad}<span class="font-normal text-sm text-black"
+        {lenguaje.heroGroupUltimaOportunidad}<span
+          class="font-normal text-sm text-black"
           >{lenguaje.heroGroupCierraEn}</span
         >
       </p>
@@ -71,8 +125,10 @@ const { data, lenguaje } = Astro.props;
   </div>
 
   <!-- Estado: Contador activo -->
-  <div class="estado-activo flex flex-col md:flex-row justify-around items-center w-full ">
-    <div class="mb-2 ">
+  <div
+    class="estado-activo flex flex-col md:flex-row justify-around items-center w-full"
+  >
+    <div class="mb-2">
       <p
         class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
       >
@@ -108,13 +164,14 @@ const { data, lenguaje } = Astro.props;
 
   <!-- Estado: Evento anual próximo año -->
   <div
-    class="estado-proximo-año hidden flex flex-col md:flex-row justify-around  items-center w-full"
+    class="estado-proximo-año hidden flex flex-col md:flex-row justify-around items-center w-full"
   >
-    <div class="mb-2  w-full min-w-30">
+    <div class="mb-2 w-full min-w-30">
       <p
         class="font-semibold flex md:max-w-30 text-xl flex-col text-azul-travel"
       >
-        {lenguaje.heroGroupPreparado}<span class="font-normal text-sm text-black"
+        {lenguaje.heroGroupPreparado}<span
+          class="font-normal text-sm text-black"
           >{lenguaje.heroGroupComienzaEn}</span
         >
       </p>
@@ -144,6 +201,10 @@ const { data, lenguaje } = Astro.props;
     isSameDay: boolean;
     hasError: boolean;
     siempreFecha: boolean;
+    agotado: boolean;
+    allSoldOut: boolean;
+    showSoldOut: boolean;
+    isHero: boolean;
     nextYearStart?: Date;
     nextYearEnd?: Date;
   }
@@ -158,12 +219,15 @@ const { data, lenguaje } = Astro.props;
     private intervalId: number | null = null;
 
     private estadoError: HTMLElement | null;
+    private estadoAgotado: HTMLElement | null;
     private estadoAntesInicio: HTMLElement | null;
     private estadoMismoDia: HTMLElement | null;
     private estadoActivo: HTMLElement | null;
     private estadoFinalizado: HTMLElement | null;
     private estadoProximoAño: HTMLElement | null;
     private mensajeError: HTMLElement | null;
+    private mensajeAgotado: HTMLElement | null;
+    private mensajeAgotadoExtra: HTMLElement | null;
     private textoFinalizado: HTMLElement | null;
 
     constructor(counterElement: HTMLElement) {
@@ -175,22 +239,29 @@ const { data, lenguaje } = Astro.props;
       this.unidadesProximo = counterElement.querySelectorAll(".unidad-proximo");
 
       this.estadoError = counterElement.querySelector(".estado-error");
+      this.estadoAgotado = counterElement.querySelector(".estado-agotado");
       this.estadoAntesInicio = counterElement.querySelector(
-        ".estado-antes-inicio"
+        ".estado-antes-inicio",
       );
       this.estadoMismoDia = counterElement.querySelector(".estado-mismo-dia");
       this.estadoActivo = counterElement.querySelector(".estado-activo");
       this.estadoFinalizado =
         counterElement.querySelector(".estado-finalizado");
       this.estadoProximoAño = counterElement.querySelector(
-        ".estado-proximo-año"
+        ".estado-proximo-año",
       );
       this.mensajeError = counterElement.querySelector(".mensaje-error");
+      this.mensajeAgotado = counterElement.querySelector(".mensaje-agotado");
+      this.mensajeAgotadoExtra = counterElement.querySelector(
+        ".mensaje-agotado-extra",
+      );
       this.textoFinalizado = counterElement.querySelector(".texto-finalizado");
 
       const startStr = counterElement.dataset.start;
       const endStr = counterElement.dataset.end;
       const siempreFechaStr = counterElement.dataset.siempreFecha;
+      const agotadoStr = counterElement.dataset.agotado;
+      const allSoldOutStr = counterElement.dataset.allSoldOut;
 
       if (!startStr || !endStr) {
         this.showError("Faltan fechas");
@@ -198,6 +269,10 @@ const { data, lenguaje } = Astro.props;
       }
 
       const siempreFecha = siempreFechaStr === "true";
+      const agotado = agotadoStr === "true";
+      const allSoldOut = allSoldOutStr === "true";
+      const showSoldOut = counterElement.dataset.showSoldOut === "true";
+      const isHero = counterElement.dataset.isHero === "true";
 
       this.state = {
         start: new Date(startStr),
@@ -208,6 +283,10 @@ const { data, lenguaje } = Astro.props;
         isSameDay: false,
         hasError: false,
         siempreFecha: siempreFecha,
+        agotado: agotado,
+        allSoldOut: allSoldOut,
+        showSoldOut: showSoldOut,
+        isHero: isHero,
       };
 
       if (!this.validateDates()) {
@@ -298,11 +377,56 @@ const { data, lenguaje } = Astro.props;
 
     private hideAllStates(): void {
       this.estadoError?.classList.add("hidden");
+      this.estadoAgotado?.classList.add("hidden");
       this.estadoAntesInicio?.classList.add("hidden");
       this.estadoMismoDia?.classList.add("hidden");
       this.estadoActivo?.classList.add("hidden");
       this.estadoFinalizado?.classList.add("hidden");
       this.estadoProximoAño?.classList.add("hidden");
+    }
+
+    private showAgotado(): void {
+      this.hideAllStates();
+      this.estadoAgotado?.classList.remove("hidden");
+
+      // Si hay mensaje de agotado, cambiar el texto según el contexto
+      if (this.mensajeAgotado && this.mensajeAgotadoExtra) {
+        let todosAgotados: string;
+        let sigueRevisando: string;
+
+        // Usar textos específicos del hero si isHero es true
+        if (this.state.isHero) {
+          todosAgotados =
+            this.counter.dataset.todosAgotadosHero ||
+            this.counter.dataset.todosAgotados ||
+            "All tours are currently sold out";
+          sigueRevisando =
+            this.counter.dataset.sigueRevisandoHero ||
+            this.counter.dataset.sigueRevisando ||
+            "Keep checking back for new dates and availability!";
+        } else {
+          // Si todos están agotados, usar mensaje especial
+          if (this.state.allSoldOut) {
+            todosAgotados =
+              this.counter.dataset.todosAgotados ||
+              "All tours are currently sold out";
+            sigueRevisando =
+              this.counter.dataset.sigueRevisando ||
+              "Keep checking back for new dates and availability!";
+          } else {
+            // Si solo este tour está agotado, usar mensaje simple
+            todosAgotados =
+              this.counter.dataset.todosAgotados ||
+              "All tours are currently sold out";
+            sigueRevisando =
+              this.counter.dataset.sigueRevisando ||
+              "Keep checking back for new dates and availability!";
+          }
+        }
+
+        this.mensajeAgotado.textContent = todosAgotados;
+        this.mensajeAgotadoExtra.textContent = sigueRevisando;
+      }
     }
 
     private init(): void {
@@ -312,6 +436,18 @@ const { data, lenguaje } = Astro.props;
 
     private updateCounter(): void {
       if (this.state.hasError) return;
+
+      // Si está agotado y showSoldOut es true, mostrar estado de agotado
+      if (this.state.agotado && this.state.showSoldOut) {
+        this.showAgotado();
+        return;
+      }
+
+      // Si está agotado pero showSoldOut es false, ocultar todo
+      if (this.state.agotado && !this.state.showSoldOut) {
+        this.hideAllStates();
+        return;
+      }
 
       const now = new Date();
 

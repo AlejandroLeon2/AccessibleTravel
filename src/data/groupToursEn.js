@@ -13,6 +13,7 @@ export const groupTours = [
     "rating": 5,
     "reseñas": 27,
     "recomendado": false,
+    "agotado": true,
     "groupSize": "4 - 10",
     "location": "Cusco, Perú",
     "description": "We invite you to an accessible group tour through Lima, Cusco, Sacred Valley, Machu Picchu, and Rainbow Mountain.\nYou will travel with safety, personalized assistance, and adapted routes for people with disabilities or reduced mobility.\n\nIn Lima, we will learn about its history and gastronomy with accessible tours.\nIn Cusco and the Sacred Valley, you will enjoy incredible landscapes with adapted vehicles, technical support, and sufficient time for each visit.\nIn Machu Picchu, we will accompany you step by step with specialized guides and circuits designed for everyone.\nAnd to close, the Rainbow Mountain — in its accessible version — will be the cherry on top of the trip.\n\n💚 Traveling without limits is possible.\n📧 contact@accessibletravelperu.com\n📞 +51 944 731 223\n\nAccessible Travel Peru — adventure is for everyone.",
@@ -130,6 +131,7 @@ export const groupTours = [
     "rating": 5,
     "reseñas": 16,
     "recomendado": false,
+    "agotado": true,
     "groupSize": "2 - 8",
     "location": "Cusco, Perú",
     "description": "Join an exclusive, small group adventure designed for those seeking a personalized and fully accessible experience! ♿🤝 This all-inclusive journey covers everything—from domestic flights and adapted trains to all entrance fees and specialized assistance. Discover the ancient heart of Cusco, the majesty of Machu Picchu, and the serene beauty of Lake Titicaca 🌊 with the confidence of our 10+ years of expertise. We handle every detail, providing barrier-free logistics and high-end support so you can focus on the magic of the Andes. Explore Peru with everything taken care of and no limits! 🌟\n\nAccessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿ WhatsApp us... click here!",
@@ -222,7 +224,7 @@ export const groupTours = [
       "link": "/images/dieciochoprincipal.webp",
       "alt": "Imagen de Machu Picchu",
       "title": "Imagen de Machu Picchu"
-    },{
+    }, {
       "link": "/images/grupal-image.webp",
       "alt": "Imagen de Machu Picchu",
       "title": "Imagen de Machu Picchu"
