@@ -6,16 +6,16 @@ const { lenguaje } = Astro.props;
 
 <section class="bg-gray-100 py-6">
   <div
-    class="max-w-6xl mx-auto px-4 grid place-items-center md:grid-cols-2 gap-8"
+    class="max-w-6xl mx-auto  justify-around px-4 flex flex-col md:flex-row gap-6"
   >
-    <div>
+    <div class="max-w-xl">
       <p class="py-4">{lenguaje.formDescripcion}</p>
 
       <!-- Imagen lateral -->
       <img
         src="/images/contacto.webp"
         alt="Contact Us Group"
-        class="rounded-xl object-cover w-full h-[60svh] shadow-md"
+        class="rounded-sm mx-auto object-contain   h-[60svh] "
         loading="lazy"
         decoding="async"
       />

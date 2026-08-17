@@ -12,6 +12,8 @@ import { headerMenu } from "../utils/headerSpañol";
 import lenguaje from "../data/locales/es.json";
 import WhatsappCta from "../components/ui/WhatsappCta.astro";
 import dest from "../data/peru/peru-en/travels.json";
+import MetadataAstroComponent from "../components/Metadata.astro";
+import ScriptsBodyAstroComponent from "../components/ScriptsBody.astro";
 
 const articulos = Object.values(
   await import.meta.glob("/src/pages/es/blog/*.md", { eager: true }),
@@ -129,24 +131,7 @@ content = content
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
- <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1330796461770005');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1330796461770005&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    <!-- End Meta Pixel Code -->
+<MetadataAstroComponent />
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800">
@@ -263,5 +248,7 @@ src="https://www.facebook.com/tr?id=1330796461770005&ev=PageView&noscript=1"
     <Modalcontac lenguaje={lenguaje} />
 
     <MensajeApp data={data} />
+
+<ScriptsBodyAstroComponent/>
   </body>
 </html>
