@@ -3,7 +3,7 @@ name: Publish Website to cPanel
 on:
   push:
     branches:
-      - main   # Se ejecuta cuando haces push a la rama main
+      - main
 
 jobs:
   deploy:
@@ -15,19 +15,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0   # Trae todo el historial, útil para despliegues
+          fetch-depth: 0
 
-      # 2. Deploy por FTP
+      # 2. Deploy por FTP/FTPS
       - name: FTP Deploy Action
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}        # ftp.lacasonapolleria.com
+          username: ${{ secrets.FTP_USERNAME }}    # tinyacode@playful-navy-hippopotamus.lacasonapolleria.com
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          protocol: ftps                           # usa FTPS explícito
           port: 21
-          local-dir: ./   # Carpeta local que quieres subir
-          server-dir: /astro-travels/   # Carpeta en tu hosting cPanel
+          local-dir: ./dist                        # carpeta generada por Astro
+          server-dir: /home/lacaltnh/astro-travels  # ruta en tu hosting
           exclude: |
             **/.git*
             **/.github*
