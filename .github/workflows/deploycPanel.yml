@@ -1,4 +1,4 @@
-name: Publish Website to cPanel
+name: Deploy Astro SSR to cPanel
 
 on:
   push:
@@ -7,33 +7,26 @@ on:
 
 jobs:
   deploy:
-    name: 🚀 Deploy to cPanel
+    name: 🚀 Deploy Astro SSR
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
 
-      - name: Build Astro
-        run: npm run build
-
-      - name: Test FTP port
-        run: |
-          echo "Probando conexión con ftp.lacasonapolleria.com:21..."
-          timeout 10 bash -c '</dev/tcp/ftp.lacasonapolleria.com/21' \
-            && echo "✅ Puerto 21 accesible" \
-            || echo "❌ Puerto 21 NO accesible"
-
-      - name: Deploy to cPanel
+      # Subimos el proyecto completo mediante FTPS
+      - name: Upload project to cPanel
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -41,4 +34,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: ./dist/
+
+          # Carpeta donde está tu aplicación Node en cPanel
+          server-dir: astro-travels/
