@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       # 2. Deploy por FTP/FTPS
       - name: FTP Deploy Action
@@ -23,12 +23,6 @@ jobs:
         with:
           server: ${{ secrets.FTP_SERVER }}        # ftp.lacasonapolleria.com
           username: ${{ secrets.FTP_USERNAME }}    # tinyacode@playful-navy-hippopotamus.lacasonapolleria.com
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps                           # usa FTPS explícito
+          password: ${{ secrets.FTP_PASSWORD }}                   # usa FTPS explícito
           port: 21
-          local-dir: ./dist/                     # carpeta generada por Astro
-          server-dir: /home/lacaltnh/astro-travels  # ruta en tu hosting
-          exclude: |
-            **/.git*
-            **/.github*
-            **/node_modules/**
+
