@@ -1,11 +1,7 @@
 import { defineConfig } from "tinacms";
 
 // Detect branch dynamically from hosting provider env vars
-const branch =
-  process.env.TINA_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+const branch = "main";
 
 export default defineConfig({
   branch,

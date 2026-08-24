@@ -4,12 +4,11 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import tina from '@tinacms/astro/integration';
-import node from '@astrojs/node';
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   site: 'https://accessibletravelperu.com',
-   output: 'server',
+  output: 'static',
 
   vite: {
     plugins: [tailwindcss(),tinaAdminDevRedirect()],
@@ -17,20 +16,15 @@ export default defineConfig({
   },
 
   i18n: {
-  defaultLocale: 'en',
-  locales: ['es', 'en', ],
-  routing: {
-    prefixDefaultLocale: true 
-  }
-},
+    defaultLocale: 'en',
+    locales: ['es', 'en', ],
+    routing: {
+      prefixDefaultLocale: true 
+    }
+  },
 
   integrations: [
     tina(),mdx()
      //sitemap()
   ],
-
-  adapter: node({
-    mode: 'standalone',
-  }),
-
 });
