@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps                           # usa FTPS explícito
           port: 21
-          local-dir: ./dist                        # carpeta generada por Astro
+          local-dir: ./dist/                     # carpeta generada por Astro
           server-dir: /home/lacaltnh/astro-travels  # ruta en tu hosting
           exclude: |
             **/.git*
