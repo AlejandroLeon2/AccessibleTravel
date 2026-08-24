@@ -7,6 +7,8 @@ import MainContent from "../../../../components/constructor/MainContent.astro";
 import { headerMenu } from "../../../../utils/headerSpañol";
 import lenguaje from "../../../../data/locales/es.json";
 
+export const prerender = true;
+
 export function getStaticPaths() {
   const paths = destinosEs.map((item) => ({
     params: { titleLink: item.titleLink }

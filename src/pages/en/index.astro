@@ -14,7 +14,7 @@ import { headerMenu } from "../../utils/headerSpañol";
 import WhatsappCta from "../../components/ui/WhatsappCta.astro";
 const destinos = data.filter((item) => item.recomendado === true).slice(0, 4);
 const articulos = Object.values(
-  await import.meta.glob("/src/pages/en/blog/*.md", { eager: true }),
+  await import.meta.glob("/src/pages/en/blog/*.mdx", { eager: true }),
 );
 const articulo = articulos.slice(0, 3);
 ---

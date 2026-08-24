@@ -19,7 +19,7 @@ const {
   <ul class={`space-y-4 gap-4 ${grid}`}>
     {
       articulo.slice(0, 3).map((newsa) => (
-        <article class="grid grid-cols-3  duration-300 active:scale-100 border border-gray-200 h-full max-h-30 shadow">
+        <article class="grid grid-cols-3 overflow-hidden duration-300 active:scale-100 border border-gray-200 h-full max-h-30 shadow">
           <a href={`${newsa.url}`} title={newsa.frontmatter.title} class=" group overflow-hidden ">
             <img
               src={newsa.frontmatter.image ?? "/images/default-news.jpg"}

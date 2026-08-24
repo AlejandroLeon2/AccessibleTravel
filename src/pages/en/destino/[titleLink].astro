@@ -9,6 +9,8 @@ import lenguaje from "../../../data/locales/en.json";
 import infoEmpresa from "../../../data/accessibleTravel.json";
 import { headerMenu } from "../../../utils/headerSpañol";
 
+export const prerender = true;
+
 export function getStaticPaths() {
   const paths = travels.map((item) => ({
     params: { titleLink: item.titleLink },

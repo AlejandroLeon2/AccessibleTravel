@@ -4,9 +4,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import data from "../data/accessibleTravel.json";
 import MensajeApp from "../components/section/MensajeApp.astro";
-import MetadataAstroComponent from "../components/Metadata.astro";
+import MetadataLayout from "../components/constructor/MetadataLayout.astro";
 import ScriptsBodyAstroComponent from "../components/ScriptsBody.astro";
 import Modalcontac from "../components/ui/Modalcontac.astro";
+import MetadataAstroComponent from "../components/Metadata.astro";
 
 const {
   title = "Accessible Travel Peru",
@@ -33,32 +34,17 @@ const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`;
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="author" content="Accessible Travel Peru" />
-    <meta
-      name="robots"
-      content={index ? "index, follow" : "noindex, nofollow"}
+
+    <MetadataLayout
+      title={title}
+      description={description}
+      image={ogImage}
+      index={index}
+      canonical={canonical}
+      locale="en_US"
     />
-
-    <!-- Canonical dinámico -->
-    <link rel="canonical" href={canonicalUrl} />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={canonical} />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-
-    <!-- Accesibilidad y SEO -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <MetadataAstroComponent />
     <meta name="theme-color" content="#ffffff" />
-<MetadataAstroComponent />
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
