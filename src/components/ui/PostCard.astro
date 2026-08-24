@@ -8,17 +8,17 @@ const { post } = Astro.props;
 ---
 
 <article
-  class="w-auto group duration-300 mx-auto active:scale-105 rounded-sm border border-gray-200 shadow overflow-hidden"
+  class="w-full group duration-300 mx-auto active:scale-105 max-h-55 rounded-sm border border-gray-200 shadow overflow-hidden"
 >
   <a
     href={post.url}
     class="transition flex md:grid grid-cols-2"
   >
-  <div class=" min-w-10 max-w-40 md:max-w-none md:h-full overflow-hidden ">
+  <div class=" min-w-10 max-w-40 md:max-w-none md:h-full  overflow-hidden ">
     <img
       src={post.frontmatter.image ?? "/images/gato.jpg"}
       alt={post.frontmatter.title}
-      class="w-full md:w-full  h-full duration-300 object-cover group-hover:scale-105"
+      class="w-full   h-full duration-300 object-cover group-hover:scale-105"
       loading="lazy"
       decoding="async"
     />
