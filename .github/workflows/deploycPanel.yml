@@ -7,22 +7,38 @@ on:
 
 jobs:
   deploy:
-    name: 🚀 Deploy to cPanel via FTP
+    name: 🚀 Deploy to cPanel
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout del código
       - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
+        uses: actions/checkout@v4
 
-      # 2. Deploy por FTP/FTPS
-      - name: FTP Deploy Action
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro
+        run: npm run build
+
+      - name: Test FTP port
+        run: |
+          echo "Probando conexión con ftp.lacasonapolleria.com:21..."
+          timeout 10 bash -c '</dev/tcp/ftp.lacasonapolleria.com/21' \
+            && echo "✅ Puerto 21 accesible" \
+            || echo "❌ Puerto 21 NO accesible"
+
+      - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ${{ secrets.FTP_SERVER }}        # ftp.lacasonapolleria.com
-          username: ${{ secrets.FTP_USERNAME }}    # tinyacode@playful-navy-hippopotamus.lacasonapolleria.com
-          password: ${{ secrets.FTP_PASSWORD }}                   # usa FTPS explícito
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           port: 21
-
+          local-dir: ./dist/
