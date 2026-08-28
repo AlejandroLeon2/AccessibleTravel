@@ -1,32 +1,30 @@
 ---
 import Layout from "../../../../layouts/Layout.astro";
-//import travels from "../../../../data/peru/peru-en/travels.json";
-import {destinosEn} from "../../../../data/toursDestinos.js";
+import { getCollection } from "astro:content";
 import PortadaStatic from "../../../../components/section/PortadaStatic.astro";
 import Infotravel from "../../../../components/section/Infotravel.astro";
 import MainContent from "../../../../components/constructor/MainContent.astro";
-import { headerMenu } from "../../../../utils/headerSpañol";
 import lenguaje from "../../../../data/locales/en.json";
 
 export const prerender = true;
 
-export function getStaticPaths() {
-  const paths = destinosEn.map((item) => ({
-    params: { titleLink: item.titleLink }
+export async function getStaticPaths() {
+  const tours = await getCollection("toursGlobalesEn");
+  return tours.map(({ data }) => ({
+    params: { titleLink: data.titleLink },
+    props: { destino: data },
   }));
-
-  return paths;
 }
 
 const { titleLink } = Astro.params;
-const destino = destinosEn.find((item) => item.titleLink === titleLink);
+const destino = Astro.props.destino;
 
 if (!destino) {
   throw new Error(`Destino no encontrado para el título: ${titleLink}`);
 }
 ---
 
-<Layout title={destino.title} description={destino.description} headerMenu={headerMenu} lenguaje={lenguaje}>
+<Layout title={destino.title} description={destino.description} lenguaje={lenguaje}>
     <PortadaStatic url={destino.images[0].link} title={destino.images[0].alt}/>
 <MainContent>
   <Infotravel  lenguaje={lenguaje} data={destino}/>

@@ -3,7 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
+    "predev": "node scripts/stop-dev.mjs",
+    "dev": "node scripts/dev.mjs",
+    "dev:stop": "node scripts/stop-dev.mjs",
+    "content:global-tours": "node src/scripts/convertPeruToursToContent.mjs",
     "build": "tinacms build --content=local && astro build",
     "preview": "astro preview",
     "astro": "astro"

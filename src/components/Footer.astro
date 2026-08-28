@@ -5,12 +5,14 @@ import EmailIcon from "./svg/EmailIcon.astro";
 import PhoneIcon from "./svg/PhoneIcon.astro";
 import LocationIcon from "./svg/LocationIcon.astro";
 import FooterSection from "./ui/FooterSection.astro";
-import empresaInfo from "./../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
 
 const footerLegal = {
   copyright: `Copyright © ${new Date().getFullYear()} by Accessible Travel Peru. All Rights Reserved`,
 };
 const { lenguaje } = Astro.props;
+const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
+const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.galleryLogos;
 ---
 
 <footer
@@ -81,7 +83,7 @@ const { lenguaje } = Astro.props;
       <h3 class="font-semibold text-lg mb-4">{lenguaje.footerSocios}</h3>
       <div class="grid grid-cols-2 gap-2">
         {
-          empresaInfo.galleryLogos.map((logo) => (
+          galleryLogos.map((logo) => (
             <img
               src={logo.src}
               alt={logo.alt}

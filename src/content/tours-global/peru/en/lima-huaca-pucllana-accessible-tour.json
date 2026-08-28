@@ -1,0 +1,86 @@
+{
+  "title": "DISCOVER LIMA AND HUACA PUCLLANA - ACCESSIBLE FULL DAY TOUR ♿",
+  "titleLink": "lima-huaca-pucllana-accessible-tour",
+  "operator": "Accessible Travel Peru",
+  "duration": "1",
+  "rating": 5,
+  "recomendado": false,
+  "groupSize": "1 - 25",
+  "location": "Lima, Perú",
+  "description": "At Accessible Travel Perú, we specialize in creating unforgettable and inclusive travel experiences for people with disabilities. With over 10 years of experience, we are a formal, registered company under MINCETUR and proud members of ENAT. Our Full Day Lima Tour is designed to offer you a comfortable and accessible journey, visiting the ancient Huaca Pucllana Archaeological Complex and exploring the Historic Center of Lima. 🏛️🌍\n\nWe ensure that each moment of your trip is smooth and enjoyable, with accessible transportation and expert guides. 🚌✨\n\nFor more information or to book your tour, visit our website at www.accessibletravelperu.com or contact us at +51 944 731 223. Let us help you discover Lima with comfort and ease! 🌟",
+  "highlights": [
+    "Visit to the Huaca Pucllana Archaeological Complex",
+    "Tour through Lima's Historic Center including Plaza Mayor and Santo Domingo Convent",
+    "Accessible transportation and routes for people with reduced mobility",
+    "Expert guides specialized in accessible tourism"
+  ],
+  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+  "contact": "Contact us at +51 944 731 223 or visit www.accessibletravelperu.com",
+  "includes": [
+    "Accessible Van (WAV)",
+    "All tours described in the itinerary",
+    "All entrance fees",
+    "Tour guide specialized in accessible tourism",
+    "Lunch in local restaurant"
+  ],
+  "excludes": [
+    "Tours not mentioned in the program",
+    "Hotel accommodation"
+  ],
+  "packages": [
+    {
+      "name": "Wheelchair User",
+      "price": "$190",
+      "deposit": ""
+    },
+    {
+      "name": "Partner",
+      "price": "$150",
+      "deposit": ""
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Round Trip Transfers",
+      "price": "$50",
+      "description": "Start and Finish in the airport jorge chavez in Lima or in callao port"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "ACCESSIBLE FULL DAY TOUR IN LIMA🏛️🌍",
+      "description": "08:00 AM – Pickup from the hotel\nThe day begins with a comfortable and safe transfer in an accessible vehicle, specially designed for people with reduced mobility. Our adapted transportation will ensure that every moment of the day is as comfortable as possible.\n\n08:30 AM – Visit to the Huaca Pucllana Archaeological Complex\nWe start the day by visiting the impressive Huaca Pucllana Archaeological Complex, an ancient pre-Inca temple located in the heart of Miraflores. This archaeological site is one of Lima's most iconic landmarks.\n\n10:30 AM – City Tour through Lima's Historic Center\nThis tour takes us through Lima’s main attractions, with a focus on accessibility for all visitors:\nPlaza Mayor: We start with a visit to Plaza Mayor, the heart of the city, where you’ll find the Palace of Government, the Lima Cathedral, and other historic buildings. All entrances are adapted for people with mobility issues.\nMiraflores Malecón: Next, we head to the Miraflores Malecón, a landmark where you can enjoy beautiful views of the sea and accessible parks along the way.\nSan Isidro District: We explore the elegant and peaceful San Isidro neighborhood, famous for its well-maintained parks and gardens, with wide sidewalks and accessibility for those with reduced mobility.\nConvento e Iglesia de Santo Domingo: The last stop of the tour is the historic Convento de Santo Domingo, where you can appreciate the colonial architecture and enjoy its serene environment. This place is also wheelchair accessible.\n\n01:30 PM – Accessible Lunch at a Restaurant\nWe’ll enjoy a delicious lunch at an accessible restaurant, where you can savor the best of Peruvian cuisine with options tailored to all needs. A varied, healthy, and tasty menu awaits.\n\n03:00 PM – Return to the hotel\nAs the day comes to a close, our accessible transport will take you back to your hotel, ensuring a comfortable and relaxing return."
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/lima.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/grupal3.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/lima2.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/lima.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/discover-lima-and-huaca-pucllana-accessible-full-day-tour-accessible-travel-peru-33347775",
+    "brochure": "Download brochure",
+    "inquire": "Ask a question"
+  },
+  "reviews": 5,
+  "siempreFecha": false,
+  "agotado": false
+}

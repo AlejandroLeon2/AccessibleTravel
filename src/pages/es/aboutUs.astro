@@ -6,20 +6,21 @@ import Certificaciones from "../../components/section/Certificaciones.astro";
 import HeroAbout from "../../components/section/HeroAbout.astro";
 import ExperienciaAbout from "../../components/section/ExprerienciaAbout.astro";
 import lenguaje from "../../data/locales/es.json";
-import { headerMenu } from "../../utils/headerSpañol";
-import infoEmpresa from "../../data/accessibleTravel.json";
 import WhatsappCta from "../../components/ui/WhatsappCta.astro";
+import { getEntry } from "astro:content";
+import { getMenuPageData } from "../../utils/getMenuPageData";
+const menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const { label: pageLabel, coverImage } = getMenuPageData(menuData.items, "AboutUs");
 ---
 
 <Layout
   title={lenguaje.title}
   description={lenguaje.description}
-  headerMenu={headerMenu}
   lenguaje={lenguaje}
 >
   <PortadaStatic
-    url={infoEmpresa.imagenPortadaGeneral}
-    texto={lenguaje.header.AboutUs}
+    url={coverImage}
+    texto={pageLabel}
   />
   <MainContent>
     <HeroAbout lenguaje={lenguaje} />

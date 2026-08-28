@@ -1,0 +1,114 @@
+{
+  "title": "TOUR ACCESIBLE DE DÍA COMPLETO A PARACAS, ICA Y HUACACHINA",
+  "titleLink": "paracas-ica-huacachina-accessible-full-day-tour",
+  "location": "Ica, Perú",
+  "recomendado": false,
+  "operator": "Accessible Travel Peru",
+  "rating": 5,
+  "duration": "1",
+  "groupSize": "1 - 25",
+  "description": "En Accessible Travel Perú, creemos que todos deberían poder experimentar las maravillas de Perú—desde la vida silvestre del océano hasta las puestas de sol del desierto—con comodidad, dignidad y emoción. Nuestro Tour Accesible de Día Completo a Ica y Paracas está diseñado para viajeros con discapacidades que desean explorar la costa, los viñedos y las dunas del sur de Perú de manera segura e inclusiva. Este viaje inolvidable incluye un tour en bote a las Islas Ballestas, donde avistará lobos marinos y pingüinos, una visita a un viñedo tradicional con degustación de Pisco, y una emocionante ride en buggy por el desierto, culminando con un picnic al atardecer en el corazón de las dunas. Con más de 10 años de experiencia y un enfoque totalmente accesible, proporcionamos transporte adaptado, personal capacitado y apoyo personalizado en cada paso. Ya sea que esté degustando Pisco o viendo el sol fundirse con la arena, se sentirá empoderado para explorar—sin límites. Registrado bajo MINCETUR Miembros de ENAT – European Network for Accessible Tourism Reserve ahora en www.accessibletravelperu.com o envíenos un mensaje por WhatsApp al +51 944 731 223 Desde el mar hasta las dunas de arena—descubra la costa peruana como nunca antes. ♿🇵🇪✨",
+  "includes": [
+    "Van accesible (WAV)",
+    "Todos los tours descritos",
+    "Todas las entradas",
+    "Guía de turismo especializado en turismo accesible",
+    "Almuerzo en restaurante local"
+  ],
+  "excludes": [
+    "Tours no mencionados en el programa",
+    "Alojamiento en hotel"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "capacity": "1",
+      "price": "$430"
+    },
+    {
+      "name": "Acompañante",
+      "capacity": "1",
+      "price": "$350"
+    },
+    {
+      "name": "Traslados de ida y vuelta: Comienzo y finalización en el aeropuerto Jorge Chávez en Lima o en el puerto del Callao",
+      "capacity": "1",
+      "price": "$50"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Traslados de Ida y Vuelta",
+      "price": "$50",
+      "description": "Comienzo y finalización en el aeropuerto jorge chavez en Lima o en el puerto del Callao"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-QITjIS97QXiinkc9ezMH.webp",
+      "alt": "Tour en bote accesible a las Islas Ballestas",
+      "title": "Tour de Vida Silvestre en Bote"
+    },
+    {
+      "link": "/images/tours/tour-QITjIS97QXiinkc9ezMH.webp",
+      "alt": "Tour en bote accesible a las Islas Ballestas",
+      "title": "Tour de Vida Silvestre en Bote"
+    },
+    {
+      "link": "/images/tours/tour-xKJItWlQyG7sEE4JnVHM.webp",
+      "alt": "Aventura accesible en buggy por las dunas en Huacachina",
+      "title": "Paseo en Buggy por el Desierto"
+    },
+    {
+      "link": "/images/tours/tour-FtYMHKMTYqoE5AHQ3S44.webp",
+      "alt": "Aventura accesible en buggy por las dunas en Huacachina",
+      "title": "Paseo en Buggy por el Desierto"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/paracas-ica-huacachina-accessible-full-day-tour-accessible-travel-peru-58557775",
+    "brochure": "Descargar Folleto",
+    "inquire": "Hacer una Pregunta"
+  },
+  "itinerary": [
+    {
+      "time": "05:30 AM",
+      "title": "Recogida del Hotel en Lima",
+      "description": "Comenzamos temprano con un vehículo privado y accesible equipado para viajeros con movilidad reducida. El viaje a Paracas incluye paradas de descanso y asientos cómodos para garantizar un viaje sin contratiempos."
+    },
+    {
+      "time": "10:00 AM",
+      "title": "Tour en Bote a las Islas Ballestas",
+      "description": "¡Experimente el 'mini Galápagos' de Perú! Un tour en bote accesible especialmente organizado nos llevará a las Islas Ballestas, hogar de lobos marinos, pingüinos de Humboldt y miles de aves marinas. El muelle de embarque está adaptado y nuestro personal brindará apoyo completo para el embarque y desembarque de manera segura."
+    },
+    {
+      "time": "12:30 AM",
+      "title": "Traslado Panorámico a Ica",
+      "description": "Viajamos de Paracas a Ica en nuestra van accesible, pasando por paisajes desérticos y viñedos en el camino."
+    },
+    {
+      "time": "01:30 PM",
+      "title": "Visita a un Viñedo Accesible y Degustación de Pisco",
+      "description": "Llegue a una bodega tradicional totalmente equipada para la accesibilidad. Aquí, aprendemos sobre la producción de vino y Pisco, el espíritu nacional de Perú, seguido de una experiencia de degustación guiada con alternativas no alcohólicas disponibles. El terreno es plano, con baños accesibles y áreas sombreadas."
+    },
+    {
+      "time": "02:30 PM",
+      "title": "Almuerzo Campestre en el Viñedo",
+      "description": "Disfrute de un delicioso almuerzo tradicional criollo en un espacio comedor al aire libre y accesible para sillas de ruedas. Las necesidades dietéticas se acomodan completamente previa solicitud."
+    },
+    {
+      "time": "04:00 PM",
+      "title": "Llegada a Huacachina y Aventura en Buggy por las Dunas",
+      "description": "Al llegar al famoso Oasis de Huacachina, comenzamos un emocionante paseo en buggy guiado por las dunas del desierto. La actividad está adaptada con asistencia de personal capacitado para el embarque, soporte con el cinturón de seguridad y asientos seguros. A mitad del recorrido en buggy, nos detenemos en un mirador panorámico y remoto del desierto, donde le espera una hermosa configuración de picnic. Disfrute de frutas frescas, bocadillos y bebidas mientras observa la puesta de sol sobre las dunas doradas, en uno de los momentos más mágicos del día. La configuración incluye asientos cómodos, sombra y apoyo completo del personal."
+    },
+    {
+      "time": "06:00 PM",
+      "title": "Regreso a Lima",
+      "description": "Comenzamos nuestro viaje de regreso en la comodidad de nuestra van accesible, llegando a Lima alrededor de las 9:30 PM"
+    }
+  ],
+  "highlights": [],
+  "reviews": 35,
+  "siempreFecha": false,
+  "agotado": false
+}

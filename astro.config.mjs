@@ -12,7 +12,12 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss(),tinaAdminDevRedirect()],
-    ssr: { noExternal: ['@tinacms/astro', '@tinacms/bridge']}
+    ssr: { noExternal: ['@tinacms/astro', '@tinacms/bridge']},
+    server: {
+      watch: {
+        ignored: ['**/tina/__generated__/**', '**/public/admin/**'],
+      },
+    },
   },
 
   i18n: {

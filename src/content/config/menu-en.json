@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "key": "Home",
+      "label": "Home",
+      "href": "/",
+      "coverImage": "/images/new2principal.webp"
+    },
+    {
+      "key": "AllToursPeru",
+      "label": "All Tours Peru",
+      "href": "/destino/peru",
+      "coverImage": "/images/machu.webp"
+    },
+    {
+      "key": "GroupTours",
+      "label": "Group Tours",
+      "href": "/groupTours",
+      "coverImage": "/images/vicunas.png"
+    },
+    {
+      "key": "Blog",
+      "label": "Blog",
+      "href": "/blog",
+      "coverImage": "/images/new2principal.webp"
+    },
+    {
+      "key": "AboutUs",
+      "label": "About Us",
+      "href": "/aboutUs",
+      "coverImage": "/images/new2principal.webp",
+      "children": [
+        {
+          "key": "ContactUs",
+          "label": "Contact Us",
+          "href": "/contactUs",
+          "coverImage": "/images/new2principal.webp"
+        },
+        {
+          "key": "TermsAndConditions",
+          "label": "Terms and Conditions",
+          "href": "/terminosCondiciones",
+          "coverImage": "/images/new2principal.webp"
+        },
+        {
+          "key": "AboutUs",
+          "label": "About Us",
+          "href": "/aboutUs",
+          "coverImage": "/images/new2principal.webp"
+        }
+      ]
+    }
+  ]
+}

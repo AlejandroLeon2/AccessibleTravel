@@ -2,6 +2,7 @@
   "nombre": "Accessible Travel Peru",
   "descripcion": "Accessible Travel Peru is a travel agency specialized in inclusive tourism for people with disabilities, connecting adventure and accessibility across Peru.",
   "correo": "contact@accessibletravelperu.com",
+  "uid": "67260",
   "whatsapp1": {
     "numero": "+51 944 731 223",
     "tooltipText": "Whatsapp Perú",
@@ -18,9 +19,8 @@
     "valor": "https://m.me/156748394679043",
     "tooltipText": "Chat Messenger",
     "mensaje": "Hola, me gustaría obtener más información sobre los tours de Qillary. ¿Pueden ayudarme? ¡Gracias!",
-    " title": "Chatea con nosotros por Facebook Messenger"
+    "title": "Chatea con nosotros por Facebook Messenger"
   },
-  "imagenPortadaGeneral": "/images/vicunas.png",
   "telefonos": [
     {
       "pais": "🇵🇪",
@@ -71,28 +71,6 @@
       "url": "https://wa.me/19089356769",
       "handle": "+1 908-935-6769 🇺🇸",
       "pais": "🇺🇸"
-    }
-  ],
-  "galleryLogos": [
-    {
-      "src": "/images/logos/PANTOU-min.webp",
-      "alt": "PANTOU"
-    },
-    {
-      "src": "/images/logos/mincetur.webp",
-      "alt": "MINCETUR"
-    },
-    {
-      "src": "/images/logos/WeTravel.webp",
-      "alt": "WeTravel"
-    },
-    {
-      "src": "/images/logos/Enat.webp",
-      "alt": "ENAT"
-    },
-    {
-      "src": "/images/logos/AccessibleTravel.webp",
-      "alt": "Accessible Travel"
     }
   ]
 }

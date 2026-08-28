@@ -3,33 +3,35 @@ import Certificaciones from "../../../components/section/Certificaciones.astro";
 import Layout from "../../../layouts/Layout.astro";
 import PortadaStatic from "../../../components/section/PortadaStatic.astro";
 import CardDestino from "../../../components/ui/CardDestino.astro";
-import {toursDestinos as travels} from "../../../data/toursDestinos.js";
 import MainContent from "../../../components/constructor/MainContent.astro";
 import lenguaje from "../../../data/locales/es.json";
-import { headerMenu } from "../../../utils/headerSpañol";
-import infoEmpresa from "../../../data/accessibleTravel.json";
-
+import { getCollection, getEntry } from "astro:content";
+import { getMenuPageData } from "../../../utils/getMenuPageData";
+const _menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "AllToursPeru");
 export const prerender = true;
-
-export function getStaticPaths() {
-  const paths = travels.map((item) => ({
-    params: { titleLink: item.titleLink },
-  }));
-
-  return paths;
+export async function getStaticPaths() {
+  return [{
+    params: { titleLink: "peru" },
+    props: { tours: await getCollection("toursGlobalesEs") },
+  }];
 }
 
-// 🧩 Accede al parámetro y busca el destino en el array
 const { titleLink } = Astro.params;
-const destino = travels.find((item) => item.titleLink === titleLink);
+const tours = Astro.props.tours ?? [];
+const destino = {
+  title: "Peru",
+  titleLink,
+  destinosES: tours.map(({ data }) => data),
+};
 
-if (!destino) {
-  throw new Error(`Destino no encontrado para el título: ${titleLink}`);
+if (!destino.destinosES.length) {
+  throw new Error(`No hay tours definidos para el destino: ${titleLink}`);
 }
 ---
 
-<Layout headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={destino.title} />
+<Layout lenguaje={lenguaje}>
+  <PortadaStatic url={_coverImage} texto={destino.title} />
 <MainContent>
 
   <section class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">

@@ -3,16 +3,30 @@ import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import Layout from "../../layouts/Layout.astro";
 import Bento from "../../components/ui/Bento.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
-import { headerMenu } from "../../utils/headerSpañol";
 import lenguaje from "../../data/locales/en.json";
-import infoEmpresa from "../../data/accessibleTravel.json";
-import { toursDestinos } from "../../data/toursDestinos";
+import { getCollection, getEntry } from "astro:content";
+import { getMenuPageData } from "../../utils/getMenuPageData";
+const _menuData = (await getEntry("headerMenuEn", "menu-en"))!.data;
+const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "AllToursPeru");
+
+const toursGlobalesEn = await getCollection("toursGlobalesEn");
+const toursGlobalesEs = await getCollection("toursGlobalesEs");
+
+const toursDestinos = [
+  {
+    title: "Perú",
+    titleLink: "peru",
+    url: "/images/machu.webp",
+    destinosEN: toursGlobalesEn.map(({ data }) => data),
+    destinosES: toursGlobalesEs.map(({ data }) => data),
+  }
+];
 ---
 
-<Layout headerMenu={headerMenu} index={false} lenguaje={lenguaje}>
+<Layout index={false} lenguaje={lenguaje}>
   <PortadaStatic
-    url={infoEmpresa.imagenPortadaGeneral}
-    texto="Tours Destinations"
+    url={_coverImage}
+    texto={_pageLabel}
   />
   <MainContent>
     <Bento destinos={toursDestinos} />

@@ -1,0 +1,114 @@
+{
+  "title": "EXPERIENCIA GASTRONÓMICA - TOUR ACCESIBLE DE DÍA COMPLETO ♿",
+  "titleLink": "gastronomic-experience-accessible-full-day-tour",
+  "location": "Lima, Perú",
+  "operator": "Accessible Travel Peru",
+  "recomendado": false,
+  "rating": 4,
+  "duration": "1",
+  "groupSize": "1 - 25",
+  "description": "En Accessible Travel Perú, creemos que la comida es una puerta de entrada a la cultura—y todos merecen un lugar en la mesa. Nuestro Tour Gastronómico Accesible de Día Completo en Lima está diseñado para viajeros con discapacidades que desean explorar la escena culinaria de renombre mundial de Perú con comodidad y estilo. Este viaje sensorial incluye visitas a mercados locales, clases de cocina prácticas con estaciones adaptadas y comidas en restaurantes accesibles de primer nivel—que presentan sabores peruanos auténticos como el ceviche, lomo saltado y postres de lúcuma. Con más de 10 años de experiencia y un enfoque totalmente accesible, garantizamos transporte seguro, guías expertos y un día sin contratiempos de delicioso descubrimiento. Registrado bajo MINCETUR Miembros de ENAT – European Network for Accessible Tourism Reserve su tour hoy en www.accessibletravelperu.com o contáctenos por WhatsApp al +51 944 731 223. ¡Permítanos ayudarle a saborear el corazón de Lima—sin límites! 🇵🇪✨",
+  "includes": [
+    "Van accesible (WAV)",
+    "Todos los tours descritos",
+    "Todas las entradas",
+    "Guía de turismo especializado en turismo accesible",
+    "Almuerzo en restaurante local"
+  ],
+  "excludes": [
+    "Tours no mencionados en el programa",
+    "Alojamiento en hotel"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "capacity": "1",
+      "price": "$195"
+    },
+    {
+      "name": "Acompañante",
+      "capacity": "1",
+      "price": "$165"
+    },
+    {
+      "name": "Traslados de ida y vuelta: Comienzo y finalización en el aeropuerto Jorge Chávez en Lima o en el puerto del Callao",
+      "capacity": "1",
+      "price": "$50"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Traslados de Ida y Vuelta",
+      "price": "$50",
+      "description": "Comienzo y finalización en el aeropuerto jorge chavez en Lima o en el puerto del Callao"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-ESArl1VeQGmBnzyfvW44.webp",
+      "alt": "Visita accesible al mercado tradicional en Lima",
+      "title": "Experiencia en el Mercado Local"
+    },
+    {
+      "link": "/images/tours/tour-ESArl1VeQGmBnzyfvW44.webp",
+      "alt": "Visita accesible al mercado tradicional en Lima",
+      "title": "Experiencia en el Mercado Local"
+    },
+    {
+      "link": "/images/tours/tour-5LZA6mmyRwqIakPIRGwU.webp",
+      "alt": "Clase de cocina accesible en el restaurante El Bolivariano",
+      "title": "Demostración de Cocina Peruana"
+    },
+    {
+      "link": "/images/tours/tour-5LZA6mmyRwqIakPIRGwU.webp",
+      "alt": "Clase de cocina accesible en el restaurante El Bolivariano",
+      "title": "Demostración de Cocina Peruana"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/gastronomic-experience-accessible-full-day-tour-accessible-travel-peru-12948586",
+    "brochure": "Descargar Folleto",
+    "inquire": "Hacer una Pregunta"
+  },
+  "itinerary": [
+    {
+      "time": "09:00 AM",
+      "title": "Recogida del Hotel",
+      "description": "Su día comienza con un traslado cómodo y seguro en nuestro vehículo especialmente adaptado para viajeros con movilidad reducida. Nos aseguramos de que cada momento sea fluido y sin preocupaciones."
+    },
+    {
+      "time": "09:20 AM",
+      "title": "Visita al Complejo Arqueológico Huaca Pucllana",
+      "description": "Comenzamos el día visitando el impresionante Complejo Arqueológico Huaca Pucllana, un antiguo templo preínca ubicado en el corazón de Miraflores. Este sitio arqueológico es uno de los íconos más emblemáticos de Lima."
+    },
+    {
+      "time": "10:00 AM",
+      "title": "Visita a un Mercado Local Tradicional",
+      "description": "Sumérjase en el corazón de los sabores peruanos con una visita guiada a un mercado local. Pruebe frutas exóticas como lúcuma, chirimoya, granadilla y aguaymanto, mientras aprende sobre los ingredientes nativos y su papel en la cocina tradicional peruana. El mercado está cuidadosamente seleccionado por sus pasillos amplios y accesibilidad total."
+    },
+    {
+      "time": "11:30 AM",
+      "title": "Demostración de Cocina en Vivo en el Restaurante El Bolivariano",
+      "description": "A continuación, nos dirigimos al icónico y totalmente accesible restaurante El Bolivariano para una experiencia culinaria interactiva: Aprenderá a preparar: • Ceviche Clásico • Causa Limeña • Pisco Sour Estaciones de cocina adaptadas y personal experimentado garantizan que todos puedan participar en esta experiencia práctica."
+    },
+    {
+      "time": "01:00 PM",
+      "title": "Almuerzo Accesible en El Bolivariano",
+      "description": "Después de la demostración, disfrute de un almuerzo completo con los mejores platos tradicionales de Perú. El restaurante ofrece un servicio inclusivo y menús adaptados a diversas necesidades dietéticas."
+    },
+    {
+      "time": "03:00 PM",
+      "title": "City Tour Panorámico de Lima",
+      "description": "La tarde continúa con un city tour guiado y accesible: • Plaza Mayor y Centro Histórico – explore el corazón colonial de Lima con acceso sin barreras. • Convento de Santo Domingo – totalmente accesible para sillas de ruedas con información cultural guiada."
+    },
+    {
+      "time": "05:30 PM",
+      "title": "Regreso al Hotel",
+      "description": "Terminamos el día con un relajante traslado de regreso a su hotel en nuestro vehículo accesible, garantizando comodidad y cuidado en cada paso del camino."
+    }
+  ],
+  "highlights": [],
+  "reviews": 23,
+  "siempreFecha": false,
+  "agotado": false
+}

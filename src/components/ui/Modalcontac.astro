@@ -4,7 +4,8 @@ import Telefono from "../svg/Telefono.astro";
 import Ubicacion from "../svg/Ubicacion.astro";
 import Youtube from "../svg/Youtube.astro";
 import Tiktok from "../svg/Tiktok.astro";
-import empresaInfo from "../../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
+const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
 const { currentLocale } = Astro;
 const { lenguaje } = Astro.props;
 ---

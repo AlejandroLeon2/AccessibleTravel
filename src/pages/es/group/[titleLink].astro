@@ -1,32 +1,36 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import {groupTours} from "../../../data/groupTours.js";
 import PortadaStatic from "../../../components/section/PortadaStatic.astro";
 import Infotravel from "../../../components/section/Infotravel.astro";
 import MainContent from "../../../components/constructor/MainContent.astro";
 import lenguaje from "../../../data/locales/es.json";
-import { headerMenu } from "../../../utils/headerSpañol";
+import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
-export function getStaticPaths() {
-  const paths = groupTours.map((item) => ({
-    params: { titleLink: item.titleLink }
+export async function getStaticPaths() {
+  const tours = await getCollection('toursGrupalesEs');
+  
+  const paths = tours.map((tour) => ({
+    params: { titleLink: tour.data.titleLink },
+    props: { tour }
   }));
 
   return paths;
 }
 
-// 🧩 Accede al parámetro y busca el destino en el array
+// 🧩 Accede al parámetro y obtén el tour desde props
 const { titleLink } = Astro.params;
-const destino = groupTours.find((item) => item.titleLink === titleLink);
+const { tour } = Astro.props;
 
-if (!destino) {
-  throw new Error(`Destino no encontrado para el título: ${titleLink}`);
+if (!tour) {
+  throw new Error(`Tour no encontrado para el título: ${titleLink}`);
 }
+
+const destino = tour.data;
 ---
 
-<Layout title={destino.title} description={destino.description} headerMenu={headerMenu} lenguaje={lenguaje}>
+<Layout title={destino.title} description={destino.description} lenguaje={lenguaje}>
   
   <PortadaStatic url={destino.images[0].link} title={destino.images[0].alt}/>
 <MainContent>

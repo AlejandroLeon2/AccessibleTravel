@@ -6,11 +6,13 @@ import MainContent from '../../components/constructor/MainContent.astro'
 import PortadaStatic from '../../components/section/PortadaStatic.astro'
 import BlogAside from '../../components/ui/BlogAside.astro'
 import lenguaje from "../../data/locales/es.json";
-import { headerMenu } from '../../utils/headerSpañol'
-import dest from "../../data/peru/peru-es/travels.json";
-import infoEmpresa from "../../data/accessibleTravel.json";
+import { getCollection, getEntry } from "astro:content";
+import { getMenuPageData } from "../../utils/getMenuPageData";
+const _menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "Blog");
 
 
+const dest = (await getCollection("toursGlobalesEs")).map(({ data }) => data);
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
 
@@ -33,8 +35,8 @@ const articulo = Object.values(await import.meta.glob('./blog/*.mdx', { eager: t
 
 ---
 
-<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje} title="Blog Retro">
-  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={lenguaje.header.Blog} />
+<Layout title={lenguaje.title} description={lenguaje.description} lenguaje={lenguaje} title="Blog Retro">
+  <PortadaStatic url={_coverImage} texto={_pageLabel} />
   <MainContent>
 <section class="flex flex-col mx-auto md:flex-row gap-4 px-4 w-full justify-center max-w-7xl">
     <section class="flex flex-col py-4 md:py-12 gap-4 w-full mx-auto md:mx-0 max-w-2xl">

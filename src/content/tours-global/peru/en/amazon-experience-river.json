@@ -1,0 +1,132 @@
+{
+  "title": "The Amazon Experience - Amazon River",
+  "titleLink": "amazon-experience-river",
+  "operator": "Accessible Travel Peru",
+  "duration": "7",
+  "rating": 4,
+  "recomendado": true,
+  "location": "The Amazon, Perú",
+  "groupSize": "2 - 8 ",
+  "description": "Join us for a transformative 7-day journey with Accessible Travel Peru! Begin your adventure in the heart of Lima, where you'll explore the rich culture, history, and flavors of the city, all while enjoying an accessible experience tailored to your needs. Then, sail along the mighty Amazon River, where you'll connect with nature, discover wildlife, and embrace the serenity of the jungle. This inclusive tour is designed for travelers with disabilities, offering comfort, care, and unforgettable moments.",
+  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru accessible to all ♿",
+  "contact": "Send us a WhatsApp... 👉 Click here!",
+  "includes": [
+    "Domestic flights Lima - Iquitos - Lima",
+    "Accessible lodges (Wheelchair adapted rooms)",
+    "Meals specified in the program",
+    "Accessible vans (Adapted tourism vans for wheelchair users)",
+    "Special equipment (All-terrain wheelchairs, handbikes, harnesses)",
+    "Bilingual tour guides (Spanish - English)",
+    "Support staff (All-terrain wheelchair operators)",
+    "All entrance fees and permits",
+    "All described tours and excursions",
+    "1 water bottle and snacks (Maybe... you feel hungry during the tour)"
+  ],
+  "excludes": [
+    "International flights from your country to Peru",
+    "Travel insurance",
+    "Tips, Meals not mentioned in the description, alcoholic and non-alcoholic beverages, other services"
+  ],
+  "packages": [
+    {
+      "name": "Wheelchair user",
+      "price": "$3,234",
+      "deposit": "$500"
+    },
+    {
+      "name": "Partner",
+      "price": "$2,507",
+      "deposit": "$500"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Extra day in Lima",
+      "price": "$70",
+      "description": "Accessible hotel accommodation per night. Includes Breakfast"
+    },
+    {
+      "name": "Gastronomic Tour",
+      "price": "$60",
+      "description": "Gastronomic Tour + DEMO Class"
+    },
+    {
+      "name": "Larco Herrera Museum",
+      "price": "$40",
+      "description": "Tour to Larco Herrera Museum"
+    },
+    {
+      "name": "Extra day at Amazon Lodge",
+      "price": "$80",
+      "description": "Cost per night, includes breakfast"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Arrival in Lima - Welcome to Peru 🇵🇪",
+      "description": "Upon arrival at Lima International Airport, our team will be waiting to welcome you and provide comfortable, accessible transportation to your hotel in the city. Once settled, you'll have time to rest after your journey. Later, we'll meet for a briefing at the hotel, where we'll review the details of your adventure, answer any questions, and share useful tips for the coming days. You'll also receive any mobility equipment or support devices organized for your trip, ensuring everything is ready for a safe and enriching experience. ♿ From the moment you land, we're here to support you with personalized, accessible service every step of the way. Welcome to Peru, your unforgettable journey begins now!"
+    },
+    {
+      "day": 2,
+      "title": "Lima City Tour - Contrasts of the City of Kings",
+      "description": "Begin your Peruvian adventure with a fascinating tour of Lima, the vibrant capital known as the City of Kings. Start in the elegant coastal district of Miraflores, where you'll enjoy panoramic ocean views and a scenic stop at Huaca Pucllana, an ancient adobe pyramid that speaks to the city's pre-Columbian past. Then, travel to the heart of Lima's Historic Center, a UNESCO World Heritage Site. Admire the colonial balconies, grand architecture, and charming squares. Visit the beautiful Santo Domingo Convent, home to centuries of spiritual and cultural history. A delicious lunch at a local restaurant is included, featuring a sample of Peru's world-famous cuisine. ♿ The tour is fully accessible, with adapted transportation and dedicated assistance to ensure comfort and inclusion at every stop. OPTIONAL: After-lunch tour to Larco Herrera Museum ($40 per person) or Gastronomic tour and demo class ($70 per person). A day full of history, flavor, and unforgettable first impressions of Peru."
+    },
+    {
+      "day": 3,
+      "title": "Arrival in Iquitos and jungle immersion",
+      "description": "In the morning, transfer to Jorge Chavez International Airport for your flight to Iquitos, gateway to the Peruvian Amazon. Upon arrival, you'll be welcomed and transferred by boat to our jungle lodge, located approximately 45 minutes upstream along the majestic Amazon River. Along the way, we'll make significant stops at local wildlife rescue centers, where you'll get a first glimpse of the region's incredible biodiversity and learn about the conservation efforts we support. Box lunch included during the trip. In the afternoon, arrive at the lodge and settle into your Amazon home away from home. Enjoy a delicious dinner at the lodge, surrounded by the sounds of the jungle. As night falls, gather around the campfire for a charming evening of Amazonian myths, tales, and legends, a magical experience under the stars, complete with a traditional jungle barbecue."
+    },
+    {
+      "day": 4,
+      "title": "Amazon traditions and night walk - Nature by day and night",
+      "description": "In the morning, we'll head upstream for a special visit to a traditional sugar mill, a local center where communities extract natural sugars and syrups from various plants and reeds. Learn about ancestral techniques and the cultural importance of these natural sweeteners in Amazonian life. Return to the lodge for lunch and rest surrounded by the peaceful sounds of the jungle. As the sun sets, prepare for an exciting night walk through the rainforest. Discover the hidden world of nocturnal creatures, the glow of bioluminescent fungi, and the mysterious sounds that come alive after dark. Dinner back at the lodge. Overnight, embraced by the rhythms of the Amazon."
+    },
+    {
+      "day": 5,
+      "title": "Encounters with Amazonian life and wildlife",
+      "description": "In the morning, we'll explore the rich and diverse flora of the Peruvian Amazon. Learn about medicinal plants, towering trees, and the deep connection between the rainforest and its people. Return to the lodge for lunch and a brief rest. In the afternoon, visit a wildlife rescue center where animals are in the final stage of rehabilitation and reintegration into nature. Observe monkeys, birds, and other species in their semi-wild environments, learning about their recovery journeys and the importance of conservation. Later, enjoy a visit to a butterfly farm, where you'll witness the magical life cycle of these delicate creatures and the vital role they play in the ecosystem. Dinner at the lodge. End the day with a tasting of traditional jungle liqueurs from the Peruvian Amazon, made with local fruits, roots, and herbs, a tasty and fun way to toast your Amazon adventure. Overnight in the heart of the rainforest."
+    },
+    {
+      "day": 6,
+      "title": "Birds and traditions - Visit to the Collpa and Yagua Community Experience",
+      "description": "Very early in the morning, embark on a quiet excursion to a collpa, a magical place where more than 20 species of birds gather in the early hours. Witness the vibrant colors and sounds of parrots, macaws, and other Amazonian birds as they feed and interact in their natural habitat, an unforgettable moment for both nature lovers and photographers. Return to the lodge for a well-deserved lunch. In the afternoon, visit the Yagua Indigenous Community, one of the most emblematic cultures of the Amazon. Learn about their customs, traditional clothing, and daily life in the rainforest. Interact with their history, language, and crafts, and experience their deep connection with the jungle. Dinner at the lodge. Overnight, surrounded by the sounds and soul of the Amazon rainforest."
+    },
+    {
+      "day": 7,
+      "title": "Time to say goodbye...",
+      "description": "After days of wonder, discovery, and deep connection with local nature and culture, it's time to say goodbye to the heart of the Peruvian Amazon. We'll assist you with your transfer back to Iquitos, where you'll take your flight to Lima and continue your journey home. Thank you for letting us share with you the magic of the jungle: its colors, its sounds, its people, and its spirit. We hope you leave with a full heart and an inspired soul. May the memories of this journey remain with you always. Safe travels... And until next time, the jungle will be waiting. And as the elders of the Amazon say... \"Ainbo ainbo, ñanë jema\" - now we part, but our spirits remain connected."
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-JrfbKtBlR4GJjhhwOKr0.webp",
+      "alt": "Amazon River landscape",
+      "title": "View of the Amazon River"
+    },
+    {
+      "link": "/images/tours/tour-0hy2UFuRPGjSbRnrPsqb.webp",
+      "alt": "Lima city view",
+      "title": "Panoramic view of Lima"
+    },
+    {
+      "link": "/images/tours/tour-eOCh3aJRhopmNSGyhgEg.webp",
+      "alt": "Accessible jungle lodge",
+      "title": "Our accessible Amazon lodge"
+    },
+    {
+      "link": "/images/tours/tour-7kqCiexgRt6kWT8aizS4.webp",
+      "alt": "Wildlife rescue center",
+      "title": "Amazonian animals at rescue center"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/the-amazon-experiencie-accessible-travel-peru-54888587",
+    "brochure": "Download brochure",
+    "inquire": "Ask a question"
+  },
+  "highlights": [],
+  "reviews": 37,
+  "siempreFecha": false,
+  "agotado": false
+}

@@ -4,15 +4,17 @@ import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import Terminos from "../../components/section/Terminos.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
-import infoEmpresa from "../../data/accessibleTravel.json";
 import lenguaje from "../../data/locales/es.json";
-import { headerMenu } from "../../utils/headerSpañol";
 import { terminos } from "../../data/terminosEspañol";
+import { getEntry } from "astro:content";
+import { getMenuPageData } from "../../utils/getMenuPageData";
+const _menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "TermsAndConditions");
 ---
 
 
-<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
-  <PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={lenguaje.header.children.TermsAndConditions} />
+<Layout title={lenguaje.title} description={lenguaje.description} lenguaje={lenguaje}>
+  <PortadaStatic url={_coverImage} texto={_pageLabel} />
   <MainContent>
     <Terminos terminos={terminos} />
     <Certificaciones />

@@ -1,0 +1,132 @@
+{
+  "title": "La Experiencia Amazonas - Río Amazonas",
+  "titleLink": "amazon-experience-river",
+  "operator": "Accessible Travel Peru",
+  "duration": "7",
+  "rating": 5,
+  "recomendado": true,
+  "location": "Amazonas, Perú",
+  "groupSize": "2 - 8 ",
+  "description": "¡Únete a nosotros para un viaje transformador de 7 días con Accessible Travel Peru! Comienza tu aventura en el corazón de Lima, donde explorarás la rica cultura, historia y sabores de la ciudad, todo mientras disfrutas de una experiencia accesible adaptada a tus necesidades. Luego, navega por el poderoso Río Amazonas, donde te conectarás con la naturaleza, descubrirás vida silvestre y abrazarás la serenidad de la jungla. Este tour inclusivo está diseñado para viajeros con discapacidades, ofreciendo comodidad, cuidado y momentos inolvidables.",
+  "slogan": "Accessible Travel Peru 🇵🇪 - Haciendo Perú accesible para todos ♿",
+  "contact": "Envíanos un WhatsApp... 👉 ¡Haz clic aquí!",
+  "includes": [
+    "Vuelos domésticos Lima - Iquitos - Lima",
+    "Albergues accesibles (Habitaciones adaptadas para sillas de ruedas)",
+    "Comidas especificadas en el programa",
+    "Camionetas accesibles (Camionetas turísticas adaptadas para usuarios de silla de ruedas)",
+    "Equipo especial (Sillas de ruedas todo terreno, handbikes, arneses)",
+    "Guías turísticos bilingües (Español - Inglés)",
+    "Personal de apoyo (Operadores de sillas de ruedas todo terreno)",
+    "Todas las entradas y permisos",
+    "Todos los tours y excursiones descritos",
+    "1 botella de agua y snacks (Tal vez... tengas hambre durante el tour)"
+  ],
+  "excludes": [
+    "Vuelos internacionales desde tu país a Perú",
+    "Seguro de viaje",
+    "Propinas, Comidas no mencionadas en la descripción, bebidas alcohólicas y no alcohólicas, otros servicios"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "price": "$3,234",
+      "deposit": "$500"
+    },
+    {
+      "name": "Acompañante",
+      "price": "$2,507",
+      "deposit": "$500"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Día extra en Lima",
+      "price": "$70",
+      "description": "Alojamiento en hotel accesible por noche. Incluye Desayuno"
+    },
+    {
+      "name": "Tour Gastronómico",
+      "price": "$60",
+      "description": "Tour Gastronómico + Clase DEMO"
+    },
+    {
+      "name": "Museo Larco Herrera",
+      "price": "$40",
+      "description": "Tour al Museo Larco Herrera"
+    },
+    {
+      "name": "Día extra en el Albergue del Amazonas",
+      "price": "$80",
+      "description": "Costo por noche, incluye desayuno"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Llegada a Lima - Bienvenida a Perú 🇵🇪",
+      "description": "A tu llegada al Aeropuerto Internacional de Lima, nuestro equipo estará esperando para darte la bienvenida y proporcionarte un transporte cómodo y accesible a tu hotel en la ciudad. Una vez instalado, tendrás tiempo para descansar después de tu viaje. Más tarde, nos reuniremos para una sesión informativa en el hotel, donde revisaremos los detalles de tu aventura, responderemos cualquier pregunta y compartiremos consejos útiles para los días venideros. También recibirás cualquier equipo de movilidad o dispositivos de soporte organizados para tu viaje, asegurando que todo esté listo para una experiencia segura y enriquecedora. ♿ Desde el momento que aterrizas, estamos aquí para apoyarte con un servicio accesible y personalizado en cada paso del camino. ¡Bienvenido a Perú, tu viaje inolvidable comienza ahora!"
+    },
+    {
+      "day": 2,
+      "title": "City Tour Lima - Contrastes de la Ciudad de los Reyes",
+      "description": "Comienza tu aventura peruana con un fascinante tour por Lima, la vibrante capital conocida como la Ciudad de los Reyes. Comienza en el elegante distrito costero de Miraflores, donde disfrutarás de vistas panorámicas al océano y una parada escénica en Huaca Pucllana, una antigua pirámide de adobe que habla del pasado precolombino de la ciudad. Luego, viaja al corazón del Centro Histórico de Lima, Patrimonio de la Humanidad por la UNESCO. Admira los balcones coloniales, la grandiosa arquitectura y las encantadoras plazas. Visita el hermoso Convento de Santo Domingo, hogar de siglos de historia espiritual y cultural. Se incluye un delicioso almuerzo en un restaurante local, con una muestra de la famosa cocina peruana. ♿ El tour es totalmente accesible, con transporte adaptado y asistencia dedicada para garantizar comodidad e inclusión en cada parada. OPCIONAL: Tour después del almuerzo al Museo Larco Herrera ($40 por persona) o Tour gastronómico y clase demostrativa ($70 por persona). Un día lleno de historia, sabor y primeras impresiones inolvidables de Perú."
+    },
+    {
+      "day": 3,
+      "title": "Llegada a Iquitos e inmersión en la jungla",
+      "description": "Por la mañana, traslado al Aeropuerto Internacional Jorge Chávez para tu vuelo a Iquitos, puerta de entrada al Amazonas peruano. A tu llegada, serás bienvenido y trasladado en bote a nuestro albergue en la jungla, ubicado aproximadamente 45 minutos río arriba along el majestuoso Río Amazonas. En el camino, haremos paradas significativas en centros de rescate de vida silvestre locales, donde obtendrás un primer vistazo de la increíble biodiversidad de la región y aprenderás sobre los esfuerzos de conservación que apoyamos. Se incluye almuerzo box durante el viaje. Por la tarde, llega al albergue y instálate en tu hogar lejos del hogar en el Amazonas. Disfruta de una deliciosa cena en el albergue, rodeado de los sonidos de la jungla. Cuando caiga la noche, reúnete alrededor de la fogata para una encantadora velada de mitos, cuentos y leyendas amazónicas, una experiencia mágica bajo las estrellas, completa con una barbacoa tradicional de la jungla."
+    },
+    {
+      "day": 4,
+      "title": "Tradiciones amazónicas y caminata nocturna - Naturaleza de día y de noche",
+      "description": "Por la mañana, nos dirigiremos río arriba para una visita especial a un trapiche tradicional, un centro local donde las comunidades extraen azúcares y jarabes naturales de varias plantas y juncos. Aprende sobre técnicas ancestrales y la importancia cultural de estos edulcorantes naturales en la vida amazónica. Regresa al albergue para almorzar y descansar rodeado de los pacíficos sonidos de la jungla. Cuando se ponga el sol, prepárate para una emocionante caminata nocturna por la selva tropical. Descubre el mundo oculto de las criaturas nocturnas, el resplandor de los hongos bioluminiscentes y los misteriosos sonidos que cobran vida después del anochecer. Cena de regreso en el albergue. Pernocta, abrazado por los ritmos del Amazonas."
+    },
+    {
+      "day": 5,
+      "title": "Encuentros con la vida amazónica y la vida silvestre",
+      "description": "Por la mañana, exploraremos la rica y diversa flora del Amazonas peruano. Aprende sobre plantas medicinales, árboles imponentes y la profunda conexión entre la selva tropical y su gente. Regresa al albergue para almorzar y un breve descanso. Por la tarde, visita un centro de rescate de vida silvestre donde los animales están en la etapa final de rehabilitación y reintegración a la naturaleza. Observa monos, aves y otras especies en sus entornos semi-salvajes, aprendiendo sobre sus jornadas de recuperación y la importancia de la conservación. Más tarde, disfruta de una visita a una granja de mariposas, donde serás testigo del mágico ciclo de vida de estas delicadas criaturas y el papel vital que juegan en el ecosistema. Cena en el albergue. Termina el día con una cata de licores tradicionales de la jungla del Amazonas peruano, hechos con frutas locales, raíces y hierbas, una forma sabrosa y divertida de brindar por tu aventura amazónica. Pernocta en el corazón de la selva tropical."
+    },
+    {
+      "day": 6,
+      "title": "Aves y tradiciones - Visita a la Collpa y Experiencia de la Comunidad Yagua",
+      "description": "Muy temprano en la mañana, embárcate en una excursión tranquila a una collpa, un lugar mágico donde más de 20 especies de aves se reúnen en las primeras horas. Sé testigo de los vibrantes colores y sonidos de loros, guacamayos y otras aves amazónicas mientras se alimentan e interactúan en su hábitat natural, un momento inolvidable tanto para los amantes de la naturaleza como para los fotógrafos. Regresa al albergue para un merecido almuerzo. Por la tarde, visita la Comunidad Indígena Yagua, una de las culturas más emblemáticas del Amazonas. Aprende sobre sus costumbres, vestimenta tradicional y vida diaria en la selva tropical. Interactúa con su historia, idioma y artesanías, y experimenta su profunda conexión con la jungla. Cena en el albergue. Pernocta, rodeado de los sonidos y el alma de la selva amazónica."
+    },
+    {
+      "day": 7,
+      "title": "Hora de decir adiós...",
+      "description": "Después de días de asombro, descubrimiento y profunda conexión con la naturaleza y cultura local, es hora de decir adiós al corazón del Amazonas peruano. Te asistiremos con tu traslado de regreso a Iquitos, donde tomarás tu vuelo a Lima y continuarás tu viaje a casa. Gracias por permitirnos compartir contigo la magia de la jungla: sus colores, sus sonidos, su gente y su espíritu. Esperamos que te vayas con el corazón lleno y el alma inspirada. Que los recuerdos de este viaje permanezcan contigo siempre. Buen viaje... Y hasta la próxima, la jungla estará esperando. Y como dicen los ancianos del Amazonas... \"Ainbo ainbo, ñanë jema\" - ahora nos separamos, pero nuestros espíritus permanecen conectados."
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-JrfbKtBlR4GJjhhwOKr0.webp",
+      "alt": "Paisaje del Río Amazonas",
+      "title": "Vista del Río Amazonas"
+    },
+    {
+      "link": "/images/tours/tour-0hy2UFuRPGjSbRnrPsqb.webp",
+      "alt": "Vista de la ciudad de Lima",
+      "title": "Vista panorámica de Lima"
+    },
+    {
+      "link": "/images/tours/tour-eOCh3aJRhopmNSGyhgEg.webp",
+      "alt": "Albergue de jungla accesible",
+      "title": "Nuestro albergue amazónico accesible"
+    },
+    {
+      "link": "/images/tours/tour-7kqCiexgRt6kWT8aizS4.webp",
+      "alt": "Centro de rescate de vida silvestre",
+      "title": "Animales amazónicos en centro de rescate"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/the-amazon-experiencie-accessible-travel-peru-54888587",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  },
+  "highlights": [],
+  "reviews": 37,
+  "siempreFecha": false,
+  "agotado": false
+}

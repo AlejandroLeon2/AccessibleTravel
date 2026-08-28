@@ -1,0 +1,56 @@
+---
+import StarIcon from "../../icons/StarIcon.astro";
+
+interface Props {
+  label: string;
+  entryId: string;
+}
+
+const { label, entryId } = Astro.props;
+---
+
+<div class="space-y-3">
+  <label class="block text-sm font-bold text-cyan-950 uppercase tracking-wider">
+    {label}
+  </label>
+  <div class="star-rating flex flex-row-reverse justify-end items-center gap-1 group">
+    {
+      [5, 4, 3, 2, 1].map((i) => (
+        <>
+          <input
+            type="radio"
+            name={entryId}
+            id={`${entryId}-${i}`}
+            value={i}
+            required
+            class="peer sr-only"
+          />
+          <label 
+            for={`${entryId}-${i}`} 
+            class="cursor-pointer text-cyan-900/30 transition-colors duration-200"
+          >
+            <StarIcon class="w-6 h-6" />
+          </label>
+        </>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  /* Base state: when an input is checked, color it and all following siblings (which are lower numbers due to row-reverse) */
+  .star-rating input:checked ~ label {
+    color: #fbbf24; /* text-amber-400 */
+  }
+
+  /* Hover state: when the container is hovered, temporarily dim ALL stars, ignoring the checked state */
+  .star-rating:hover label {
+    color: rgb(22 78 99 / 0.3) !important; /* text-cyan-900/30 */
+  }
+
+  /* Hover interactivity: Highlight the currently hovered star and all its following siblings (the lower numbers) */
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    color: #fbbf24 !important; /* text-amber-400 */
+  }
+</style>

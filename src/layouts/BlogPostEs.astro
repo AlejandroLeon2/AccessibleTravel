@@ -2,16 +2,18 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Modalcontac from "../components/ui/Modalcontac.astro";
-import data from "../data/accessibleTravel.json";
 import MensajeApp from "../components/section/MensajeApp.astro";
 import "../styles/global.css";
 import PortadaStatic from "../components/section/PortadaStatic.astro";
 import BlogAside from "../components/ui/BlogAside.astro";
 import MainContent from "../components/constructor/MainContent.astro";
-import { headerMenu } from "../utils/headerSpañol";
 import lenguaje from "../data/locales/es.json";
 import WhatsappCta from "../components/ui/WhatsappCta.astro";
-import dest from "../data/peru/peru-en/travels.json";
+import { getCollection, getEntry } from "astro:content";
+import { getMenuPageData } from "../utils/getMenuPageData";
+const _blogMenuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const { coverImage: _blogCoverImage } = getMenuPageData(_blogMenuData.items, "Blog");
+const data = (await getEntry("siteConfig", "site"))!.data;
 import MetadataLayout from "../components/constructor/MetadataLayout.astro";
 import MetadataAstroComponent from "../components/Metadata.astro";
 import ScriptsBodyAstroComponent from "../components/ScriptsBody.astro";
@@ -25,6 +27,7 @@ const articulos = Object.values(
 );
 const articulo = articulos.slice(0, 3);
 
+const dest = (await getCollection("toursGlobalesEs")).map(({ data }) => data);
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
 const {
@@ -70,9 +73,9 @@ const post = tinaData.data.blogEs;
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800">
-    <Header headerMenu={headerMenu} lenguaje={lenguaje} />
+    <Header lenguaje={lenguaje} />
     <div class="pt-14 md:pt-22 w-full h-14 md:h-22"></div>
-    <PortadaStatic url={data.imagenPortadaGeneral} />
+    <PortadaStatic url={_blogCoverImage} />
 
     <MainContent>
       <div class="max-w-7xl mx-auto px-4 pb-8">
@@ -109,7 +112,7 @@ const post = tinaData.data.blogEs;
       <WhatsappCta lenguaje={lenguaje} variant="default" />
     </MainContent>
 
-    <Footer headerMenu={headerMenu} lenguaje={lenguaje} />
+    <Footer lenguaje={lenguaje} />
     <Modalcontac lenguaje={lenguaje} />
 
     <MensajeApp data={data} />

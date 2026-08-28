@@ -1,0 +1,28 @@
+{
+  "galleryLogos": [
+    {
+      "src": "/images/logos/PANTOU-min.webp",
+      "alt": "PANTOU"
+    },
+    {
+      "src": "/images/logos/mincetur.webp",
+      "alt": "MINCETUR"
+    },
+    {
+      "src": "/images/logos/WeTravel.webp",
+      "alt": "WeTravel"
+    },
+    {
+      "src": "/images/logos/Enat.webp",
+      "alt": "ENAT"
+    },
+    {
+      "src": "/images/logos/AccessibleTravel.webp",
+      "alt": "Accessible Travel"
+    },
+    {
+      "src": "/moray.jpg",
+      "alt": "asdadsad"
+    }
+  ]
+}

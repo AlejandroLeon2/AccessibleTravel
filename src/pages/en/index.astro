@@ -5,13 +5,13 @@ import Certificaciones from "../../components/section/Certificaciones.astro";
 import Comentarios from "../../components/section/Comentarios.astro";
 import Actividades from "../../components/section/Actividades.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
-import data from "../../data/peru/peru-en/travels.json";
+import { getCollection } from "astro:content";
 import BlogNew from "../../components/section/BlogNew.astro";
 import lenguaje from "../../data/locales/en.json";
 import DestinosRecomendados from "../../components/section/DestinosRecomendados.astro";
 import HeroHome from "../../components/section/HeroHome.astro";
-import { headerMenu } from "../../utils/headerSpañol";
 import WhatsappCta from "../../components/ui/WhatsappCta.astro";
+const data = (await getCollection("toursGlobalesEn")).map(({ data }) => data);
 const destinos = data.filter((item) => item.recomendado === true).slice(0, 4);
 const articulos = Object.values(
   await import.meta.glob("/src/pages/en/blog/*.mdx", { eager: true }),
@@ -22,7 +22,6 @@ const articulo = articulos.slice(0, 3);
 <Layout
   title={lenguaje.title}
   description={lenguaje.description}
-  headerMenu={headerMenu}
   lenguaje={lenguaje}
 >
   <PortadaDinamica lenguaje={lenguaje} />

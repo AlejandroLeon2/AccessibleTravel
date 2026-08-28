@@ -5,11 +5,18 @@ import idiomas from "../data/idiomas.json";
 import Earth from "../components/svg/Earth.astro";
 import Tiktok from "./svg/Tiktok.astro";
 import Youtube from "./svg/Youtube.astro";
-import empresaInfo from "../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
+
+const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
 const { currentLocale } = Astro;
 const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(\/)?/, "/");
 
-const { lenguaje, headerMenu } = Astro.props;
+// Cargar menú según idioma actual
+const menuCollection = currentLocale === "es" ? "headerMenuEs" : "headerMenuEn";
+const menuData = (await getEntry(menuCollection, menuCollection === "headerMenuEs" ? "menu-es" : "menu-en"))?.data;
+const headerMenuItems = menuData?.items ?? [];
+
+const { lenguaje } = Astro.props;
 ---
 
 <header class="bg-white fixed flex flex-col z-30 md:h-23 w-full shadow-md">
@@ -164,7 +171,7 @@ const { lenguaje, headerMenu } = Astro.props;
     <!-- Contenedor central -->
     <div class="flex w-full items-center justify-around">
       <!-- Navegación -->
-      <HeaderNav data={headerMenu} lenguaje={lenguaje} style=" " />
+      <HeaderNav data={headerMenuItems} style=" " />
 
       <!-- Idioma -->
       <div class="flex items-center gap-1 mx-1">

@@ -1,0 +1,133 @@
+{
+  "title": "Only Cusco",
+  "titleLink": "only-cusco-accessible-tour",
+  "location": "Cusco, Perú",
+  "operator": "Accessible Travel Peru",
+  "recomendado": false,
+  "rating": 4,
+  "duration": "6 ",
+  "groupSize": "2 - 8",
+  "description": "6-Day Accessible Cusco Adventure: City, Sacred Valley, Piuray & Machu Picchu. Embark on a 6-day immersive journey through the heart of the Inca Empire, where culture, nature, and tradition come together in perfect harmony. Start with a guided city tour of Cusco, discovering its historic gems and stunning architecture. Then, explore the breathtaking Sacred Valley, visit the vibrant community of Piuray for a unique experiential tourism day, and marvel at the stunning 7 Colors Mountain. The highlight of your adventure is a full-day visit to Machu Picchu, one of the seven wonders of the world! Wrap up with a smooth transfer to your departure. Enjoy accessible routes, tailored services, and unforgettable experiences every step of the way.",
+  "slogan": "Accessible Travel Peru 🇵🇪 – Making Peru Accessible for Everyone ♿",
+  "contact": "WhatsApp us... click here!",
+  "includes": [
+    "Accessible Hotels (Accessible Rooms)",
+    "Meals specified in program",
+    "Accessible Vans (Adapted tourism vans for wheelchair users in all destinations)",
+    "Special Equipment (Off-Road wheelchairs, handbikes, slings)",
+    "Official Tour Guides (Bilingual tour guide Spanish - English)",
+    "Support Staff (off-road wheelchair operators)",
+    "Train Tickets & Entrance (All the entrances and vistadome train ticket)",
+    "All tours described (All the tours and excursions described in the itinerary)",
+    "01 bottle water & snacks (Maybe... you feel hungry during the tour)"
+  ],
+  "excludes": [
+    "International flights (From your country to Peru)",
+    "Domestic Flight Tickets (Lima - Cusco - Lima)",
+    "Travel insurance",
+    "Tips, Meals not mentioned in the description, alcoholic and non-alcoholic drinks, other services"
+  ],
+  "packages": [
+    {
+      "name": "Wheelchair user",
+      "description": "Wheelchair users",
+      "price": "$2,441",
+      "deposit": "$500"
+    },
+    {
+      "name": "Partner",
+      "price": "$1,730",
+      "deposit": "$500"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Extra day in Cusco",
+      "price": "$60",
+      "description": "Cost per night, includes breakfast"
+    },
+    {
+      "name": "ATV excursion in Piuray",
+      "price": "$35",
+      "description": "Accessible ATV excursion in Piuray Lagoon"
+    },
+    {
+      "name": "Shamans",
+      "price": "$65",
+      "description": "Day with shaman, energetic cleansing and payment to the earth for prosperity"
+    },
+    {
+      "name": "360° Train Ollantaytambo to Machu Picchu",
+      "price": "$100",
+      "description": "Panoramic train with big windows even in the roof. You can see everything! (per person round trip) includes support staff to assist you on the train"
+    },
+    {
+      "name": "Hiram Bingham Luxury train service",
+      "price": "$1,275",
+      "description": "The Hiram Bingham train offers a luxurious journey to Machu Picchu, with gourmet meals, live music, personalized service. Round Trip, includes support staff to assist you on the train"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "City Tour Cusco – Inca Capital Awaits",
+      "description": "Welcome to Cusco, the historic capital of the Inca Empire nestled in the heart of the Andes. Upon arrival, our team will warmly welcome you and transfer you to your hotel for a brief rest and acclimatization. In the afternoon, begin your City Tour of Cusco, a journey through time and tradition. Visit the sacred Qoricancha, the Inca Temple of the Sun, and walk through the iconic Plaza de Armas, surrounded by colonial charm and lively culture. Then, explore the awe-inspiring fortress of Sacsayhuaman, followed by visits to Tambomachay and panoramic stops at Qenko and Puka Pukara, where the spirit of the Andes still lingers in every stone. Accessible transportation and personal support are provided to ensure your comfort throughout the day. A magical first glimpse into Cusco's living history and timeless majesty."
+    },
+    {
+      "day": 2,
+      "title": "Sacred Valley Full Day – Pisac, Urubamba & Ollantaytambo",
+      "description": "Today you'll explore the breathtaking Sacred Valley of the Incas, a place where history, culture, and nature come together in perfect harmony. Start your day in Pisac, wandering through its colorful artisan market and admiring the terraced hillsides of its ancient ruins. Continue to Urubamba, where you'll enjoy a delicious buffet lunch featuring local Andean flavors. In the afternoon, visit the impressive fortress of Ollantaytambo, a living Inca town filled with stories carved in stone. This day offers not only incredible views but also a deep connection with the spirit of the Andes. Accessible transportation and personal assistance are included to ensure a smooth and enriching experience for all. A day full of culture, flavors, and awe-inspiring beauty—straight from the heart of the Andes."
+    },
+    {
+      "day": 3,
+      "title": "Rainbow Mountain Full Day Tour | Accessible Experience",
+      "description": "Join us for an unforgettable accessible adventure to the stunning Rainbow Mountain! This full-day tour includes scenic views of the Andes, local encounters, and a delicious countryside lunch. Box lunch included for the journey featuring native corn, Andean potatoes, fresh cheese, and alpaca meat. Adapted support and assistance throughout the experience. Breathe in the beauty of the Peruvian highlands and witness one of nature's most colorful wonders—safely and comfortably."
+    },
+    {
+      "day": 4,
+      "title": "Living Culture in Cuper Bajo, Chinchero",
+      "description": "This morning, immerse yourself in the daily life of the Cuper Bajo community, located on the peaceful shores of Lake Piuray, high in the Andes of Chinchero. Be welcomed by local families and experience authentic Andean living culture through an enriching and hands-on exchange. Discover the ancient art of textile weaving—from shearing and spinning wool to learning how they create vibrant colors using natural dyes from native plants, minerals, and insects. You'll also explore their agricultural traditions, learning about the native crops they grow—such as potatoes, corn, and quinoa—and the deep connection they maintain with Pachamama (Mother Earth). The experience includes a delicious traditional Pachamanca lunch, where meats and vegetables are slow-cooked underground with hot stones—a true celebration of Andean flavors and community. This activity is designed to be accessible and inclusive, with adapted support to ensure comfort and full participation for every traveler. A morning of culture, nature, and connection—shared with the warm hearts of the Andes. Optionals: Accessible ATV off road excursion around Piuray Lagoon ($35 per person), Day with shaman, energetic cleansing and payment to the earth for prosperity ($65 per person)"
+    },
+    {
+      "day": 5,
+      "title": "Machu Picchu Full Day Tour | From Cusco & Back",
+      "description": "Today, you'll embark on a full-day adventure to the majestic citadel of Machu Picchu. Early in the morning, we'll transfer you from your hotel to the train station for a scenic journey through the Sacred Valley. Upon arrival in Aguas Calientes, you'll take a short bus ride up the mountain to reach the entrance of Machu Picchu. Enjoy a guided tour of this iconic Inca sanctuary, adapted to your pace and needs, with plenty of time to take in the breathtaking views and history. After exploring the site, return to Aguas Calientes for a delicious lunch at a local restaurant before heading back to Cusco by train and private transfer. Accessible assistance provided throughout the day for a smooth and enriching experience. Optional: Panoramic train service ($100 per person, round trip, includes support staff to assist you on the train), Luxury Hiram Bingham Train service, includes brunch, Lunch and happy hour ($1275 per person, round trip. Includes support staff to assist you on the train)"
+    },
+    {
+      "day": 6,
+      "title": "Time to say Good Bye...",
+      "description": "After 6 unforgettable days exploring the vibrant heart of the Andes, it's time to say goodbye to the wonders of Cusco, the Sacred Valley, and the majestic Machu Picchu. We hope this journey has filled your heart with memories, new experiences, and a deeper connection to the rich culture and landscapes of Peru. We're grateful to have shared this adventure with you and look forward to welcoming you back to Peru for more accessible travel experiences. Safe travels and hasta pronto! And like the Inca's says... TUPAYANCHIS K'AMA! - Until life meet us again… ¡Hasta pronto!"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-e1Kp0AJRNy2r8xfABykw.webp",
+      "alt": "Accessible city tour in Cusco",
+      "title": "Cusco City Tour"
+    },
+    {
+      "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
+      "alt": "Wheelchair user in Sacred Valley",
+      "title": "Sacred Valley Accessibility"
+    },
+    {
+      "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
+      "alt": "Accessible view of Rainbow Mountain",
+      "title": "Rainbow Mountain View"
+    },
+    {
+      "link": "/images/tours/tour-hdQ3AgvlTLqBjDY4LwDO.webp",
+      "alt": "Accessible path at Machu Picchu",
+      "title": "Machu Picchu Accessibility"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/only-cusco-accessible-travel-peru-03703261",
+    "brochure": "Download brochure",
+    "inquire": "Ask a question"
+  },
+  "highlights": [],
+  "reviews": 43,
+  "siempreFecha": false,
+  "agotado": false
+}

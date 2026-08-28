@@ -7,19 +7,10 @@ import Persona from "../svg/Persona.astro";
 import LocationIcon from "../svg/LocationIcon.astro";
 import WhatsappCta from "../ui/WhatsappCta.astro";
 import { Fragment } from "astro/jsx-runtime";
-const tour = {
-  title: "Africa – Amazing African Safari",
-  duration: "5 Hours",
-  maxGuests: 12,
-  location: "1421 San Pedro St, Los Angeles, CA",
-  price: 130,
-  oldPrice: 16000,
-  rating: 5,
-  reviews: 1,
-  featured: true,
-  images: ["/images/gato.jpg", "/images/gato.jpg", "/images/gato.jpg"],
-};
-// WeTravelWidget.astro
+import { getEntry } from "astro:content";
+
+import Recomendaciones from "./Recomendaciones.astro";
+import ReviewList from "./ReviewList.astro";
 
 const {
   color = "1666F4",
@@ -30,6 +21,9 @@ const {
   data,
   lenguaje,
 } = Astro.props;
+
+const siteConfig = (await getEntry("siteConfig", "site"))?.data;
+const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
 ---
 
 <section class="bg-white py-6 relative px-4 mx-auto">
@@ -159,8 +153,8 @@ const {
           <div>
             <div
               id="wetravel_package_listing"
-              data-uid={data.uid}
-              data-uuid={data.uuid}
+              data-uid={siteConfig?.uid || ""}
+              data-uuid={uuid}
               data-color={color}
               data-text={lenguaje.infoReserva}
               data-showreviews={showReviews}
@@ -202,13 +196,15 @@ const {
               )
             }
           </div>
+          <!-- 
+          <ReviewList />
+          <Recomendaciones />
+          -->
         </section>
         <div class="animate-on-scroll fade-left delay-300 w-full lg:w-auto">
           <AsideTravel lenguaje={lenguaje} data={data} />
         </div>
       </div>
-
-
     </section>
     <section
       id="tab-content-plan"
@@ -297,6 +293,12 @@ const {
     if (!container) return;
 
     const { uid, uuid, color, text, showreviews, env } = container.dataset;
+
+    if (!uuid) {
+      container.innerHTML =
+        '<p class="text-sm text-gray-500">Booking information is not available yet.</p>';
+      return;
+    }
 
     const iframeSrc = `${env}/packages_embed?uuid=${uuid}&btn_color=${color}&btn_name=${encodeURIComponent(text)}&show_reviews=${showreviews}&env=${env}`;
 

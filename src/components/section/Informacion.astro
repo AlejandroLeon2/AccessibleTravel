@@ -2,7 +2,8 @@
 import Mail from "../svg/Mail.astro";
 import Telefono from "../svg/Telefono.astro";
 import Ubicacion from "../svg/Ubicacion.astro";
-import empresaInfo from "../../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
+const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
 const {lenguaje}=Astro.props;
 ---
 

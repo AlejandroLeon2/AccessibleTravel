@@ -2,8 +2,9 @@
 import Whatsapp from "../svg/Whatsapp.astro";
 import Mail from "../svg/Mail.astro";
 import WhatsappPop from "./WhatsappPop.astro";
-import empresaInfo from "../../data/accessibleTravel.json";
 import Telefono from "../svg/Telefono.astro";
+import { getEntry } from "astro:content";
+const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
 const {
   style = " lg:space-y-3 lg:flex-col",
   enlaces = " ",

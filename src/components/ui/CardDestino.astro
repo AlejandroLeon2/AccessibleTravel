@@ -59,7 +59,7 @@ const {
       <p class="text-yellow-500 flex gap-4 justify-center items-center text-xl">
         {"★".repeat(data.rating)}{"☆".repeat(5 - data.rating)}
         <span class="text-gray-500 text-xs"
-          >({data.reseñas} {lenguaje.infoReseñas})</span
+          >({data.reviews ?? data.reseñas ?? 0} {lenguaje.infoReseñas})</span
         >
       </p>
     </section>

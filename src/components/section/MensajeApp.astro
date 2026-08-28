@@ -1,7 +1,8 @@
 ---
 import WhatsappPop from "../ui/WhatsappPop.astro";
 import MessengerPop from "../ui/MessengerPop.astro";
-import data from "../../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
+const data = (await getEntry("siteConfig", "site"))!.data;
 ---
 
 <!-- Botón principal para abrir -->

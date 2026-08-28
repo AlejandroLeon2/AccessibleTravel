@@ -1,0 +1,111 @@
+{
+  "title": "Cusco Express",
+  "titleLink": "cusco-express-accessible-tour",
+  "location": "Machupicchu, Perú",
+  "operator": "Accessible Travel Peru",
+  "rating": 4,
+  "recomendado": false,
+  "duration": "4",
+  "groupSize": "2 - 8",
+  "description": "¡Prepárate para una inolvidable aventura de 4 días en el corazón del Imperio Inca! Este tour express es perfecto para aquellos que quieren experimentar lo mejor de Cusco, el Valle Sagrado y el impresionante Machu Picchu en un viaje corto pero inmersivo. Comienza con un city tour guiado de Cusco, donde explorarás sus monumentos históricos y su vibrante cultura. Luego, viaja al Valle Sagrado, una de las regiones más bellas y significativas de Perú. Finalmente, experimenta la maravilla de Machu Picchu, la joya de la corona de los Andes, con una excursión de día completo a este sitio icónico. En solo cuatro días, descubrirás la magia de la antigua herencia inca, paisajes impresionantes y ricas tradiciones, sin prisas.",
+  "slogan": "Accessible Travel Peru 🇵🇪 – Haciendo Perú Accesible para Todos ♿",
+  "contact": "Escríbenos por WhatsApp... ¡haz clic aquí!",
+  "includes": [
+    "Alojamiento en hotel 4* (Habitación doble)",
+    "Vans accesibles (Autos turísticos adaptados para usuarios de silla de ruedas en todos los destinos)",
+    "Comidas especificadas en el programa",
+    "Equipo especial (Sillas de ruedas todo terreno, handbikes, arneses, etc.)",
+    "Guías oficiales de turismo (Guía bilingüe español - inglés)",
+    "Personal de apoyo (Operadores de sillas de ruedas todo terreno)",
+    "Boletos de tren y entradas (Todas las entradas y boletos de tren)",
+    "Todos los tours descritos (Todos los tours y excursiones descritos en el itinerario)",
+    "01 botella de agua y snacks (Por si... te da hambre durante el tour)"
+  ],
+  "excludes": [
+    "Boletos de avión (Boletos internacionales o nacionales)",
+    "Seguro de viaje",
+    "Propinas, comidas no mencionadas en la descripción, bebidas alcohólicas y no alcohólicas, otros servicios"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "price": "$2,060",
+      "deposit": "$500"
+    },
+    {
+      "name": "Acompañante",
+      "price": "$1,441",
+      "deposit": "$500"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Día extra en Cusco",
+      "price": "$70",
+      "description": "Costo por noche, incluye desayuno"
+    },
+    {
+      "name": "Tren 360° Ollantaytambo a Machu Picchu",
+      "price": "$100",
+      "description": "El Tren 360° ofrece una experiencia de viaje panorámica a Machu Picchu, con grandes ventanas tipo cúpula, terraza de observación al aire libre y entretenimiento en vivo a bordo. Ida y vuelta, incluye personal de apoyo para asistirte en el tren."
+    },
+    {
+      "name": "Servicio de tren de lujo Hiram Bingham",
+      "price": "$1,275",
+      "description": "El tren Hiram Bingham ofrece un viaje lujoso a Machu Picchu, con comidas gourmet, música en vivo y servicio personalizado. Ida y vuelta, incluye personal de apoyo para asistirte en el tren."
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "City Tour Cusco – Espera la Capital Inca",
+      "description": "Bienvenido a Cusco, la histórica capital del Imperio Inca, enclavada en el corazón de los Andes. A tu llegada, nuestro equipo te dará una cálida bienvenida y te trasladará a tu hotel para un breve descanso y aclimatación. Por la tarde, comienza tu City Tour de Cusco, un viaje en el tiempo y la tradición. Visita el sagrado Qoricancha, el Templo Inca del Sol, y camina por la icónica Plaza de Armas, rodeada de encanto colonial y cultura vibrante. Luego, explora la impresionante fortaleza de Sacsayhuaman, seguido de visitas a Tambomachay y paradas panorámicas en Qenko y Puka Pukara, donde el espíritu de los Andes aún perdura en cada piedra. Se proporciona transporte accesible y apoyo personal para garantizar tu comodidad durante el día. Una primera visión mágica de la historia viva y la majestuosidad eterna de Cusco."
+    },
+    {
+      "day": 2,
+      "title": "Valle Sagrado Todo el Día – Pisac, Urubamba y Ollantaytambo",
+      "description": "Hoy explorarás el impresionante Valle Sagrado de los Incas, un lugar donde la historia, la cultura y la naturaleza se unen en perfecta armonía. Comienza tu día en Pisac, recorriendo su colorido mercado artesanal y admirando las laderas terraceadas de sus antiguas ruinas. Continúa a Urubamba, donde disfrutarás de un delicioso almuerzo buffet con sabores andinos locales. Por la tarde, visita la impresionante fortaleza de Ollantaytambo, un pueblo inca vivo lleno de historias talladas en piedra. Este día ofrece no solo vistas increíbles sino también una conexión profunda con el espíritu de los Andes. Se incluye transporte accesible y asistencia personal para garantizar una experiencia fluida y enriquecedora para todos. Un día lleno de cultura, sabores y una belleza impresionante, directamente desde el corazón de los Andes."
+    },
+    {
+      "day": 3,
+      "title": "Tour Machu Picchu Todo el Día | Desde Cusco y Regreso",
+      "description": "Hoy te embarcarás en una aventura de día completo a la majestuosa ciudadela de Machu Picchu. Muy temprano en la mañana, te trasladaremos desde tu hotel a la estación de tren para un viaje escénico a través del Valle Sagrado. Al llegar a Aguas Calientes, tomarás un corto viaje en bus hacia la montaña para llegar a la entrada de Machu Picchu. Disfruta de una visita guiada a este icónico santuario inca, adaptada a tu ritmo y necesidades, con mucho tiempo para absorber las vistas impresionantes y la historia. Después de explorar el sitio, regresa a Aguas Calientes para un delicioso almuerzo en un restaurante local antes de dirigirte de vuelta a Cusco en tren y traslado privado. Se proporciona asistencia accesible durante todo el día para una experiencia fluida y enriquecedora. Opcional: Servicio de tren panorámico ($100 por persona, ida y vuelta, incluye personal de apoyo para asistirte en el tren), Servicio de tren de lujo Hiram Bingham, incluye brunch, almuerzo y happy hour ($1275 por persona, ida y vuelta. Incluye personal de apoyo para asistirte en el tren)."
+    },
+    {
+      "day": 4,
+      "title": "Cusco - Lima",
+      "description": "Después de 4 días inolvidables explorando el vibrante corazón de los Andes, es hora de decir adiós a las maravillas de Cusco, el Valle Sagrado y el majestuoso Machu Picchu. Esperamos que este viaje haya llenado tu corazón de recuerdos, nuevas experiencias y una conexión más profunda con la rica cultura y paisajes de Perú. Estamos agradecidos de haber compartido esta aventura contigo y esperamos darte la bienvenida nuevamente a Perú para más experiencias de viaje accesibles. ¡Buen viaje y hasta pronto! Estaremos esperando con los brazos abiertos cada vez que regreses. Y como dicen los Incas... ¡TUPAYANCHIS K'AMA! - Hasta que la vida nos encuentre de nuevo… ¡Hasta pronto!"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-INcWyGzTnKtDfwkGnilg.webp",
+      "alt": "Vista panorámica de la ciudad del Cusco",
+      "title": "Vista de la Ciudad del Cusco"
+    },
+    {
+      "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
+      "alt": "Terrazas en el Valle Sagrado",
+      "title": "Paisaje del Valle Sagrado"
+    },
+    {
+      "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
+      "alt": "Ciudadela de Machu Picchu",
+      "title": "Maravilla de Machu Picchu"
+    },
+    {
+      "link": "/images/tours/tour-FtYMHKMTYqoE5AHQ3S44.webp",
+      "alt": "Camino accesible para silla de ruedas en Cusco",
+      "title": "Cusco Accesible"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/cusco-express-accessible-travel-peru-56427200",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  },
+  "highlights": [],
+  "reviews": 37,
+  "siempreFecha": false,
+  "agotado": false
+}

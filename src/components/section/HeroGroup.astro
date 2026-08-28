@@ -1,9 +1,14 @@
 ---
-const { lenguaje, es } = Astro.props;
+const { lenguaje, groupTours = [] } = Astro.props;
 
 import Times from "../constructor/Times.astro";
-import { groupTours as grouptour } from "../../data/groupTours";
-import travels from "../../data/peru/peru-en/travels.json";
+import { getCollection } from "astro:content";
+
+const travels = (await getCollection("toursGlobalesEn")).map(({ data }) => ({
+  ...data,
+  startDate: data.startDate ? new Date(data.startDate) : undefined,
+  endDate: data.endDate ? new Date(data.endDate) : undefined,
+}));
 
 // Función para seleccionar el tour más cercano
 function getClosestTour(allTours: any[]) {
@@ -29,7 +34,7 @@ function getClosestTour(allTours: any[]) {
 }
 
 // Combinar todos los tours y seleccionar el más cercano
-const allTours = [...grouptour, ...travels];
+const allTours = [...groupTours, ...travels];
 const closestTour = getClosestTour(allTours);
 
 // Verificar si todos los tours están agotados
@@ -38,7 +43,7 @@ const allSoldOut =
   allTours.every((tour) => "agotado" in tour && tour.agotado === true);
 
 // Usar el tour más cercano o el primero si no hay disponible
-const selectedTour = closestTour || grouptour[0];
+const selectedTour = closestTour || groupTours[0];
 
 // Verificar si el tour seleccionado está agotado
 const isSoldOut = selectedTour?.agotado === true;

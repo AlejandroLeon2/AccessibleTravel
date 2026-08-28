@@ -3,27 +3,33 @@ import Layout from "../../layouts/Layout.astro";
 import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import HeroGroup from "../../components/section/HeroGroup.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
-import { groupTours } from "../../data/groupTours.js";
+import { getCollection, getEntry } from "astro:content";
+import { getMenuPageData } from "../../utils/getMenuPageData";
+const _menuData = (await getEntry("headerMenuEn", "menu-en"))!.data;
+const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "GroupTours");
 import CardDestino from "../../components/ui/CardDestino.astro";
 import Times from "../../components/constructor/Times.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
 import lenguaje from "../../data/locales/en.json";
-import infoEmpresa from "../../data/accessibleTravel.json";
-import { headerMenu } from "../../utils/headerSpañol";
+
+const groupTours = (await getCollection("toursGrupalesEn")).map(({ data }) => ({
+  ...data,
+  startDate: new Date(data.startDate),
+  endDate: new Date(data.endDate),
+}));
 ---
 
 <Layout
   title={lenguaje.title}
   description={lenguaje.description}
-  headerMenu={headerMenu}
   lenguaje={lenguaje}
 >
   <PortadaStatic
-    url={infoEmpresa.imagenPortadaGeneral}
-    texto={lenguaje.header.GroupTours}
+    url={_coverImage}
+    texto={_pageLabel}
   />
   <MainContent>
-    <HeroGroup lenguaje={lenguaje} />
+    <HeroGroup lenguaje={lenguaje} groupTours={groupTours} />
     <section class="flex flex-col px-4 py-8 gap-4 w-full max-w-5xl mx-auto">
       {
         groupTours.map((lugar) => (

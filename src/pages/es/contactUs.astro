@@ -5,11 +5,13 @@ import Certificaciones from "../../components/section/Certificaciones.astro";
 import Informacion from "../../components/section/Informacion.astro";
 import ContactoForm from "../../components/section/ContactoForm.astro";
 import lenguaje from "../../data/locales/es.json";
-import { headerMenu } from "../../utils/headerSpañol";
-import infoEmpresa from "../../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
+import { getMenuPageData } from "../../utils/getMenuPageData";
+const _menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "ContactUs");
 ---
-<Layout title={lenguaje.title} description={lenguaje.description} headerMenu={headerMenu} lenguaje={lenguaje}>
-<PortadaStatic url={infoEmpresa.imagenPortadaGeneral} texto={lenguaje.header.children.ContactUs}/>
+<Layout title={lenguaje.title} description={lenguaje.description} lenguaje={lenguaje}>
+<PortadaStatic url={_coverImage} texto={_pageLabel}/>
 <Informacion lenguaje={lenguaje}/>
 <ContactoForm lenguaje={lenguaje}/>
 <Certificaciones />

@@ -1,0 +1,75 @@
+{
+  "title": "Traslados en silla de ruedas desde/hacia el aeropuerto ♿🚐",
+  "titleLink": "wheelchair-airport-transfers-lima",
+  "operator": "Accessible Travel Peru",
+  "duration": "1",
+  "rating": 5,
+  "recomendado": false,
+  "groupSize": "1 - 999",
+  "location": "Lima, Perú",
+  "description": "Traslados y excursiones desde el Aeropuerto hasta su hotel en la ciudad de Lima, Perú",
+  "highlights": [],
+  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+  "contact": "",
+  "includes": [
+    "VAN accesible (Van adaptada para sillas de ruedas eléctricas y manuales 1 silla de ruedas + 3 acompañantes)",
+    "Boletos e impuestos (Boletos de estacionamiento e impuestos)"
+  ],
+  "excludes": [
+    "Propinas"
+  ],
+  "packages": [
+    {
+      "name": "Apto - Lince, San Isidro, Miraflores",
+      "price": "$45",
+      "deposit": ""
+    },
+    {
+      "name": "Apto - Barranco, Chorrillos, Surco",
+      "price": "$50",
+      "deposit": ""
+    },
+    {
+      "name": "Apto - Casuarinas, La Molina, Ate",
+      "price": "$65",
+      "deposit": ""
+    },
+    {
+      "name": "Precio por hora",
+      "price": "$40",
+      "deposit": ""
+    }
+  ],
+  "addOns": [],
+  "itinerary": [],
+  "images": [
+    {
+      "link": "/images/cart4.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/cart1.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/cart3.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/cart2.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/wheelchair-airport-transfers-or-disposal-accessible-travel-peru-19229364",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  },
+  "reviews": 5,
+  "siempreFecha": false,
+  "agotado": false
+}

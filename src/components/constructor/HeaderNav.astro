@@ -2,9 +2,7 @@
 import FlechaCorta from "../svg/FlechaCorta.astro";
 const { currentLocale } = Astro;
 
-const { data, style, lenguaje } = Astro.props;
-
-
+const { data, style } = Astro.props;
 ---
 
 <nav
@@ -21,7 +19,7 @@ const { data, style, lenguaje } = Astro.props;
           <li class="group relative ">
             {item.label !== "Tour Destination" ? (
               <div class="escuchar flex">
-                <button class="hover:text-blue-600  ">{lenguaje.header[item.label]}</button>
+                <button class="hover:text-blue-600  ">{item.label}</button>
                 <button class=" p-1 md:p-0   items-center -rotate-90 hover:text-blue-600 focus focus:rotate-0">
                   <FlechaCorta />
                 </button>
@@ -49,7 +47,7 @@ const { data, style, lenguaje } = Astro.props;
                     class="block  px-4 py-2 hover:bg-gray-100"
                     title={`LinkPage ${child.href}`}
                   >
-                    {lenguaje.header.children[child.label]}
+                    {child.label}
                   </a>
                 </li>
               ))}
@@ -62,7 +60,7 @@ const { data, style, lenguaje } = Astro.props;
               class="hover:text-blue-600"
               title={`LinkPage ${item.href}`}
             >
-                  {lenguaje.header[item.label]}
+                  {item.label}
             </a>
           </li>
         )
@@ -70,3 +68,4 @@ const { data, style, lenguaje } = Astro.props;
     }
   </ul>
 </nav>
+

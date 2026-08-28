@@ -1,0 +1,75 @@
+{
+  "title": "WHEELCHAIR AIRPORT TRANSFERS or DISPOSAL♿🚐",
+  "titleLink": "wheelchair-airport-transfers-lima",
+  "operator": "Accessible Travel Peru",
+  "duration": "1",
+  "rating": 5,
+  "recomendado": false,
+  "groupSize": "1 - 999",
+  "location": "Lima, Perú",
+  "description": "Transfers & Excursions from the Airport to your hotel in the city of Lima, Peru",
+  "highlights": [],
+  "slogan": "Accessible Travel Peru 🇵🇪 - Making Peru Accessible for Everyone ♿",
+  "contact": "",
+  "includes": [
+    "Accessible van (Van adapted for electric & manual wheelchairs 1 wheelchair + 3 accompaniers)",
+    "Tickets & Taxes (Parking tickets & Taxes)"
+  ],
+  "excludes": [
+    "Tips"
+  ],
+  "packages": [
+    {
+      "name": "Apto - Lince, San Isidro, Miraflores",
+      "price": "$45",
+      "deposit": ""
+    },
+    {
+      "name": "Apto - Barranco, Chorrillos, Surco",
+      "price": "$50",
+      "deposit": ""
+    },
+    {
+      "name": "Apto - Casuarinas, La Molina, Ate",
+      "price": "$65",
+      "deposit": ""
+    },
+    {
+      "name": "Price per hour",
+      "price": "$40",
+      "deposit": ""
+    }
+  ],
+  "addOns": [],
+  "itinerary": [],
+  "images": [
+    {
+      "link": "/images/cart4.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/cart1.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/cart3.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    },
+    {
+      "link": "/images/cart2.webp",
+      "alt": "Vehículo accesible todo terreno en los Andes peruanos",
+      "title": "Vehículo de Expedición Todo Terreno"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/wheelchair-airport-transfers-or-disposal-accessible-travel-peru-19229364",
+    "brochure": "Download brochure",
+    "inquire": "Ask a question"
+  },
+  "reviews": 5,
+  "siempreFecha": false,
+  "agotado": false
+}

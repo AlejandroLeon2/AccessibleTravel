@@ -1,0 +1,26 @@
+---
+interface Props {
+  label: string;
+  value: number;
+}
+
+const { label, value } = Astro.props;
+---
+
+<div class="space-y-2">
+  <div class="flex justify-between items-center text-sm">
+    <span class="font-bold text-gray-700">{label}</span>
+    <span class="text-cyan-800 font-black">{value}%</span>
+  </div>
+  <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+    <div
+      class="h-full bg-qillary-aqua rounded-full transition-all duration-1000 ease-out"
+      style={`width: ${value}%`}
+      role="progressbar"
+      aria-valuenow={value}
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+    </div>
+  </div>
+</div>

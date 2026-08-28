@@ -1,0 +1,114 @@
+{
+  "title": "PARACAS, ICA & HUACACHINA ACCESSIBLE FULL DAY TOUR",
+  "titleLink": "paracas-ica-huacachina-accessible-full-day-tour",
+  "location": "Ica, Perú",
+  "recomendado": false,
+  "operator": "Accessible Travel Peru",
+  "rating": 4,
+  "duration": "1",
+  "groupSize": "1 - 25",
+  "description": "At Accessible Travel Perú, we believe that everyone should be able to experience the wonders of Peru—from ocean wildlife to desert sunsets—with comfort, dignity, and excitement. Our Accessible Full Day Tour to Ica & Paracas is designed for travelers with disabilities who want to explore the coast, vineyards, and dunes of southern Peru in a safe and inclusive way. This unforgettable journey includes a boat tour to the Ballestas Islands, where you’ll spot sea lions and penguins, a visit to a traditional vineyard with Pisco tasting, and a thrilling buggy ride across the desert, ending with a sunset picnic in the heart of the dunes. With over 10 years of experience and a fully accessible approach, we provide adapted transportation, trained staff, and personalized support every step of the way. Whether you’re tasting Pisco or watching the sun melt into the sand, you’ll feel empowered to explore—without limits. Registered under MINCETUR Members of ENAT – European Network for Accessible Tourism Book now at www.accessibletravelperu.com or message us on WhatsApp at +51 944 731 223 From the sea to the sand dunes—discover coastal Peru like never before. ♿🇵🇪✨",
+  "includes": [
+    "Accessible van (WAV)",
+    "All tours described",
+    "All entrances",
+    "Tour guide specialized in accessible tourism",
+    "Lunch in local restaurant"
+  ],
+  "excludes": [
+    "Tours not mentioned in the program",
+    "Hotel accommodation"
+  ],
+  "packages": [
+    {
+      "name": "Wheelchair user",
+      "capacity": "1",
+      "price": "$430"
+    },
+    {
+      "name": "Partner",
+      "capacity": "1",
+      "price": "$350"
+    },
+    {
+      "name": "Round Trip Transfers: Start and Finish in the airport jorge chavez in Lima or in callao port",
+      "capacity": "1",
+      "price": "$50"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Round Trip Transfers",
+      "price": "$50",
+      "description": "Start and Finish in the airport jorge chavez in Lima or in callao port"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-QITjIS97QXiinkc9ezMH.webp",
+      "alt": "Accessible boat tour to Ballestas Islands",
+      "title": "Wildlife Boat Tour"
+    },
+    {
+      "link": "/images/tours/tour-QITjIS97QXiinkc9ezMH.webp",
+      "alt": "Accessible boat tour to Ballestas Islands",
+      "title": "Wildlife Boat Tour"
+    },
+    {
+      "link": "/images/tours/tour-xKJItWlQyG7sEE4JnVHM.webp",
+      "alt": "Accessible dune buggy adventure in Huacachina",
+      "title": "Desert Buggy Ride"
+    },
+    {
+      "link": "/images/tours/tour-FtYMHKMTYqoE5AHQ3S44.webp",
+      "alt": "Accessible dune buggy adventure in Huacachina",
+      "title": "Desert Buggy Ride"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/paracas-ica-huacachina-accessible-full-day-tour-accessible-travel-peru-58557775",
+    "brochure": "Download Brochure",
+    "inquire": "Ask A Question"
+  },
+  "itinerary": [
+    {
+      "time": "05:30 AM",
+      "title": "Pickup from Hotel in Lima",
+      "description": "We begin early with a private, accessible vehicle equipped for travelers with reduced mobility. The ride to Paracas includes rest stops and comfortable seating to ensure a smooth journey."
+    },
+    {
+      "time": "10:00 AM",
+      "title": "Ballestas Islands Boat Tour",
+      "description": "Experience Peru's own 'mini Galápagos'! A specially arranged accessible boat tour will take us to the Ballestas Islands, home to sea lions, Humboldt penguins, and thousands of seabirds. The boarding dock is adapted and our staff will provide full support for boarding and disembarking safely."
+    },
+    {
+      "time": "12:30 AM",
+      "title": "Scenic Transfer to Ica",
+      "description": "We travel from Paracas to Ica in our accessible van, passing through desert landscapes and vineyards on the way."
+    },
+    {
+      "time": "01:30 PM",
+      "title": "Visit to an Accessible Vineyard & Pisco Tasting",
+      "description": "Arrive at a traditional bodega that's fully equipped for accessibility. Here, we learn about the production of wine and Pisco, Peru's national spirit, followed by a guided tasting experience with non-alcoholic alternatives available. The terrain is flat, with accessible restrooms and shaded areas."
+    },
+    {
+      "time": "02:30 PM",
+      "title": "Country-Style Lunch at the Vineyard",
+      "description": "Enjoy a delicious traditional criollo lunch in an open-air, wheelchair-friendly dining space. Dietary needs are fully accommodated upon request."
+    },
+    {
+      "time": "04:00 PM",
+      "title": "Arrival at Huacachina & Dune Buggy Adventure",
+      "description": "Upon reaching the famous Huacachina Oasis, we begin a thrilling and guided buggy ride into the desert dunes. The activity is adapted with assistance from trained staff for boarding, seatbelt support, and secure seating. Halfway through the buggy route, we stop at a scenic, remote desert viewpoint, where a beautiful picnic setup awaits you. Enjoy fresh fruit, snacks, and drinks while watching the sunset over the golden dunes, in one of the most magical moments of the day. The setup includes comfortable seating, shade, and full staff support."
+    },
+    {
+      "time": "06:00 PM",
+      "title": "Return to Lima",
+      "description": "We begin our return journey in the comfort of our accessible van, arriving in Lima around 9:30 PM"
+    }
+  ],
+  "highlights": [],
+  "reviews": 48,
+  "siempreFecha": false,
+  "agotado": false
+}

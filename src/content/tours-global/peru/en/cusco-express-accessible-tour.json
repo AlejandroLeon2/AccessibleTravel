@@ -1,0 +1,111 @@
+{
+  "title": "Cusco Express",
+  "titleLink": "cusco-express-accessible-tour",
+  "location": "Machupicchu, Perú",
+  "operator": "Accessible Travel Peru",
+  "rating": 4,
+  "recomendado": false,
+  "duration": "4",
+  "groupSize": "2 - 8",
+  "description": "Get ready for an unforgettable 4-day adventure in the heart of the Inca Empire! This express tour is perfect for those who want to experience the best of Cusco, the Sacred Valley, and the breathtaking Machu Picchu in a short but immersive trip. Start with a guided city tour of Cusco, where you'll explore its historic landmarks and vibrant culture. Then, journey to the Sacred Valley, one of the most beautiful and significant regions of Peru. Finally, experience the wonder of Machu Picchu, the crown jewel of the Andes, with a full-day excursion to this iconic site. In just four days, you'll discover the magic of ancient Inca heritage, stunning landscapes, and rich traditions—without the rush.",
+  "slogan": "Accessible Travel Peru 🇵🇪 – Making Peru Accessible for Everyone ♿",
+  "contact": "WhatsApp us... click here!",
+  "includes": [
+    "4* Hotel accommodation (Double room)",
+    "Accessible Vans (Adapted touristic cars for wheelchair users in all destinations)",
+    "Meals specified in program",
+    "Special Equipment (Off-Road wheelchairs, handbikes, slings, etc.)",
+    "Official Tour Guides (Bilingual tour guide Spanish - English)",
+    "Support Staff (off-road wheelchair operators)",
+    "Train Tickets & Entrance (All the entrances and train tickets)",
+    "All tours described (All the tours and excursions described in the itinerary)",
+    "01 bottle water & snacks (Maybe... you feel hungry during the tour)"
+  ],
+  "excludes": [
+    "Flight Tickets (International or domestic Tickets)",
+    "Travel insurance",
+    "Tips, Meals not mentioned in the description, alcoholic and non-alcoholic drinks, other services"
+  ],
+  "packages": [
+    {
+      "name": "Wheelchair user",
+      "price": "$2,060",
+      "deposit": "$500"
+    },
+    {
+      "name": "Partner",
+      "price": "$1,441",
+      "deposit": "$500"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Extra day in Cusco",
+      "price": "$70",
+      "description": "Cost per night, includes breakfast"
+    },
+    {
+      "name": "360° Train Ollantaytambo to Machu Picchu",
+      "price": "$100",
+      "description": "The 360° Train offers a panoramic travel experience to Machu Picchu, with large dome-like windows, open-air observation deck, and live onboard entertainment. Round Trip, includes support staff to assist you on the train."
+    },
+    {
+      "name": "Hiram Bingham Luxury train service",
+      "price": "$1,275",
+      "description": "The Hiram Bingham train offers a luxurious journey to Machu Picchu, with gourmet meals, live music, personalized service. Round Trip, includes support staff to assist you on the train."
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "City Tour Cusco – Inca Capital Awaits",
+      "description": "Welcome to Cusco, the historic capital of the Inca Empire nestled in the heart of the Andes. Upon arrival, our team will warmly welcome you and transfer you to your hotel for a brief rest and acclimatization. In the afternoon, begin your City Tour of Cusco, a journey through time and tradition. Visit the sacred Qoricancha, the Inca Temple of the Sun, and walk through the iconic Plaza de Armas, surrounded by colonial charm and lively culture. Then, explore the awe-inspiring fortress of Sacsayhuaman, followed by visits to Tambomachay and panoramic stops at Qenko and Puka Pukara, where the spirit of the Andes still lingers in every stone. Accessible transportation and personal support are provided to ensure your comfort throughout the day. A magical first glimpse into Cusco's living history and timeless majesty."
+    },
+    {
+      "day": 2,
+      "title": "Sacred Valley Full Day – Pisac, Urubamba & Ollantaytambo",
+      "description": "Today you'll explore the breathtaking Sacred Valley of the Incas, a place where history, culture, and nature come together in perfect harmony. Start your day in Pisac, wandering through its colorful artisan market and admiring the terraced hillsides of its ancient ruins. Continue to Urubamba, where you'll enjoy a delicious buffet lunch featuring local Andean flavors. In the afternoon, visit the impressive fortress of Ollantaytambo, a living Inca town filled with stories carved in stone. This day offers not only incredible views but also a deep connection with the spirit of the Andes. Accessible transportation and personal assistance are included to ensure a smooth and enriching experience for all. A day full of culture, flavors, and awe-inspiring beauty—straight from the heart of the Andes."
+    },
+    {
+      "day": 3,
+      "title": "Machu Picchu Full Day Tour | From Cusco & Back",
+      "description": "Today, you'll embark on a full-day adventure to the majestic citadel of Machu Picchu. Early in the morning, we'll transfer you from your hotel to the train station for a scenic journey through the Sacred Valley. Upon arrival in Aguas Calientes, you'll take a short bus ride up the mountain to reach the entrance of Machu Picchu. Enjoy a guided tour of this iconic Inca sanctuary, adapted to your pace and needs, with plenty of time to take in the breathtaking views and history. After exploring the site, return to Aguas Calientes for a delicious lunch at a local restaurant before heading back to Cusco by train and private transfer. Accessible assistance provided throughout the day for a smooth and enriching experience. Optional: Panoramic train service ($100 per person, round trip, includes support staff to assist you on the train), Luxury Hiram Bingham Train service, includes brunch, Lunch and happy hour ($1275 per person, round trip. Includes support staff to assist you on the train)"
+    },
+    {
+      "day": 4,
+      "title": "Cusco - Lima",
+      "description": "After 4 unforgettable days exploring the vibrant heart of the Andes, it's time to say goodbye to the wonders of Cusco, the Sacred Valley, and the majestic Machu Picchu. We hope this journey has filled your heart with memories, new experiences, and a deeper connection to the rich culture and landscapes of Peru. We're grateful to have shared this adventure with you and look forward to welcoming you back to Peru for more accessible travel experiences. Safe travels and hasta pronto! We'll be waiting with open arms whenever you return. And like the Inca's says... TUPAYANCHIS K'AMA! - Until life meet us again… ¡Hasta pronto!"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-INcWyGzTnKtDfwkGnilg.webp",
+      "alt": "Panoramic view of Cusco city",
+      "title": "Cusco City View"
+    },
+    {
+      "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
+      "alt": "Terraces in Sacred Valley",
+      "title": "Sacred Valley Landscape"
+    },
+    {
+      "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
+      "alt": "Machu Picchu citadel",
+      "title": "Machu Picchu Wonder"
+    },
+    {
+      "link": "/images/tours/tour-FtYMHKMTYqoE5AHQ3S44.webp",
+      "alt": "Wheelchair accessible path in Cusco",
+      "title": "Accessible Cusco"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/cusco-express-accessible-travel-peru-56427200",
+    "brochure": "Download brochure",
+    "inquire": "Ask a question"
+  },
+  "highlights": [],
+  "reviews": 32,
+  "siempreFecha": false,
+  "agotado": false
+}

@@ -3,7 +3,8 @@ const { lenguaje, variant = "default" } = Astro.props;
 import Whatsapp from "../svg/Whatsapp.astro";
 import Calendario from "../svg/Calendario.astro";
 import EmailIcon from "../svg/EmailIcon.astro";
-import accessibleTravel from "../../data/accessibleTravel.json";
+import { getEntry } from "astro:content";
+const accessibleTravel = (await getEntry("siteConfig", "site"))!.data;
 
 const variants = {
   default: {

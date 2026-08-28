@@ -1,0 +1,133 @@
+{
+  "title": "Solo Cusco",
+  "titleLink": "only-cusco-accessible-tour",
+  "location": "Cusco, Perú",
+  "operator": "Accessible Travel Peru",
+  "recomendado": false,
+  "rating": 4,
+  "duration": "6 ",
+  "groupSize": "2 - 8",
+  "description": "Aventura Accesible de 6 Días en Cusco: Ciudad, Valle Sagrado, Piuray y Machu Picchu. Embárcate en un viaje inmersivo de 6 días por el corazón del Imperio Inca, donde la cultura, la naturaleza y la tradición se unen en perfecta armonía. Comienza con un city tour guiado de Cusco, descubriendo sus joyas históricas y su impresionante arquitectura. Luego, explora el impresionante Valle Sagrado, visita la vibrante comunidad de Piuray para un día único de turismo experiencial y maravíllate con la impresionante Montaña de 7 Colores. ¡El punto culminante de tu aventura es una visita de día completo a Machu Picchu, una de las siete maravillas del mundo! Termina con un traslado sin problemas a tu punto de partida. Disfruta de rutas accesibles, servicios personalizados y experiencias inolvidables en cada paso.",
+  "slogan": "Accessible Travel Peru 🇵🇪 – Haciendo Perú Accesible para Todos ♿",
+  "contact": "Escríbenos por WhatsApp... ¡haz clic aquí!",
+  "includes": [
+    "Hoteles Accesibles (Habitaciones accesibles)",
+    "Comidas especificadas en el programa",
+    "Vans Accesibles (Vans de turismo adaptadas para usuarios de silla de ruedas en todos los destinos)",
+    "Equipo Especial (Sillas de ruedas todo terreno, handbikes, arneses)",
+    "Guías Oficiales de Turismo (Guía turístico bilingüe español - inglés)",
+    "Personal de Apoyo (Operadores de sillas de ruedas todo terreno)",
+    "Boletos de Tren & Entradas (Todas las entradas y boleto de tren vistadome)",
+    "Todos los tours descritos (Todos los tours y excursiones descritos en el itinerario)",
+    "01 botella de agua & snacks (Por si... te da hambre durante el tour)"
+  ],
+  "excludes": [
+    "Vuelos internacionales (Desde tu país a Perú)",
+    "Boletos de Vuelos Nacionales (Lima - Cusco - Lima)",
+    "Seguro de viaje",
+    "Propinas, Comidas no mencionadas en la descripción, bebidas alcohólicas y no alcohólicas, otros servicios"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "description": "Usuarios de silla de ruedas",
+      "price": "$2,441",
+      "deposit": "$500"
+    },
+    {
+      "name": "Acompañante",
+      "price": "$1,730",
+      "deposit": "$500"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Día extra en Cusco",
+      "price": "$60",
+      "description": "Costo por noche, incluye desayuno"
+    },
+    {
+      "name": "Excursión en ATV en Piuray",
+      "price": "$35",
+      "description": "Excursión accesible en ATV en la Laguna Piuray"
+    },
+    {
+      "name": "Chamanes",
+      "price": "$65",
+      "description": "Día con chamán, limpieza energética y pago a la tierra para la prosperidad"
+    },
+    {
+      "name": "Tren 360° Ollantaytambo a Machu Picchu",
+      "price": "$100",
+      "description": "Tren panorámico con grandes ventanas incluso en el techo. ¡Puedes ver todo! (por persona ida y vuelta) incluye personal de apoyo para asistirte en el tren"
+    },
+    {
+      "name": "Servicio de tren de lujo Hiram Bingham",
+      "price": "$1,275",
+      "description": "El tren Hiram Bingham ofrece un viaje lujoso a Machu Picchu, con comidas gourmet, música en vivo y servicio personalizado. Ida y vuelta, incluye personal de apoyo para asistirte en el tren"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "City Tour Cusco – Espera la Capital Inca",
+      "description": "Bienvenido a Cusco, la histórica capital del Imperio Inca, enclavada en el corazón de los Andes. A tu llegada, nuestro equipo te dará una cálida bienvenida y te trasladará a tu hotel para un breve descanso y aclimatación. Por la tarde, comienza tu City Tour de Cusco, un viaje en el tiempo y la tradición. Visita el sagrado Qoricancha, el Templo Inca del Sol, y camina por la icónica Plaza de Armas, rodeada de encanto colonial y cultura vibrante. Luego, explora la impresionante fortaleza de Sacsayhuaman, seguido de visitas a Tambomachay y paradas panorámicas en Qenko y Puka Pukara, donde el espíritu de los Andes aún perdura en cada piedra. Se proporciona transporte accesible y apoyo personal para garantizar tu comodidad durante el día. Una primera visión mágica de la historia viva y la majestuosidad eterna de Cusco."
+    },
+    {
+      "day": 2,
+      "title": "Valle Sagrado Todo el Día – Pisac, Urubamba & Ollantaytambo",
+      "description": "Hoy explorarás el impresionante Valle Sagrado de los Incas, un lugar donde la historia, la cultura y la naturaleza se unen en perfecta armonía. Comienza tu día en Pisac, recorriendo su colorido mercado artesanal y admirando las laderas terraceadas de sus antiguas ruinas. Continúa a Urubamba, donde disfrutarás de un delicioso almuerzo buffet con sabores andinos locales. Por la tarde, visita la impresionante fortaleza de Ollantaytambo, un pueblo inca vivo lleno de historias talladas en piedra. Este día ofrece no solo vistas increíbles sino también una conexión profunda con el espíritu de los Andes. Se incluye transporte accesible y asistencia personal para garantizar una experiencia fluida y enriquecedora para todos. Un día lleno de cultura, sabores y una belleza impresionante, directamente desde el corazón de los Andes."
+    },
+    {
+      "day": 3,
+      "title": "Tour Montaña de 7 Colores Todo el Día | Experiencia Accesible",
+      "description": "Únete a nosotros para una inolvidable aventura accesible a la impresionante Montaña de 7 Colores. Este tour de día completo incluye vistas escénicas de los Andes, encuentros locales y un delicioso almuerzo campestre. Se incluye box lunch para el viaje con maíz nativo, papas andinas, queso fresco y carne de alpaca. Apoyo adaptado y asistencia durante toda la experiencia. Respira la belleza de la sierra peruana y presencia una de las maravillas más coloridas de la naturaleza, de forma segura y cómoda."
+    },
+    {
+      "day": 4,
+      "title": "Cultura Viva en Cuper Bajo, Chinchero",
+      "description": "Esta mañana, sumérgete en la vida diaria de la comunidad de Cuper Bajo, ubicada en las tranquilas orillas de la Laguna Piuray, en lo alto de los Andes de Chinchero. Sé recibido por familias locales y experimenta la auténtica cultura viva andina a través de un intercambio enriquecedor y práctico. Descubre el antiguo arte del tejido textil, desde el esquilado y el hilado de la lana hasta aprender cómo crean colores vibrantes usando tintes naturales de plantas nativas, minerales e insectos. También explorarás sus tradiciones agrícolas, aprendiendo sobre los cultivos nativos que siembran, como papas, maíz y quinua, y la profunda conexión que mantienen con la Pachamama (Madre Tierra). La experiencia incluye un delicioso almuerzo tradicional Pachamanca, donde las carnes y verduras se cocinan lentamente bajo tierra con piedras calientes, una verdadera celebración de los sabores andinos y la comunidad. Esta actividad está diseñada para ser accesible e inclusiva, con apoyo adaptado para garantizar la comodidad y participación plena de cada viajero. Una mañana de cultura, naturaleza y conexión, compartida con los corazones cálidos de los Andes. Opcionales: Excursión accesible en ATV todo terreno alrededor de la Laguna Piuray ($35 por persona), Día con chamán, limpieza energética y pago a la tierra para la prosperidad ($65 por persona)."
+    },
+    {
+      "day": 5,
+      "title": "Tour Machu Picchu Todo el Día | Desde Cusco y Regreso",
+      "description": "Hoy te embarcarás en una aventura de día completo a la majestuosa ciudadela de Machu Picchu. Muy temprano en la mañana, te trasladaremos desde tu hotel a la estación de tren para un viaje escénico a través del Valle Sagrado. Al llegar a Aguas Calientes, tomarás un corto viaje en bus hacia la montaña para llegar a la entrada de Machu Picchu. Disfruta de una visita guiada a este icónico santuario inca, adaptada a tu ritmo y necesidades, con mucho tiempo para absorber las vistas impresionantes y la historia. Después de explorar el sitio, regresa a Aguas Calientes para un delicioso almuerzo en un restaurante local antes de dirigirte de vuelta a Cusco en tren y traslado privado. Se proporciona asistencia accesible durante todo el día para una experiencia fluida y enriquecedora. Opcional: Servicio de tren panorámico ($100 por persona, ida y vuelta, incluye personal de apoyo para asistirte en el tren), Servicio de tren de lujo Hiram Bingham, incluye brunch, almuerzo y happy hour ($1275 por persona, ida y vuelta. Incluye personal de apoyo para asistirte en el tren)."
+    },
+    {
+      "day": 6,
+      "title": "Hora de decir Adiós...",
+      "description": "Después de 6 días inolvidables explorando el vibrante corazón de los Andes, es hora de decir adiós a las maravillas de Cusco, el Valle Sagrado y el majestuoso Machu Picchu. Esperamos que este viaje haya llenado tu corazón de recuerdos, nuevas experiencias y una conexión más profunda con la rica cultura y paisajes de Perú. Estamos agradecidos de haber compartido esta aventura contigo y esperamos darte la bienvenida nuevamente a Perú para más experiencias de viaje accesibles. ¡Buen viaje y hasta pronto! Y como dicen los Incas... ¡TUPAYANCHIS K'AMA! - Hasta que la vida nos encuentre de nuevo… ¡Hasta pronto!"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-e1Kp0AJRNy2r8xfABykw.webp",
+      "alt": "City tour accesible en Cusco",
+      "title": "City Tour Cusco"
+    },
+    {
+      "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
+      "alt": "Usuario de silla de ruedas en el Valle Sagrado",
+      "title": "Accesibilidad en el Valle Sagrado"
+    },
+    {
+      "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
+      "alt": "Vista accesible de la Montaña de 7 Colores",
+      "title": "Vista de la Montaña de 7 Colores"
+    },
+    {
+      "link": "/images/tours/tour-hdQ3AgvlTLqBjDY4LwDO.webp",
+      "alt": "Camino accesible en Machu Picchu",
+      "title": "Accesibilidad en Machu Picchu"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/only-cusco-accessible-travel-peru-03703261",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  },
+  "highlights": [],
+  "reviews": 25,
+  "siempreFecha": false,
+  "agotado": false
+}

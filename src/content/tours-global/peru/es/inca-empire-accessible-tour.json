@@ -1,0 +1,211 @@
+{
+  "title": "El Imperio Inca",
+  "titleLink": "inca-empire-accessible-tour",
+  "location": "Ica, Perú",
+  "operator": "Accessible Travel Peru",
+  "recomendado": false,
+  "rating": 5,
+  "duration": "17",
+  "groupSize": "2 - 8",
+  "description": "El Imperio Inca – Viaje Accesible de 17 Días a Través de Perú. Experimenta lo mejor de Perú en 17 días inolvidables, de forma segura, cómoda y sin límites. El Imperio Inca te lleva desde la costa de Lima, Paracas e Ica, hasta la ciudad blanca de Arequipa, el majestuoso Cañón del Colca, las sagradas aguas del Lago Titicaca y deep into el corazón de los Andes en Cusco y Machu Picchu.",
+  "highlights": [
+    "Transporte y hoteles totalmente accesibles",
+    "Guías profesionales capacitados",
+    "Apoyo y cuidado personalizado durante todo tu viaje"
+  ],
+  "slogan": "Accessible Travel Peru 🇵🇪 - Haciendo Perú Accesible para Todos ♿",
+  "contact": "Escríbenos por WhatsApp... 👉 ¡haz clic aquí!",
+  "includes": [
+    "Hoteles Accesibles (Habitaciones accesibles)",
+    "Vuelos Nacionales (Lima - Arequipa / Cusco - Lima)",
+    "Comidas especificadas en el programa",
+    "Vans Accesibles (Vans de turismo adaptadas para usuarios de silla de ruedas en todos los destinos)",
+    "Equipo Especial (Sillas de ruedas todo terreno, arneses, rampas portátiles)",
+    "Guías Oficiales de Turismo (Guía bilingüe español - inglés)",
+    "Personal de Apoyo (Personal listo y feliz de ayudarte)",
+    "Boletos de Tren & Entradas (Todas las entradas y boletos de tren)",
+    "Todos los tours descritos (Todos los tours y excursiones descritos en el itinerario)",
+    "01 botella de agua & snacks (Por si... te da hambre durante el tour)"
+  ],
+  "excludes": [
+    "Vuelos internacionales",
+    "Seguro de viaje",
+    "Propinas, Comidas no mencionadas en la descripción, bebidas alcohólicas y no alcohólicas, otros servicios"
+  ],
+  "packages": [
+    {
+      "name": "Usuario de silla de ruedas",
+      "price": "$7,654",
+      "deposit": "$1,000"
+    },
+    {
+      "name": "Acompañante",
+      "price": "$6,539",
+      "deposit": "$1,000"
+    }
+  ],
+  "addOns": [
+    {
+      "name": "Tour Gastronómico + Clase Demo",
+      "price": "$70",
+      "description": "Visita mercados locales y aprende sobre diferentes productos peruanos, desde papas y ajíes hasta frutas exóticas. Precio por persona"
+    },
+    {
+      "name": "Museo Larco Herrera",
+      "price": "$40",
+      "description": "Tour al Museo Larco Herrera especializado en culturas preincas"
+    },
+    {
+      "name": "Día extra en cualquier ciudad",
+      "price": "$70",
+      "description": "Costo por noche, incluye desayuno"
+    },
+    {
+      "name": "Excursión en ATV en Piuray",
+      "price": "$35",
+      "description": "Excursión accesible en ATV en la Laguna Piuray"
+    },
+    {
+      "name": "Chamanes",
+      "price": "$65",
+      "description": "Día con chamán, limpieza energética y pago a la tierra para la prosperidad"
+    },
+    {
+      "name": "Parque Nacional de Paracas",
+      "price": "$50",
+      "description": "Visita el desierto"
+    },
+    {
+      "name": "Servicio de Tren Panorámico 360°",
+      "price": "$100",
+      "description": "Tren panorámico con grandes ventanas incluso en el techo. ¡Puedes ver todo! (por persona ida y vuelta) incluye personal de apoyo para asistirte en el tren"
+    },
+    {
+      "name": "Servicio de tren de lujo Hiram Bingham",
+      "price": "$1,275",
+      "description": "Incluye brunch, almuerzo, happy hour y espectáculo. Ida y vuelta, incluye personal de apoyo para asistirte en el tren"
+    },
+    {
+      "name": "Titicaca Express",
+      "price": "$290",
+      "description": "Tren de Lujo desde Puno a Cusco. Incluye brunch, almuerzo, happy hour y espectáculo. Incluye personal de apoyo para asistirte en el tren. Este tren solo sale los Lunes, Jueves y Sábados desde la ciudad de Puno"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Llegada a Lima – Bienvenidos a Perú",
+      "description": "A tu llegada al Aeropuerto Internacional de Lima, nuestro equipo estará esperando para recibirte con una cálida bienvenida y brindarte un transporte cómodo y accesible a tu hotel en la ciudad. Una vez instalado, tendrás tiempo para descansar después de tu viaje. Más tarde, nos reuniremos para una sesión informativa en el hotel, donde repasaremos los detalles de tu aventura, responderemos cualquier pregunta y compartiremos consejos útiles para los días por venir. También recibirás cualquier equipo de movilidad o dispositivos de apoyo organizados para tu viaje, asegurando que todo esté listo para una experiencia segura y enriquecedora. Desde el momento en que aterrizas, estamos aquí para apoyarte con un servicio accesible y personalizado en cada paso. ¡Bienvenido a Perú, tu viaje inolvidable comienza ahora!"
+    },
+    {
+      "day": 2,
+      "title": "City Tour Lima – Contrastes de la Ciudad de los Reyes",
+      "description": "Comienza tu aventura peruana con un fascinante tour por Lima, la vibrante capital conocida como la Ciudad de los Reyes. Empieza en el elegante distrito costero de Miraflores, donde disfrutarás de vistas panorámicas del océano y una parada en la Huaca Pucllana, una antigua pirámide de adobe que habla del pasado precolombino de la ciudad. Luego, viaja al corazón del Centro Histórico de Lima, Patrimonio Cultural de la Humanidad por la UNESCO. Admira los balcones coloniales, la gran arquitectura y las encantadoras plazas. Visita el hermoso Convento de Santo Domingo, hogar de siglos de historia espiritual y cultural. Se incluye un delicioso almuerzo en un restaurante local, con una muestra de la famosa cocina peruana. El tour es totalmente accesible, con transporte adaptado y asistencia dedicada para garantizar comodidad e inclusión en cada parada. OPCIONAL: Después del almuerzo, tour al Museo Larco Herrera ($40 por persona) o Tour gastronómico y clase demo ($70 por persona). Un día lleno de historia, sabor e impresiones inolvidables de Perú."
+    },
+    {
+      "day": 3,
+      "title": "Viaje a Ica – Viñedos y Oasis de Huacachina",
+      "description": "Temprano en la mañana, saldrás de Lima y viajarás hacia el sur por la escénica Carretera Panamericana hacia la región de Ica, conocida por sus paisajes desérticos cálidos y su rica herencia vitivinícola. Tu primera parada será en una viña tradicional y bodega de pisco, donde aprenderás sobre la producción del espíritu nacional de Perú, probarás vinos y piscos locales y explorarás la historia detrás de estas empresas familiares. Disfruta de un delicioso almuerzo en la viña o en un restaurante local cercano. Por la tarde, visita el icónico Oasis de Huacachina, una impresionante laguna natural rodeada de imponentes dunas de arena. Tendrás tiempo para relajarte, contemplar las vistas o simplemente disfrutar del ambiente tranquilo del desierto. Después de un día lleno de sabores y paisajes, traslado a tu hotel accesible en Ica para el check-in y alojamiento. Un comienzo perfecto para tu aventura costera, donde la tradición y la magia del desierto se unen."
+    },
+    {
+      "day": 4,
+      "title": "Naturaleza, Líneas de Nazca y Regreso a Lima",
+      "description": "Después de un desayuno temprano, dirígete al muelle de Paracas para un emocionante tour en bote a las Islas Ballestas, hogar de lobos marinos, pingüinos de Humboldt e innumerables aves marinas. En el camino, disfruta de una vista panorámica del misterioso geoglifo del Candelabro, grabado en los acantilados costeros hace siglos. Para aquellos que buscan una perspectiva inolvidable, disfruta de un vuelo escénico sobre las Líneas de Nazca, un tour aéreo de 1 hora sobre los famosos geoglifos grabados en el suelo del desierto. Almuerzo en un restaurante local frente al mar. Por la tarde, inicia tu viaje de regreso a Lima en transporte privado accesible. A tu llegada, traslado a tu hotel para check-in y descanso. Un día de maravillas oceánicas, misterios antiguos e impresionantes vistas del desierto, cerrando tu aventura costera con asombro. Experiencia Opcional: Explora los paisajes dramáticos de la Reserva Nacional de Paracas, donde el desierto y el océano se encuentran en uno de los ecosistemas más únicos de Perú. Visita miradores impresionantes, aprende sobre la vida silvestre del área y absorbe el silencio y la belleza del desierto costero. ($50 por persona)."
+    },
+    {
+      "day": 5,
+      "title": "Vuelo a Arequipa y City Tour – Espera la Ciudad Blanca",
+      "description": "Por la mañana, te trasladaremos al Aeropuerto Internacional Jorge Chávez para tu vuelo a Arequipa, conocida como La Ciudad Blanca por su impresionante arquitectura de piedra volcánica blanca. A tu llegada, nuestro equipo te recibirá y te proporcionará transporte accesible a tu hotel para el check-in y un breve descanso. Por la tarde, disfruta de un City Tour guiado de Arequipa, donde explorarás su encantador centro histórico, Patrimonio Cultural de la Humanidad por la UNESCO. Visita puntos de referencia icónicos como la Plaza de Armas, la hermosa Catedral y el impresionante Monasterio de Santa Catalina, una ciudad dentro de una ciudad llena de historia y color. El tour incluye rutas accesibles y asistencia personalizada para garantizar la comodidad durante el día. Una bienvenida perfecta a los Andes y a una ciudad llena de elegancia, historia y alma."
+    },
+    {
+      "day": 6,
+      "title": "Viaje al Valle del Colca – Paisajes Andinos y Sabores Locales",
+      "description": "Después del desayuno, saldremos de Arequipa hacia el espectacular Valle del Colca, uno de los cañones más profundos del mundo y hogar de paisajes impresionantes y cultura tradicional de la sierra. Disfruta de un viaje escénico a través de la Reserva Salinas y Aguada Blanca, donde verás vicuñas, llamas y alpacas pastando en los vastos paisajes de puna. En el camino, nos detendremos en miradores panorámicos como Patapampa, ubicado a más de 4,900 metros sobre el nivel del mar, donde los volcanes circundantes se elevan majestuosamente en el horizonte. Se incluye un delicioso almuerzo con ingredientes locales en un restaurante tradicional a lo largo de la ruta. Por la tarde, llega a tu hotel en la zona del Colca, donde tendrás tiempo para descansar, disfrutar del aire tranquilo de la montaña o absorber el entorno a tu propio ritmo. Alojamiento en el corazón de los Andes, donde te esperan la naturaleza, el silencio y las estrellas."
+    },
+    {
+      "day": 7,
+      "title": "Cañón del Colca y Viaje a Puno – Cóndores y Caminos de la Sierra",
+      "description": "Muy temprano en la mañana, nos dirigiremos al icónico mirador de la Cruz del Cóndor para presenciar el majestuoso vuelo de los cóndores andinos mientras se elevan gracefulmente sobre uno de los cañones más profundos de la Tierra. En el camino, disfrutarás de impresionantes vistas de las terrazas preincas del valle, picos nevados y pueblos tradicionales. Después de esta experiencia inolvidable, comenzaremos nuestro viaje a través del Altiplano Andino hacia Puno, ubicado en las orillas del Lago Titicaca, el lago navegable más alto del mundo. Se hará una parada para almorzar en ruta, con tiempo para descansar y estirar las piernas durante el viaje escénico. A tu llegada a Puno, traslado a tu hotel accesible para check-in y alojamiento. Un día lleno de naturaleza, vida silvestre y los colores cambiantes de los Andes, terminando junto al lago sagrado de los Incas."
+    },
+    {
+      "day": 8,
+      "title": "Día Libre en Puno – Descansa, Respira y Disfruta el Altiplano",
+      "description": "Después de varios días de aventura por los Andes, hoy es un día libre bien merecido para relajarte y recargar energías en Puno, a orillas del legendario Lago Titicaca. Aprovecha esta oportunidad para disfrutar de la atmósfera tranquila de la sierra, descansar en tu hotel accesible o explorar la ciudad a tu propio ritmo. Puedes pasear por las plazas locales, tomar un té de hierbas caliente con vista al lago o simplemente relajarte y aclimatarte antes de continuar tu viaje. Nuestro equipo estará disponible para cualquier asistencia o para sugerir actividades opcionales, dependiendo de tus intereses y energía. A veces, los momentos más poderosos de un viaje son los tranquilos."
+    },
+    {
+      "day": 9,
+      "title": "Lago Titicaca – Islas de los Uros y Taquile",
+      "description": "Explora la magia del Lago Titicaca en un tour en bote de día completo a las islas flotantes de los Uros y la tradicional isla de Taquile. Comienza tu día navegando el lago navegable más alto del mundo mientras visitas la singular comunidad Uros, donde los locales viven en islas de totora hechas a mano. Luego continúa a Taquile, conocida por sus ricas tradiciones textiles y impresionantes vistas al lago. Disfruta de un almuerzo fresco preparado en la Isla Taquile, con ingredientes locales y hospitalidad andina. El tour incluye asistencia adaptada y apoyo personalizado para garantizar una experiencia segura e inclusiva en el agua y las islas. Regresa a Puno al final de la tarde con recuerdos inolvidables de las culturas vivas del lago de Perú."
+    },
+    {
+      "day": 10,
+      "title": "Por Tierra, Cusco a Puno – Ruta Escénica con Paradas Culturales",
+      "description": "Hoy, viaja de Cusco a Puno por una de las rutas más escénicas y culturalmente ricas de los Andes. Este viaje por carretera de día completo incluye varias paradas fascinantes en el camino, ofreciendo una mirada más profunda a la historia y los paisajes de la sierra peruana. Visitarás pueblos tradicionales, ruinas antiguas y hermosos miradores mientras nos dirigimos al sur hacia el Lago Titicaca. Se incluye un abundante almuerzo buffet en un pintoresco pueblo andino, con ingredientes locales y sabores tradicionales. Se proporciona transporte accesible y asistencia para garantizar la comodidad durante el día. Llega a Puno al anochecer y alójate en tu hotel para descansar y prepararte para tu aventura en el Lago Titicaca. Opcional: Ruta Cusco a Puno en Tren. Almuerzo y Espectáculo Folklórico Incluidos. ($260 por persona)."
+    },
+    {
+      "day": 11,
+      "title": "City Tour de la Tarde – Espera la Capital Inca",
+      "description": "Esta tarde, visitaremos Cusco, la histórica capital del Imperio Inca, enclavada en el corazón de los Andes. City Tour de Cusco, un viaje en el tiempo y la tradición. Visita el sagrado Qoricancha, el Templo Inca del Sol, y camina por la icónica Plaza de Armas, rodeada de encanto colonial y cultura vibrante. Luego, explora la impresionante fortaleza de Sacsayhuaman, seguido de visitas a Tambomachay y paradas panorámicas en Qenko y Puka Pukara, donde el espíritu de los Andes aún perdura en cada piedra. Se proporciona transporte accesible y apoyo personal para garantizar tu comodidad durante el día. Una primera visión mágica de la historia viva y la majestuosidad eterna de Cusco."
+    },
+    {
+      "day": 12,
+      "title": "Valle Sagrado Todo el Día – Pisac, Urubamba & Ollantaytambo",
+      "description": "Hoy explorarás el impresionante Valle Sagrado de los Incas, un lugar donde la historia, la cultura y la naturaleza se unen en perfecta armonía. Comienza tu día en Pisac, recorriendo su colorido mercado artesanal y admirando las laderas terraceadas de sus antiguas ruinas. Continúa a Urubamba, donde disfrutarás de un delicioso almuerzo buffet con sabores andinos locales. Por la tarde, visita la impresionante fortaleza de Ollantaytambo, un pueblo inca vivo lleno de historias talladas en piedra. Este día ofrece no solo vistas increíbles sino también una conexión profunda con el espíritu de los Andes. Se incluye transporte accesible y asistencia personal para garantizar una experiencia fluida y enriquecedora para todos. Un día lleno de cultura, sabores y una belleza impresionante, directamente desde el corazón de los Andes."
+    },
+    {
+      "day": 13,
+      "title": "Tour Montaña de 7 Colores Todo el Día | Experiencia Accesible",
+      "description": "Únete a nosotros para una inolvidable aventura accesible a la impresionante Montaña de 7 Colores. Este tour de día completo incluye vistas escénicas de los Andes, encuentros locales y un delicioso almuerzo campestre. Se incluye box lunch para el viaje con maíz nativo, papas andinas, queso fresco y carne de alpaca. Apoyo adaptado y asistencia durante toda la experiencia. Respira la belleza de la sierra peruana y presencia una de las maravillas más coloridas de la naturaleza, de forma segura y cómoda."
+    },
+    {
+      "day": 14,
+      "title": "Cultura Viva en Cuper Bajo, Chinchero",
+      "description": "Esta mañana, sumérgete en la vida diaria de la comunidad de Cuper Bajo, ubicada en las tranquilas orillas de la Laguna Piuray, en lo alto de los Andes de Chinchero. Sé recibido por familias locales y experimenta la auténtica cultura viva andina a través de un intercambio enriquecedor y práctico. Descubre el antiguo arte del tejido textil, desde el esquilado y el hilado de la lana hasta aprender cómo crean colores vibrantes usando tintes naturales de plantas nativas, minerales e insectos. También explorarás sus tradiciones agrícolas, aprendiendo sobre los cultivos nativos que siembran, como papas, maíz y quinua, y la profunda conexión que mantienen con la Pachamama (Madre Tierra). La experiencia incluye un delicioso almuerzo tradicional Pachamanca, donde las carnes y verduras se cocinan lentamente bajo tierra con piedras calientes, una verdadera celebración de los sabores andinos y la comunidad. Esta actividad está diseñada para ser accesible e inclusiva, con apoyo adaptado para garantizar la comodidad y participación plena de cada viajero. Una mañana de cultura, naturaleza y conexión, compartida con los corazones cálidos de los Andes. Opcionales: Excursión accesible en ATV todo terreno alrededor de la Laguna Piuray ($35 por persona), Día con chamán, limpieza energética y pago a la tierra para la prosperidad ($65 por persona)."
+    },
+    {
+      "day": 15,
+      "title": "Tour Machu Picchu Todo el Día | Desde Cusco y Regreso",
+      "description": "Hoy te embarcarás en una aventura de día completo a la majestuosa ciudadela de Machu Picchu. Muy temprano en la mañana, te trasladaremos desde tu hotel a la estación de tren para un viaje escénico a través del Valle Sagrado. Al llegar a Aguas Calientes, tomarás un corto viaje en bus hacia la montaña para llegar a la entrada de Machu Picchu. Disfruta de una visita guiada a este icónico santuario inca, adaptada a tu ritmo y necesidades, con mucho tiempo para absorber las vistas impresionantes y la historia. Después de explorar el sitio, regresa a Aguas Calientes para un delicioso almuerzo en un restaurante local antes de dirigirte de vuelta a Cusco en tren y traslado privado. Se proporciona asistencia accesible durante todo el día para una experiencia fluida y enriquecedora. Opcional: Servicio de tren panorámico ($100 por persona, ida y vuelta, incluye personal de apoyo para asistirte en el tren), Servicio de tren de lujo Hiram Bingham, incluye brunch, almuerzo y happy hour ($1275 por persona, ida y vuelta. Incluye personal de apoyo para asistirte en el tren)."
+    },
+    {
+      "day": 16,
+      "title": "Regreso a Lima – Circuito Mágico del Agua y Cena de Despedida",
+      "description": "Por la mañana o temprano en la tarde, traslado al aeropuerto de Cusco para tu vuelo de regreso a Lima. A tu llegada, nuestro equipo te recibirá y te proporcionará transporte accesible a tu hotel. Por la noche, disfruta de una salida especial al famoso Circuito Mágico del Agua en el Parque de la Reserva, un deslumbrante espectáculo de luces, fuentes y música en uno de los parques de agua más grandes del mundo. Después, reúnanse para una sincera cena de despedida en un restaurante local, donde celebraremos el viaje inolvidable que has experimentado por la tierra de los Incas. Una noche de luces, sabor y gratitud para honrar tu aventura a través de Perú."
+    },
+    {
+      "day": 17,
+      "title": "Hora de decir Adiós...",
+      "description": "Después de 13 increíbles días descubriendo el alma de Perú, sus colores, sabores, paisajes y gente, es hora de decir adiós, pero no para siempre. Esta mañana, te acompañaremos al Aeropuerto de Cusco, donde tomarás tu vuelo de regreso a Lima para conectar con tu viaje internacional a casa. Mientras tu aventura termina, esperamos que tu corazón esté lleno de momentos inolvidables, conexiones significativas y un vínculo profundo con esta tierra mágica. Gracias por permitirnos ser parte de tu viaje. Ha sido un verdadero honor viajar contigo. Estaremos esperando con los brazos abiertos cada vez que regreses. Y como dicen los Incas... ¡TUPAYANCHIS K'AMA! - Hasta que la vida nos encuentre de nuevo… ¡Hasta pronto!"
+    }
+  ],
+  "images": [
+    {
+      "link": "/images/tours/tour-PLME1AQRqcaEAPUponwH.webp",
+      "alt": "Tour accesible en Machu Picchu",
+      "title": "Accesibilidad en Machu Picchu"
+    },
+    {
+      "link": "/images/tours/tour-TYzUlFAAQnWEphQ7Oe6X.webp",
+      "alt": "Cóndores volando sobre el Cañón del Colca",
+      "title": "Mirador del Cañón del Colca"
+    },
+    {
+      "link": "/images/tours/tour-KmmUEZUSSiEgNOqCZlgC.webp",
+      "alt": "Islas flotantes de los Uros en el Lago Titicaca",
+      "title": "Experiencia en el Lago Titicaca"
+    },
+    {
+      "link": "/images/tours/tour-KMXRVtqRKW33rLycW96y.webp",
+      "alt": "Vista panorámica del Valle Sagrado",
+      "title": "Paisaje del Valle Sagrado"
+    }
+  ],
+  "links": {
+    "book": "https://accessibletravelperu.wetravel.com/trips/the-inca-empire-accessible-travel-peru-85234271",
+    "brochure": "Descargar folleto",
+    "inquire": "Hacer una pregunta"
+  },
+  "reviews": 29,
+  "siempreFecha": false,
+  "agotado": false
+}
