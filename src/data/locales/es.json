@@ -193,28 +193,7 @@
   "heroGroupTerminaEn": "La oferta termina en:",
   "heroGroupUnidades": ["DÍAS", "HORAS", "MINUTOS", "SEGUNDOS"],
   "heroGroupIncluyeTitulo": "¿Qué incluye?",
-  "banners": [
-    {
-      "alt": "Vista desde el acantilado",
-      "src": "/images/banner7.webp",
-      "title": "Haz realidad tus vacaciones soñadas"
-    },
-    {
-      "alt": "Senderismo en terreno rocoso",
-      "src": "/images/banner2.webp",
-      "title": "Confía en los mejores... Confía en Accessible Travel Peru"
-    },
-    {
-      "alt": "Tienda junto al lago",
-      "src": "/images/banner1.webp",
-      "title": "El mejor servicio accesible en Peru"
-    },
-    {
-      "alt": "Tent near lake",
-      "src": "/images/bannerAmaz.jpeg",
-      "title": "Libérate de la rutina y sumérgete en lo salvaje. Vive un Amazonas verdaderamente sin barreras."
-    }
-  ],
   "aboutCantidadClientes": "2,000+ Clientes en todo el mundo",
-  "aboutAniosExperiencia": "10 Años de experiencia"
+  "aboutAniosExperiencia": "10 Años de experiencia",
+  "shared": "Comparte por"
 }

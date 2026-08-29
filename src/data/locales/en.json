@@ -191,28 +191,8 @@
   "heroGroupTerminaEn": "The offer ends in:",
   "heroGroupUnidades": ["DAYS", "HOURS", "MINUTES", "SECONDS"],
   "heroGroupIncluyeTitulo": "What does it include?",
-  "banners": [
-    {
-      "alt": "Cliff view",
-      "src": "/images/banner7.webp",
-      "title": "Make your Dream Vacations Come True"
-    },
-    {
-      "alt": "Hiking rocky terrain",
-      "src": "/images/banner2.webp",
-      "title": "Trust in The Best... Trust in Accessible Travel Peru"
-    },
-    {
-      "alt": "Tent near lake",
-      "src": "/images/banner1.webp",
-      "title": "The Best Accessible Service in Peru"
-    },
-    {
-      "alt": "Tent near lake",
-      "src": "/images/bannerAmaz.jpeg",
-      "title": "break free from the routine and dive into the wild. Experience a truly barrier-free Amazon."
-    }
-  ],
+
   "aboutCantidadClientes": "2,000+ Clients worldwide",
-  "aboutAniosExperiencia": "10 Years of experience"
+  "aboutAniosExperiencia": "10 Years of experience",
+  "shared": "Share via"
 }

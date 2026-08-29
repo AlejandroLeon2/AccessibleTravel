@@ -5,8 +5,10 @@ import HeroGroup from "../../components/section/HeroGroup.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import { getCollection, getEntry } from "astro:content";
 import { getMenuPageData } from "../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenuEn", "menu-en"))!.data;
-const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "GroupTours");
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { labels, coverImage } = getMenuPageData(_menuData.items, "GroupTours");
+const _pageLabel = labels.en; // o labels.es según idioma activo
+
 import CardDestino from "../../components/ui/CardDestino.astro";
 import Times from "../../components/constructor/Times.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
@@ -25,7 +27,7 @@ const groupTours = (await getCollection("toursGrupalesEn")).map(({ data }) => ({
   lenguaje={lenguaje}
 >
   <PortadaStatic
-    url={_coverImage}
+    url={coverImage}
     texto={_pageLabel}
   />
   <MainContent>

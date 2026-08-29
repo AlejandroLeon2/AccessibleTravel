@@ -17,6 +17,12 @@ const articulos = Object.values(
   await import.meta.glob("/src/pages/es/blog/*.mdx", { eager: true }),
 );
 const articulo = articulos.slice(0, 3);
+const bannersData = (await getCollection("banners"))[0]?.data;
+const banners = bannersData?.banners.map((b) => ({
+  src: b.src,
+  alt: b.alt.es,
+  title: b.title.es,
+})) ?? [];
 ---
 
 <Layout
@@ -24,7 +30,7 @@ const articulo = articulos.slice(0, 3);
   description={lenguaje.description}
   lenguaje={lenguaje}
 >
-  <PortadaDinamica lenguaje={lenguaje} />
+  <PortadaDinamica banners={banners} />
 
   <MainContent>
     <div class="animate-on-scroll fade-up">

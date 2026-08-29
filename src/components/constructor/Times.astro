@@ -9,7 +9,7 @@ const {
 ---
 
 <div
-  class="contador relative flex gap-2 justify-center"
+  class="contador relative flex gap-2 justify-center items-center"
   data-start={data.startDate.toISOString()}
   data-end={data.endDate.toISOString()}
   data-siempre-fecha={data.siempreFecha ? "true" : "false"}
@@ -126,7 +126,7 @@ const {
 
   <!-- Estado: Contador activo -->
   <div
-    class="estado-activo flex flex-col md:flex-row justify-around items-center w-full"
+    class="estado-activo flex flex-col md:flex-row  gap-4 justify-around items-center w-full"
   >
     <div class="mb-2">
       <p

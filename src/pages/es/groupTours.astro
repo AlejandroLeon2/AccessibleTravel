@@ -5,7 +5,7 @@ import HeroGroup from "../../components/section/HeroGroup.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import { getCollection, getEntry } from "astro:content";
 import { getMenuPageData } from "../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
 const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "GroupTours");
 import CardDestino from "../../components/ui/CardDestino.astro";
 import Times from "../../components/constructor/Times.astro";

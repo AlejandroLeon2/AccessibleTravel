@@ -11,8 +11,11 @@ import lenguaje from "../data/locales/en.json";
 import WhatsappCta from "../components/ui/WhatsappCta.astro";
 import { getCollection, getEntry } from "astro:content";
 import { getMenuPageData } from "../utils/getMenuPageData";
-const _blogMenuData = (await getEntry("headerMenuEn", "menu-en"))!.data;
-const { coverImage: _blogCoverImage } = getMenuPageData(_blogMenuData.items, "Blog");
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { coverImage: _blogCoverImage } = getMenuPageData(
+  _menuData.items,
+  "Blog",
+);
 const data = (await getEntry("siteConfig", "site"))!.data;
 import MetadataLayout from "../components/constructor/MetadataLayout.astro";
 import MetadataAstroComponent from "../components/Metadata.astro";
@@ -81,16 +84,18 @@ const post = tinaData.data.blogEn;
 
     <MainContent>
       <div class="max-w-7xl mx-auto px-4 pb-8">
-        <div class="flex flex-col md:flex-row gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Contenido Principal -->
-          <TinaIsland
-            name="blogEn"
-            wrapper={islands.blogEn.wrapper}
-            params={{ relativePath }}
-            primary
-          >
-            <PostBodyBlogAstroComponent data={post} />
-          </TinaIsland>
+          <div class="col-span-2">
+            <TinaIsland
+              name="blogEn"
+              wrapper={islands.blogEn.wrapper}
+              params={{ relativePath }}
+              primary
+            >
+              <PostBodyBlogAstroComponent data={post} />
+            </TinaIsland>
+          </div>
 
           <!-- Sidebar -->
 

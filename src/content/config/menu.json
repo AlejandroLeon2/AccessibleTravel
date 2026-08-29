@@ -2,50 +2,74 @@
   "items": [
     {
       "key": "Home",
-      "label": "Home",
+      "labels": {
+        "en": "Home",
+        "es": "Inicio"
+      },
       "href": "/",
       "coverImage": "/images/new2principal.webp"
     },
     {
       "key": "AllToursPeru",
-      "label": "All Tours Peru",
+      "labels": {
+        "en": "All Tours Peru",
+        "es": "Todos los Tours Perú"
+      },
       "href": "/destino/peru",
       "coverImage": "/images/machu.webp"
     },
     {
       "key": "GroupTours",
-      "label": "Group Tours",
+      "labels": {
+        "en": "Group Tours",
+        "es": "Tours en Grupo"
+      },
       "href": "/groupTours",
       "coverImage": "/images/vicunas.png"
     },
     {
       "key": "Blog",
-      "label": "Blog",
+      "labels": {
+        "en": "Blog",
+        "es": "Blog"
+      },
       "href": "/blog",
       "coverImage": "/images/new2principal.webp"
     },
     {
       "key": "AboutUs",
-      "label": "About Us",
+      "labels": {
+        "en": "About Us",
+        "es": "Sobre Nosotros"
+      },
       "href": "/aboutUs",
       "coverImage": "/images/new2principal.webp",
       "children": [
         {
+          "key": "AboutUs",
+          "labels": {
+            "en": "AboutUs",
+            "es": "Sobre nosotros"
+          },
+          "href": "/aboutUs",
+          "coverImage": "/images/about2.webp"
+        },
+        {
           "key": "ContactUs",
-          "label": "Contact Us",
+          "labels": {
+            "en": "Contact Us",
+            "es": "Contáctanos"
+          },
           "href": "/contactUs",
           "coverImage": "/images/new2principal.webp"
         },
         {
           "key": "TermsAndConditions",
-          "label": "Terms and Conditions",
+          "labels": {
+            "en": "Terms and Conditions",
+            "es": "Términos y condiciones"
+          },
           "href": "/terminosCondiciones",
-          "coverImage": "/images/new2principal.webp"
-        },
-        {
-          "key": "AboutUs",
-          "label": "About Us",
-          "href": "/aboutUs",
           "coverImage": "/images/new2principal.webp"
         }
       ]

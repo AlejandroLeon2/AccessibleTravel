@@ -3,24 +3,36 @@
   "descripcion": "Accessible Travel Peru is a travel agency specialized in inclusive tourism for people with disabilities, connecting adventure and accessibility across Peru.",
   "correo": "contact@accessibletravelperu.com",
   "uid": "67260",
-  "whatsapp1": {
-    "numero": "+51 944 731 223",
-    "tooltipText": "Whatsapp Perú",
-    "mensaje": "¡Hola! Estoy interesado en conocer más sobre sus servicios de turismo accesible en Perú.",
-    "title": "Contacto directo desde Perú para información sobre viajes accesibles"
-  },
-  "whatsapp2": {
-    "numero": "+1 908 935 6769",
-    "tooltipText": "Whatsapp USA",
-    "mensaje": "Hi! I'm reaching out to learn more about your accessible travel experiences from the USA.",
-    "title": "Reach out from the USA for accessible travel inquiries"
-  },
-  "Messenger": {
-    "valor": "https://m.me/156748394679043",
-    "tooltipText": "Chat Messenger",
-    "mensaje": "Hola, me gustaría obtener más información sobre los tours de Qillary. ¿Pueden ayudarme? ¡Gracias!",
-    "title": "Chatea con nosotros por Facebook Messenger"
-  },
+  "heroVideoUrl": "https://www.youtube.com/embed/PBF2y98Bdn0?si=cL-cuBrIkc3mjlb3",
+  "authorImage": "/images/francisco.webp",
+  "contactos": [
+    {
+      "tipo": "whatsapp",
+      "pais": "🇵🇪",
+      "numero": "+51 944 731 223",
+      "tooltipText": "Whatsapp Perú",
+      "mensaje": "¡Hola! Estoy interesado en conocer más sobre sus servicios de turismo accesible en Perú.",
+      "title": "Contacto directo desde Perú para información sobre viajes accesibles",
+      "url": "https://wa.me/51944731223"
+    },
+    {
+      "tipo": "whatsapp",
+      "pais": "🇺🇸",
+      "numero": "+1 908 935 6769",
+      "tooltipText": "Whatsapp USA",
+      "mensaje": "Hi! I'm reaching out to learn more about your accessible travel experiences from the USA.",
+      "title": "Reach out from the USA for accessible travel inquiries",
+      "url": "https://wa.me/19089356769"
+    },
+    {
+      "tipo": "messenger",
+      "pais": "🌐",
+      "valor": "https://m.me/156748394679043",
+      "tooltipText": "Chat Messenger",
+      "mensaje": "Hola, me gustaría obtener más información sobre los tours de Qillary. ¿Pueden ayudarme? ¡Gracias!",
+      "title": "Chatea con nosotros por Facebook Messenger"
+    }
+  ],
   "telefonos": [
     {
       "pais": "🇵🇪",
@@ -39,38 +51,45 @@
     "texto": "465, FRAY LUIS DE LEON ST",
     "url": "https://www.google.com/maps/place/Jr.+Fray+Luis+de+Le%C3%B3n+464,+San+Borja+15036/@-12.0983481,-77.0063461,17z/data=!3m1!4b1!4m6!3m5!1s0x9105c7dbcd057b65:0x7aec0f238a0cb0f1!8m2!3d-12.0983534!4d-77.0037712!16s%2Fg%2F11w7qw9t2z?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
   },
-  "redes": [
-    {
-      "icono": "facebook",
-      "url": "https://web.facebook.com/accessibletravelperu",
-      "handle": "@AccessibleTravelPeru"
-    },
-    {
-      "icono": "tiktok",
-      "url": "https://www.tiktok.com/@accessibletravelperu?is_from_webapp=1&sender_device=pc",
-      "handle": "@Accessibletravelperu"
-    },
-    {
-      "icono": "youtube",
-      "url": "https://www.youtube.com/@accessibletravelperu5826",
-      "handle": "@AccessibleTravelPeru"
-    },
-    {
-      "icono": "instagram",
-      "url": "https://www.instagram.com/accessibletravelperu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-      "handle": "@Accessibletravelperu"
-    },
-    {
-      "icono": "whatsapp",
-      "url": "https://wa.me/51944731223",
-      "handle": "+51 944 731 223 🇵🇪",
-      "pais": "🇵🇪"
-    },
-    {
-      "icono": "whatsapp",
-      "url": "https://wa.me/19089356769",
-      "handle": "+1 908-935-6769 🇺🇸",
-      "pais": "🇺🇸"
-    }
-  ]
+"redes": [
+  {
+    "tipo": "facebook",
+    "icono": "facebook",
+    "url": "https://web.facebook.com/accessibletravelperu",
+    "handle": "@AccessibleTravelPeru"
+  },
+  {
+    "tipo": "tiktok",
+    "icono": "tiktok",
+    "url": "https://www.tiktok.com/@accessibletravelperu?is_from_webapp=1&sender_device=pc",
+    "handle": "@Accessibletravelperu"
+  },
+  {
+    "tipo": "youtube",
+    "icono": "youtube",
+    "url": "https://www.youtube.com/@accessibletravelperu5826",
+    "handle": "@AccessibleTravelPeru"
+  },
+  {
+    "tipo": "instagram",
+    "icono": "instagram",
+    "url": "https://www.instagram.com/accessibletravelperu",
+    "handle": "@Accessibletravelperu"
+  },
+  {
+    "tipo": "whatsapp",
+    "icono": "whatsapp",
+    "url": "https://wa.me/51944731223",
+    "handle": "+51 944 731 223 🇵🇪",
+    "pais": "🇵🇪"
+  },
+  {
+    "tipo": "whatsapp",
+    "icono": "whatsapp",
+    "url": "https://wa.me/19089356769",
+    "handle": "+1 908-935-6769 🇺🇸",
+    "pais": "🇺🇸"
+  }
+]
+
 }

@@ -8,7 +8,7 @@ import lenguaje from "../../data/locales/en.json";
 import { terminos } from "../../data/terminosEn";
 import { getEntry } from "astro:content";
 import { getMenuPageData } from "../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenuEn", "menu-en"))!.data;
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
 const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "TermsAndConditions");
 ---
 

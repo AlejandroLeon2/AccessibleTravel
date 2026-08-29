@@ -8,6 +8,7 @@ import LocationIcon from "../svg/LocationIcon.astro";
 import WhatsappCta from "../ui/WhatsappCta.astro";
 import { Fragment } from "astro/jsx-runtime";
 import { getEntry } from "astro:content";
+import ShareButtonsAstroComponent from "../ui/ShareButtons.astro";
 
 import Recomendaciones from "./Recomendaciones.astro";
 import ReviewList from "./ReviewList.astro";
@@ -32,7 +33,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
   >
     <button
       id="tab-info"
-      class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg hover:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black"
+      class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg hover:bg-azul-travel active:text-white active:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black"
       data-tab="info"
     >
       {lenguaje.infoBotonDescripcion}
@@ -41,7 +42,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
       data.itinerary && data.itinerary.length > 0 && (
         <button
           id="tab-plan"
-          class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg transition text-black hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
+          class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg transition text-black active:text-white active:bg-azul-travel hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
           data-tab="plan"
         >
           {lenguaje.infoBotonPlanificacion}
@@ -50,10 +51,10 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
     }
   </div>
 
-  <div class="flex flex-col lg:flex-row justify-between gap-6">
+  <div class="flex flex-col lg:flex-row justify-between overflow-hidden gap-6">
     <section id="tab-content-info" class="block w-full">
       <div
-        class="flex md:px-4 flex-col lg:flex-row w-full animate-on-scroll fade-up delay-100"
+        class="flex md:px-4 flex-col md:flex-row w-full justify-between animate-on-scroll fade-up delay-100"
       >
         <div
           class="flex items-center gap-2 md:gap-4 text-sm text-gray-500 mb-4 flex-wrap"
@@ -85,8 +86,10 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           </p>
         </div>
         <div
-          class="flex mb-4 lg:flex-col-reverse justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
+          class="flex mb-4 lg:flex-col-reverse  max-w-md justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
         >
+          <!--
+        
           <p
             class="text-yellow-500 flex lg:flex-col gap-4 justify-center items-center text-xl"
           >
@@ -95,6 +98,9 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
               >({data.reseñas} {lenguaje.infoReseñas})</span
             >
           </p>
+ -->
+
+          <ShareButtonsAstroComponent lenguaje={lenguaje} />
         </div>
       </div>
       <div class="animate-on-scroll fade-up delay-200">
@@ -218,6 +224,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
       </div>
     </section>
   </div>
+
   <script
     type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -388,3 +395,4 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
     initWeTravelWidget();
   }
 </script>
+<ShareButtonsAstroComponent bandera={false} lenguaje={lenguaje} /> 

@@ -1,13 +1,14 @@
 import { defineConfig } from 'tinacms';
 import { siteConfig } from './schemas/site-config';
 import { galleryLogos } from './schemas/gallery-logos';
+import { banners } from './schemas/banners';
+import { heroGroup } from './schemas/hero-group';
 import { blogEs } from './schemas/blog-es';
 import { blogEn } from './schemas/blog-en';
 import { toursGrupalesEs } from './schemas/tours-grupales-es';
-import { toursGrupalesEn } from './schemas/tours-grupales-en';
 import { toursGlobalesEs } from './schemas/tours-global-es';
-import { toursGlobalesEn } from './schemas/tours-global-en';
-import { headerMenuEs, headerMenuEn } from './schemas/menu';
+import { headerMenu } from './schemas/menu';
+
 
 const branch = 'main';
 
@@ -39,6 +40,8 @@ export default defineConfig({
       if (collection.name === 'blogEn') return { url: `/en/blog/${slug}` };
       if (collection.name === 'toursGrupalesEs') return { url: `/es/group/${slug}` };
       if (collection.name === 'toursGrupalesEn') return { url: `/en/group/${slug}` };
+      if (collection.name === 'toursGlobalesEs') return { url: `/es/destino/tour/${slug}` };
+      if (collection.name === 'toursGlobalesEn') return { url: `/en/destino/tour/${slug}` };
       return { url: '/' };
     },
   },
@@ -46,14 +49,39 @@ export default defineConfig({
     collections: [
       siteConfig,
       galleryLogos,
-      headerMenuEs,
-      headerMenuEn,
+      banners,
+      heroGroup,
+      headerMenu,
       blogEs,
       blogEn,
-      toursGrupalesEs,
-      toursGrupalesEn,
-      toursGlobalesEs,
-      toursGlobalesEn,
+      // Tours grupales - Spanish version (base schema with Spanish labels)
+      {
+        ...toursGrupalesEs,
+        name: 'toursGrupalesEs',
+        label: 'Tours Grupales ES',
+        path: 'src/content/tours-grupales/es',
+      },
+      // Tours grupales - English version (same schema, different path)
+      {
+        ...toursGrupalesEs,
+        name: 'toursGrupalesEn',
+        label: 'Group Tours EN',
+        path: 'src/content/tours-grupales/en',
+      },
+      // Tours globales - Spanish version (base schema with Spanish labels)
+      {
+        ...toursGlobalesEs,
+        name: 'toursGlobalesEs',
+        label: 'Tours Peru ES',
+        path: 'src/content/tours-global/peru/es',
+      },
+      // Tours globales - English version (same schema, different path)
+      {
+        ...toursGlobalesEs,
+        name: 'toursGlobalesEn',
+        label: 'Tours Peru (EN)',
+        path: 'src/content/tours-global/peru/en',
+      },
     ],
   },
 });

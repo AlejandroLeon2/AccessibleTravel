@@ -14,25 +14,12 @@ export interface MenuItem {
  * Find a top-level menu item or a child item by its `key`.
  * Returns { label, coverImage } or a fallback if not found.
  */
-export function getMenuPageData(
-  items: MenuItem[],
-  key: string,
-  fallbackImage = "/images/new2principal.webp",
-  fallbackLabel = ""
-): { label: string; coverImage: string } {
-  // Search top-level items
-  for (const item of items) {
-    if (item.key === key) {
-      return { label: item.label, coverImage: item.coverImage };
-    }
-    // Search children
-    if (item.children) {
-      for (const child of item.children) {
-        if (child.key === key) {
-          return { label: child.label, coverImage: child.coverImage };
-        }
-      }
-    }
-  }
-  return { label: fallbackLabel, coverImage: fallbackImage };
+export function getMenuPageData(items, key, lang = "en") {
+  const item = items.find((i) => i.key === key);
+  if (!item) return {};
+  return {
+    labels: item.labels,
+    coverImage: item.coverImage,
+    label: item.labels[lang], // compatibilidad con destructuración antigua
+  };
 }

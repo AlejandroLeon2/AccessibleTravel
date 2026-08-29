@@ -8,7 +8,7 @@ import BlogAside from '../../components/ui/BlogAside.astro'
 import lenguaje from "../../data/locales/es.json";
 import { getCollection, getEntry } from "astro:content";
 import { getMenuPageData } from "../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
 const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "Blog");
 
 
@@ -16,21 +16,7 @@ const dest = (await getCollection("toursGlobalesEs")).map(({ data }) => data);
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
 
-export const data = {
-  author: {
-    name: "Accessible Travel Peru",
-    role: "Agencia de Viajes Inclusiva",
-    bio: "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú.",
-    image: "/images/gato.jpg",
-    social: {
-      facebook: "https://facebook.com/AccessibleTravelPeru",
-      twitter: "https://twitter.com/AccessibleTravelPeru",
-      linkedin: "https://linkedin.com/company/accessibletravelperu"
-    }
-  },
-  tags: ["Turismo Accesible", "Cultura", "Naturaleza", "Aventura", "Inclusión"],
 
-};
 const articulo = Object.values(await import.meta.glob('./blog/*.mdx', { eager: true }))
 
 ---
@@ -46,7 +32,7 @@ const articulo = Object.values(await import.meta.glob('./blog/*.mdx', { eager: t
 
       ))}
     </section>
-    <BlogAside lenguaje={lenguaje}  data={data} news={articulo} destinos={destinos}/>
+    <BlogAside lenguaje={lenguaje}  news={articulo} destinos={destinos}/>
 </section>
 
   </MainContent>

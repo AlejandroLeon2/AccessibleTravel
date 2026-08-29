@@ -9,8 +9,8 @@ import lenguaje from "../../data/locales/es.json";
 import WhatsappCta from "../../components/ui/WhatsappCta.astro";
 import { getEntry } from "astro:content";
 import { getMenuPageData } from "../../utils/getMenuPageData";
-const menuData = (await getEntry("headerMenuEs", "menu-es"))!.data;
-const { label: pageLabel, coverImage } = getMenuPageData(menuData.items, "AboutUs");
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { label: pageLabel, coverImage } = getMenuPageData(_menuData.items, "AboutUs");
 ---
 
 <Layout

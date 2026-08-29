@@ -2,7 +2,12 @@
 import WhatsappPop from "../ui/WhatsappPop.astro";
 import MessengerPop from "../ui/MessengerPop.astro";
 import { getEntry } from "astro:content";
+
 const data = (await getEntry("siteConfig", "site"))!.data;
+
+// Filtrar contactos por tipo
+const whatsappContacts = data.contactos.filter(c => c.tipo === "whatsapp");
+const messengerContacts = data.contactos.filter(c => c.tipo === "messenger");
 ---
 
 <!-- Botón principal para abrir -->
@@ -10,7 +15,7 @@ const data = (await getEntry("siteConfig", "site"))!.data;
   id="contact-open-btn"
   title="Abrir panel de contacto"
   aria-label="Abrir panel de contacto"
-  class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 rounded-full bg-amber-400 hover:bg-amber-500 active:scale-95 hover:scale-105 duration-300 flex items-center justify-center shadow-lg transition-all"
+  class="fixed bottom-5 right-1 md:right-5 z-50 px-2 py-2 duration-300 rounded-full bg-amber-400 hover:bg-amber-500 active:scale-95 hover:scale-105 duration-300 flex items-center justify-center shadow-lg transition-all"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +45,7 @@ const data = (await getEntry("siteConfig", "site"))!.data;
   <!-- Botón cerrar -->
   <button
     id="contact-close-btn"
-    class="ml-auto mr-2 active:scale-95 hover:scale-105 transition-transform mb-1"
+    class="ml-auto mr-2 active:scale-95 hover:scale-105 duration-300 transition-transform mb-1"
     aria-label="Cerrar panel de contacto"
   >
     <svg
@@ -61,38 +66,26 @@ const data = (await getEntry("siteConfig", "site"))!.data;
   <!-- Título invisible para accesibilidad -->
   <h2 id="contact-panel-title" class="sr-only">Panel de contacto</h2>
 
-  <!-- Contenido del panel -->
-  <div class="flex flex-col space-y-2 ">
-    <!-- WhatsApp 1 con label -->
+<div class="flex flex-col space-y-2">
+  {whatsappContacts.map((contact) => (
     <div class="flex items-center justify-end gap-2">
-      <!-- Label visible siempre a la izquierda -->
       <div class="bg-gray-900 text-white text-xs md:text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-        <span class="font-medium">{data.whatsapp1.tooltipText || "WhatsApp"}</span>
+        <span class="font-medium">{contact.tooltipText || "WhatsApp"}</span>
       </div>
-      <!-- Botón de WhatsApp -->
-      <WhatsappPop data={data.whatsapp1} />
+      <WhatsappPop data={contact} />
     </div>
+  ))}
 
-    <!-- WhatsApp 2 con label -->
+  {messengerContacts.map((contact) => (
     <div class="flex items-center justify-end gap-2">
-      <!-- Label visible siempre a la izquierda -->
       <div class="bg-gray-900 text-white text-xs md:text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-        <span class="font-medium">{data.whatsapp2.tooltipText || "WhatsApp"}</span>
+        <span class="font-medium">{contact.tooltipText || "Messenger"}</span>
       </div>
-      <!-- Botón de WhatsApp -->
-      <WhatsappPop data={data.whatsapp2} />
+      <MessengerPop data={contact} />
     </div>
+  ))}
+</div>
 
-    <!-- Messenger con label -->
-    <div class="flex items-center justify-end gap-2">
-      <!-- Label visible siempre a la izquierda -->
-      <div class="bg-gray-900 text-white text-xs md:text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
-        <span class="font-medium">{data.Messenger.tooltipText || "Messenger"}</span>
-      </div>
-      <!-- Botón de Messenger -->
-      <MessengerPop data={data.Messenger} />
-    </div>
-  </div>
 </div>
 
 <script>

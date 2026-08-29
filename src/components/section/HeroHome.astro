@@ -1,10 +1,11 @@
 ---
 import Play from "../svg/Play.astro";
-const data = {
-  autor: "/images/francisco.webp",
-};
+import { getCollection } from "astro:content";
 const { currentLocale } = Astro;
 const { lenguaje } = Astro.props;
+const siteConfig = (await getCollection("siteConfig"))[0]?.data;
+const heroVideoUrl = siteConfig?.heroVideoUrl;
+const authorImage = siteConfig?.authorImage;
 ---
 
 <section
@@ -16,7 +17,7 @@ const { lenguaje } = Astro.props;
     <iframe
       id="youtube-player"
       class="w-full h-[60svh] max-h-100 lg:max-w-5xl rounded-2xl"
-      src="https://www.youtube.com/embed/PBF2y98Bdn0?si=cL-cuBrIkc3mjlb3"
+      src={heroVideoUrl}
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -54,7 +55,7 @@ const { lenguaje } = Astro.props;
 
       <div class="flex items-center gap-4">
         <img
-          src={data.autor}
+          src={authorImage}
           alt={lenguaje.autorHeroHome.nombreHeroHome}
           class="w-10 h-10 rounded-full object-cover"
           loading="lazy"

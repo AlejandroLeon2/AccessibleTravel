@@ -6,7 +6,7 @@ import MainContent from "../../components/constructor/MainContent.astro";
 import lenguaje from "../../data/locales/en.json";
 import { getCollection, getEntry } from "astro:content";
 import { getMenuPageData } from "../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenuEn", "menu-en"))!.data;
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
 const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "AllToursPeru");
 
 const toursGlobalesEn = await getCollection("toursGlobalesEn");

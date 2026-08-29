@@ -1,5 +1,106 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { resolve } from 'path';
+
+// Hardcoded paths to avoid resolution issues
+const projectRoot = '/Users/alejandro/Desktop/trabajo/AccessibleTravel';
+const contentConfigDir = resolve(projectRoot, 'src/content/config');
+const toursGlobalDir = resolve(projectRoot, 'src/content/tours-global/peru');
+const toursGrupalesDir = resolve(projectRoot, 'src/content/tours-grupales');
+
+const bannerItemSchema = z.object({
+  src: z.string(),
+  alt: z.object({ en: z.string(), es: z.string() }),
+  title: z.object({ en: z.string(), es: z.string() }),
+});
+
+const paymentLogoSchema = z.object({
+  src: z.string(),
+  alt: z.object({ en: z.string(), es: z.string() }),
+  titleLink: z.string(),
+});
+
+const banners = defineCollection({
+  loader: glob({ pattern: 'banners.json', base: contentConfigDir }),
+  schema: z.object({
+    banners: z.array(bannerItemSchema),
+    paymentLogos: z.array(paymentLogoSchema),
+  }),
+});
+
+// HeroGroup schema matching new flat structure with En/Es suffixes
+const heroGroup = defineCollection({
+  loader: glob({ pattern: 'hero-group.json', base: contentConfigDir }),
+  schema: z.object({
+    discountPercent: z.string(),
+    heroVideoUrl: z.string(),
+    descriptionEn: z.string(),
+    descriptionEs: z.string(),
+    includesTitleEn: z.string(),
+    includesTitleEs: z.string(),
+    includesEn: z.array(z.object({ itemEn: z.string(), detailEn: z.string() })),
+    includesEs: z.array(z.object({ itemEs: z.string(), detailEs: z.string() })),
+  }),
+});
+
+// SiteConfig schema matching new structure
+const siteConfig = defineCollection({
+  loader: glob({ pattern: 'site.json', base: contentConfigDir }),
+  schema: z.object({
+    nombre: z.string(),
+    descripcion: z.string(),
+    correo: z.string(),
+    uid: z.string(),
+    heroVideoUrl: z.string(),
+    authorImage: z.string(),
+    contactos: z.array(z.object({
+      tipo: z.string(),
+      pais: z.string().optional(),
+      numero: z.string().optional(),
+      tooltipText: z.string().optional(),
+      mensaje: z.string().optional(),
+      title: z.string().optional(),
+      url: z.string().optional(),
+      valor: z.string().optional(),
+    })),
+    telefonos: z.array(z.object({ pais: z.string(), numero: z.string(), url: z.string() })),
+    direccion: z.string(),
+    direccionHeader: z.object({ pais: z.string(), texto: z.string(), url: z.string() }),
+    redes: z.array(z.object({ tipo: z.string(), icono: z.string(), url: z.string(), handle: z.string(), pais: z.string().optional() })),
+  }),
+});
+
+// Menu schema matching new unified structure with labels object
+const menuItemChildSchema = z.object({
+  key: z.string(),
+  labels: z.object({ en: z.string(), es: z.string() }),
+  href: z.string(),
+  coverImage: z.string(),
+});
+
+const menuItemSchema = z.object({
+  key: z.string(),
+  labels: z.object({ en: z.string(), es: z.string() }),
+  href: z.string(),
+  coverImage: z.string(),
+  children: z.array(menuItemChildSchema).optional(),
+});
+
+const menuSchema = z.object({
+  items: z.array(menuItemSchema),
+});
+
+const headerMenu = defineCollection({
+  loader: glob({ pattern: 'menu.json', base: contentConfigDir }),
+  schema: menuSchema,
+});
+
+const galleryLogos = defineCollection({
+  loader: glob({ pattern: 'gallery-logos.json', base: contentConfigDir }),
+  schema: z.object({
+    galleryLogos: z.array(z.object({ src: z.string(), alt: z.string() })),
+  }),
+});
 
 const globalTourSchema = z.object({
   title: z.string(),
@@ -29,71 +130,18 @@ const globalTourSchema = z.object({
 });
 
 const toursGlobalesEn = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/tours-global/peru/en' }),
+  loader: glob({ pattern: '**/*.json', base: resolve(toursGlobalDir, 'en') }),
   schema: globalTourSchema,
 });
 
 const toursGlobalesEs = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/tours-global/peru/es' }),
+  loader: glob({ pattern: '**/*.json', base: resolve(toursGlobalDir, 'es') }),
   schema: globalTourSchema,
-});
-
-const siteConfig = defineCollection({
-  loader: glob({ pattern: 'site.json', base: './src/content/config' }),
-  schema: z.object({
-    nombre: z.string(),
-    descripcion: z.string(),
-    correo: z.string(),
-    uid: z.string(),
-    whatsapp1: z.object({ numero: z.string(), tooltipText: z.string(), mensaje: z.string(), title: z.string() }),
-    whatsapp2: z.object({ numero: z.string(), tooltipText: z.string(), mensaje: z.string(), title: z.string() }),
-    Messenger: z.object({ valor: z.string(), tooltipText: z.string(), mensaje: z.string(), title: z.string() }),
-    telefonos: z.array(z.object({ pais: z.string(), numero: z.string(), url: z.string() })),
-    direccion: z.string(),
-    direccionHeader: z.object({ pais: z.string(), texto: z.string(), url: z.string() }),
-    redes: z.array(z.object({ icono: z.string(), url: z.string(), handle: z.string(), pais: z.string().optional() })),
-  }),
-});
-
-const menuItemChildSchema = z.object({
-  key: z.string(),
-  label: z.string(),
-  href: z.string(),
-  coverImage: z.string(),
-});
-
-const menuItemSchema = z.object({
-  key: z.string(),
-  label: z.string(),
-  href: z.string(),
-  coverImage: z.string(),
-  children: z.array(menuItemChildSchema).optional(),
-});
-
-const menuSchema = z.object({
-  items: z.array(menuItemSchema),
-});
-
-const headerMenuEs = defineCollection({
-  loader: glob({ pattern: 'menu-es.json', base: './src/content/config' }),
-  schema: menuSchema,
-});
-
-const headerMenuEn = defineCollection({
-  loader: glob({ pattern: 'menu-en.json', base: './src/content/config' }),
-  schema: menuSchema,
-});
-
-const galleryLogos = defineCollection({
-  loader: glob({ pattern: 'gallery-logos.json', base: './src/content/config' }),
-  schema: z.object({
-    galleryLogos: z.array(z.object({ src: z.string(), alt: z.string() })),
-  }),
 });
 
 // Definir el esquema para tours grupales en español
 const toursGrupalesEs = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/tours-grupales/es' }),
+  loader: glob({ pattern: '**/*.json', base: resolve(toursGrupalesDir, 'es') }),
   schema: z.object({
     title: z.string(),
     titleLink: z.string(),
@@ -139,7 +187,7 @@ const toursGrupalesEs = defineCollection({
 
 // Definir el esquema para tours grupales en inglés
 const toursGrupalesEn = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/tours-grupales/en' }),
+  loader: glob({ pattern: '**/*.json', base: resolve(toursGrupalesDir, 'en') }),
   schema: z.object({
     title: z.string(),
     titleLink: z.string(),
@@ -186,8 +234,9 @@ const toursGrupalesEn = defineCollection({
 export const collections = {
   siteConfig,
   galleryLogos,
-  headerMenuEs,
-  headerMenuEn,
+  banners,
+  heroGroup,
+  headerMenu,
   toursGlobalesEn,
   toursGlobalesEs,
   toursGrupalesEs,

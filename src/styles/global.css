@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./animations.css";
+@import "./markdown-content.css";
 
 @font-face {
     font-family: "TAN Nimbus";

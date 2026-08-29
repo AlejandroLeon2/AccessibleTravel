@@ -1,7 +1,7 @@
 ---
 import FlechaCorta from "../svg/FlechaCorta.astro";
 
-const {lenguaje} =Astro.props;
+const { banners } = Astro.props;
 ---
 
 <slider-portada class="block bg-white relative mx-auto w-full h-[50svh] sm:h-[60svh] md:h-[70svh] min-h-100 max-h-150 overflow-hidden group">
@@ -14,7 +14,7 @@ const {lenguaje} =Astro.props;
   </button>
 
   <div class="relative w-full h-full" id="slider-container">
-    {lenguaje.banners.map((banner, index) => (
+    {banners.map((banner, index) => (
       <div 
         class={`banner-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         data-index={index}

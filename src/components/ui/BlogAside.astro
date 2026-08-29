@@ -2,8 +2,11 @@
 import BlogNew from "../section/BlogNew.astro";
 import DestinoAside from "../section/DestinoAside.astro";
 import FormAside from "./FormAside.astro";
+import { getCollection } from "astro:content";
 const { lenguaje, destinos, news } = Astro.props;
 const { currentLocale } = Astro;
+const siteConfig = (await getCollection("siteConfig"))[0]?.data;
+const authorImage = siteConfig?.authorImage;
 ---
 
 <aside
@@ -12,7 +15,7 @@ const { currentLocale } = Astro;
   <!-- Perfil -->
   <section class="text-center">
     <img
-      src="/images/francisco.webp"
+      src={authorImage}
       alt={lenguaje.aboutTitle}
       title={`Foto de ${lenguaje.aboutTitle}`}
       class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-gray-200"

@@ -3,6 +3,7 @@ const { lenguaje, groupTours = [] } = Astro.props;
 
 import Times from "../constructor/Times.astro";
 import { getCollection } from "astro:content";
+import ShareButtonsAstroComponent  from "../ui/ShareButtons.astro";
 
 const travels = (await getCollection("toursGlobalesEn")).map(({ data }) => ({
   ...data,
@@ -47,11 +48,19 @@ const selectedTour = closestTour || groupTours[0];
 
 // Verificar si el tour seleccionado está agotado
 const isSoldOut = selectedTour?.agotado === true;
+
+// Get hero group config - new schema with En/Es suffixes
+const siteConfig = (await getCollection("siteConfig"))[0]?.data;
+
+const heroGroupData = (await getCollection("heroGroup"))[0]?.data;
+const heroVideoNoCookieUrl = heroGroupData?.heroVideoUrl;
+const includesTitle = heroGroupData?.includesTitleEn ?? heroGroupData?.includesTitleEs ?? lenguaje.heroGroupIncluyeTitulo;
+const includes = lenguaje === 'en' ? heroGroupData?.includesEn ?? [] : heroGroupData?.includesEs ?? [];
 ---
 
 <section class="flex flex-col gap-6 p-6 max-w-6xl mx-auto">
   <header
-    class="flex md:col-span-2 flex-col md:flex-row items-start justify-center gap-4 bg-gray-100 p-4 rounded-xl shadow"
+    class="flex md:col-span-2 flex-col md:flex-row items-center justify-around gap-4 bg-gray-100 p-4 rounded-xl shadow"
   >
     <div class="text-left gap-4 flex md:max-w-50 justify-center items-center">
       <p
@@ -72,33 +81,39 @@ const isSoldOut = selectedTour?.agotado === true;
       isHero={true}
     />
   </header>
-  <div class="flex flex-col lg:flex-row justify-between space-y-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 space-y-2">
+    <div class="w-full flex flex-col space-y-4 justify-center items-center">
     <iframe
       class="w-full h-[50svh] max-h-100 lg:max-w-xl rounded-2xl"
-      src="https://www.youtube-nocookie.com/embed/0sX7dygdxLE?si=9IbAGsWLQyNV_Swg"
+      src={heroVideoNoCookieUrl}
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen></iframe>
-
+      <ShareButtonsAstroComponent  lenguaje={lenguaje} />
+</div>
     <div class="bg-white w-full lg:max-w-md rounded-xl p-4">
       <h3 class="text-lg font-semibold mb-4">
-        {lenguaje.heroGroupIncluyeTitulo}
+        {includesTitle}
       </h3>
       <ul class="space-y-3">
         {
-          lenguaje.includes.map((item, i) => (
-            <li class="flex items-start gap-2">
-              <span class="text-green-600 font-bold">✓</span>
-              <span>
-                <span class="font-medium">{item}</span>:
-                <span class="text-gray-600 text-sm">
-                  {lenguaje.detalles[i]}
+          includes.map((inc) => {
+            const item = lenguaje === 'en' ? inc.itemEn : inc.itemEs;
+            const detail = lenguaje === 'en' ? inc.detailEn : inc.detailEs;
+            return (
+              <li class="flex items-start gap-2">
+                <span class="text-green-600 font-bold">✓</span>
+                <span>
+                  <span class="font-medium">{item}</span>:
+                  <span class="text-gray-600 text-sm">
+                    {detail}
+                  </span>
                 </span>
-              </span>
-            </li>
-          ))
+              </li>
+            );
+          })
         }
       </ul>
     </div>

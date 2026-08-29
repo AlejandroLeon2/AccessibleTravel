@@ -1,0 +1,82 @@
+{
+  "banners": [
+    {
+      "src": "/images/banner7.webp",
+      "alt": {
+        "en": "Cliff view",
+        "es": "Vista desde el acantilado"
+      },
+      "title": {
+        "en": "Make your Dream Vacations Come True",
+        "es": "Haz realidad tus vacaciones soñadas"
+      }
+    },
+    {
+      "src": "/images/banner2.webp",
+      "alt": {
+        "en": "Hiking rocky terrain",
+        "es": "Senderismo en terreno rocoso"
+      },
+      "title": {
+        "en": "Trust in The Best... Trust in Accessible Travel Peru",
+        "es": "Confía en los mejores... Confía en Accessible Travel Peru"
+      }
+    },
+    {
+      "src": "/images/banner1.webp",
+      "alt": {
+        "en": "Tent near lake",
+        "es": "Tienda junto al lago"
+      },
+      "title": {
+        "en": "The Best Accessible Service in Peru",
+        "es": "El mejor servicio accesible en Peru"
+      }
+    },
+    {
+      "src": "/images/bannerAmaz.jpeg",
+      "alt": {
+        "en": "Tent near lake",
+        "es": "Tienda junto al lago"
+      },
+      "title": {
+        "en": "break free from the routine and dive into the wild. Experience a truly barrier-free Amazon.",
+        "es": "Libérate de la rutina y sumérgete en lo salvaje. Vive un Amazonas verdaderamente sin barreras."
+      }
+    }
+  ],
+  "paymentLogos": [
+    {
+      "src": "/images/logos/logo-amex-min.webp",
+      "alt": {
+        "en": "Logo of American Express, global financial services corporation",
+        "es": "Logo de American Express, corporación global de servicios financieros"
+      },
+      "titleLink": "american-express-logo"
+    },
+    {
+      "src": "/images/logos/logo-diners-min.webp",
+      "alt": {
+        "en": "Logo of Diners Club International, credit card company",
+        "es": "Logo de Diners Club International, compañía de tarjetas de crédito"
+      },
+      "titleLink": "diners-club-international-logo"
+    },
+    {
+      "src": "/images/logos/logo-mastercard-min.webp",
+      "alt": {
+        "en": "Logo of Mastercard, multinational financial services corporation",
+        "es": "Logo de Mastercard, corporación multinacional de servicios financieros"
+      },
+      "titleLink": "mastercard-logo"
+    },
+    {
+      "src": "/images/logos/logo-visa-min.webp",
+      "alt": {
+        "en": "Logo of Visa, global digital payments technology company",
+        "es": "Logo de Visa, empresa global de tecnología de pagos digitales"
+      },
+      "titleLink": "visa-logo"
+    }
+  ]
+}

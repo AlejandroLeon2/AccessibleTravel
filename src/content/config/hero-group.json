@@ -1,0 +1,76 @@
+{
+  "discountPercent": "10",
+  "descriptionEn": "Discover great accessible deals across Peru",
+  "descriptionEs": "Descubre grandes ofertas accesibles en todo el Perú",
+  "includesTitleEn": "What does it include?",
+  "includesTitleEs": "¿Qué incluye?",
+  "heroVideoUrl": "https://www.youtube.com/embed/0sX7dygdxLE?si=ZTKpelIAKnzre8yw",
+  "includesEn": [
+    {
+      "itemEn": "Adapted Hotels",
+      "detailEn": "Expertly crafted accessible tours designed for seamless travel and the ultimate visitor experience."
+    },
+    {
+      "itemEn": "Accessible Routes",
+      "detailEn": "All offer-based services (tours, equipment)."
+    },
+    {
+      "itemEn": "Specialized Equipment",
+      "detailEn": "Bilingual local tour guides (Spanish / English)."
+    },
+    {
+      "itemEn": "Official Tour Guides",
+      "detailEn": "Dedicated support staff available at all times and a qualified nurse for first-aid assistance."
+    },
+    {
+      "itemEn": "Support Staff",
+      "detailEn": "Tickets and access to Machu Picchu + round trip train tickets."
+    },
+    {
+      "itemEn": "Train Tickets & Entrances",
+      "detailEn": "Includes all domestic round-trip flights within Peru."
+    },
+    {
+      "itemEn": "Domestic flights",
+      "detailEn": "Maybe... you like heavy raining in the tour."
+    },
+    {
+      "itemEn": "Climatic Events & Warnings",
+      "detailEn": "Climatic events and warnings information."
+    }
+  ],
+  "includesEs": [
+    {
+      "itemEs": "Hoteles adaptados",
+      "detailEs": "Tours accesibles diseñados con experiencia para un viaje sin contratiempos y la mejor experiencia del visitante."
+    },
+    {
+      "itemEs": "Rutas accesibles",
+      "detailEs": "Todos los servicios incluidos en la oferta (tours, equipamiento)."
+    },
+    {
+      "itemEs": "Equipamiento especializado",
+      "detailEs": "Guías turísticos locales bilingües (español / inglés)."
+    },
+    {
+      "itemEs": "Guías turísticos oficiales",
+      "detailEs": "Personal de apoyo disponible en todo momento y una enfermera calificada para asistencia de primeros auxilios."
+    },
+    {
+      "itemEs": "Personal de apoyo",
+      "detailEs": "Entradas y acceso a Machu Picchu + boletos de tren de ida y vuelta."
+    },
+    {
+      "itemEs": "Boletos de tren y entradas",
+      "detailEs": "Incluye todos los vuelos nacionales de ida y vuelta dentro del Perú."
+    },
+    {
+      "itemEs": "Vuelos nacionales",
+      "detailEs": "Tal vez... disfrutes de fuertes lluvias durante el tour."
+    },
+    {
+      "itemEs": "Eventos climáticos y advertencias",
+      "detailEs": "Información sobre eventos climáticos y advertencias."
+    }
+  ]
+}

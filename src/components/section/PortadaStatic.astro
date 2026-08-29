@@ -6,11 +6,11 @@ const { url = "/images/gato.jpg", title, style, texto } = Astro.props;
   <img
     src={url}
     alt={title}
-    class=` w-full lg:max-h-70 xl:max-h-90  h-[50svh] object-cover  `
+    class=` w-full lg:max-h-70 xl:max-h-90 select-none  h-[50svh] object-cover  `
     decoding="async"
   />
   <p
-    class=`text-center absolute top-20 right-0 left-0 text-white z-1 text-5xl ${style}`
+    class=`text-center absolute top-20 select-none right-0 left-0 text-white z-1 text-5xl ${style}`
   >
     {texto}
   </p>
