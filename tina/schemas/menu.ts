@@ -1,4 +1,5 @@
 import type { Collection } from 'tinacms';
+import { FixedList } from "../components/FixedList";
 
 const menuItemChildSchema = {
   type: 'object' as const,
@@ -6,12 +7,13 @@ const menuItemChildSchema = {
   label: 'Submenú',
   list: true,
   ui: { itemProps: (item) => ({ label: `${item?.labels?.es || item?.labels?.en || ''} (${item?.href || ''})` }) },
+  description: 'Elementos del submenú desplegable. Se muestran al hacer clic o hover sobre el ítem padre.',
   fields: [
     {
       type: 'string' as const,
       name: 'key',
       label: 'Clave interna',
-      description: 'Identificador único del ítem. Ejemplo: "ContactUs", "AboutUs".',
+      description: 'Identificador único del ítem. Debe coincidir con el usado en el código. Ejemplo: "ContactUs", "AboutUs".',
       required: true,
     },
     {
@@ -20,9 +22,21 @@ const menuItemChildSchema = {
       label: 'Etiquetas por idioma',
       description: 'Traducciones del texto visible en el menú.',
       fields: [
-        { type: 'string', name: 'en', label: 'Etiqueta EN', description: 'Ejemplo: "Contact Us".', required: true },
-        { type: 'string', name: 'es', label: 'Etiqueta ES', description: 'Ejemplo: "Contáctanos".', required: true }
-      ]
+        {
+          type: 'string',
+          name: 'en',
+          label: 'Etiqueta EN',
+          description: 'Texto en inglés que se muestra en el menú. Ejemplo: "Contact Us"',
+          required: true,
+        },
+        {
+          type: 'string',
+          name: 'es',
+          label: 'Etiqueta ES',
+          description: 'Texto en español que se muestra en el menú. Ejemplo: "Contáctanos"',
+          required: true,
+        },
+      ],
     },
     {
       type: 'string' as const,
@@ -34,8 +48,8 @@ const menuItemChildSchema = {
     {
       type: 'image' as const,
       name: 'coverImage',
-      label: 'Imagen',
-      description: 'Imagen asociada al ítem del menú. Ejemplo: "/images/machu.webp".',
+      label: 'Imagen de portada',
+      description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/machu.webp".',
       required: true,
     },
   ],
@@ -52,15 +66,18 @@ export const headerMenu = {
     {
       type: 'object',
       name: 'items',
-      label: 'Ítems del menú',
+      label: 'Ítems del menú (No modificar por el momento)',
       list: true,
-      ui: { itemProps: (item) => ({ label: `${item?.labels?.es || item?.labels?.en || ''} (${item?.href || ''})` }) },
+      ui: { itemProps: (item) => ({ label: `${item?.labels?.es || item?.labels?.en || ''} (${item?.href || ''})` }),
+    //component: FixedList,
+    },
+      description: 'Elementos principales del menú de navegación. Se muestran en el header del sitio.',
       fields: [
         {
           type: 'string',
           name: 'key',
           label: 'Clave interna',
-          description: 'Identificador único del ítem. Ejemplo: "Home", "Blog".',
+          description: 'Identificador único del ítem. Debe coincidir con el usado en el código para resolver la página. Ejemplo: "Home", "Blog".',
           required: true,
         },
         {
@@ -69,9 +86,21 @@ export const headerMenu = {
           label: 'Etiquetas por idioma',
           description: 'Traducciones del texto visible en el menú.',
           fields: [
-            { type: 'string', name: 'en', label: 'Etiqueta EN', description: 'Ejemplo: "Home".', required: true },
-            { type: 'string', name: 'es', label: 'Etiqueta ES', description: 'Ejemplo: "Inicio".', required: true }
-          ]
+            {
+              type: 'string',
+              name: 'en',
+              label: 'Etiqueta EN',
+              description: 'Texto en inglés que se muestra en el menú. Ejemplo: "Home"',
+              required: true,
+            },
+            {
+              type: 'string',
+              name: 'es',
+              label: 'Etiqueta ES',
+              description: 'Texto en español que se muestra en el menú. Ejemplo: "Inicio"',
+              required: true,
+            },
+          ],
         },
         {
           type: 'string',
@@ -83,8 +112,8 @@ export const headerMenu = {
         {
           type: 'image',
           name: 'coverImage',
-          label: 'Imagen',
-          description: 'Imagen asociada al ítem del menú. Ejemplo: "/images/new2principal.webp".',
+          label: 'Imagen de portada',
+          description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/new2principal.webp".',
           required: true,
         },
         menuItemChildSchema,

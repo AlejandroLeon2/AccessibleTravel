@@ -5,8 +5,8 @@ import { banners } from './schemas/banners';
 import { heroGroup } from './schemas/hero-group';
 import { blogEs } from './schemas/blog-es';
 import { blogEn } from './schemas/blog-en';
-import { toursGrupalesEs } from './schemas/tours-grupales-es';
-import { toursGlobalesEs } from './schemas/tours-global-es';
+import { toursGrupales } from './schemas/tours-grupales';
+import { toursGlobales } from './schemas/tours-global';
 import { headerMenu } from './schemas/menu';
 
 
@@ -56,28 +56,28 @@ export default defineConfig({
       blogEn,
       // Tours grupales - Spanish version (base schema with Spanish labels)
       {
-        ...toursGrupalesEs,
+        ...toursGrupales,
         name: 'toursGrupalesEs',
         label: 'Tours Grupales ES',
         path: 'src/content/tours-grupales/es',
       },
       // Tours grupales - English version (same schema, different path)
       {
-        ...toursGrupalesEs,
+        ...toursGrupales,
         name: 'toursGrupalesEn',
         label: 'Group Tours EN',
         path: 'src/content/tours-grupales/en',
       },
       // Tours globales - Spanish version (base schema with Spanish labels)
       {
-        ...toursGlobalesEs,
+        ...toursGlobales,
         name: 'toursGlobalesEs',
         label: 'Tours Peru ES',
         path: 'src/content/tours-global/peru/es',
       },
       // Tours globales - English version (same schema, different path)
       {
-        ...toursGlobalesEs,
+        ...toursGlobales,
         name: 'toursGlobalesEn',
         label: 'Tours Peru (EN)',
         path: 'src/content/tours-global/peru/en',

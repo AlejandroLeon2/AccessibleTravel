@@ -6,6 +6,8 @@ import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import tina from '@tinacms/astro/integration';
 import mdx from "@astrojs/mdx";
 
+import react from '@astrojs/react';
+
 export default defineConfig({
   site: 'https://accessibletravelperu.com',
   output: 'static',
@@ -28,8 +30,5 @@ export default defineConfig({
     }
   },
 
-  integrations: [
-    tina(),mdx(),
-     sitemap()
-  ],
+  integrations: [tina(), mdx(), sitemap(), react()],
 });

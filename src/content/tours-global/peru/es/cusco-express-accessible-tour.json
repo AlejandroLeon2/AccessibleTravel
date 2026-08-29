@@ -1,15 +1,19 @@
 {
   "title": "Cusco Express",
   "titleLink": "cusco-express-accessible-tour",
-  "location": "Machupicchu, Perú",
   "operator": "Accessible Travel Peru",
-  "rating": 4,
-  "recomendado": false,
   "duration": "4",
+  "location": "Machupicchu, Perú",
   "groupSize": "2 - 8",
+  "rating": 4,
+  "reviews": 37,
+  "recomendado": false,
+  "siempreFecha": false,
+  "agotado": true,
   "description": "¡Prepárate para una inolvidable aventura de 4 días en el corazón del Imperio Inca! Este tour express es perfecto para aquellos que quieren experimentar lo mejor de Cusco, el Valle Sagrado y el impresionante Machu Picchu en un viaje corto pero inmersivo. Comienza con un city tour guiado de Cusco, donde explorarás sus monumentos históricos y su vibrante cultura. Luego, viaja al Valle Sagrado, una de las regiones más bellas y significativas de Perú. Finalmente, experimenta la maravilla de Machu Picchu, la joya de la corona de los Andes, con una excursión de día completo a este sitio icónico. En solo cuatro días, descubrirás la magia de la antigua herencia inca, paisajes impresionantes y ricas tradiciones, sin prisas.",
   "slogan": "Accessible Travel Peru 🇵🇪 – Haciendo Perú Accesible para Todos ♿",
   "contact": "Escríbenos por WhatsApp... ¡haz clic aquí!",
+  "highlights": [],
   "includes": [
     "Alojamiento en hotel 4* (Habitación doble)",
     "Vans accesibles (Autos turísticos adaptados para usuarios de silla de ruedas en todos los destinos)",
@@ -103,9 +107,5 @@
     "book": "https://accessibletravelperu.wetravel.com/trips/cusco-express-accessible-travel-peru-56427200",
     "brochure": "Descargar folleto",
     "inquire": "Hacer una pregunta"
-  },
-  "highlights": [],
-  "reviews": 37,
-  "siempreFecha": false,
-  "agotado": false
+  }
 }
