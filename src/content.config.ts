@@ -1,9 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-// Hardcoded paths to avoid resolution issues
-const projectRoot = '/Users/alejandro/Desktop/trabajo/AccessibleTravel';
+// Dynamic project root derived from this file's location (src/content.config.ts)
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const projectRoot = resolve(__dirname, '..');
 const contentConfigDir = resolve(projectRoot, 'src/content/config');
 const toursGlobalDir = resolve(projectRoot, 'src/content/tours-global/peru');
 const toursGrupalesDir = resolve(projectRoot, 'src/content/tours-grupales');
