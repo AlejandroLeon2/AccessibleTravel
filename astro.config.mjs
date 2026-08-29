@@ -29,7 +29,7 @@ export default defineConfig({
   },
 
   integrations: [
-    tina(),mdx()
-     //sitemap()
+    tina(),mdx(),
+     sitemap()
   ],
 });
