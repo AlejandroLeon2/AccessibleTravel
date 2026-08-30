@@ -83,14 +83,14 @@
   ],
   "images": [
     {
-      "link": "/images/tours/tour-INcWyGzTnKtDfwkGnilg.webp",
-      "alt": "Vista panorámica de la ciudad del Cusco",
-      "title": "Vista de la Ciudad del Cusco"
-    },
-    {
       "link": "/images/tours/tour-DXa4j6oATRiSmsA1KmE4.webp",
       "alt": "Terrazas en el Valle Sagrado",
       "title": "Paisaje del Valle Sagrado"
+    },
+    {
+      "link": "/images/tours/tour-INcWyGzTnKtDfwkGnilg.webp",
+      "alt": "Vista panorámica de la ciudad del Cusco",
+      "title": "Vista de la Ciudad del Cusco"
     },
     {
       "link": "/images/tours/tour-DtdxsYr9TeKIX0SNoxdc.webp",
