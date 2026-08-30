@@ -1,4 +1,3 @@
-
 name: Build and Deploy Website
 
 on:
@@ -31,88 +30,6 @@ jobs:
           node --version
           echo "pnpm:"
           pnpm --version
-          echo "OpenSSL:"
-          openssl version
-          echo "curl:"
-          curl --version | head -n 1
-
-      - name: Diagnose DNS
-        run: |
-          echo "======================================"
-          echo "DNS DIAGNOSTIC"
-          echo "======================================"
-
-          HOST="ftp.accessibletravelperu.com"
-
-          echo "Host: $HOST"
-          echo ""
-          echo "DNS:"
-          getent hosts "$HOST" || true
-
-          echo ""
-          echo "IPv4:"
-          getent ahostsv4 "$HOST" || true
-
-          echo ""
-          echo "IPv6:"
-          getent ahostsv6 "$HOST" || true
-
-      - name: Test FTP port 21
-        run: |
-          echo "======================================"
-          echo "PORT 21 TEST"
-          echo "======================================"
-
-          HOST="ftp.accessibletravelperu.com"
-
-          if timeout 15 bash -c "</dev/tcp/$HOST/21"; then
-            echo "SUCCESS: Port 21 is reachable"
-          else
-            echo "ERROR: Port 21 is NOT reachable"
-            exit 1
-          fi
-
-      - name: Test FTP connection
-        run: |
-          echo "======================================"
-          echo "PLAIN FTP TEST"
-          echo "======================================"
-
-          curl \
-            --verbose \
-            --connect-timeout 15 \
-            --max-time 30 \
-            --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" \
-            "ftp://ftp.accessibletravelperu.com/" \
-            || true
-
-      - name: Test Explicit FTPS
-        run: |
-          echo "======================================"
-          echo "EXPLICIT FTPS TEST"
-          echo "======================================"
-
-          curl \
-            --verbose \
-            --ftp-ssl \
-            --ftp-ssl-reqd \
-            --connect-timeout 15 \
-            --max-time 30 \
-            --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" \
-            "ftp://ftp.accessibletravelperu.com/" \
-            || true
-
-      - name: Test FTPS TLS handshake
-        run: |
-          echo "======================================"
-          echo "FTPS TLS HANDSHAKE"
-          echo "======================================"
-
-          timeout 20 openssl s_client \
-            -connect ftp.accessibletravelperu.com:21 \
-            -starttls ftp \
-            -servername ftp.accessibletravelperu.com \
-            </dev/null || true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -127,16 +44,10 @@ jobs:
 
       - name: Verify static build
         run: |
-          echo "======================================"
-          echo "BUILD CHECK"
-          echo "======================================"
-
           test -f dist/index.html
-
-          echo "dist/index.html exists"
-          echo ""
-          echo "Number of files:"
-          find dist -type f | wc -l
+          echo "Static build generated successfully"
+          echo "Files to deploy:"
+          find dist -type f | sort
 
       - name: Deploy ONLY dist to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
@@ -147,4 +58,4 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ./dist/
-          server-dir: /public_html/
+          server-dir: /
