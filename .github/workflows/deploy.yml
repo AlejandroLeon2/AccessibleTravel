@@ -1,4 +1,4 @@
-```yaml
+
 name: Build and Deploy Website
 
 on:
@@ -148,4 +148,3 @@ jobs:
           port: 21
           local-dir: ./dist/
           server-dir: /public_html/
-```
