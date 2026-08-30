@@ -1,5 +1,5 @@
 ```yaml
-name: Diagnose FTP and Deploy
+name: Build and Deploy Website
 
 on:
   push:
@@ -7,69 +7,35 @@ on:
       - main
 
 jobs:
-  diagnose-and-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-
-      # ---------------------------------------------------------
-      # 1. Código
-      # ---------------------------------------------------------
       - name: Checkout
         uses: actions/checkout@v5
 
-
-      # ---------------------------------------------------------
-      # 2. Node
-      # ---------------------------------------------------------
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
           node-version: 24
 
-
-      # ---------------------------------------------------------
-      # 3. PNPM
-      # ---------------------------------------------------------
       - name: Enable Corepack
         run: corepack enable
 
       - name: Setup pnpm
         run: corepack prepare pnpm@10 --activate
 
-
-      # ---------------------------------------------------------
-      # 4. Verificar entorno
-      # ---------------------------------------------------------
       - name: Verify environment
         run: |
-          echo "======================================"
-          echo "SYSTEM"
-          echo "======================================"
-
-          echo "OS:"
-          uname -a
-
-          echo ""
           echo "Node:"
           node --version
-
-          echo ""
           echo "pnpm:"
           pnpm --version
-
-          echo ""
           echo "OpenSSL:"
           openssl version
-
-          echo ""
           echo "curl:"
           curl --version | head -n 1
 
-
-      # ---------------------------------------------------------
-      # 5. DNS
-      # ---------------------------------------------------------
       - name: Diagnose DNS
         run: |
           echo "======================================"
@@ -78,12 +44,9 @@ jobs:
 
           HOST="ftp.accessibletravelperu.com"
 
+          echo "Host: $HOST"
           echo ""
-          echo "Resolving:"
-          echo "$HOST"
-
-          echo ""
-          echo "getent:"
+          echo "DNS:"
           getent hosts "$HOST" || true
 
           echo ""
@@ -94,10 +57,6 @@ jobs:
           echo "IPv6:"
           getent ahostsv6 "$HOST" || true
 
-
-      # ---------------------------------------------------------
-      # 6. Puerto 21
-      # ---------------------------------------------------------
       - name: Test FTP port 21
         run: |
           echo "======================================"
@@ -106,74 +65,32 @@ jobs:
 
           HOST="ftp.accessibletravelperu.com"
 
-          echo ""
-          echo "Testing TCP connection to:"
-          echo "$HOST:21"
-
           if timeout 15 bash -c "</dev/tcp/$HOST/21"; then
-            echo ""
-            echo "======================================"
-            echo "SUCCESS: PORT 21 IS REACHABLE"
-            echo "======================================"
+            echo "SUCCESS: Port 21 is reachable"
           else
-            echo ""
-            echo "======================================"
-            echo "ERROR: PORT 21 IS NOT REACHABLE"
-            echo "======================================"
+            echo "ERROR: Port 21 is NOT reachable"
             exit 1
           fi
 
-
-      # ---------------------------------------------------------
-      # 7. Obtener banner FTP
-      # ---------------------------------------------------------
-      - name: Read FTP server banner
-        run: |
-          echo "======================================"
-          echo "FTP SERVER BANNER"
-          echo "======================================"
-
-          HOST="ftp.accessibletravelperu.com"
-
-          timeout 15 bash -c \
-            "exec 3<>/dev/tcp/$HOST/21; head -c 1024 <&3" \
-            || true
-
-
-      # ---------------------------------------------------------
-      # 8. FTP sin TLS
-      # ---------------------------------------------------------
-      - name: Test plain FTP
+      - name: Test FTP connection
         run: |
           echo "======================================"
           echo "PLAIN FTP TEST"
           echo "======================================"
 
-          HOST="ftp.accessibletravelperu.com"
-          USERNAME="${{ secrets.FTP_USERNAME }}"
-          PASSWORD="${{ secrets.FTP_PASSWORD }}"
-
           curl \
             --verbose \
             --connect-timeout 15 \
             --max-time 30 \
-            --user "$USERNAME:$PASSWORD" \
-            "ftp://$HOST/" \
+            --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" \
+            "ftp://ftp.accessibletravelperu.com/" \
             || true
 
-
-      # ---------------------------------------------------------
-      # 9. Explicit FTPS
-      # ---------------------------------------------------------
       - name: Test Explicit FTPS
         run: |
           echo "======================================"
           echo "EXPLICIT FTPS TEST"
           echo "======================================"
-
-          HOST="ftp.accessibletravelperu.com"
-          USERNAME="${{ secrets.FTP_USERNAME }}"
-          PASSWORD="${{ secrets.FTP_PASSWORD }}"
 
           curl \
             --verbose \
@@ -181,44 +98,25 @@ jobs:
             --ftp-ssl-reqd \
             --connect-timeout 15 \
             --max-time 30 \
-            --user "$USERNAME:$PASSWORD" \
-            "ftp://$HOST/" \
+            --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" \
+            "ftp://ftp.accessibletravelperu.com/" \
             || true
 
-
-      # ---------------------------------------------------------
-      # 10. OpenSSL FTPS handshake
-      # ---------------------------------------------------------
-      - name: Test TLS handshake
+      - name: Test FTPS TLS handshake
         run: |
           echo "======================================"
-          echo "TLS / FTPS HANDSHAKE"
+          echo "FTPS TLS HANDSHAKE"
           echo "======================================"
 
-          HOST="ftp.accessibletravelperu.com"
-
-          echo ""
-          echo "Connecting using Explicit FTPS..."
-          echo ""
-
           timeout 20 openssl s_client \
-            -connect "$HOST:21" \
+            -connect ftp.accessibletravelperu.com:21 \
             -starttls ftp \
-            -servername "$HOST" \
-            </dev/null \
-            || true
+            -servername ftp.accessibletravelperu.com \
+            </dev/null || true
 
-
-      # ---------------------------------------------------------
-      # 11. Instalar dependencias
-      # ---------------------------------------------------------
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-
-      # ---------------------------------------------------------
-      # 12. Build
-      # ---------------------------------------------------------
       - name: Build TinaCMS + Astro
         run: pnpm build
         env:
@@ -227,33 +125,19 @@ jobs:
           PUBLIC_TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
           TINA_BRANCH: main
 
-
-      # ---------------------------------------------------------
-      # 13. Verificar dist
-      # ---------------------------------------------------------
       - name: Verify static build
         run: |
           echo "======================================"
-          echo "BUILD"
+          echo "BUILD CHECK"
           echo "======================================"
 
           test -f dist/index.html
 
-          echo ""
-          echo "dist/index.html exists."
-
+          echo "dist/index.html exists"
           echo ""
           echo "Number of files:"
           find dist -type f | wc -l
 
-          echo ""
-          echo "First files:"
-          find dist -type f | sort | head -100
-
-
-      # ---------------------------------------------------------
-      # 14. DEPLOY
-      # ---------------------------------------------------------
       - name: Deploy ONLY dist to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
