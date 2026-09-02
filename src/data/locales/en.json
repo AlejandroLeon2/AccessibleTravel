@@ -194,5 +194,8 @@
 
   "aboutCantidadClientes": "2,000+ Clients worldwide",
   "aboutAniosExperiencia": "10 Years of experience",
-  "shared": "Share via"
+  "shared": "Share via",
+  "toastCopiado": "Link copied!",
+  "toastErrorCopiar": "Could not copy",
+  "toastInstagram": "Link copied. Open Instagram and paste it in your story"
 }

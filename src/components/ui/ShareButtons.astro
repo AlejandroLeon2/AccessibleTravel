@@ -1,26 +1,45 @@
 ---
 import { getEntry } from "astro:content";
 import SharedIconAstroComponent from "../icons/SharedIcon.astro";
+import  Facebook  from "../svg/Facebook.astro";
+import  Whatsapp  from "../svg/Whatsapp.astro";
+import  Instagram  from "../svg/Instagram.astro";
 
 const data = (await getEntry("siteConfig", "site"))!.data;
 const siteName = data.nombre || "Accessible Travel Peru";
 const { lenguaje, bandera = true } = Astro.props;
+const toastTexts = { success: lenguaje.toastCopiado, error: lenguaje.toastErrorCopiar, instagram: lenguaje.toastInstagram };
 ---
 
 {bandera ? (
   <div class="flex gap-3 items-center overflow-hidden">
     <p class="flex justify-between items-center gap-4">
       <span class="text-gray-700 font-bold">{lenguaje.shared}</span>
-      <SharedIconAstroComponent class="text-azul-travel duration-300 h-8 w-8 md:w-7 md:h-7" />
+
+      <button
+        type="button"
+        data-copy-link
+        aria-label="Copiar enlace"
+        class="text-azul-travel duration-300 h-8 w-8 md:w-7 md:h-7 hover:opacity-70 active:scale-90"
+      >
+        <SharedIconAstroComponent class="h-full w-full pointer-events-none" />
+      </button>
     </p>
     <a data-share="whatsapp" href="#" target="_blank" rel="noopener noreferrer"
-       class="px-3 py-2 rounded bg-green-500 text-white text-sm hover:bg-green-600 transition">
-      WhatsApp
+       class=" rounded  text-white text-sm  transition">
+      <Whatsapp class=""   height="38" width="38"  />
     </a>
     <a data-share="facebook" href="#" target="_blank" rel="noopener noreferrer"
-       class="px-3 py-2 rounded bg-blue-600 text-white text-sm hover:bg-blue-700 transition">
-      Facebook
+       class="p-2 rounded bg-blue-600 text-white text-sm hover:bg-blue-700 transition">
+      <Facebook height="22" width="22" />
     </a>
+    <button
+      type="button"
+      data-share="instagram"
+      class=" rounded bg-white text-white text-sm hover:opacity-80 transition"
+    >
+      <Instagram size={34} />
+    </button>
   </div>
 ) : (
   <div class="fixed right-16  md:right-24 flex flex-col items-end bottom-6 w-30 space-y-2 z-50">
@@ -38,6 +57,13 @@ const { lenguaje, bandera = true } = Astro.props;
          class="px-3 py-2 rounded bg-blue-600 text-white text-sm hover:bg-blue-700 transition">
         Facebook
       </a>
+      <button
+        type="button"
+        data-share="instagram"
+        class="px-3 py-2 rounded bg-gradient-to-br from-yellow-500 via-pink-500 to-purple-600 text-white text-sm hover:opacity-80 transition"
+      >
+        Instagram
+      </button>
     </div>
         <button
       type="button"
@@ -51,7 +77,20 @@ const { lenguaje, bandera = true } = Astro.props;
   </div>
 )}
 
-<script define:vars={{ siteName }}>
+<style is:global>
+  @reference "tailwindcss";
+  .toast-share {
+    @apply fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-3
+           bg-slate-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold
+           opacity-0 pointer-events-none z-[9999]
+           transition-all duration-300 ease-out;
+  }
+  .toast-share.show {
+    @apply opacity-100 translate-y-0;
+  }
+</style>
+
+<script define:vars={{ siteName, toastTexts }}>
   function initShare() {
     const currentUrl = window.location.href;
     const text = `${siteName} ${currentUrl}`;
@@ -64,27 +103,61 @@ const { lenguaje, bandera = true } = Astro.props;
       el.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
     });
 
+    document.querySelectorAll('[data-share="instagram"]').forEach((el) => {
+      el.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(currentUrl);
+          showToast(toastTexts.instagram);
+        } catch {
+          showToast(toastTexts.error);
+        }
+      });
+    });
+
     const toggle = document.querySelector("[data-share-toggle]");
     const buttons = document.querySelector("[data-share-buttons]");
-    if (!toggle || !buttons) return;
+    if (toggle && buttons) {
+      toggle.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        if (!expanded) {
+          buttons.classList.remove("hidden", "pointer-events-none");
+          requestAnimationFrame(() => {
+            buttons.classList.remove("opacity-0", "-translate-x-5");
+            buttons.classList.add("opacity-100", "translate-x-0");
+          });
+          toggle.setAttribute("aria-expanded", "true");
+        } else {
+          buttons.classList.remove("opacity-100", "translate-x-0");
+          buttons.classList.add("opacity-0", "-translate-x-5", "pointer-events-none");
+          toggle.setAttribute("aria-expanded", "false");
+          setTimeout(() => buttons.classList.add("hidden"), 300);
+        }
+      });
+    }
 
-    toggle.addEventListener("click", () => {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-
-      if (!expanded) {
-        buttons.classList.remove("hidden", "pointer-events-none");
-        requestAnimationFrame(() => {
-          buttons.classList.remove("opacity-0", "-translate-x-5");
-          buttons.classList.add("opacity-100", "translate-x-0");
-        });
-        toggle.setAttribute("aria-expanded", "true");
-      } else {
-        buttons.classList.remove("opacity-100", "translate-x-0");
-        buttons.classList.add("opacity-0", "-translate-x-5", "pointer-events-none");
-        toggle.setAttribute("aria-expanded", "false");
-        setTimeout(() => buttons.classList.add("hidden"), 300);
+    document.querySelector("[data-copy-link]")?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(currentUrl);
+        showToast(toastTexts.success);
+      } catch {
+        showToast(toastTexts.error);
       }
     });
+  }
+
+  function showToast(msg) {
+    document.querySelector(".toast-share")?.remove();
+    const t = Object.assign(document.createElement("div"), {
+      className: "toast-share",
+      textContent: msg,
+    });
+    document.body.appendChild(t);
+    requestAnimationFrame(() => t.classList.add("show"));
+    setTimeout(() => {
+      t.classList.remove("show");
+      setTimeout(() => t.remove(), 300);
+    }, 2000);
   }
 
   initShare();

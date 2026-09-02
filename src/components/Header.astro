@@ -15,14 +15,18 @@ const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(\/)?/, "/");
 
 // Cargar menú unificado (ya no separado por idioma)
 const menuData = (await getCollection("headerMenu"))[0]?.data;
-const headerMenuItems = menuData?.items?.map(item => ({
-  ...item,
-  label: item.labels[currentLocale],
-  children: item.children?.map(child => ({
-    ...child,
-    label: child.labels[currentLocale]
-  }))
-})) || [];
+const headerMenuItems = menuData?.items
+  ?.filter(item => item.visible)
+  .map(item => ({
+    ...item,
+    label: item.labels[currentLocale],
+    children: item.children
+      ?.filter(child => child.visible)
+      .map(child => ({
+        ...child,
+        label: child.labels[currentLocale]
+      }))
+  })) || [];
 
 const { lenguaje } = Astro.props;
 ---

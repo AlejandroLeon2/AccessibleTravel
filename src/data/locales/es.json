@@ -195,5 +195,8 @@
   "heroGroupIncluyeTitulo": "¿Qué incluye?",
   "aboutCantidadClientes": "2,000+ Clientes en todo el mundo",
   "aboutAniosExperiencia": "10 Años de experiencia",
-  "shared": "Comparte por"
+  "shared": "Comparte por",
+  "toastCopiado": "¡Enlace copiado!",
+  "toastErrorCopiar": "No se pudo copiar",
+  "toastInstagram": "Enlace copiado. Abrí Instagram y pegalo en tu historia"
 }

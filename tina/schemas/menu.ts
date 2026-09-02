@@ -52,6 +52,15 @@ const menuItemChildSchema = {
       description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/machu.webp".',
       required: true,
     },
+    {
+      type: 'boolean' as const,
+      name: 'visible',
+      label: 'Visible',
+      description: 'Si está activo, el ítem se muestra en el menú. Si está desactivado, se oculta.',
+      ui: {
+        defaultValue: true,
+      },
+    },
   ],
 };
 
@@ -115,6 +124,15 @@ export const headerMenu = {
           label: 'Imagen de portada',
           description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/new2principal.webp".',
           required: true,
+        },
+        {
+          type: 'boolean',
+          name: 'visible',
+          label: 'Visible',
+          description: 'Si está activo, el ítem se muestra en el menú. Si está desactivado, se oculta.',
+          ui: {
+            defaultValue: true,
+          },
         },
         menuItemChildSchema,
       ],

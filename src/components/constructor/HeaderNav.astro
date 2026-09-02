@@ -3,6 +3,8 @@ import FlechaCorta from "../svg/FlechaCorta.astro";
 const { currentLocale } = Astro;
 
 const { data, style } = Astro.props;
+
+const visibleItems = data.filter(item => item.visible);
 ---
 
 <nav
@@ -14,7 +16,7 @@ const { data, style } = Astro.props;
     class="flex flex-col border-b sm:border-b-0 border-gray-300 py-4 md:py-1 md:flex-row px-4 mx-auto bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700"
   >
     {
-      data.map((item) =>
+      visibleItems.map((item) =>
         item.children ? (
           <li class="group relative ">
             {item.label !== "Tour Destination" ? (
@@ -40,7 +42,7 @@ const { data, style } = Astro.props;
             )}
 
             <ul class="md:absolute mt-0.5  duration-300 left-0 md:w-50 hidden group-focus:block group-hover:block  bg-white shadow-lg border rounded  z-10">
-              {item.children.map((child) => (
+              {item.children.filter(child => child.visible).map((child) => (
                 <li class="">
                   <a
                     href={`/${currentLocale}${child.href}`}

@@ -7,7 +7,8 @@
         "es": "Inicio"
       },
       "href": "/",
-      "coverImage": "/images/new2principal.webp"
+      "coverImage": "/images/new2principal.webp",
+      "visible": true
     },
     {
       "key": "AllToursPeru",
@@ -16,7 +17,8 @@
         "es": "Todos los Tours Perú"
       },
       "href": "/destino/peru",
-      "coverImage": "/images/machu.webp"
+      "coverImage": "/images/machu.webp",
+      "visible": true
     },
     {
       "key": "GroupTours",
@@ -25,7 +27,8 @@
         "es": "Tours en Grupo"
       },
       "href": "/groupTours",
-      "coverImage": "/images/autor.webp"
+      "coverImage": "/images/autor.webp",
+      "visible": false
     },
     {
       "key": "Blog",
@@ -34,7 +37,8 @@
         "es": "Blog"
       },
       "href": "/blog",
-      "coverImage": "/images/new2principal.webp"
+      "coverImage": "/images/new2principal.webp",
+      "visible": true
     },
     {
       "key": "AboutUs",
@@ -44,6 +48,7 @@
       },
       "href": "/aboutUs",
       "coverImage": "/images/new2principal.webp",
+      "visible": true,
       "children": [
         {
           "key": "AboutUs",
@@ -52,7 +57,8 @@
             "es": "Sobre nosotros"
           },
           "href": "/aboutUs",
-          "coverImage": "/images/about2.webp"
+          "coverImage": "/images/about2.webp",
+          "visible": true
         },
         {
           "key": "ContactUs",
@@ -61,7 +67,8 @@
             "es": "Contáctanos"
           },
           "href": "/contactUs",
-          "coverImage": "/images/new2principal.webp"
+          "coverImage": "/images/new2principal.webp",
+          "visible": true
         },
         {
           "key": "TermsAndConditions",
@@ -70,7 +77,8 @@
             "es": "Términos y condiciones"
           },
           "href": "/terminosCondiciones",
-          "coverImage": "/images/new2principal.webp"
+          "coverImage": "/images/new2principal.webp",
+          "visible": true
         }
       ]
     }

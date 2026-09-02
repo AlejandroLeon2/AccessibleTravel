@@ -78,6 +78,7 @@ const menuItemChildSchema = z.object({
   labels: z.object({ en: z.string(), es: z.string() }),
   href: z.string(),
   coverImage: z.string(),
+  visible: z.boolean().optional().default(true),
 });
 
 const menuItemSchema = z.object({
@@ -85,6 +86,7 @@ const menuItemSchema = z.object({
   labels: z.object({ en: z.string(), es: z.string() }),
   href: z.string(),
   coverImage: z.string(),
+  visible: z.boolean().optional().default(true),
   children: z.array(menuItemChildSchema).optional(),
 });
 

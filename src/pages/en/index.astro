@@ -33,6 +33,7 @@ const banners = bannersData?.banners.map((b) => ({
   <PortadaDinamica banners={banners} />
 
   <MainContent>
+       <div class="overflow-hidden">
     <div class="animate-on-scroll fade-up">
       <HeroHome lenguaje={lenguaje} />
     </div>
@@ -69,6 +70,7 @@ const banners = bannersData?.banners.map((b) => ({
     </div>
     <div class="animate-on-scroll fade-up delay-300">
       <WhatsappCta lenguaje={lenguaje} variant="booking" />
+    </div>
     </div>
   </MainContent>
 </Layout>
