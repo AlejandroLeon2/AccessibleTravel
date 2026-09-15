@@ -3,8 +3,7 @@ import { siteConfig } from './schemas/site-config';
 import { galleryLogos } from './schemas/gallery-logos';
 import { banners } from './schemas/banners';
 import { heroGroup } from './schemas/hero-group';
-import { blogEs } from './schemas/blog-es';
-import { blogEn } from './schemas/blog-en';
+import { blogBase } from './schemas/blog';
 import { toursGrupales } from './schemas/tours-grupales';
 import { toursGlobales } from './schemas/tours-global';
 import { headerMenu } from './schemas/menu';
@@ -52,8 +51,9 @@ export default defineConfig({
       banners,
       heroGroup,
       headerMenu,
-      blogEs,
-      blogEn,
+      // Blog — un schema, dos paths
+      { ...blogBase, name: 'blogEs', label: 'Blog ES', path: 'src/content/blog/es' },
+      { ...blogBase, name: 'blogEn', label: 'Blog EN', path: 'src/content/blog/en' },
       // Tours grupales - Spanish version (base schema with Spanish labels)
       {
         ...toursGrupales,

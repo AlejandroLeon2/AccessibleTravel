@@ -107,14 +107,13 @@ const galleryLogos = defineCollection({
   }),
 });
 
-const globalTourSchema = z.object({
+// ── Shared tour schema (matches TinaCMS tour-base-fields) ─────────────
+const tourBaseFields = {
   title: z.string(),
   titleLink: z.string(),
   operator: z.string().optional(),
   duration: z.string().optional(),
   siempreFecha: z.boolean().optional(),
-  startDate: z.string().optional(),
-  endDate: z.string().optional(),
   rating: z.number().optional(),
   reviews: z.number(),
   recomendado: z.boolean().optional(),
@@ -127,13 +126,39 @@ const globalTourSchema = z.object({
   highlights: z.array(z.string()),
   includes: z.array(z.string()),
   excludes: z.array(z.string()),
-  packages: z.array(z.object({ name: z.string(), capacity: z.string().optional(), price: z.string(), deposit: z.string().optional(), description: z.string().optional() })),
-  addOns: z.array(z.union([z.string(), z.object({ name: z.string(), price: z.string().optional(), description: z.string().optional() })])),
-  itinerary: z.array(z.object({ day: z.number().optional(), time: z.string().optional(), title: z.string(), description: z.string() })),
-  images: z.array(z.object({ link: z.string(), alt: z.string(), title: z.string() })),
-  links: z.object({ book: z.string(), brochure: z.string(), inquire: z.string() }),
-});
+  packages: z.array(z.object({
+    name: z.string(),
+    capacity: z.string().optional(),
+    price: z.string(),
+    deposit: z.string().optional(),
+    description: z.string().optional(),
+  })),
+  addOns: z.array(z.union([z.string(), z.object({
+    name: z.string(),
+    price: z.string().optional(),
+    description: z.string().optional(),
+  })])),
+  itinerary: z.array(z.object({
+    day: z.number().optional(),
+    time: z.string().optional(),
+    title: z.string(),
+    description: z.string(),
+  })),
+  images: z.array(z.object({
+    link: z.string(),
+    alt: z.string(),
+    title: z.string(),
+  })),
+  links: z.object({
+    book: z.string(),
+    brochure: z.string(),
+    inquire: z.string(),
+  }),
+};
 
+const globalTourSchema = z.object(tourBaseFields);
+
+// ── Tours globales ────────────────────────────────────────────────────
 const toursGlobalesEn = defineCollection({
   loader: glob({ pattern: '**/*.json', base: resolve(toursGlobalDir, 'en') }),
   schema: globalTourSchema,
@@ -144,99 +169,23 @@ const toursGlobalesEs = defineCollection({
   schema: globalTourSchema,
 });
 
-// Definir el esquema para tours grupales en español
+// ── Tours grupales (base + startDate/endDate) ─────────────────────────
+const groupTourSchema = globalTourSchema.extend({
+  startDate: z.string(),
+  endDate: z.string(),
+});
+
 const toursGrupalesEs = defineCollection({
   loader: glob({ pattern: '**/*.json', base: resolve(toursGrupalesDir, 'es') }),
-  schema: z.object({
-    title: z.string(),
-    titleLink: z.string(),
-    operator: z.string(),
-    duration: z.string(),
-    siempreFecha: z.boolean(),
-    startDate: z.string(),
-    endDate: z.string(),
-    rating: z.number(),
-    reviews: z.number(),
-    recomendado: z.boolean(),
-    agotado: z.boolean(),
-    groupSize: z.string(),
-    location: z.string(),
-    description: z.string(),
-    highlights: z.array(z.string()),
-
-    includes: z.array(z.string()),
-    excludes: z.array(z.string()),
-    packages: z.array(z.object({
-      name: z.string(),
-      price: z.string(),
-      deposit: z.string(),
-    })),
-    addOns: z.array(z.string()),
-    itinerary: z.array(z.object({
-      day: z.number(),
-      title: z.string(),
-      description: z.string(),
-    })),
-    images: z.array(z.object({
-      link: z.string(),
-      alt: z.string(),
-      title: z.string(),
-    })),
-    links: z.object({
-      book: z.string(),
-      brochure: z.string(),
-      inquire: z.string(),
-    }),
-  }),
+  schema: groupTourSchema,
 });
 
-// Definir el esquema para tours grupales en inglés
 const toursGrupalesEn = defineCollection({
   loader: glob({ pattern: '**/*.json', base: resolve(toursGrupalesDir, 'en') }),
-  schema: z.object({
-    title: z.string(),
-    titleLink: z.string(),
-    operator: z.string(),
-    duration: z.string(),
-    siempreFecha: z.boolean(),
-    startDate: z.string(),
-    endDate: z.string(),
-    rating: z.number(),
-    reviews: z.number(),
-    recomendado: z.boolean(),
-    agotado: z.boolean(),
-    groupSize: z.string(),
-    location: z.string(),
-    description: z.string(),
-    highlights: z.array(z.string()),
-
-    includes: z.array(z.string()),
-    excludes: z.array(z.string()),
-    packages: z.array(z.object({
-      name: z.string(),
-      price: z.string(),
-      deposit: z.string(),
-    })),
-    addOns: z.array(z.string()),
-    itinerary: z.array(z.object({
-      day: z.number(),
-      title: z.string(),
-      description: z.string(),
-    })),
-    images: z.array(z.object({
-      link: z.string(),
-      alt: z.string(),
-      title: z.string(),
-    })),
-    links: z.object({
-      book: z.string(),
-      brochure: z.string(),
-      inquire: z.string(),
-    }),
-  }),
+  schema: groupTourSchema,
 });
 
-// Blog schema
+// ── Blog (unified schema) ─────────────────────────────────────────────
 const blogSchema = z.object({
   title: z.string(),
   description: z.string().optional(),

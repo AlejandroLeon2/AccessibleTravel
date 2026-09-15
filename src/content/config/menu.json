@@ -28,7 +28,7 @@
       },
       "href": "/groupTours",
       "coverImage": "/images/autor.webp",
-      "visible": false
+      "visible": true
     },
     {
       "key": "Blog",
