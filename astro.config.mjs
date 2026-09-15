@@ -12,6 +12,10 @@ export default defineConfig({
   site: 'https://accessibletravelperu.com',
   output: 'static',
 
+  redirects: {
+    '/': '/en/',
+  },
+
   vite: {
     plugins: [tailwindcss(),tinaAdminDevRedirect()],
     ssr: { noExternal: ['@tinacms/astro', '@tinacms/bridge']},

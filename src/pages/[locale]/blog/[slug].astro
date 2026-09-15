@@ -1,0 +1,207 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import PortadaStatic from "../../../components/section/PortadaStatic.astro";
+import MainContent from "../../../components/constructor/MainContent.astro";
+import BlogAside from "../../../components/ui/BlogAside.astro";
+import WhatsappCta from "../../../components/ui/WhatsappCta.astro";
+import { getCollection, getEntry, render } from "astro:content";
+import { getLocaleStaticPaths, getLocaleData, getPageCoverData } from "../../../utils/getLocaleData";
+
+export async function getStaticPaths() {
+  const postsEn = await getCollection("blogEn");
+  const postsEs = await getCollection("blogEs");
+
+  const pathsEn = postsEn.map((post) => ({
+    params: { locale: "en", slug: post.id },
+    props: { post, lang: "en" },
+  }));
+
+  const pathsEs = postsEs.map((post) => ({
+    params: { locale: "es", slug: post.id },
+    props: { post, lang: "es" },
+  }));
+
+  return [...pathsEn, ...pathsEs];
+}
+
+const { post, lang } = Astro.props;
+const { title, description, image, date, author } = post.data;
+
+// Get locale data
+const lenguaje = (await import(`../../../data/locales/${lang}.json`)).default;
+
+// Get menu data for cover image
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { coverImage: _blogCoverImage } = getPageCoverData(_menuData.items, "Blog", lang);
+
+// Get recommended tours for sidebar
+const tourCollection = lang === "es" ? "toursGlobalesEs" : "toursGlobalesEn";
+const dest = (await getCollection(tourCollection)).map(({ data }) => data);
+const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
+
+// Get recent posts for sidebar (format for BlogNew component)
+const blogCollection = lang === "es" ? "blogEs" : "blogEn";
+const allPosts = await getCollection(blogCollection);
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime())
+  .slice(0, 3)
+  .map((p) => ({
+    url: `/${lang}/blog/${p.id}`,
+    frontmatter: {
+      title: p.data.title,
+      image: p.data.image,
+      author: p.data.author,
+      date: p.data.date,
+    },
+  }));
+
+// Render the post content
+const { Content } = await render(post);
+
+const canonical = title
+  ? `https://accessibletravelperu.com/${lang}/blog/${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`
+  : undefined;
+---
+
+<Layout
+  title={title}
+  description={description}
+  lenguaje={lenguaje}
+  canonical={canonical}
+  ogImage={image}
+>
+  <PortadaStatic url={_blogCoverImage} texto={lenguaje.blogTitle} />
+  <MainContent>
+    <div class="max-w-7xl mx-auto px-4 pb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Post Content -->
+        <div class="col-span-2">
+          <article class="prose prose-lg max-w-none">
+            <header class="mb-8 pb-8 border-b border-gray-200">
+              <h1 class="text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight">
+                {title}
+              </h1>
+              <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+                {date && (
+                  <time datetime={date} class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {new Date(date).toLocaleDateString(lang === "es" ? "es-PE" : "en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                )}
+                {author && (
+                  <span class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    {author}
+                  </span>
+                )}
+              </div>
+              {description && (
+                <p class="text-lg text-gray-600 mt-6 leading-relaxed">
+                  {description}
+                </p>
+              )}
+            </header>
+
+            {image && (
+              <figure class="mb-8">
+                <img
+                  src={image}
+                  alt={title}
+                  class="w-full aspect-video object-cover rounded-lg"
+                />
+              </figure>
+            )}
+
+            <div class="blog-content">
+              <Content />
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-span-1">
+          <BlogAside
+            data={{
+              title,
+              description,
+              image,
+              date,
+              author,
+            }}
+            destinos={destinos}
+            news={recentPosts}
+            lenguaje={lenguaje}
+          />
+        </div>
+      </div>
+    </div>
+    <WhatsappCta lenguaje={lenguaje} variant="default" />
+  </MainContent>
+</Layout>
+
+<style>
+  .blog-content :global(h2) {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+  }
+  .blog-content :global(h3) {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+  }
+  .blog-content :global(p) {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    color: #374151;
+  }
+  .blog-content :global(ul),
+  .blog-content :global(ol) {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+  .blog-content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  .blog-content :global(strong) {
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  .blog-content :global(a) {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  .blog-content :global(a:hover) {
+    color: #1d4ed8;
+  }
+  .blog-content :global(hr) {
+    margin: 2rem 0;
+    border-color: #e5e7eb;
+  }
+  .blog-content :global(blockquote) {
+    border-left: 4px solid #2563eb;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #4b5563;
+    font-style: italic;
+  }
+  .blog-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+</style>

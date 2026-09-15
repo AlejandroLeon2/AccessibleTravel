@@ -4,28 +4,36 @@ import Layout from "../../../layouts/Layout.astro";
 import PortadaStatic from "../../../components/section/PortadaStatic.astro";
 import CardDestino from "../../../components/ui/CardDestino.astro";
 import MainContent from "../../../components/constructor/MainContent.astro";
-import lenguaje from "../../../data/locales/es.json";
 import { getCollection, getEntry } from "astro:content";
-import { getMenuPageData } from "../../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenu", "menu"))!.data;
-const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "AllToursPeru");
+import { getLocaleStaticPaths, getLocaleData, getPageCoverData } from "../../../utils/getLocaleData";
+
 export const prerender = true;
+
 export async function getStaticPaths() {
   return [{
-    params: { titleLink: "peru" },
+    params: { locale: "en", titleLink: "peru" },
+    props: { tours: await getCollection("toursGlobalesEn") },
+  }, {
+    params: { locale: "es", titleLink: "peru" },
     props: { tours: await getCollection("toursGlobalesEs") },
   }];
 }
+
+const { locale } = Astro.params;
+const { lang, lenguaje } = getLocaleData(locale);
+
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { pageLabel: _pageLabel, coverImage: _coverImage } = getPageCoverData(_menuData.items, "AllToursPeru", lang);
 
 const { titleLink } = Astro.params;
 const tours = Astro.props.tours ?? [];
 const destino = {
   title: "Peru",
   titleLink,
-  destinosES: tours.map(({ data }) => data),
+  destinosEN: tours.map(({ data }) => data),
 };
 
-if (!destino.destinosES.length) {
+if (!destino.destinosEN.length) {
   throw new Error(`No hay tours definidos para el destino: ${titleLink}`);
 }
 ---
@@ -35,7 +43,7 @@ if (!destino.destinosES.length) {
 <MainContent>
 
   <section class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 px-4 py-8 gap-4 place-items-center">
-    {destino.destinosES && destino.destinosES.length >= 1?destino.destinosES.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />):"Destino NO definidos"}
+    {destino.destinosEN && destino.destinosEN.length >= 1?destino.destinosEN.map((lugar) => <CardDestino lenguaje={lenguaje} data={lugar} locacion={destino.title} />):"Destino NO definidos"}
   </section>
   <Certificaciones/>
 </MainContent>

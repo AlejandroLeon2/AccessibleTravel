@@ -3,11 +3,18 @@ import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import Layout from "../../layouts/Layout.astro";
 import Bento from "../../components/ui/Bento.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
-import lenguaje from "../../data/locales/en.json";
 import { getCollection, getEntry } from "astro:content";
-import { getMenuPageData } from "../../utils/getMenuPageData";
+import { getLocaleStaticPaths, getLocaleData, getPageCoverData } from "../../utils/getLocaleData";
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.params;
+const { lang, lenguaje } = getLocaleData(locale);
+
 const _menuData = (await getEntry("headerMenu", "menu"))!.data;
-const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "AllToursPeru");
+const { pageLabel: _pageLabel, coverImage: _coverImage } = getPageCoverData(_menuData.items, "AllToursPeru", lang);
 
 const toursGlobalesEn = await getCollection("toursGlobalesEn");
 const toursGlobalesEs = await getCollection("toursGlobalesEs");

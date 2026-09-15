@@ -4,26 +4,32 @@ import { getCollection } from "astro:content";
 import PortadaStatic from "../../../components/section/PortadaStatic.astro";
 import Infotravel from "../../../components/section/Infotravel.astro";
 import MainContent from "../../../components/constructor/MainContent.astro";
-import lenguaje from "../../../data/locales/en.json";
+import { getLocaleStaticPaths, getLocaleData } from "../../../utils/getLocaleData";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const tours = await getCollection("toursGrupalesEn");
-  return tours.map(({ data }) => ({
-    params: { titleLink: data.titleLink },
+  const toursEn = await getCollection("toursGrupalesEn");
+  const toursEs = await getCollection("toursGrupalesEs");
+  
+  const pathsEn = toursEn.map(({ data }) => ({
+    params: { locale: "en", titleLink: data.titleLink },
     props: { tour: data },
   }));
+  const pathsEs = toursEs.map(({ data }) => ({
+    params: { locale: "es", titleLink: data.titleLink },
+    props: { tour: data },
+  }));
+  
+  return [...pathsEn, ...pathsEs];
 }
 
-
-// 🧩 Accede al parámetro y busca el destino en el array
-const { titleLink } = Astro.params;
-const tours = await getCollection("toursGrupalesEn");
-const destino = tours.find((tour) => tour.data.titleLink === titleLink)?.data;
+const { locale } = Astro.params;
+const { lang, lenguaje } = getLocaleData(locale);
+const destino = Astro.props.tour;
 
 if (!destino) {
-  throw new Error(`Destino no encontrado para el título: ${titleLink}`);
+  throw new Error(`Destino no encontrado para el título: ${destino.titleLink}`);
 }
 ---
 

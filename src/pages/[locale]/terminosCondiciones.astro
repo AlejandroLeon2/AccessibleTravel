@@ -4,14 +4,23 @@ import PortadaStatic from "../../components/section/PortadaStatic.astro";
 import Terminos from "../../components/section/Terminos.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import Certificaciones from "../../components/section/Certificaciones.astro";
-import lenguaje from "../../data/locales/en.json";
-import { terminos } from "../../data/terminosEn";
+import { terminos as terminosEn } from "../../data/terminosEn";
+import { terminos as terminosEs } from "../../data/terminosEspañol";
 import { getEntry } from "astro:content";
-import { getMenuPageData } from "../../utils/getMenuPageData";
-const _menuData = (await getEntry("headerMenu", "menu"))!.data;
-const { label: _pageLabel, coverImage: _coverImage } = getMenuPageData(_menuData.items, "TermsAndConditions");
----
+import { getLocaleStaticPaths, getLocaleData, getPageCoverData } from "../../utils/getLocaleData";
 
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.params;
+const { lang, lenguaje } = getLocaleData(locale);
+
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { pageLabel: _pageLabel, coverImage: _coverImage } = getPageCoverData(_menuData.items, "TermsAndConditions", lang);
+
+const terminos = lang === "es" ? terminosEs : terminosEn;
+---
 
 <Layout title={lenguaje.title} description={lenguaje.description} lenguaje={lenguaje}>
   <PortadaStatic url={_coverImage} texto={_pageLabel} />

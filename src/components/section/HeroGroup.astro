@@ -1,11 +1,12 @@
 ---
-const { lenguaje, groupTours = [] } = Astro.props;
+const { lenguaje, groupTours = [], locale = "en" } = Astro.props;
 
 import Times from "../constructor/Times.astro";
 import { getCollection } from "astro:content";
 import ShareButtonsAstroComponent  from "../ui/ShareButtons.astro";
 
-const travels = (await getCollection("toursGlobalesEn")).map(({ data }) => ({
+const collectionName = locale === "es" ? "toursGlobalesEs" : "toursGlobalesEn";
+const travels = (await getCollection(collectionName)).map(({ data }) => ({
   ...data,
   startDate: data.startDate ? new Date(data.startDate) : undefined,
   endDate: data.endDate ? new Date(data.endDate) : undefined,

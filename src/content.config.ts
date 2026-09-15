@@ -9,6 +9,7 @@ const projectRoot = resolve(__dirname, '..');
 const contentConfigDir = resolve(projectRoot, 'src/content/config');
 const toursGlobalDir = resolve(projectRoot, 'src/content/tours-global/peru');
 const toursGrupalesDir = resolve(projectRoot, 'src/content/tours-grupales');
+const blogDir = resolve(projectRoot, 'src/content/blog');
 
 const bannerItemSchema = z.object({
   src: z.string(),
@@ -235,6 +236,25 @@ const toursGrupalesEn = defineCollection({
   }),
 });
 
+// Blog schema
+const blogSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  image: z.string().optional(),
+  date: z.string().optional(),
+  author: z.string().optional(),
+});
+
+const blogEn = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: resolve(blogDir, 'en') }),
+  schema: blogSchema,
+});
+
+const blogEs = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: resolve(blogDir, 'es') }),
+  schema: blogSchema,
+});
+
 export const collections = {
   siteConfig,
   galleryLogos,
@@ -245,4 +265,6 @@ export const collections = {
   toursGlobalesEs,
   toursGrupalesEs,
   toursGrupalesEn,
+  blogEn,
+  blogEs,
 };

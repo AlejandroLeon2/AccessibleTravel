@@ -7,21 +7,44 @@ import Actividades from "../../components/section/Actividades.astro";
 import MainContent from "../../components/constructor/MainContent.astro";
 import { getCollection } from "astro:content";
 import BlogNew from "../../components/section/BlogNew.astro";
-import lenguaje from "../../data/locales/es.json";
 import DestinosRecomendados from "../../components/section/DestinosRecomendados.astro";
 import HeroHome from "../../components/section/HeroHome.astro";
 import WhatsappCta from "../../components/ui/WhatsappCta.astro";
-const data = (await getCollection("toursGlobalesEs")).map(({ data }) => data);
+import { getLocaleStaticPaths, getLocaleData, getTourCollectionName } from "../../utils/getLocaleData";
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.params;
+const { lang, lenguaje } = getLocaleData(locale);
+
+// Tours recomendados (colección dinámica según locale)
+const tourCollection = getTourCollectionName(locale, "global");
+const data = (await getCollection(tourCollection)).map(({ data }) => data);
 const destinos = data.filter((item) => item.recomendado === true).slice(0, 4);
-const articulos = Object.values(
-  await import.meta.glob("/src/pages/es/blog/*.mdx", { eager: true }),
-);
-const articulo = articulos.slice(0, 3);
+
+// Blog posts (colección dinámica según locale)
+const blogCollection = lang === "es" ? "blogEs" : "blogEn";
+const articulos = (await getCollection(blogCollection))
+  .sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime())
+  .slice(0, 3)
+  .map((post) => ({
+    url: `/${lang}/blog/${post.id}`,
+    frontmatter: {
+      title: post.data.title,
+      image: post.data.image,
+      author: post.data.author,
+      date: post.data.date,
+    },
+  }));
+
+// Banners (dinámicos según locale)
 const bannersData = (await getCollection("banners"))[0]?.data;
 const banners = bannersData?.banners.map((b) => ({
   src: b.src,
-  alt: b.alt.es,
-  title: b.title.es,
+  alt: b.alt[lang] ?? b.alt.en,
+  title: b.title[lang] ?? b.title.en,
 })) ?? [];
 ---
 
@@ -33,7 +56,7 @@ const banners = bannersData?.banners.map((b) => ({
   <PortadaDinamica banners={banners} />
 
   <MainContent>
-      <div class="overflow-hidden">
+       <div class="overflow-hidden">
     <div class="animate-on-scroll fade-up">
       <HeroHome lenguaje={lenguaje} />
     </div>
@@ -62,7 +85,7 @@ const banners = bannersData?.banners.map((b) => ({
 
     <div class="animate-on-scroll fade-up delay-300">
       <BlogNew
-        articulo={articulo}
+        articulo={articulos}
         lenguaje={lenguaje}
         home="s"
         grid="grid grid-col-1 md:grid-cols-2"

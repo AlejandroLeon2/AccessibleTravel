@@ -3,10 +3,9 @@ import type { Collection } from 'tinacms';
 export const blogEn = {
   name: 'blogEn',
   label: 'Blog EN',
-  path: 'src/pages/en/blog',
+  path: 'src/content/blog/en',
   format: 'mdx',
   defaultItem: () => ({
-    layout: '/src/layouts/BlogPostEn.astro',
     title: 'New article',
     description: '',
     image: '',
@@ -14,13 +13,6 @@ export const blogEn = {
     author: '',
   }),
   fields: [
-    {
-      type: 'string',
-      name: 'layout',
-      label: 'Layout (Do not modify)',
-      required: true,
-      description: 'Astro layout component used to render this post. Must be "/src/layouts/BlogPostEn.astro".',
-    },
     {
       type: 'string',
       name: 'title',

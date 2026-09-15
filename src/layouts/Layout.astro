@@ -24,10 +24,16 @@ const slug =
     : "post";
 
 const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`;
+const currentPath = Astro.url.pathname;
+const locales = ['en', 'es'];
+const alternateLinks = locales.map(loc => ({
+  lang: loc,
+  href: `https://accessibletravelperu.com/${loc}${currentPath.replace(/^\/(en|es)/, '')}`
+}));
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.currentLocale ?? "en"}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,13 +41,18 @@ const canonicalUrl = `https://accessibletravelperu.com/blog/${slug}`;
     <title>{title}</title>
     <meta name="description" content={description} />
 
+    {alternateLinks.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`https://accessibletravelperu.com/en${currentPath.replace(/^\/(en|es)/, '')}`} />
+
     <MetadataLayout
       title={title}
       description={description}
       image={ogImage}
       index={index}
       canonical={canonical}
-      locale="en_US"
+      locale={Astro.currentLocale === "es" ? "es_PE" : "en_US"}
     />
     <MetadataAstroComponent />
     <meta name="theme-color" content="#ffffff" />

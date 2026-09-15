@@ -1,0 +1,90 @@
+---
+// src/pages/[locale]/blog.astro
+import Layout from '../../layouts/Layout.astro'
+import PostCard from '../../components/ui/PostCard.astro'
+import MainContent from '../../components/constructor/MainContent.astro'
+import PortadaStatic from '../../components/section/PortadaStatic.astro'
+import BlogAside from '../../components/ui/BlogAside.astro'
+import { getCollection, getEntry } from "astro:content";
+import { getLocaleStaticPaths, getPageCoverData } from "../../utils/getLocaleData";
+
+export function getStaticPaths() {
+  return getLocaleStaticPaths();
+}
+
+const { locale } = Astro.params;
+const lang = locale ?? "en";
+
+// Get locale data
+const lenguaje = (await import(`../../data/locales/${lang}.json`)).default;
+
+// Get blog collection for this locale
+const blogCollection = lang === "es" ? "blogEs" : "blogEn";
+const allPosts = await getCollection(blogCollection);
+
+// Get menu data for cover image
+const _menuData = (await getEntry("headerMenu", "menu"))!.data;
+const { pageLabel: _pageLabel, coverImage: _coverImage } = getPageCoverData(_menuData.items, "Blog", lang);
+
+// Get recommended tours for sidebar
+const tourCollection = lang === "es" ? "toursGlobalesEs" : "toursGlobalesEn";
+const dest = (await getCollection(tourCollection)).map(({ data }) => data);
+const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
+
+// Get recent posts for sidebar (format for BlogNew component)
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime())
+  .slice(0, 3)
+  .map((post) => ({
+    url: `/${lang}/blog/${post.id}`,
+    frontmatter: {
+      title: post.data.title,
+      image: post.data.image,
+      author: post.data.author,
+      date: post.data.date,
+    },
+  }));
+
+// Prepare posts for PostCard component
+const articulo = allPosts
+  .sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime())
+  .map((post) => ({
+    url: `/${lang}/blog/${post.id}`,
+    frontmatter: {
+      title: post.data.title,
+      image: post.data.image,
+      author: post.data.author,
+      date: post.data.date,
+      description: post.data.description,
+    },
+  }));
+
+const authorData = {
+  name: "Accessible Travel Peru",
+  role: lang === "es" ? "Agencia de Viajes Inclusiva" : "Inclusive Travel Agency",
+  bio: lang === "es"
+    ? "Especializados en turismo accesible para personas con discapacidad. Conectamos aventura y accesibilidad en todo el Perú."
+    : "Specialized in accessible tourism for people with disabilities. We connect adventure and accessibility throughout Peru.",
+  image: "/images/gato.jpg",
+};
+---
+
+<Layout title={lenguaje.blogTitle ?? "Blog"} description={lenguaje.description} lenguaje={lenguaje}>
+  <PortadaStatic url={_coverImage} texto={_pageLabel} />
+  <MainContent>
+    <section class="flex flex-col mx-auto md:flex-row gap-4 px-4 w-full max-w-7xl justify-center">
+      <section class="flex flex-col py-4 md:py-12 gap-4 w-full mx-auto md:mx-0 max-w-2xl">
+        {articulo.length > 0 ? (
+          articulo.map((post) => (
+            <PostCard post={post} />
+          ))
+        ) : (
+          <p class="text-gray-500 text-center py-8">
+            {lang === "es" ? "No hay artículos disponibles." : "No articles available."}
+          </p>
+        )}
+      </section>
+      <BlogAside lenguaje={lenguaje} data={authorData} news={recentPosts} destinos={destinos} />
+    </section>
+  </MainContent>
+</Layout>
