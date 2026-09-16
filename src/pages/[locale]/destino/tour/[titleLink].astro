@@ -1,10 +1,12 @@
 ---
 import Layout from "../../../../layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import PortadaStatic from "../../../../components/section/PortadaStatic.astro";
 import Infotravel from "../../../../components/section/Infotravel.astro";
 import MainContent from "../../../../components/constructor/MainContent.astro";
 import { getLocaleStaticPaths, getLocaleData } from "../../../../utils/getLocaleData";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
 
 export const prerender = true;
 
@@ -31,13 +33,20 @@ const destino = Astro.props.destino;
 if (!destino) {
   throw new Error(`Destino no encontrado para el título: ${destino.titleLink}`);
 }
+
+// Load shared data for Infotravel children (page context — getEntry works here)
+const siteConfig = (await getEntry("siteConfig", "site"))?.data;
+const galleryLogosData = (await getEntry("galleryLogos", "gallery-logos"))?.data;
+const bannersData = (await getCollection("banners"))[0]?.data;
+const paymentLogosData = bannersData?.paymentLogos ?? [];
 ---
 
 <Layout title={destino.title} description={destino.description} lenguaje={lenguaje}>
     <PortadaStatic url={destino.images[0].link} title={destino.images[0].alt}/>
 <MainContent>
-  <Infotravel  lenguaje={lenguaje} data={destino}/>
-
+  <TinaIsland name="toursGlobalesEs" wrapper={{ tag: "section" }} primary params={{ relativePath: destino.titleLink + ".json" }}>
+    <Infotravel lenguaje={lenguaje} data={destino} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData}/>
+  </TinaIsland>
 
 </MainContent>
 

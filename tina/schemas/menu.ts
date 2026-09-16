@@ -70,7 +70,10 @@ export const headerMenu = {
   path: 'src/content/config',
   format: 'json',
   match: { include: 'menu' },
-  ui: { global: true },
+  ui: { 
+    global: true,
+    router: () => '/en/',
+  },
   fields: [
     {
       type: 'object',

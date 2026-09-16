@@ -2,7 +2,8 @@
 import Certificaciones from "../section/Certificaciones.astro";
 import Pago from "../section/Pago.astro";
 import FormAside from "./FormAside.astro";
-const { data, lenguaje } = Astro.props;
+import { tinaField } from "@tinacms/astro/tina-field";
+const { data, lenguaje, siteConfig, galleryLogosData, paymentLogosData } = Astro.props;
 ---
 
 <section
@@ -21,6 +22,7 @@ const { data, lenguaje } = Astro.props;
       href={data.links.book}
       target="_blank"
       class="w-auto text-white text-center px-4 py-2 bg-gray-900 hover:bg-azul-travel active:scale-95 active:bg-azul-travel hover:scale-105 duration-300 rounded-sm"
+      data-tina-field={tinaField(data.links, 'book')}
       >{lenguaje.asideProceso}</a
     >
     <p
@@ -56,7 +58,7 @@ const { data, lenguaje } = Astro.props;
       </li>
     </ul>
   </section>
-  <FormAside lenguaje={lenguaje} />
+  <FormAside lenguaje={lenguaje} siteConfig={siteConfig} />
   <section
     aria-labelledby="confidence-heading"
     class="booking-confidence md:hidden lg:block p-4 bg-gray-100"
@@ -86,8 +88,9 @@ const { data, lenguaje } = Astro.props;
   <section class="p-4 col-span-2 lg:col-span-1">
     <h2 class="font-semibold">{lenguaje.tituloMiembros}</h2>
     <Certificaciones
-      base="md:col-span-2 md:px-8 lg:col-span-1"
-      style="grid grid-cols-5 lg:grid-cols-2 gap-4"
+      base=" md:col-span-2 md:px-8 lg:col-span-1"
+      style="grid lg:grid-cols-2! gap-4"
+      galleryLogosData={galleryLogosData}
     />
   </section>
 
@@ -96,6 +99,7 @@ const { data, lenguaje } = Astro.props;
     <Pago
       base="md:col-span-2 md:px-8 lg:col-span-1"
       style="grid grid-cols-4 lg:grid-cols-2 gap-4"
+      paymentLogosData={paymentLogosData}
     />
   </section>
 </section>

@@ -6,7 +6,10 @@ export const banners = {
   path: 'src/content/config',
   format: 'json',
   match: { include: 'banners' },
-  ui: { global: true },
+  ui: { 
+    global: true,
+    router: () => '/en/',
+  },
   fields: [
     {
       type: 'object',

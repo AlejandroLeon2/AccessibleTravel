@@ -11,6 +11,8 @@ import DestinosRecomendados from "../../components/section/DestinosRecomendados.
 import HeroHome from "../../components/section/HeroHome.astro";
 import WhatsappCta from "../../components/ui/WhatsappCta.astro";
 import { getLocaleStaticPaths, getLocaleData, getTourCollectionName } from "../../utils/getLocaleData";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import { getConfig } from "../../lib/tina/data";
 
 export function getStaticPaths() {
   return getLocaleStaticPaths();
@@ -53,12 +55,16 @@ const banners = bannersData?.banners.map((b) => ({
   description={lenguaje.description}
   lenguaje={lenguaje}
 >
-  <PortadaDinamica banners={banners} />
+  <TinaIsland name="banners" wrapper={{ tag: "div" }}>
+    <PortadaDinamica banners={banners} />
+  </TinaIsland>
 
   <MainContent>
        <div class="overflow-hidden">
     <div class="animate-on-scroll fade-up">
-      <HeroHome lenguaje={lenguaje} />
+      <TinaIsland name="heroHome" wrapper={{ tag: "section" }} primary>
+        <HeroHome lenguaje={lenguaje} />
+      </TinaIsland>
     </div>
 
     <div class="animate-on-scroll fade-up delay-100">

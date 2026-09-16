@@ -1,20 +1,35 @@
 ---
+// @ts-nocheck
 import Clip from "../components/svg/Clip.astro";
-
 import HeaderNav from "../components/constructor/HeaderNav.astro";
 import idiomas from "../data/idiomas.json";
 import Earth from "../components/svg/Earth.astro";
 import Tiktok from "./svg/Tiktok.astro";
 import Youtube from "./svg/Youtube.astro";
 import { getCollection } from "astro:content";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { getLocaleData } from "../utils/getLocaleData";
 
-const siteConfigData = (await getCollection("siteConfig"))[0]?.data;
+interface Props {
+  lenguaje?: any;
+  siteConfig?: any;
+  menuData?: any;
+}
+
+const { lenguaje: lenguajeProp, siteConfig: siteConfigProp, menuData: menuDataProp } = Astro.props;
+
+// Fetch lenguaje internally if not provided (island context)
+const { lenguaje, lang: currentLocale } = lenguajeProp
+  ? { lenguaje: lenguajeProp, lang: Astro.currentLocale ?? "en" }
+  : getLocaleData(Astro.currentLocale);
+
+// Fallback to getCollection when no prop provided (non-visual-editing context)
+const siteConfigData = siteConfigProp ?? (await getCollection("siteConfig"))[0]?.data;
 const empresaInfo = siteConfigData!;
-const { currentLocale } = Astro;
 const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(\/)?/, "/");
 
 // Cargar menú unificado (ya no separado por idioma)
-const menuData = (await getCollection("headerMenu"))[0]?.data;
+const menuData = menuDataProp ?? (await getCollection("headerMenu"))[0]?.data;
 const headerMenuItems = menuData?.items
   ?.filter(item => item.visible)
   .map(item => ({
@@ -27,8 +42,6 @@ const headerMenuItems = menuData?.items
         label: child.labels[currentLocale]
       }))
   })) || [];
-
-const { lenguaje } = Astro.props;
 ---
 
 <header class="bg-white fixed flex flex-col z-30 md:h-23 w-full shadow-md">
@@ -53,7 +66,11 @@ const { lenguaje } = Astro.props;
         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
       ></path>
     </svg>
-    <a href={`mailto:${empresaInfo.correo}`} class="hover:text-azul-travel">
+    <a 
+      href={`mailto:${empresaInfo.correo}`} 
+      class="hover:text-azul-travel"
+      data-tina-field={tinaField(empresaInfo, 'correo')}
+    >
       {empresaInfo.correo}
     </a>
   </li>
@@ -79,6 +96,7 @@ const { lenguaje } = Astro.props;
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-azul-travel"
+          data-tina-field={tinaField(empresaInfo, `telefonos.${index}.numero`)}
         >
           {telefono.numero} {telefono.pais}
         </a>
@@ -111,6 +129,7 @@ const { lenguaje } = Astro.props;
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-azul-travel"
+          data-tina-field={tinaField(empresaInfo, 'direccionHeader.texto')}
         >
           {empresaInfo.direccionHeader.texto} {empresaInfo.direccionHeader.pais}
         </a>
@@ -126,6 +145,7 @@ const { lenguaje } = Astro.props;
               target="_blank"
               href={red.url}
               class="flex items-center relative hover:text-azul-travel transition-colors"
+              data-tina-field={tinaField(empresaInfo, `redes.${index}.url`)}
             >
               {red.icono === "facebook" && (
                 <svg
@@ -183,7 +203,7 @@ const { lenguaje } = Astro.props;
     <!-- Contenedor central -->
     <div class="flex w-full items-center justify-around">
       <!-- Navegación -->
-      <HeaderNav data={headerMenuItems} style=" " />
+      <HeaderNav data={headerMenuItems} menuData={menuData} currentLocale={currentLocale} style=" " />
 
       <!-- Idioma -->
       <div class="flex items-center gap-1 mx-1">
@@ -227,61 +247,88 @@ const { lenguaje } = Astro.props;
 </header>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initHeader() {
     const navLinks = document.getElementById("nav-links");
     const openMenuBtn = document.getElementById("openMenu");
     const menu = document.getElementById("menu-principal");
 
-    // 🟦 Toggle del menú principal desde el botón hamburguesa
-    openMenuBtn?.addEventListener("click", (e) => {
-      e.stopPropagation(); // Previene que el evento se propague al documento
-      navLinks.classList.toggle("translate-x-200");
+    if (!navLinks || !openMenuBtn || !menu) return;
+
+    // Remover listeners anteriores
+    openMenuBtn.removeEventListener("click", handleOpenMenu);
+    menu.removeEventListener("click", handleSubMenu);
+    document.removeEventListener("click", handleOutsideClick);
+
+    // Agregar nuevos listeners
+    openMenuBtn.addEventListener("click", handleOpenMenu);
+    menu.addEventListener("click", handleSubMenu);
+    document.addEventListener("click", handleOutsideClick);
+  }
+
+  function handleOpenMenu(e) {
+    e.stopPropagation();
+    const navLinks = document.getElementById("nav-links");
+    navLinks?.classList.toggle("translate-x-200");
+  }
+
+  function handleSubMenu(e) {
+    const btn = e.target.closest(".escuchar");
+    if (!btn) return;
+
+    e.stopPropagation();
+    const subMenu = btn.nextElementSibling;
+    const menu = document.getElementById("menu-principal");
+
+    // Cierra todos los submenús visibles
+    menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
+      el.classList.add("hidden");
+      el.classList.remove("flex-col");
     });
 
-    // 🔹 Gestión de submenús al hacer clic en .escuchar
-    menu?.addEventListener("click", (e) => {
-      const btn = e.target.closest(".escuchar");
-      if (!btn) return;
+    // Abre solo el submenú actual
+    if (subMenu && !subMenu.classList.contains("flex-col")) {
+      subMenu.classList.remove("hidden");
+      subMenu.classList.add("flex-col");
+    }
+  }
 
-      e.stopPropagation(); // Evita cierre inmediato por evento global
-      const subMenu = btn.nextElementSibling;
+  function handleOutsideClick(e) {
+    const navLinks = document.getElementById("nav-links");
+    const openMenuBtn = document.getElementById("openMenu");
+    const menu = document.getElementById("menu-principal");
 
-      // Cierra todos los submenús visibles
-      menu.querySelectorAll(".escuchar + ul").forEach((el) => {
+    const isOutsideNav = !navLinks?.contains(e.target);
+    const isOutsideButton = !openMenuBtn?.contains(e.target);
+    const isOutsideMenu = !menu?.contains(e.target);
+
+    // Cerrar menú móvil si está abierto
+    if (
+      isOutsideNav &&
+      isOutsideButton &&
+      !navLinks?.classList.contains("translate-x-200")
+    ) {
+      navLinks?.classList.add("translate-x-200");
+    }
+
+    // Cerrar submenús si se hace clic fuera
+    if (isOutsideMenu) {
+      menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
         el.classList.add("hidden");
         el.classList.remove("flex-col");
       });
-      // Alterna el submenú actual
+    }
+  }
 
-      // Abre solo el submenú actual
-      if (subMenu && !subMenu.classList.contains("flex-col")) {
-        subMenu.classList.remove("hidden");
-        subMenu.classList.add("flex-col");
-      }
-    });
+  // Inicializar
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeader);
+  } else {
+    initHeader();
+  }
 
-    // ❌ Cierra el menú principal y submenús al hacer clic fuera
-    document.addEventListener("click", (e) => {
-      const isOutsideNav = !navLinks.contains(e.target);
-      const isOutsideButton = !openMenuBtn?.contains(e.target);
-      const isOutsideMenu = !menu?.contains(e.target);
-
-      // Cerrar menú móvil si está abierto
-      if (
-        isOutsideNav &&
-        isOutsideButton &&
-        !navLinks.classList.contains("translate-x-200")
-      ) {
-        navLinks.classList.add("translate-x-200");
-      }
-
-      // Cerrar submenús si se hace clic fuera de la lista
-      if (isOutsideMenu) {
-        menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
-          el.classList.add("hidden");
-          el.classList.remove("flex-col");
-        });
-      }
-    });
+  // Re-inicializar cuando TinaCMS actualice el DOM
+  const headerObserver = new MutationObserver(() => {
+    initHeader();
   });
+  headerObserver.observe(document.body, { childList: true, subtree: true });
 </script>

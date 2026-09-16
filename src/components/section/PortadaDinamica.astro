@@ -1,7 +1,21 @@
 ---
+// @ts-nocheck
 import FlechaCorta from "../svg/FlechaCorta.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
 
-const { banners } = Astro.props;
+interface Props {
+  banners?: any[];
+  bannersData?: any;
+}
+
+const { banners: bannersProp, bannersData } = Astro.props;
+
+// Process bannersData into banners array if not provided directly
+const banners = bannersProp ?? bannersData?.banners?.map((b) => ({
+  src: b.src,
+  alt: b.alt?.es ?? b.alt?.en ?? '',
+  title: b.title?.es ?? b.title?.en ?? '',
+})) ?? [];
 ---
 
 <slider-portada class="block bg-white relative mx-auto w-full h-[50svh] sm:h-[60svh] md:h-[70svh] min-h-100 max-h-150 overflow-hidden group">
@@ -20,7 +34,10 @@ const { banners } = Astro.props;
         data-index={index}
       >
         <div class="absolute inset-0 flex justify-start items-center bg-black/20 px-12 z-10">
-          <h1 class="max-w-xs sm:max-w-sm text-4xl sm:text-5xl transition-all duration-500 md:text-5xl lg:text-6xl lg:max-w-xl font-bold text-white drop-shadow-lg">
+          <h1 
+            class="max-w-xs sm:max-w-sm text-4xl sm:text-5xl transition-all duration-500 md:text-5xl lg:text-6xl lg:max-w-xl font-bold text-white drop-shadow-lg"
+            data-tina-field={bannersData?.banners?.[index] ? tinaField(bannersData.banners[index], 'title') : undefined}
+          >
             {banner.title}
           </h1>
         </div>
@@ -30,6 +47,7 @@ const { banners } = Astro.props;
           class="w-full h-full object-cover"
           loading={index === 0 ? "eager" : "lazy"}
           fetchpriority={index === 0 ? "high" : "auto"}
+          data-tina-field={bannersData?.banners?.[index] ? tinaField(bannersData.banners[index], 'src') : undefined}
         />
       </div>
     ))}

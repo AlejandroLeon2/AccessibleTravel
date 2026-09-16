@@ -1,10 +1,23 @@
 ---
 import FlechaCorta from "../svg/FlechaCorta.astro";
-const { currentLocale } = Astro;
+import { tinaField } from "@tinacms/astro/tina-field";
 
-const { data, style } = Astro.props;
+const { data, menuData, currentLocale = "en", style } = Astro.props;
 
-const visibleItems = data.filter(item => item.visible);
+const visibleItems = data?.filter(item => item.visible) ?? [];
+// Get original items from menuData for tinaField
+const originalItems = menuData?.items ?? [];
+
+// Helper: find original item by key
+function findOriginal(key: string) {
+  return originalItems.find((oi) => oi.key === key);
+}
+
+// Helper: find original child by parent key and child key
+function findOriginalChild(parentKey: string, childKey: string) {
+  const parent = findOriginal(parentKey);
+  return parent?.children?.find((oc) => oc.key === childKey);
+}
 ---
 
 <nav
@@ -16,43 +29,55 @@ const visibleItems = data.filter(item => item.visible);
     class="flex flex-col border-b sm:border-b-0 border-gray-300 py-4 md:py-1 md:flex-row px-4 mx-auto bg-white justify-center gap-8 md:gap-2 lg:gap-8 text-sm text-gray-700"
   >
     {
-      visibleItems.map((item) =>
-        item.children ? (
-          <li class="group relative ">
+      visibleItems.map((item) => {
+        const original = findOriginal(item.key);
+
+        return item.children ? (
+          <li class="group relative">
             {item.label !== "Tour Destination" ? (
               <div class="escuchar flex">
-                <button class="hover:text-blue-600  ">{item.label}</button>
-                <button class=" p-1 md:p-0   items-center -rotate-90 hover:text-blue-600 focus focus:rotate-0">
+                <button
+                  class="hover:text-blue-600"
+                  data-tina-field={tinaField(original, `labels.${currentLocale}`)}
+                >
+                  {item.label}
+                </button>
+                <button class="p-1 md:p-0 items-center -rotate-90 hover:text-blue-600 focus focus:rotate-0">
                   <FlechaCorta />
                 </button>
               </div>
             ) : (
               <div class="escuchar flex">
                 <a
-                  class="hover:text-blue-600 "
+                  class="hover:text-blue-600"
                   href={`/${currentLocale}${item.href}`}
                   title={`LinkPage ${item.href}`}
+                  data-tina-field={tinaField(original, `labels.${currentLocale}`)}
                 >
                   {item.label}
                 </a>
-                <button class=" p-1 md:p-0 border-0 -rotate-90 hover:text-blue-600 focus focus:rotate-0">
+                <button class="p-1 md:p-0 border-0 -rotate-90 hover:text-blue-600 focus focus:rotate-0">
                   <FlechaCorta />
                 </button>
               </div>
             )}
 
-            <ul class="md:absolute mt-0.5  duration-300 left-0 md:w-50 hidden group-focus:block group-hover:block  bg-white shadow-lg border rounded  z-10">
-              {item.children.filter(child => child.visible).map((child) => (
-                <li class="">
-                  <a
-                    href={`/${currentLocale}${child.href}`}
-                    class="block  px-4 py-2 hover:bg-gray-100"
-                    title={`LinkPage ${child.href}`}
-                  >
-                    {child.label}
-                  </a>
-                </li>
-              ))}
+            <ul class="md:absolute mt-0.5 duration-300 left-0 md:w-50 hidden group-focus:block group-hover:block bg-white shadow-lg border rounded z-10">
+              {item.children.filter(child => child.visible).map((child) => {
+                const originalChild = findOriginalChild(item.key, child.key);
+                return (
+                  <li>
+                    <a
+                      href={`/${currentLocale}${child.href}`}
+                      class="block px-4 py-2 hover:bg-gray-100"
+                      title={`LinkPage ${child.href}`}
+                      data-tina-field={tinaField(originalChild, `labels.${currentLocale}`)}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </li>
         ) : (
@@ -61,12 +86,13 @@ const visibleItems = data.filter(item => item.visible);
               href={`/${currentLocale}${item.href}`}
               class="hover:text-blue-600"
               title={`LinkPage ${item.href}`}
+              data-tina-field={tinaField(original, `labels.${currentLocale}`)}
             >
-                  {item.label}
+              {item.label}
             </a>
           </li>
-        )
-      )
+        );
+      })
     }
   </ul>
 </nav>

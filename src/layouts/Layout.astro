@@ -9,6 +9,7 @@ import MetadataLayout from "../components/constructor/MetadataLayout.astro";
 import ScriptsBodyAstroComponent from "../components/ScriptsBody.astro";
 import Modalcontac from "../components/ui/Modalcontac.astro";
 import MetadataAstroComponent from "../components/Metadata.astro";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
 
 const {
   title = "Accessible Travel Peru",
@@ -59,35 +60,52 @@ const alternateLinks = locales.map(loc => ({
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">
-    <Header lenguaje={lenguaje} />
+    <TinaIsland name="header" wrapper={{ tag: "header" }}>
+      <Header lenguaje={lenguaje} />
+    </TinaIsland>
     <div class="pt-14 md:pt-22 w-full h-14 md:h-22 bg-white"></div>
     <slot />
 
-    <Footer lenguaje={lenguaje} />
+    <TinaIsland name="footer" wrapper={{ tag: "footer" }}>
+      <Footer lenguaje={lenguaje} />
+    </TinaIsland>
     <Modalcontac lenguaje={lenguaje} />
 
     <MensajeApp data={data} />
 
     <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => {
+      function initScrollAnimations() {
         const observerOptions = {
           root: null,
           rootMargin: "0px",
           threshold: 0.15,
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, obs) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
+              obs.unobserve(entry.target);
             }
           });
         }, observerOptions);
 
         const elements = document.querySelectorAll(".animate-on-scroll");
         elements.forEach((el) => observer.observe(el));
+      }
+
+      // Inicializar
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+
+      // Re-inicializar cuando TinaCMS actualice el DOM
+      const scrollObserver = new MutationObserver(() => {
+        initScrollAnimations();
       });
+      scrollObserver.observe(document.body, { childList: true, subtree: true });
     </script>
     <ScriptsBodyAstroComponent/>
 

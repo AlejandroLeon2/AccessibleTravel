@@ -107,6 +107,31 @@ const galleryLogos = defineCollection({
   }),
 });
 
+// 404 page schema (multi-language)
+const langSchema = z.object({
+  en: z.string(),
+  es: z.string(),
+});
+
+const page404Schema = z.object({
+  titulo: langSchema,
+  descripcion: langSchema,
+  botonInicio: langSchema,
+  botonBlog: langSchema,
+  enlacesRapidos: z.array(z.object({
+    texto: langSchema,
+    url: z.string(),
+    urlEs: z.string(),
+  })).optional(),
+  imagenFondo: z.string().optional(),
+  mensajeContacto: langSchema,
+});
+
+const page404 = defineCollection({
+  loader: glob({ pattern: '404.json', base: contentConfigDir }),
+  schema: page404Schema,
+});
+
 // ── Shared tour schema (matches TinaCMS tour-base-fields) ─────────────
 const tourBaseFields = {
   title: z.string(),
@@ -216,4 +241,5 @@ export const collections = {
   toursGrupalesEn,
   blogEn,
   blogEs,
+  page404,
 };

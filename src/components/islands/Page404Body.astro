@@ -1,0 +1,94 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+
+interface Props {
+  data: {
+    titulo: { en: string; es: string };
+    descripcion: { en: string; es: string };
+    botonInicio: { en: string; es: string };
+    botonBlog: { en: string; es: string };
+    enlacesRapidos?: Array<{
+      texto: { en: string; es: string };
+      url: string;
+      urlEs: string;
+    }>;
+    imagenFondo?: string;
+    mensajeContacto: { en: string; es: string };
+  };
+  lang?: string;
+}
+
+const { data, lang = 'en' } = Astro.props;
+
+// Helper para obtener valor por idioma
+const t = (field: any) => field?.[lang] || field?.en || '';
+---
+
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+  {/* Imagen de fondo si existe */}
+  {data.imagenFondo && (
+    <div class="absolute inset-0 z-0" {...tinaField(data, 'imagenFondo')}>
+      <img src={data.imagenFondo} alt="" class="w-full h-full object-cover opacity-20" />
+    </div>
+  )}
+  
+  <div class="text-center px-4 max-w-lg relative z-10">
+    {/* Número 404 grande */}
+    <h1 class="text-9xl font-bold text-blue-600 mb-4 drop-shadow-lg">404</h1>
+    
+    {/* Título */}
+    <h2 class="text-3xl font-semibold text-gray-900 mb-4" {...tinaField(data, 'titulo')}>
+      {t(data.titulo)}
+    </h2>
+    
+    {/* Descripción */}
+    <p class="text-lg text-gray-600 mb-8" {...tinaField(data, 'descripcion')}>
+      {t(data.descripcion)}
+    </p>
+    
+    {/* Botones principales */}
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <a 
+        href={lang === 'es' ? '/es/' : '/en/'} 
+        class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg shadow-md hover:shadow-lg"
+        {...tinaField(data, 'botonInicio')}
+      >
+        {t(data.botonInicio)}
+      </a>
+      <a 
+        href={lang === 'es' ? '/es/blog/' : '/en/blog/'} 
+        class="inline-block border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors font-semibold text-lg"
+        {...tinaField(data, 'botonBlog')}
+      >
+        {t(data.botonBlog)}
+      </a>
+    </div>
+    
+    {/* Enlaces rápidos */}
+    {data.enlacesRapidos && data.enlacesRapidos.length > 0 && (
+      <div class="border-t border-gray-200 pt-6" {...tinaField(data, 'enlacesRapidos')}>
+        <p class="text-sm text-gray-500 mb-3">
+          {lang === 'es' ? 'O quizás buscas:' : 'Or maybe you\'re looking for:'}
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          {data.enlacesRapidos.map((enlace: any, index: number) => (
+            <a 
+              href={lang === 'es' ? enlace.urlEs : enlace.url} 
+              class="text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium"
+              data-tina-field={tinaField(data, `enlacesRapidos.${index}.texto`)}
+            >
+              {t(enlace.texto)}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+    
+    {/* Mensaje de contacto */}
+    {data.mensajeContacto && (
+      <p class="mt-8 text-sm text-gray-500" {...tinaField(data, 'mensajeContacto')}>
+        {t(data.mensajeContacto)}
+      </p>
+    )}
+  </div>
+</section>

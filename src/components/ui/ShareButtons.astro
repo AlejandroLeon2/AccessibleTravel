@@ -1,13 +1,18 @@
 ---
-import { getEntry } from "astro:content";
 import SharedIconAstroComponent from "../icons/SharedIcon.astro";
 import  Facebook  from "../svg/Facebook.astro";
 import  Whatsapp  from "../svg/Whatsapp.astro";
 import  Instagram  from "../svg/Instagram.astro";
+import { getEntry } from "astro:content";
 
-const data = (await getEntry("siteConfig", "site"))!.data;
-const siteName = data.nombre || "Accessible Travel Peru";
-const { lenguaje, bandera = true } = Astro.props;
+const { lenguaje, bandera = true, siteConfig: siteConfigProp } = Astro.props;
+
+// Fallback: load siteConfig if not passed as prop (page context)
+let siteConfig = siteConfigProp;
+if (!siteConfig) {
+  try { siteConfig = (await getEntry("siteConfig", "site"))?.data; } catch { siteConfig = {}; }
+}
+const siteName = siteConfig?.nombre || "Accessible Travel Peru";
 const toastTexts = { success: lenguaje.toastCopiado, error: lenguaje.toastErrorCopiar, instagram: lenguaje.toastInstagram };
 ---
 

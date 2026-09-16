@@ -1,11 +1,16 @@
 ---
-const { lenguaje, variant = "default" } = Astro.props;
+const { lenguaje, variant = "default", siteConfig: siteConfigProp } = Astro.props;
 import Whatsapp from "../svg/Whatsapp.astro";
 import Calendario from "../svg/Calendario.astro";
 import EmailIcon from "../svg/EmailIcon.astro";
 import { getEntry } from "astro:content";
 
-const accessibleTravel = (await getEntry("siteConfig", "site"))!.data;
+// Fallback: load siteConfig if not passed as prop (page context)
+let siteConfig = siteConfigProp;
+if (!siteConfig) {
+  try { siteConfig = (await getEntry("siteConfig", "site"))?.data; } catch { siteConfig = {}; }
+}
+const accessibleTravel = siteConfig || {};
 
 // Variantes de CTA
 const variants = {

@@ -1,4 +1,5 @@
 ---
+// @ts-nocheck
 import Tiktok from "./svg/Tiktok.astro";
 import Youtube from "./svg/Youtube.astro";
 import EmailIcon from "./svg/EmailIcon.astro";
@@ -6,13 +7,27 @@ import PhoneIcon from "./svg/PhoneIcon.astro";
 import LocationIcon from "./svg/LocationIcon.astro";
 import FooterSection from "./ui/FooterSection.astro";
 import { getEntry } from "astro:content";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { getLocaleData } from "../utils/getLocaleData";
+
+interface Props {
+  lenguaje?: any;
+  siteConfig?: any;
+  galleryLogosData?: any;
+}
+
+const { lenguaje: lenguajeProp, siteConfig: siteConfigProp, galleryLogosData: galleryLogosProp } = Astro.props;
+
+// Fetch lenguaje internally if not provided (island context)
+const { lenguaje } = lenguajeProp ? { lenguaje: lenguajeProp } : getLocaleData(Astro.currentLocale);
 
 const footerLegal = {
   copyright: `Copyright © ${new Date().getFullYear()} by Accessible Travel Peru. All Rights Reserved`,
 };
-const { lenguaje } = Astro.props;
-const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
-const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.galleryLogos;
+
+// Fallback to getEntry when no prop provided (non-visual-editing context)
+const empresaInfo = siteConfigProp ?? (await getEntry("siteConfig", "site"))!.data;
+const galleryLogos = galleryLogosProp?.galleryLogos ?? (await getEntry("galleryLogos", "gallery-logos"))!.data.galleryLogos;
 ---
 
 <footer
@@ -31,6 +46,7 @@ const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.gal
         loading="lazy"
         decoding="async"
         class="w-full mx-auto rounded-full max-w-[150px] h-auto mb-4"
+        {...tinaField(empresaInfo, 'nombre')}
       />
       <p class="text-sm mb-4">{lenguaje.descripcionAccessible}</p>
       <ul class="text-sm space-y-2">
@@ -39,19 +55,21 @@ const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.gal
           <a
             href={`mailto:${empresaInfo.correo}`}
             class="hover:text-azul-travel font-semibold text-gray-300"
+            data-tina-field={tinaField(empresaInfo, 'correo')}
           >
             {empresaInfo.correo}
           </a>
         </li>
         {
-          empresaInfo.telefonos.map((telefono) => (
-            <li class="flex items-center gap-2">
+          empresaInfo.telefonos.map((telefono, index) => (
+            <li class="flex items-center gap-2" data-tina-field={tinaField(empresaInfo, `telefonos.${index}.numero`)}>
               <PhoneIcon class="text-azul-travel" />
               <a
                 href={telefono.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hover:text-azul-travel font-semibold text-gray-300"
+                data-tina-field={tinaField(empresaInfo, `telefonos.${index}.url`)}
               >
                 {telefono.numero} {telefono.pais}
               </a>
@@ -60,9 +78,12 @@ const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.gal
         }
         <li class="flex items-center gap-2">
           <LocationIcon class="text-azul-travel mt-1 flex-shrink-0" />
-          <span class="font-semibold text-gray-300"
-            >{empresaInfo.direccion}</span
+          <span 
+            class="font-semibold text-gray-300"
+            data-tina-field={tinaField(empresaInfo, 'direccion')}
           >
+            {empresaInfo.direccion}
+          </span>
         </li>
       </ul>
     </section>
@@ -100,8 +121,8 @@ const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.gal
     <!-- Redes sociales -->
     <FooterSection title={lenguaje.footerRedes} listClass="space-y-3 text-sm">
       {
-        empresaInfo.redes.map((red) => (
-          <li class="flex items-center gap-2">
+        empresaInfo.redes.map((red, index) => (
+          <li class="flex items-center gap-2" data-tina-field={tinaField(empresaInfo, `redes.${index}.url`)}>
             {red.icono === "facebook" && (
               <svg
                 class="text-azul-travel w-5"
@@ -143,6 +164,7 @@ const galleryLogos = (await getEntry("galleryLogos", "gallery-logos"))!.data.gal
               title="red social"
               target="_blank"
               class="hover:text-azul-travel break-all font-semibold text-gray-300"
+              data-tina-field={tinaField(empresaInfo, `redes.${index}.url`)}
             >
               {red.handle}
             </a>

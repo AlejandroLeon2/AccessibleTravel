@@ -44,12 +44,12 @@ jobs:
 
       - name: Verify static build
         run: |
-          test -f dist/index.html
+          test -f dist/client/index.html
           echo "Static build generated successfully"
           echo "Files to deploy:"
-          find dist -type f | sort
+          find dist/client -type f | sort
 
-      - name: Deploy ONLY dist to cPanel
+      - name: Deploy ONLY dist/client to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -57,5 +57,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: ./dist/
+          local-dir: ./dist/client/
           server-dir: /

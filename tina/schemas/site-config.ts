@@ -7,7 +7,10 @@ export const siteConfig = {
   path: 'src/content/config',
   format: 'json',
   match: { include: 'site' },
-  ui: { global: true },
+  ui: {
+    global: true,
+    router: () => '/en/',
+  },
 
   fields: [
     {

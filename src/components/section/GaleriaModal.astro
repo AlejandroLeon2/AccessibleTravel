@@ -1,4 +1,6 @@
 ---
+import { tinaField } from "@tinacms/astro/tina-field";
+
 const { images } = Astro.props;
 
 // Asegurar que pasen datos válidos (arreglo de al menos 1 longitud)
@@ -15,7 +17,7 @@ const optimizeUrl = (url, width) => {
 ---
 
 {validImages.length > 0 && (
-  <galeria-modal class="block w-full">
+  <galeria-modal class="block w-full" {...tinaField({ images: validImages }, 'images')}>
     <div class="flex flex-col lg:flex-row gap-4 justify-around w-full">
       {validImages.slice(0, 4).map((img, index) => {
         let isVisible = true;
@@ -47,9 +49,10 @@ const optimizeUrl = (url, width) => {
           <img
             src={thumbnailUrl}
             data-highres={originalUrl}
-            alt={`Tour image ${index + 1}`}
+            alt={img.alt || `Tour image ${index + 1}`}
             class={classes}
             data-index={index}
+            data-tina-field={tinaField(img, 'link')}
             loading={index === 0 ? "eager" : "lazy"}
             fetchpriority={index === 0 ? "high" : "auto"}
             decoding="async"

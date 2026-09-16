@@ -1,9 +1,23 @@
 ---
+// @ts-nocheck
 import Play from "../svg/Play.astro";
 import { getCollection } from "astro:content";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { getLocaleData } from "../../utils/getLocaleData";
+
+interface Props {
+  lenguaje?: any;
+  siteConfig?: any;
+}
+
 const { currentLocale } = Astro;
-const { lenguaje } = Astro.props;
-const siteConfig = (await getCollection("siteConfig"))[0]?.data;
+const { lenguaje: lenguajeProp, siteConfig: siteConfigProp } = Astro.props;
+
+// Fetch lenguaje internally if not provided (island context)
+const { lenguaje } = lenguajeProp ? { lenguaje: lenguajeProp } : getLocaleData(currentLocale);
+
+// Fallback to getCollection when no prop provided (non-visual-editing context)
+const siteConfig = siteConfigProp ?? (await getCollection("siteConfig"))[0]?.data;
 const heroVideoUrl = siteConfig?.heroVideoUrl;
 const authorImage = siteConfig?.authorImage;
 ---
@@ -22,7 +36,9 @@ const authorImage = siteConfig?.authorImage;
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen></iframe>
+      allowfullscreen
+      data-tina-field={tinaField(siteConfig, "heroVideoUrl")}
+    ></iframe>
   </div>
 
   <div>
@@ -60,6 +76,7 @@ const authorImage = siteConfig?.authorImage;
           class="w-10 h-10 rounded-full object-cover"
           loading="lazy"
           decoding="async"
+          data-tina-field={tinaField(siteConfig, "authorImage")}
         />
         <div>
           <p class="font-semibold text-gray-800 text-sm">

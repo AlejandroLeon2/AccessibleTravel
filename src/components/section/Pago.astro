@@ -1,8 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-const { style = "grid grid-cols-4 px-4 py-4 gap-6", base } = Astro.props;
-const bannersData = (await getCollection("banners"))[0]?.data;
-const paymentLogos = bannersData?.paymentLogos ?? [];
+const { paymentLogosData: paymentLogosDataProp, style = "grid grid-cols-4 px-4 py-4 gap-6", base } = Astro.props;
+
+// Fallback: load banners if not passed as prop (page context)
+let paymentLogosData = paymentLogosDataProp;
+if (!paymentLogosData) {
+  try { paymentLogosData = (await getCollection("banners"))[0]?.data?.paymentLogos ?? []; } catch { paymentLogosData = []; }
+}
+const paymentLogos = paymentLogosData ?? [];
 ---
 
 <section class=` py-6 bg-white ${base} `>

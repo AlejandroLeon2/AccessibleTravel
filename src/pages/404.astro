@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import Page404Body from '../components/islands/Page404Body.astro';
+import { getPage404 } from '../lib/tina/data';
+import { islands } from '../lib/tina/islands';
+import { getLocaleData } from '../utils/getLocaleData';
+
+// Obtener contenido desde TinaCMS
+const cmsData = await getPage404();
+const hasCmsData = !!cmsData?.data?.page404;
+
+const lang = Astro.currentLocale === 'es' ? 'es' : 'en';
+const { lenguaje } = getLocaleData(lang);
+
+// Helper para obtener valor por idioma
+const t = (field: any) => field?.[lang] || field?.en || '';
+
+// Default data for fallback
+const defaults = {
+  titulo: { en: 'Page Not Found', es: 'Página No Encontrada' },
+  descripcion: { 
+    en: 'The page you are looking for does not exist or has been moved.', 
+    es: 'La página que buscas no existe o ha sido movida.' 
+  },
+  botonInicio: { en: 'Back to Home', es: 'Volver al Inicio' },
+  botonBlog: { en: 'Visit Blog', es: 'Ver Blog' },
+  enlacesRapidos: [
+    { texto: { en: 'Accessible Tours', es: 'Tours Accesibles' }, url: '/en/destino/peru/', urlEs: '/es/destino/peru/' },
+    { texto: { en: 'Group Tours', es: 'Tours Grupales' }, url: '/en/groupTours/', urlEs: '/es/groupTours/' },
+    { texto: { en: 'About Us', es: 'Sobre Nosotros' }, url: '/en/aboutUs/', urlEs: '/es/aboutUs/' },
+    { texto: { en: 'Contact', es: 'Contacto' }, url: '/en/contactUs/', urlEs: '/es/contactUs/' },
+  ],
+  imagenFondo: '',
+  mensajeContacto: { 
+    en: 'If you believe this is an error, please contact us.', 
+    es: 'Si crees que esto es un error, por favor contáctanos.' 
+  },
+};
+
+const data = hasCmsData ? cmsData.data.page404 : defaults;
+const title = t(data.titulo);
+const description = t(data.descripcion);
+---
+
+<Layout title={title} description={description} index={false} lenguaje={lenguaje}>
+  {hasCmsData ? (
+    <TinaIsland 
+      name="page404" 
+      wrapper={islands.page404.wrapper} 
+      params={{}} 
+      primary
+    >
+      <Page404Body data={data} lang={lang} />
+    </TinaIsland>
+  ) : (
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <div class="text-center px-4 max-w-lg relative z-10">
+        <h1 class="text-9xl font-bold text-blue-600 mb-4 drop-shadow-lg">404</h1>
+        <h2 class="text-3xl font-semibold text-gray-900 mb-4">{t(data.titulo)}</h2>
+        <p class="text-lg text-gray-600 mb-8">{t(data.descripcion)}</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <a href={lang === 'es' ? '/es/' : '/en/'} class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg shadow-md hover:shadow-lg">
+            {t(data.botonInicio)}
+          </a>
+          <a href={lang === 'es' ? '/es/blog/' : '/en/blog/'} class="inline-block border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors font-semibold text-lg">
+            {t(data.botonBlog)}
+          </a>
+        </div>
+        
+        {data.enlacesRapidos && data.enlacesRapidos.length > 0 && (
+          <div class="border-t border-gray-200 pt-6">
+            <p class="text-sm text-gray-500 mb-3">
+              {lang === 'es' ? 'O quizás buscas:' : 'Or maybe you\'re looking for:'}
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              {data.enlacesRapidos.map((enlace: any) => (
+                <a href={lang === 'es' ? enlace.urlEs : enlace.url} class="text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">
+                  {t(enlace.texto)}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {data.mensajeContacto && (
+          <p class="mt-8 text-sm text-gray-500">{t(data.mensajeContacto)}</p>
+        )}
+      </div>
+    </section>
+  )}
+</Layout>

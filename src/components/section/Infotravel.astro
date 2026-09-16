@@ -7,8 +7,9 @@ import Persona from "../svg/Persona.astro";
 import LocationIcon from "../svg/LocationIcon.astro";
 import WhatsappCta from "../ui/WhatsappCta.astro";
 import { Fragment } from "astro/jsx-runtime";
-import { getEntry } from "astro:content";
 import ShareButtonsAstroComponent from "../ui/ShareButtons.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { getLocaleData } from "../../utils/getLocaleData";
 
 import Recomendaciones from "./Recomendaciones.astro";
 import ReviewList from "./ReviewList.astro";
@@ -20,10 +21,18 @@ const {
   env = "https://www.wetravel.com",
 
   data,
-  lenguaje,
+  lenguaje: lenguajeProp,
+  siteConfig,
+  galleryLogosData,
+  paymentLogosData,
 } = Astro.props;
 
-const siteConfig = (await getEntry("siteConfig", "site"))?.data;
+// Fallback to getLocaleData when no prop provided (non-visual-editing context)
+// In island context Astro.currentLocale is undefined, so getLocaleData defaults to 'en'
+const lenguaje = lenguajeProp ?? getLocaleData(Astro.currentLocale).lenguaje;
+
+// uid for WeTravel widget — hardcoded fallback (siteConfig getEntry fails in island context)
+const uid = "67260";
 const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
 ---
 
@@ -61,26 +70,26 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
         >
           {
             data.recomendado ? (
-              <span class="w-auto z-10 bg-azul-travel text-white text-xs font-semibold px-3 py-1 rounded mb-2">
+              <span class="w-auto z-10 bg-azul-travel text-white text-xs font-semibold px-3 py-1 rounded mb-2" {...tinaField(data, 'recomendado')}>
                 {lenguaje.infoRecomendado}
               </span>
             ) : (
               <span />
             )
           }
-          <h1 class="text-3xl w-full font-bold text-gray-900">
+          <h1 class="text-3xl w-full font-bold text-gray-900" data-tina-field={tinaField(data, 'title')}>
             {data.title}
           </h1>
-          <p class="flex items-center gap-2">
+          <p class="flex items-center gap-2" data-tina-field={tinaField(data, 'duration')}>
             <Calendario style="w-4 h-4" />
             {data.duration}
             {lenguaje.infoDias}
           </p>
-          <p class="flex items-center gap-2">
+          <p class="flex items-center gap-2" data-tina-field={tinaField(data, 'groupSize')}>
             <Persona style="w-4 h-4" />
             {lenguaje.infoHuespedes}: {data.groupSize}
           </p>
-          <p class="flex items-center gap-2">
+          <p class="flex items-center gap-2" data-tina-field={tinaField(data, 'location')}>
             <LocationIcon width="16" height="16" class="w-4 h-4" />
             {data.location}
           </p>
@@ -100,14 +109,14 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           </p>
  -->
 
-          <ShareButtonsAstroComponent lenguaje={lenguaje} />
+          <ShareButtonsAstroComponent lenguaje={lenguaje} siteConfig={siteConfig} />
         </div>
       </div>
       <div class="animate-on-scroll fade-up delay-200">
         <GaleriaModal images={data.images} />
       </div>
       <div class="animate-on-scroll fade-up delay-300">
-        <WhatsappCta lenguaje={lenguaje} variant="booking" />
+        <WhatsappCta lenguaje={lenguaje} variant="booking" siteConfig={siteConfig} />
       </div>
       <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full mt-4">
         <section
@@ -116,7 +125,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
           </h2>
-          <p class="py-4">
+          <p class="py-4" data-tina-field={tinaField(data, 'description')}>
             {data.description}
           </p>
 
@@ -127,8 +136,8 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
                   {lenguaje.infoIncluye}:
                 </h2>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {data.includes.map((item) => (
-                    <li class="text-sm  ">
+                  {data.includes.map((item, index) => (
+                    <li class="text-sm  " data-tina-field={tinaField(data, `includes.${index}`)}>
                       <span class="text-green-700">✔</span> {item}
                     </li>
                   ))}
@@ -144,8 +153,8 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
                   {lenguaje.infoNoIncluye}:
                 </h2>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {data.excludes.map((item) => (
-                    <li class="text-sm ">
+                  {data.excludes.map((item, index) => (
+                    <li class="text-sm " data-tina-field={tinaField(data, `excludes.${index}`)}>
                       <span class="text-red-600">x</span> {item}
                     </li>
                   ))}
@@ -159,7 +168,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           <div>
             <div
               id="wetravel_package_listing"
-              data-uid={siteConfig?.uid || ""}
+              data-uid={uid}
               data-uuid={uuid}
               data-color={color}
               data-text={lenguaje.infoReserva}
@@ -184,15 +193,15 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
                   </h2>
 
                   <ul role="list">
-                    {data.addOns.map((addon) => (
-                      <li class="border-b border-gray-200 py-4">
+                    {data.addOns.map((addon, index) => (
+                      <li class="border-b border-gray-200 py-4" data-tina-field={tinaField(data, `addOns.${index}.name`)}>
                         <h3 class="flex justify-between text-lg font-semibold text-gray-800">
                           {addon.name}
-                          <span class="text-sm font-medium text-azul-travel mt-2">
+                          <span class="text-sm font-medium text-azul-travel mt-2" data-tina-field={tinaField(data, `addOns.${index}.price`)}>
                             {addon.price}
                           </span>
                         </h3>
-                        <p class="text-sm text-gray-600 mt-1">
+                        <p class="text-sm text-gray-600 mt-1" data-tina-field={tinaField(data, `addOns.${index}.description`)}>
                           {addon.description}
                         </p>
                       </li>
@@ -208,19 +217,21 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           -->
         </section>
         <div class="animate-on-scroll fade-left delay-300 w-full lg:w-auto">
-          <AsideTravel lenguaje={lenguaje} data={data} />
+          <AsideTravel lenguaje={lenguaje} data={data} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} />
         </div>
       </div>
     </section>
     <section
       id="tab-content-plan"
       class="text-gray-700 flex flex-col lg:flex-row hidden w-full animate-on-scroll fade-up"
+      {...tinaField(data, 'itinerary')}
+      
     >
       <Acordeon data={data} lenguaje={lenguaje} />
       <div
         class="animate-on-scroll fade-left w-full lg:w-auto mt-4 lg:mt-0 lg:ml-6"
       >
-        <AsideTravel lenguaje={lenguaje} data={data} />
+        <AsideTravel lenguaje={lenguaje} data={data} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} />
       </div>
     </section>
   </div>
@@ -262,35 +273,63 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
   </script>
 
   <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
+    // Función para inicializar tabs
+    function initTabs() {
       const tabs = document.querySelectorAll(".tab-btn");
       const contents = {
         info: document.getElementById("tab-content-info"),
         plan: document.getElementById("tab-content-plan"),
       };
 
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          // reset all
-          tabs.forEach((t) => {
-            t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
-            t.classList.add("text-gray-500", "border-transparent");
-          });
-          Object.values(contents).forEach((c) => c.classList.add("hidden"));
+      if (!tabs.length || !contents.info || !contents.plan) return;
 
-          // activate clicked
-          const selected = tab.dataset.tab;
-          tab.classList.remove("text-gray-500", "border-transparent");
-          tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
-          contents[selected].classList.remove("hidden");
-        });
+      tabs.forEach((tab) => {
+        // Remover listeners anteriores para evitar duplicados
+        tab.removeEventListener("click", handleTabClick);
+        tab.addEventListener("click", handleTabClick);
       });
 
       // default active tab
-      document
-        .getElementById("tab-info")
-        .classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+      const tabInfo = document.getElementById("tab-info");
+      if (tabInfo) {
+        tabInfo.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+      }
+    }
+
+    function handleTabClick(e) {
+      const tab = e.currentTarget;
+      const tabs = document.querySelectorAll(".tab-btn");
+      const contents = {
+        info: document.getElementById("tab-content-info"),
+        plan: document.getElementById("tab-content-plan"),
+      };
+
+      // reset all
+      tabs.forEach((t) => {
+        t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
+        t.classList.add("text-gray-500", "border-transparent");
+      });
+      Object.values(contents).forEach((c) => c?.classList.add("hidden"));
+
+      // activate clicked
+      const selected = tab.dataset.tab;
+      tab.classList.remove("text-gray-500", "border-transparent");
+      tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+      contents[selected]?.classList.remove("hidden");
+    }
+
+    // Inicializar en carga inicial
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initTabs);
+    } else {
+      initTabs();
+    }
+
+    // Re-inicializar cuando TinaCMS actualice el DOM
+    const observer = new MutationObserver(() => {
+      initTabs();
     });
+    observer.observe(document.body, { childList: true, subtree: true });
   </script>
 </section>
 <script>
@@ -395,4 +434,4 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
     initWeTravelWidget();
   }
 </script>
-<ShareButtonsAstroComponent bandera={false} lenguaje={lenguaje} /> 
+<ShareButtonsAstroComponent bandera={false} lenguaje={lenguaje} siteConfig={siteConfig} /> 

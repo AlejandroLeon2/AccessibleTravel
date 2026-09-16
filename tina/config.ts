@@ -7,6 +7,7 @@ import { blogBase } from './schemas/blog';
 import { toursGrupales } from './schemas/tours-grupales';
 import { toursGlobales } from './schemas/tours-global';
 import { headerMenu } from './schemas/menu';
+import { page404 } from './schemas/page-404';
 
 
 const branch = 'main';
@@ -52,14 +53,33 @@ export default defineConfig({
       heroGroup,
       headerMenu,
       // Blog — un schema, dos paths
-      { ...blogBase, name: 'blogEs', label: 'Blog ES', path: 'src/content/blog/es' },
-      { ...blogBase, name: 'blogEn', label: 'Blog EN', path: 'src/content/blog/en' },
+      {
+        ...blogBase,
+        name: 'blogEs',
+        label: 'Blog ES',
+        path: 'src/content/blog/es',
+        ui: {
+          router: ({ document }) => `/es/blog/${document._sys.filename}`,
+        },
+      },
+      {
+        ...blogBase,
+        name: 'blogEn',
+        label: 'Blog EN',
+        path: 'src/content/blog/en',
+        ui: {
+          router: ({ document }) => `/en/blog/${document._sys.filename}`,
+        },
+      },
       // Tours grupales - Spanish version (base schema with Spanish labels)
       {
         ...toursGrupales,
         name: 'toursGrupalesEs',
         label: 'Tours Grupales ES',
         path: 'src/content/tours-grupales/es',
+        ui: {
+          router: ({ document }) => `/es/group/${document._sys.filename}`,
+        },
       },
       // Tours grupales - English version (same schema, different path)
       {
@@ -67,6 +87,9 @@ export default defineConfig({
         name: 'toursGrupalesEn',
         label: 'Group Tours EN',
         path: 'src/content/tours-grupales/en',
+        ui: {
+          router: ({ document }) => `/en/group/${document._sys.filename}`,
+        },
       },
       // Tours globales - Spanish version (base schema with Spanish labels)
       {
@@ -74,6 +97,9 @@ export default defineConfig({
         name: 'toursGlobalesEs',
         label: 'Tours Peru ES',
         path: 'src/content/tours-global/peru/es',
+        ui: {
+          router: ({ document }) => `/es/destino/tour/${document._sys.filename}`,
+        },
       },
       // Tours globales - English version (same schema, different path)
       {
@@ -81,7 +107,12 @@ export default defineConfig({
         name: 'toursGlobalesEn',
         label: 'Tours Peru (EN)',
         path: 'src/content/tours-global/peru/en',
+        ui: {
+          router: ({ document }) => `/en/destino/tour/${document._sys.filename}`,
+        },
       },
+      // Página 404 (multi-idioma)
+      page404,
     ],
   },
 });

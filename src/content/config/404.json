@@ -1,0 +1,57 @@
+{
+  "titulo": {
+    "en": "Page Not Founds",
+    "es": "Página No Encontrada"
+  },
+  "descripcion": {
+    "en": "The page you are looking for doesn't exist or has been moved. Let's get you back on track.",
+    "es": "La página que buscas no existe o ha sido movida. Te ayudamos a volver al camino."
+  },
+  "botonInicio": {
+    "en": "Back to Home",
+    "es": "Volver al Inicio"
+  },
+  "botonBlog": {
+    "en": "Visit Blog",
+    "es": "Ver Blog"
+  },
+  "enlacesRapidos": [
+    {
+      "texto": {
+        "en": "Accessible Tours",
+        "es": "Tours Accesibles"
+      },
+      "url": "/en/destino/peru/",
+      "urlEs": "/es/destino/peru/"
+    },
+    {
+      "texto": {
+        "en": "Group Tours",
+        "es": "Tours Grupales"
+      },
+      "url": "/en/groupTours/",
+      "urlEs": "/es/groupTours/"
+    },
+    {
+      "texto": {
+        "en": "About Us",
+        "es": "Sobre Nosotros"
+      },
+      "url": "/en/aboutUs/",
+      "urlEs": "/es/aboutUs/"
+    },
+    {
+      "texto": {
+        "en": "Contact",
+        "es": "Contacto"
+      },
+      "url": "/en/contactUs/",
+      "urlEs": "/es/contactUs/"
+    }
+  ],
+  "imagenFondo": "/images/autor.webp",
+  "mensajeContacto": {
+    "en": "If you believe this is an error, please contact us.",
+    "es": "Si crees que esto es un error, por favor contáctanos."
+  }
+}

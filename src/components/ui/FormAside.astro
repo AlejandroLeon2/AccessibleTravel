@@ -4,12 +4,19 @@ import Mail from "../svg/Mail.astro";
 import WhatsappPop from "./WhatsappPop.astro";
 import Telefono from "../svg/Telefono.astro";
 import { getEntry } from "astro:content";
-const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
 const {
   style = " lg:space-y-3 lg:flex-col",
   enlaces = " ",
   lenguaje,
+  siteConfig: siteConfigProp,
 } = Astro.props;
+
+// Fallback: load siteConfig if not passed as prop (page context)
+let siteConfig = siteConfigProp;
+if (!siteConfig) {
+  try { siteConfig = (await getEntry("siteConfig", "site"))?.data; } catch { siteConfig = {}; }
+}
+const empresaInfo = siteConfig || {};
 ---
 
 <div id="variant-3" class="variant-form col-span-2 border border-gray-200">

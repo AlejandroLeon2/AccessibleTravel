@@ -5,6 +5,7 @@ import Ubicacion from "../svg/Ubicacion.astro";
 import Youtube from "../svg/Youtube.astro";
 import Tiktok from "../svg/Tiktok.astro";
 import { getEntry } from "astro:content";
+import { tinaField } from "@tinacms/astro/tina-field";
 const empresaInfo = (await getEntry("siteConfig", "site"))!.data;
 const { currentLocale } = Astro;
 const { lenguaje } = Astro.props;
@@ -48,19 +49,20 @@ const { lenguaje } = Astro.props;
 
     <!-- Información de contacto -->
 <ul class="mt-6 space-y-3 text-sm text-gray-700">
-  <li class="flex items-center gap-2">
+  <li class="flex items-center gap-2" data-tina-field={tinaField(empresaInfo, 'direccion')}>
     <Ubicacion style="text-azul-travel w-7" />
     <span>{empresaInfo.direccion.toLowerCase()}</span>
   </li>
 
   {empresaInfo.telefonos.map((t, index) => (
-    <li  class="flex items-center gap-2">
+    <li  class="flex items-center gap-2" data-tina-field={tinaField(empresaInfo, `telefonos.${index}.numero`)}>
       <Telefono style="text-azul-travel w-7" />
       <a
         href={`${t.url}`}
         target="_blank"
         rel="noopener noreferrer"
         class="hover:text-azul-travel hover:underline break-all"
+        data-tina-field={tinaField(empresaInfo, `telefonos.${index}.url`)}
       >
         {t.numero} {t.pais}
       </a>
@@ -72,6 +74,7 @@ const { lenguaje } = Astro.props;
     <a
       href={`mailto:${empresaInfo.correo}`}
       class="hover:text-azul-travel hover:underline break-all"
+      data-tina-field={tinaField(empresaInfo, 'correo')}
     >
       {empresaInfo.correo}
     </a>
@@ -81,12 +84,13 @@ const { lenguaje } = Astro.props;
 
     <div class="mt-6 grid grid-cols-3 justify-items-center gap-4">
       {
-        empresaInfo.redes.map((red) => (
+        empresaInfo.redes.map((red, index) => (
           <a
             href={red.url}
             target="_blank"
             aria-label={`${red.icono} de Accessible Travel Peru`}
             class="p-2 relative rounded-full bg-gray-100 text-black hover:bg-azul-travel hover:text-white transition-colors"
+            data-tina-field={tinaField(empresaInfo, `redes.${index}.url`)}
           >
             {red.icono === "facebook" && (
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -133,31 +137,68 @@ const { lenguaje } = Astro.props;
 
 <!-- Script -->
 <script is:inline>
-  const openBtn = document.getElementById("openModalBtn");
-  const closeBtn = document.getElementById("closeModalBtn");
-  const modal = document.getElementById("contactModal");
+  function initModal() {
+    const openBtn = document.getElementById("openModalBtn");
+    const closeBtn = document.getElementById("closeModalBtn");
+    const modal = document.getElementById("contactModal");
 
-  openBtn.addEventListener("click", () => {
-    modal.classList.toggle("max-w-xs");
-    modal.classList.remove("translate-x-130");
-  });
+    if (!openBtn || !closeBtn || !modal) return;
 
-  closeBtn.addEventListener("click", () => {
-    modal.classList.toggle("max-w-xs");
-    modal.classList.add("translate-x-130");
-  });
+    // Remover listeners anteriores
+    openBtn.removeEventListener("click", handleOpenModal);
+    closeBtn.removeEventListener("click", handleCloseModal);
 
-  window.addEventListener("click", (e) => {
+    // Agregar nuevos listeners
+    openBtn.addEventListener("click", handleOpenModal);
+    closeBtn.addEventListener("click", handleCloseModal);
+
+    // Cerrar al hacer clic fuera
+    window.removeEventListener("click", handleClickOutside);
+    window.addEventListener("click", handleClickOutside);
+
+    // Cerrar con Escape
+    window.removeEventListener("keydown", handleEscape);
+    window.addEventListener("keydown", handleEscape);
+  }
+
+  function handleOpenModal() {
+    const modal = document.getElementById("contactModal");
+    modal?.classList.toggle("max-w-xs");
+    modal?.classList.remove("translate-x-130");
+  }
+
+  function handleCloseModal() {
+    const modal = document.getElementById("contactModal");
+    modal?.classList.toggle("max-w-xs");
+    modal?.classList.add("translate-x-130");
+  }
+
+  function handleClickOutside(e) {
+    const modal = document.getElementById("contactModal");
     if (e.target === modal) {
-      modal.classList.add("translate-x-130");
-      modal.classList.toggle("max-w-xs");
+      modal?.classList.add("translate-x-130");
+      modal?.classList.toggle("max-w-xs");
     }
-  });
+  }
 
-  window.addEventListener("keydown", (e) => {
+  function handleEscape(e) {
     if (e.key === "Escape") {
-      modal.classList.add("translate-x-130");
-      modal.classList.toggle("max-w-xs");
+      const modal = document.getElementById("contactModal");
+      modal?.classList.add("translate-x-130");
+      modal?.classList.toggle("max-w-xs");
     }
+  }
+
+  // Inicializar
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initModal);
+  } else {
+    initModal();
+  }
+
+  // Re-inicializar cuando TinaCMS actualice el DOM
+  const modalObserver = new MutationObserver(() => {
+    initModal();
   });
+  modalObserver.observe(document.body, { childList: true, subtree: true });
 </script>

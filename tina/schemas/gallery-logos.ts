@@ -7,7 +7,10 @@ export const galleryLogos = {
   path: 'src/content/config',
   format: 'json',
   match: { include: 'gallery-logos' },
-  ui: { global: true },
+  ui: { 
+    global: true,
+    router: () => '/en/',
+  },
   defaultItem: () => ({ galleryLogos: [] }),
   fields: [
     {
