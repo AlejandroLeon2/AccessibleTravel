@@ -4,7 +4,7 @@
   "framework": "astro",
   "installCommand": "corepack enable && corepack prepare pnpm@10 --activate && pnpm install --frozen-lockfile",
   "env": {
-    "TINA_TOKEN": "@tina-token",
-    "TINA_CLIENT_ID": "@tina-client-id"
+    "TINA_TOKEN": "@TINA_TOKEN",
+    "TINA_CLIENT_ID": "@TINA_CLIENT_ID"
   }
 }
