@@ -1,0 +1,10 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/client",
+  "framework": "astro",
+  "installCommand": "pnpm install",
+  "env": {
+    "TINA_TOKEN": "@tina-token",
+    "TINA_CLIENT_ID": "@tina-client-id"
+  }
+}
