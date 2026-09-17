@@ -2,9 +2,5 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "dist/client",
   "framework": "astro",
-  "installCommand": "corepack enable && corepack prepare pnpm@10 --activate && pnpm install --frozen-lockfile",
-  "env": {
-    "TINA_TOKEN": "@TINA_TOKEN",
-    "TINA_CLIENT_ID": "@TINA_CLIENT_ID"
-  }
+  "installCommand": "corepack enable && corepack prepare pnpm@10 --activate && pnpm install --frozen-lockfile"
 }
