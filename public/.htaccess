@@ -11,4 +11,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
 # Custom 404 page
-ErrorDocument 404 /en/404.html
+ErrorDocument 404 /404.html

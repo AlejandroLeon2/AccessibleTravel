@@ -44,10 +44,13 @@ jobs:
 
       - name: Verify static build
         run: |
-          test -f dist/client/index.html
+          # With prefixDefaultLocale: true, index is at /en/index.html
+          test -f dist/client/en/index.html
           echo "Static build generated successfully"
           echo "Files to deploy:"
-          find dist/client -type f | sort
+          find dist/client -type f | head -20
+          echo "..."
+          find dist/client -type f | wc -l
 
       - name: Deploy ONLY dist/client to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
