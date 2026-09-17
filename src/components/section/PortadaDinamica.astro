@@ -63,44 +63,67 @@ const banners = bannersProp ?? bannersData?.banners?.map((b) => ({
 </slider-portada>
 
 <script>
-  class SliderPortada extends HTMLElement {
-    constructor() {
-      super();
+  function initSlider(container) {
+    // Remove old listeners by cloning
+    const prevBtn = container.querySelector('#prev-btn');
+    const nextBtn = container.querySelector('#next-btn');
+    if (!prevBtn || !nextBtn) return;
+
+    const newPrev = prevBtn.cloneNode(true);
+    const newNext = nextBtn.cloneNode(true);
+    prevBtn.parentNode.replaceChild(newPrev, prevBtn);
+    nextBtn.parentNode.replaceChild(newNext, nextBtn);
+
+    let index = 0;
+    const slides = container.querySelectorAll('.banner-slide');
+    const totalSlides = slides.length;
+
+    if (totalSlides <= 1) return;
+
+    const updateActiveSlide = (newIndex) => {
+      slides[index].classList.remove('opacity-100', 'z-10');
+      slides[index].classList.add('opacity-0', 'z-0');
       
-      let index = 0;
-      const slides = this.querySelectorAll('.banner-slide');
-      const prevBtn = this.querySelector('#prev-btn');
-      const nextBtn = this.querySelector('#next-btn');
-      const totalSlides = slides.length;
+      index = newIndex;
+      
+      slides[index].classList.remove('opacity-0', 'z-0');
+      slides[index].classList.add('opacity-100', 'z-10');
+    };
 
-      if (totalSlides <= 1) return;
+    newPrev.addEventListener("click", () => {
+      const newIndex = (index - 1 + totalSlides) % totalSlides;
+      updateActiveSlide(newIndex);
+    });
 
-      const updateActiveSlide = (newIndex) => {
-        slides[index].classList.remove('opacity-100', 'z-10');
-        slides[index].classList.add('opacity-0', 'z-0');
-        
-        index = newIndex;
-        
-        slides[index].classList.remove('opacity-0', 'z-0');
-        slides[index].classList.add('opacity-100', 'z-10');
-      };
+    newNext.addEventListener("click", () => {
+      const newIndex = (index + 1) % totalSlides;
+      updateActiveSlide(newIndex);
+    });
 
-      prevBtn?.addEventListener("click", () => {
-        const newIndex = (index - 1 + totalSlides) % totalSlides;
-        updateActiveSlide(newIndex);
-      });
-
-      nextBtn?.addEventListener("click", () => {
-        const newIndex = (index + 1) % totalSlides;
-        updateActiveSlide(newIndex);
-      });
-
-      setInterval(() => {
-        const newIndex = (index + 1) % totalSlides;
-        updateActiveSlide(newIndex);
-      }, 10000);
-    }
+    setInterval(() => {
+      const newIndex = (index + 1) % totalSlides;
+      updateActiveSlide(newIndex);
+    }, 10000);
   }
 
-  customElements.define('slider-portada', SliderPortada);
+  // Initial load
+  document.querySelectorAll('slider-portada').forEach(el => initSlider(el));
+
+  // MutationObserver for TinaCMS updates
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) {
+            if (node.matches?.('slider-portada')) {
+              initSlider(node);
+            }
+            node.querySelectorAll?.('slider-portada').forEach(el => initSlider(el));
+          }
+        });
+      }
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 </script>

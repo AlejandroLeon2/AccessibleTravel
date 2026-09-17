@@ -196,8 +196,8 @@ const toursGlobalesEs = defineCollection({
 
 // ── Tours grupales (base + startDate/endDate) ─────────────────────────
 const groupTourSchema = globalTourSchema.extend({
-  startDate: z.string(),
-  endDate: z.string(),
+  startDate: z.union([z.string(), z.date()]),
+  endDate: z.union([z.string(), z.date()]),
 });
 
 const toursGrupalesEs = defineCollection({
@@ -215,7 +215,7 @@ const blogSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
   image: z.string().optional(),
-  date: z.string().optional(),
+  date: z.union([z.string(), z.date()]).optional(),
   author: z.string().optional(),
 });
 
