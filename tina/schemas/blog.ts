@@ -1,4 +1,5 @@
 import type { Collection } from 'tinacms';
+import { imagePathUi } from '../utils/image-field';
 
 /**
  * Schema unificado de blog — reutilizable para EN y ES.
@@ -35,6 +36,7 @@ export const blogBase = {
       name: 'image',
       label: 'Imagen destacada',
       description: 'Imagen de portada. Tamaño recomendado: 1200x630px.',
+      ui: imagePathUi,
     },
     {
       type: 'datetime',
@@ -56,4 +58,4 @@ export const blogBase = {
       description: 'Contenido principal en MDX. Soporta imágenes, código y componentes.',
     },
   ],
-} satisfies Collection<false>;
+};

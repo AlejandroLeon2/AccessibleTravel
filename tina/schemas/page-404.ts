@@ -1,4 +1,5 @@
 import type { Collection } from 'tinacms';
+import { imagePathUi } from '../utils/image-field';
 
 export const page404 = {
   name: 'page404',
@@ -86,6 +87,7 @@ export const page404 = {
       name: 'imagenFondo',
       label: 'Imagen de fondo',
       description: 'Imagen de fondo de la página 404 (opcional)',
+      ui: imagePathUi,
     },
     {
       type: 'object',

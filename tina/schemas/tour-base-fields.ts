@@ -1,4 +1,5 @@
 import type { Collection } from 'tinacms';
+import { imagePathUi } from '../utils/image-field';
 
 /**
  * Campos comunes para tours globales y grupales.
@@ -109,7 +110,7 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'highlights',
     label: 'Puntos destacados',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item || 'Punto destacado' }) },
+    ui: { itemProps: (item: any) => ({ label: item || 'Punto destacado' }) } as any,
     description: 'Lista de aspectos clave del tour.',
   },
 
@@ -119,7 +120,7 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'includes',
     label: 'Servicios incluidos',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item || 'Servicio incluido' }) },
+    ui: { itemProps: (item: any) => ({ label: item || 'Servicio incluido' }) } as any,
     description: 'Servicios cubiertos por el precio.',
   },
   {
@@ -127,7 +128,7 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'excludes',
     label: 'Servicios no incluidos',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item || 'Servicio no incluido' }) },
+    ui: { itemProps: (item: any) => ({ label: item || 'Servicio no incluido' }) } as any,
     description: 'Servicios NO cubiertos.',
   },
 
@@ -137,7 +138,7 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'packages',
     label: 'Paquetes de precios',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item?.name || 'Paquete' }) },
+    ui: { itemProps: (item: any) => ({ label: item?.name || 'Paquete' }) } as any,
     description: 'Opciones de precio por tipo de viajero.',
     fields: [
       { type: 'string' as const, name: 'name', label: 'Nombre', description: 'Tipo de viajero.' },
@@ -154,7 +155,7 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'addOns',
     label: 'Servicios opcionales',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item?.name || 'Servicio adicional' }) },
+    ui: { itemProps: (item: any) => ({ label: item?.name || 'Servicio adicional' }) } as any,
     description: 'Extras opcionales.',
     fields: [
       { type: 'string' as const, name: 'name', label: 'Nombre', description: 'Nombre del servicio.' },
@@ -169,7 +170,7 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'itinerary',
     label: 'Itinerario',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item?.title ? `Día ${item?.day || '?'} — ${item.title}` : 'Día' }) },
+    ui: { itemProps: (item: any) => ({ label: item?.title ? `Día ${item?.day || '?'} — ${item.title}` : 'Día' }) } as any,
     description: 'Desglose día por día.',
     fields: [
       { type: 'number' as const, name: 'day', label: 'Número de día', description: 'Secuencial. Ejemplo: 1' },
@@ -184,10 +185,10 @@ export const tourBaseFields: Collection<false>['fields'] = [
     name: 'images',
     label: 'Galería del tour',
     list: true,
-    ui: { itemProps: (item: any) => ({ label: item?.title || item?.alt || 'Imagen' }) },
+    ui: { itemProps: (item: any) => ({ label: item?.title || item?.alt || 'Imagen' }) } as any,
     description: 'Fotos del carrusel.',
     fields: [
-      { type: 'image' as const, name: 'link', label: 'Imagen', required: true, description: 'Ruta relativa a public/.' },
+      { type: 'image' as const, name: 'link', label: 'Imagen', required: true, description: 'Ruta relativa a public/.', ui: imagePathUi },
       { type: 'string' as const, name: 'alt', label: 'Texto alternativo', required: true, description: 'Descripción accesible.' },
       { type: 'string' as const, name: 'title', label: 'Pie de foto', description: 'Etiqueta corta.' },
     ],

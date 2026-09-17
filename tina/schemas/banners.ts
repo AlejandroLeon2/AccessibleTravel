@@ -1,4 +1,5 @@
 import type { Collection } from 'tinacms';
+import { imagePathUi } from '../utils/image-field';
 
 export const banners = {
   name: 'banners',
@@ -29,6 +30,7 @@ export const banners = {
           label: 'Imagen del banner',
           required: true,
           description: 'Ruta de la imagen. Ejemplo: "/images/banners/hero-machu-picchu.webp". Tamaño recomendado: 1920x800px.',
+          ui: imagePathUi,
         },
         {
           type: 'object',
@@ -70,6 +72,7 @@ export const banners = {
           label: 'Imagen del logo',
           required: true,
           description: 'Ruta de la imagen del logo de pago. Ejemplo: "/images/payments/visa.webp".',
+          ui: imagePathUi,
         },
         {
           type: 'object',

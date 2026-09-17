@@ -1,5 +1,6 @@
 import type { Collection } from 'tinacms';
 import { FixedList } from "../components/FixedList";
+import { imagePathUi } from '../utils/image-field';
 
 const menuItemChildSchema = {
   type: 'object' as const,
@@ -51,6 +52,7 @@ const menuItemChildSchema = {
       label: 'Imagen de portada',
       description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/machu.webp".',
       required: true,
+      ui: imagePathUi,
     },
     {
       type: 'boolean' as const,
@@ -127,6 +129,7 @@ export const headerMenu = {
           label: 'Imagen de portada',
           description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/new2principal.webp".',
           required: true,
+          ui: imagePathUi,
         },
         {
           type: 'boolean',
