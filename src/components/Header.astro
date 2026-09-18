@@ -265,6 +265,20 @@ const headerMenuItems = menuData?.items
     document.addEventListener("click", handleOutsideClick);
   }
 
+  function resetHeaderState() {
+    const navLinks = document.getElementById("nav-links");
+    const menu = document.getElementById("menu-principal");
+
+    // Cerrar menú móvil
+    navLinks?.classList.add("translate-x-200");
+
+    // Cerrar todos los submenús
+    menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
+      el.classList.add("hidden");
+      el.classList.remove("flex-col");
+    });
+  }
+
   function handleOpenMenu(e) {
     e.stopPropagation();
     const navLinks = document.getElementById("nav-links");
@@ -325,6 +339,12 @@ const headerMenuItems = menuData?.items
   } else {
     initHeader();
   }
+
+  // Re-inicializar en cada navigación de ViewTransitions
+  document.addEventListener("astro:page-load", () => {
+    resetHeaderState();
+    initHeader();
+  });
 
   // Re-inicializar cuando TinaCMS actualice el DOM
   const headerObserver = new MutationObserver(() => {

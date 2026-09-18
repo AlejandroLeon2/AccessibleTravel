@@ -29,12 +29,14 @@ const { data , lenguaje } = Astro.props;
     </div>
 </section>
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initAcordeon() {
     const acordeon = document.getElementById("acordeon");
+    if (!acordeon) return;
     const items = acordeon.querySelectorAll("details");
 
     items.forEach((item) => {
-      item.addEventListener("toggle", () => {
+      item.removeEventListener("toggle", item._handleToggle);
+      item._handleToggle = () => {
         if (item.open) {
           items.forEach((other) => {
             if (other !== item) {
@@ -42,7 +44,20 @@ const { data , lenguaje } = Astro.props;
             }
           });
         }
-      });
+      };
+      item.addEventListener("toggle", item._handleToggle);
     });
+  }
+
+  // Inicializar
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAcordeon);
+  } else {
+    initAcordeon();
+  }
+
+  // Re-inicializar en cada navegación de ViewTransitions
+  document.addEventListener("astro:page-load", () => {
+    initAcordeon();
   });
 </script>

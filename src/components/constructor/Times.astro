@@ -639,16 +639,34 @@ const {
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll<HTMLElement>(".contador");
-    const timerInstances: CountdownTimer[] = [];
+  // Almacenar instancias globalmente para cleanup
+  let timerInstances: CountdownTimer[] = [];
 
+  function initCountdowns() {
+    // Destruir timers anteriores
+    timerInstances.forEach((timer) => timer.destroy());
+    timerInstances = [];
+
+    const counters = document.querySelectorAll<HTMLElement>(".contador");
     counters.forEach((counter) => {
       timerInstances.push(new CountdownTimer(counter));
     });
+  }
 
-    window.addEventListener("beforeunload", () => {
-      timerInstances.forEach((timer) => timer.destroy());
-    });
+  // Inicializar
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCountdowns);
+  } else {
+    initCountdowns();
+  }
+
+  // Re-inicializar en cada navegación de ViewTransitions
+  document.addEventListener("astro:page-load", () => {
+    initCountdowns();
+  });
+
+  // Cleanup al salir de la página
+  window.addEventListener("beforeunload", () => {
+    timerInstances.forEach((timer) => timer.destroy());
   });
 </script>

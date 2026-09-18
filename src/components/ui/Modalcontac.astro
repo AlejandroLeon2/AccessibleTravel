@@ -196,6 +196,11 @@ const { lenguaje } = Astro.props;
     initModal();
   }
 
+  // Re-inicializar en cada navegación de ViewTransitions
+  document.addEventListener("astro:page-load", () => {
+    initModal();
+  });
+
   // Re-inicializar cuando TinaCMS actualice el DOM
   const modalObserver = new MutationObserver(() => {
     initModal();

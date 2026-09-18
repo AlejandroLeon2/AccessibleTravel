@@ -93,7 +93,16 @@ const alternateLinks = locales.map(loc => ({
         }, observerOptions);
 
         const elements = document.querySelectorAll(".animate-on-scroll");
-        elements.forEach((el) => observer.observe(el));
+        elements.forEach((el) => {
+          // Si ya es visible en el viewport, activar directamente
+          const rect = el.getBoundingClientRect();
+          const isVisibleNow = rect.top < window.innerHeight && rect.bottom > 0;
+          if (isVisibleNow) {
+            el.classList.add("is-visible");
+          } else {
+            observer.observe(el);
+          }
+        });
       }
 
       // Inicializar
@@ -102,6 +111,11 @@ const alternateLinks = locales.map(loc => ({
       } else {
         initScrollAnimations();
       }
+
+      // Re-inicializar en cada navegación de ViewTransitions
+      document.addEventListener("astro:page-load", () => {
+        initScrollAnimations();
+      });
 
       // Re-inicializar cuando TinaCMS actualice el DOM
       const scrollObserver = new MutationObserver(() => {

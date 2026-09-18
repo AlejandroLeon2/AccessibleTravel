@@ -246,30 +246,53 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
     emailjs.init("E6459n1o-mTYoqA3b");
   </script>
   <script is:inline>
-    // Selecciona todos los formularios con clase "formAside"
-    document.querySelectorAll(".formAside").forEach((form) => {
-      // Selecciona el botón dentro de cada formulario
-      const btn = form.querySelector(".btn-submit");
+    function initEmailForms() {
+      // Selecciona todos los formularios con clase "formAside"
+      document.querySelectorAll(".formAside").forEach((form) => {
+        // Remover listener anterior para evitar duplicados
+        form.removeEventListener("submit", form._handleEmailSubmit);
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+        form._handleEmailSubmit = function (event) {
+          event.preventDefault();
 
-        btn.value = "Sending...";
+          const btn = form.querySelector(".btn-submit");
+          if (btn) btn.value = "Sending...";
 
-        const serviceID = "service_3iya7ah";
-        const templateID = "template_zbmrdgd";
+          const serviceID = "service_3iya7ah";
+          const templateID = "template_zbmrdgd";
 
-        emailjs.sendForm(serviceID, templateID, this).then(
-          () => {
-            btn.value = "Send Email";
-            alert("Sent!");
-          },
-          (err) => {
-            btn.value = "Send Email";
-            alert(JSON.stringify(err));
-          },
-        );
+          if (typeof emailjs === "undefined") {
+            if (btn) btn.value = "Send Email";
+            alert("Email service not available. Please try again.");
+            return;
+          }
+
+          emailjs.sendForm(serviceID, templateID, this).then(
+            () => {
+              if (btn) btn.value = "Send Email";
+              alert("Sent!");
+            },
+            (err) => {
+              if (btn) btn.value = "Send Email";
+              alert(JSON.stringify(err));
+            },
+          );
+        };
+
+        form.addEventListener("submit", form._handleEmailSubmit);
       });
+    }
+
+    // Inicializar
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initEmailForms);
+    } else {
+      initEmailForms();
+    }
+
+    // Re-inicializar en cada navegación de ViewTransitions
+    document.addEventListener("astro:page-load", () => {
+      initEmailForms();
     });
   </script>
 
@@ -325,6 +348,11 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
     } else {
       initTabs();
     }
+
+    // Re-inicializar en cada navegación de ViewTransitions
+    document.addEventListener("astro:page-load", () => {
+      initTabs();
+    });
 
     // Re-inicializar cuando TinaCMS actualice el DOM
     const observer = new MutationObserver(() => {

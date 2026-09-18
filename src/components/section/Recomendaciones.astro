@@ -185,7 +185,7 @@ const STATS_CONTENT = {
 </article>
 
 <script is:inline>
-    (function () {
+    function initRecomendaciones() {
         const form = document.querySelector("#google-review-form");
         const submitBtn = document.querySelector("#submit-btn");
         const formPanel = document.querySelector("#form-panel");
@@ -193,7 +193,10 @@ const STATS_CONTENT = {
 
         if (!form) return;
 
-        form.addEventListener("submit", async (e) => {
+        // Remover listener anterior para evitar duplicados
+        form.removeEventListener("submit", form._handleSubmit);
+
+        form._handleSubmit = async (e) => {
             e.preventDefault();
 
             const actionUrl = form.dataset.action;
@@ -239,6 +242,26 @@ const STATS_CONTENT = {
                 submitBtn.textContent = originalText;
                 submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
             }
-        });
-    })();
+        };
+
+        form.addEventListener("submit", form._handleSubmit);
+
+        // Resetear estado del form en cada navegación
+        if (formPanel && successPanel) {
+            formPanel.classList.remove("hidden");
+            successPanel.classList.add("hidden");
+        }
+    }
+
+    // Inicializar
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initRecomendaciones);
+    } else {
+        initRecomendaciones();
+    }
+
+    // Re-inicializar en cada navegación de ViewTransitions
+    document.addEventListener("astro:page-load", () => {
+        initRecomendaciones();
+    });
 </script>

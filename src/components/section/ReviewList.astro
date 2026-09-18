@@ -33,7 +33,7 @@
 </section>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", async () => {
+  async function loadReviews() {
     const container = document.getElementById("dynamic-reviews-container");
     const loading = document.getElementById("review-loading");
     const tituloEl = document.querySelector("#titulo");
@@ -160,5 +160,17 @@
         </div>
       `;
     }
+  }
+
+  // Inicializar
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadReviews);
+  } else {
+    loadReviews();
+  }
+
+  // Re-inicializar en cada navegación de ViewTransitions
+  document.addEventListener("astro:page-load", () => {
+    loadReviews();
   });
 </script>
