@@ -3,7 +3,7 @@ import Certificaciones from "../section/Certificaciones.astro";
 import Pago from "../section/Pago.astro";
 import FormAside from "./FormAside.astro";
 import { tinaField } from "@tinacms/astro/tina-field";
-const { data, lenguaje, siteConfig, galleryLogosData, paymentLogosData } = Astro.props;
+const { data, lenguaje, siteConfig, galleryLogosData, paymentLogosData, bannersData } = Astro.props;
 ---
 
 <section
@@ -99,6 +99,7 @@ const { data, lenguaje, siteConfig, galleryLogosData, paymentLogosData } = Astro
     <Pago
       base="md:col-span-2 md:px-8 lg:col-span-1"
       style="grid grid-cols-4 lg:grid-cols-2 gap-4"
+      bannersData={bannersData}
       paymentLogosData={paymentLogosData}
     />
   </section>

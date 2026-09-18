@@ -39,7 +39,7 @@ const { coverImage: _blogCoverImage } = getPageCoverData(_menuData.items, "Blog"
 
 // Get recommended tours for sidebar
 const tourCollection = lang === "es" ? "toursGlobalesEs" : "toursGlobalesEn";
-const dest = (await getCollection(tourCollection)).map(({ data }) => data);
+const dest = (await getCollection(tourCollection)).map((entry) => ({ ...entry.data, slug: entry.id }));
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
 // Get recent posts for sidebar (format for BlogNew component)
@@ -137,6 +137,7 @@ const islandName = lang === "es" ? "blogEs" : "blogEn";
                     alt={title}
                     class="w-full aspect-video object-cover rounded-lg"
                     data-tina-field={tinaField(post.data, 'image')}
+                    transition:name={`blog-${post.id}`}
                   />
                 </figure>
               )}

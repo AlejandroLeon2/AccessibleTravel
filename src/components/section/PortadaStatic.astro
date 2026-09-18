@@ -1,5 +1,5 @@
 ---
-const { url = "/images/gato.jpg", title, style, texto } = Astro.props;
+const { url = "/images/gato.jpg", title, style, texto, transitionName } = Astro.props;
 ---
 
 <section class="h-full w-full relative">
@@ -8,6 +8,7 @@ const { url = "/images/gato.jpg", title, style, texto } = Astro.props;
     alt={title}
     class=` w-full lg:max-h-70 xl:max-h-90 select-none  h-[50svh] object-cover  `
     decoding="async"
+    transition:name={transitionName}
   />
   <p
     class=`text-center absolute top-20 select-none right-0 left-0 text-white z-1 text-5xl ${style}`

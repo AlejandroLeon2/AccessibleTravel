@@ -10,6 +10,7 @@ import ScriptsBodyAstroComponent from "../components/ScriptsBody.astro";
 import Modalcontac from "../components/ui/Modalcontac.astro";
 import MetadataAstroComponent from "../components/Metadata.astro";
 import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import { ClientRouter } from "astro:transitions";
 
 const {
   title = "Accessible Travel Peru",
@@ -57,6 +58,7 @@ const alternateLinks = locales.map(loc => ({
     />
     <MetadataAstroComponent />
     <meta name="theme-color" content="#ffffff" />
+    <ClientRouter />
   </head>
 
   <body class="overflow-x-hidden font-poppins bg-white text-slate-800 relative">

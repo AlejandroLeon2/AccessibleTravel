@@ -21,6 +21,7 @@ const { post } = Astro.props;
       class="w-full   h-full duration-300 object-cover group-hover:scale-105"
       loading="lazy"
       decoding="async"
+      transition:name={`blog-${post.url.split('/').pop()}`}
     />
   </div>
 

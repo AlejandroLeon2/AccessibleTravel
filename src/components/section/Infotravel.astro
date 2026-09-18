@@ -25,6 +25,7 @@ const {
   siteConfig,
   galleryLogosData,
   paymentLogosData,
+  bannersData,
 } = Astro.props;
 
 // Fallback to getLocaleData when no prop provided (non-visual-editing context)
@@ -217,7 +218,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           -->
         </section>
         <div class="animate-on-scroll fade-left delay-300 w-full lg:w-auto">
-          <AsideTravel lenguaje={lenguaje} data={data} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} />
+          <AsideTravel lenguaje={lenguaje} data={data} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} bannersData={bannersData} />
         </div>
       </div>
     </section>

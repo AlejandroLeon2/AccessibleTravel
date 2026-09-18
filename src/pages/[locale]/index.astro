@@ -23,7 +23,7 @@ const { lang, lenguaje } = getLocaleData(locale);
 
 // Tours recomendados (colección dinámica según locale)
 const tourCollection = getTourCollectionName(locale, "global");
-const data = (await getCollection(tourCollection)).map(({ data }) => data);
+const data = (await getCollection(tourCollection)).map((entry) => ({ ...entry.data, slug: entry.id }));
 const destinos = data.filter((item) => item.recomendado === true).slice(0, 4);
 
 // Blog posts (colección dinámica según locale)

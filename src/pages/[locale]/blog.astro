@@ -28,7 +28,7 @@ const { pageLabel: _pageLabel, coverImage: _coverImage } = getPageCoverData(_men
 
 // Get recommended tours for sidebar
 const tourCollection = lang === "es" ? "toursGlobalesEs" : "toursGlobalesEn";
-const dest = (await getCollection(tourCollection)).map(({ data }) => data);
+const dest = (await getCollection(tourCollection)).map((entry) => ({ ...entry.data, slug: entry.id }));
 const destinos = dest.filter((item) => item.recomendado === true).slice(0, 3);
 
 // Get recent posts for sidebar (format for BlogNew component)

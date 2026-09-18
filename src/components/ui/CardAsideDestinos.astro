@@ -15,6 +15,7 @@ const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
       class=" h-full max-h-40 object-cover duration-300 group-hover:scale-105"
       loading="lazy"
       decoding="async"
+      transition:name={`tour-${data.slug}`}
     />
   </a>
 

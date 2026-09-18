@@ -1,19 +1,20 @@
 ---
 import { getCollection } from "astro:content";
-const { paymentLogosData: paymentLogosDataProp, style = "grid grid-cols-4 px-4 py-4 gap-6", base } = Astro.props;
+import { tinaField } from "@tinacms/astro/tina-field";
 
-// Fallback: load banners if not passed as prop (page context)
-let paymentLogosData = paymentLogosDataProp;
-if (!paymentLogosData) {
-  try { paymentLogosData = (await getCollection("banners"))[0]?.data?.paymentLogos ?? []; } catch { paymentLogosData = []; }
-}
-const paymentLogos = paymentLogosData ?? [];
+const { bannersData: bannersDataProp, paymentLogosData: paymentLogosDataProp, style = "grid grid-cols-4 px-4 py-4 gap-6", base } = Astro.props;
+
+// Resolve bannersData: prefer full object (for tinaField), fallback to array
+const bannersData = bannersDataProp ?? (await (async () => {
+  try { return (await getCollection("banners"))[0]?.data ?? null; } catch { return null; }
+})());
+const paymentLogos = paymentLogosDataProp ?? bannersData?.paymentLogos ?? [];
 ---
 
 <section class=` py-6 bg-white ${base} `>
   <div class=`${style}    place-items-center `>
     {
-      paymentLogos.map((img) => (
+      paymentLogos.map((img, index) => (
         <img
           src={img.src}
           alt={img.alt.en}
@@ -21,6 +22,7 @@ const paymentLogos = paymentLogosData ?? [];
           class="w-full xl:w-30 h-auto  object-cover group-hover:opacity-90 transition"
           loading="lazy"
           decoding="async"
+          data-tina-field={bannersData?.paymentLogos?.[index] ? tinaField(bannersData.paymentLogos[index], 'src') : undefined}
         />
       ))
     }
