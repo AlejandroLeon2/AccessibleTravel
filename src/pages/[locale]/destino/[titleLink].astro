@@ -30,7 +30,7 @@ const tours = Astro.props.tours ?? [];
 const destino = {
   title: "Peru",
   titleLink,
-  destinosEN: tours.map(({ data }) => data),
+  destinosEN: tours.map((entry) => ({ ...entry.data, slug: entry.id })),
 };
 
 if (!destino.destinosEN.length) {

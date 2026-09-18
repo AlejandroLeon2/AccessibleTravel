@@ -10,7 +10,7 @@ import { imagePathUi } from '../utils/image-field';
 export const blogBase = {
   format: 'mdx',
   defaultItem: () => ({
-    title: 'Nuevo artículo',
+    title: 'new-post',
     description: '',
     image: '',
     date: new Date().toISOString(),

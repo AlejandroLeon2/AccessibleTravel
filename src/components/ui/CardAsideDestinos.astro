@@ -7,7 +7,7 @@ const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
 <div
   class="bg-white border border-gray-200 grid grid-cols-3 rounded-lg shadow-sm overflow-hidden"
 >
-  <a href={`/${currentLocale}${ruta}${data.titleLink}`} class="overflow-hidden group flex">
+  <a href={`/${currentLocale}${ruta}${data.slug}`} class="overflow-hidden group flex">
     <img
       src={data.images[0].link}
       alt={data.images[0].alt}
@@ -20,7 +20,7 @@ const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
 
   <div class="p-4 col-span-2 gap-1 flex flex-col">
     <a
-      href={`/${currentLocale}${ruta}${data.titleLink}`}
+      href={`/${currentLocale}${ruta}${data.slug}`}
       class="text-white transition"
     >
       <h3
@@ -37,7 +37,7 @@ const { lenguaje, data, locacion, ruta = "/destino/tour/" } = Astro.props;
 
 
       <a
-        href={`/${currentLocale}${ruta}${data.titleLink}`}
+        href={`/${currentLocale}${ruta}${data.slug}`}
         class="text-[0.675rem] text-center bg-azul-travel text-white px-3 py-2 rounded-full hover:bg-azul-travel-hover transition"
       >
         {lenguaje.cardDestinoBoton}

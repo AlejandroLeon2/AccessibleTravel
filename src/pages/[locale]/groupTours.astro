@@ -20,10 +20,11 @@ const _menuData = (await getEntry("headerMenu", "menu"))!.data;
 const { pageLabel: _pageLabel, coverImage } = getPageCoverData(_menuData.items, "GroupTours", lang);
 
 const tourCollection = getTourCollectionName(locale, "grupal");
-const groupTours = (await getCollection(tourCollection)).map(({ data }) => ({
-  ...data,
-  startDate: new Date(data.startDate),
-  endDate: new Date(data.endDate),
+const groupTours = (await getCollection(tourCollection)).map((entry) => ({
+  ...entry.data,
+  slug: entry.id,
+  startDate: new Date(entry.data.startDate),
+  endDate: new Date(entry.data.endDate),
 }));
 ---
 

@@ -1,7 +1,7 @@
 export const toursDestinos = [
   {
     "title": "Perú",
-    "titleLink": "peru",
+    "slug": "peru",
     "url": "/images/machu.webp",
     "destinosEN": [],
     "destinosES": []

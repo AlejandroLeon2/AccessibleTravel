@@ -22,14 +22,14 @@ const baseGroupTour = {
 
 export const defaultGroupTourEs = () => ({
   ...baseGroupTour,
-  title: "Nuevo tour grupal",
-  titleLink: "nuevo-tour-grupal",
+  title: "nuevo tour grupal",
+
   images: [{ link: "/images/machu.webp", alt: "Imagen del tour", title: "" }],
 });
 
 export const defaultGroupTourEn = () => ({
   ...baseGroupTour,
-  title: "New group tour",
-  titleLink: "new-group-tour",
+  title: "new group tour",
+
   images: [{ link: "/images/dieciochoprincipal.webp", alt: "Tour image", title: "" }],
 });

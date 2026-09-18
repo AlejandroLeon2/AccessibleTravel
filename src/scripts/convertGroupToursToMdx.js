@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 // Referencia completa de atributos requeridos
 const REQUIRED_FIELDS = [
   'title',
-  'titleLink',
   'operator',
   'duration',
   'siempreFecha',
@@ -204,7 +203,8 @@ async function convertGroupToursToMdx() {
       }
       
       const mdxContent = convertTourToMdx(tour, 'ES');
-      const filename = `${tour.titleLink || `tour-${i}`}.mdx`;
+      const slug = tour.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const filename = `${slug || `tour-${i}`}.mdx`;
       const filepath = path.join(destEs, filename);
       
       fs.writeFileSync(filepath, mdxContent, 'utf-8');
@@ -233,7 +233,8 @@ async function convertGroupToursToMdx() {
       }
       
       const mdxContent = convertTourToMdx(tour, 'EN');
-      const filename = `${tour.titleLink || `tour-${i}`}.mdx`;
+      const slug = tour.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const filename = `${slug || `tour-${i}`}.mdx`;
       const filepath = path.join(destEn, filename);
       
       fs.writeFileSync(filepath, mdxContent, 'utf-8');

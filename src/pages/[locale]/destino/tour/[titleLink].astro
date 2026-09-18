@@ -14,13 +14,13 @@ export async function getStaticPaths() {
   const toursEn = await getCollection("toursGlobalesEn");
   const toursEs = await getCollection("toursGlobalesEs");
   
-  const pathsEn = toursEn.map(({ data }) => ({
-    params: { locale: "en", titleLink: data.titleLink },
-    props: { destino: data },
+  const pathsEn = toursEn.map((entry) => ({
+    params: { locale: "en", titleLink: entry.id },
+    props: { destino: entry.data, slug: entry.id },
   }));
-  const pathsEs = toursEs.map(({ data }) => ({
-    params: { locale: "es", titleLink: data.titleLink },
-    props: { destino: data },
+  const pathsEs = toursEs.map((entry) => ({
+    params: { locale: "es", titleLink: entry.id },
+    props: { destino: entry.data, slug: entry.id },
   }));
   
   return [...pathsEn, ...pathsEs];
@@ -29,9 +29,10 @@ export async function getStaticPaths() {
 const { locale } = Astro.params;
 const { lang, lenguaje } = getLocaleData(locale);
 const destino = Astro.props.destino;
+const slug = Astro.props.slug;
 
 if (!destino) {
-  throw new Error(`Destino no encontrado para el título: ${destino.titleLink}`);
+  throw new Error(`Destino no encontrado para el slug: ${slug}`);
 }
 
 // Load shared data for Infotravel children (page context — getEntry works here)
@@ -44,7 +45,7 @@ const paymentLogosData = bannersData?.paymentLogos ?? [];
 <Layout title={destino.title} description={destino.description} lenguaje={lenguaje}>
     <PortadaStatic url={destino.images[0].link} title={destino.images[0].alt}/>
 <MainContent>
-  <TinaIsland name={lang === "es" ? "toursGlobalesEs" : "toursGlobalesEn"} wrapper={{ tag: "section" }} primary params={{ relativePath: destino.titleLink + ".json" }}>
+  <TinaIsland name={lang === "es" ? "toursGlobalesEs" : "toursGlobalesEn"} wrapper={{ tag: "section" }} primary params={{ relativePath: slug + ".json" }}>
     <Infotravel lenguaje={lenguaje} data={destino} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData}/>
   </TinaIsland>
 

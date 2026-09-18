@@ -17,13 +17,6 @@ export const tourBaseFields: Collection<false>['fields'] = [
     required: true,
     description: 'Nombre del tour. Ejemplo: "Machu Picchu Accesible"',
   },
-  {
-    type: 'string' as const,
-    name: 'titleLink',
-    label: 'Slug de URL',
-    required: true,
-    description: 'Identificador para la URL. Ejemplo: "machu-picchu-accesible"',
-  },
 
   // ── Información general ───────────────────────────────────────────
   {

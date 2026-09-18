@@ -64,6 +64,11 @@ const banners = bannersProp ?? bannersData?.banners?.map((b) => ({
 
 <script>
   function initSlider(container) {
+    // Clear any existing interval to prevent stacking
+    if (container._sliderInterval) {
+      clearInterval(container._sliderInterval);
+    }
+
     // Remove old listeners by cloning
     const prevBtn = container.querySelector('#prev-btn');
     const nextBtn = container.querySelector('#next-btn');
@@ -100,7 +105,7 @@ const banners = bannersProp ?? bannersData?.banners?.map((b) => ({
       updateActiveSlide(newIndex);
     });
 
-    setInterval(() => {
+    container._sliderInterval = setInterval(() => {
       const newIndex = (index + 1) % totalSlides;
       updateActiveSlide(newIndex);
     }, 10000);

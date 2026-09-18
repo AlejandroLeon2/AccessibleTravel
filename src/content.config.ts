@@ -135,7 +135,6 @@ const page404 = defineCollection({
 // ── Shared tour schema (matches TinaCMS tour-base-fields) ─────────────
 const tourBaseFields = {
   title: z.string(),
-  titleLink: z.string(),
   operator: z.string().optional(),
   duration: z.string().optional(),
   siempreFecha: z.boolean().optional(),
