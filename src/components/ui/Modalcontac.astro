@@ -14,7 +14,7 @@ const { lenguaje } = Astro.props;
 <!-- Modal Toggle Button --><!-- Modal Container -->
 <div
   id="contactModal"
-  class="fixed top-0 right-0 translate-x-130 min-h-svh bg-black/20 flex justify-end z-50 transition duration-300"
+  class="fixed top-0 right-0 translate-x-full min-h-svh bg-black/20 flex justify-end z-50 transition duration-300"
 >
   <!-- Modal Content -->
   <div class="bg-white shadow-xl w-full max-w-xs relative p-4">
@@ -163,29 +163,25 @@ const { lenguaje } = Astro.props;
 
   function handleOpenModal() {
     const modal = document.getElementById("contactModal");
-    modal?.classList.toggle("max-w-xs");
-    modal?.classList.remove("translate-x-130");
+    modal?.classList.remove("translate-x-full");
   }
 
   function handleCloseModal() {
     const modal = document.getElementById("contactModal");
-    modal?.classList.toggle("max-w-xs");
-    modal?.classList.add("translate-x-130");
+    modal?.classList.add("translate-x-full");
   }
 
   function handleClickOutside(e) {
     const modal = document.getElementById("contactModal");
     if (e.target === modal) {
-      modal?.classList.add("translate-x-130");
-      modal?.classList.toggle("max-w-xs");
+      modal?.classList.add("translate-x-full");
     }
   }
 
   function handleEscape(e) {
     if (e.key === "Escape") {
       const modal = document.getElementById("contactModal");
-      modal?.classList.add("translate-x-130");
-      modal?.classList.toggle("max-w-xs");
+      modal?.classList.add("translate-x-full");
     }
   }
 

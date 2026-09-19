@@ -74,21 +74,13 @@ const siteConfig = defineCollection({
 });
 
 // Menu schema matching new unified structure with labels object
-const menuItemChildSchema = z.object({
-  key: z.string(),
-  labels: z.object({ en: z.string(), es: z.string() }),
-  href: z.string(),
-  coverImage: z.string(),
-  visible: z.boolean().optional().default(true),
-});
-
 const menuItemSchema = z.object({
   key: z.string(),
   labels: z.object({ en: z.string(), es: z.string() }),
   href: z.string(),
-  coverImage: z.string(),
+  coverImage: z.string().optional(),
   visible: z.boolean().optional().default(true),
-  children: z.array(menuItemChildSchema).optional(),
+  parent: z.string().optional(),
 });
 
 const menuSchema = z.object({

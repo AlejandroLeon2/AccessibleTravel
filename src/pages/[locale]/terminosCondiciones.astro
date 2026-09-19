@@ -31,12 +31,14 @@ const terminos = lang === "es" ? terminosEs : terminosEn;
 </Layout>
 
 
-<script type="module" is:inline>
-  window.addEventListener("DOMContentLoaded", () => {
+<script is:inline>
+  function initTerminosTabs() {
     let active = "terms-conditions";
     const nav = document.querySelector("[data-tabs]");
     const buttons = nav?.querySelectorAll("button.tab");
     const sections = document.querySelectorAll("section.section");
+
+    if (!buttons?.length || !sections.length) return;
 
     function setActive(id) {
       active = id;
@@ -57,5 +59,17 @@ const terminos = lang === "es" ? terminosEs : terminosEn;
     });
 
     setActive(active);
+  }
+
+  // Inicializar
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTerminosTabs);
+  } else {
+    initTerminosTabs();
+  }
+
+  // Re-inicializar en cada navegación de ViewTransitions
+  document.addEventListener("astro:page-load", () => {
+    initTerminosTabs();
   });
 </script>

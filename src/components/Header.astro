@@ -30,18 +30,6 @@ const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(\/)?/, "/");
 
 // Cargar menú unificado (ya no separado por idioma)
 const menuData = menuDataProp ?? (await getCollection("headerMenu"))[0]?.data;
-const headerMenuItems = menuData?.items
-  ?.filter(item => item.visible)
-  .map(item => ({
-    ...item,
-    label: item.labels[currentLocale],
-    children: item.children
-      ?.filter(child => child.visible)
-      .map(child => ({
-        ...child,
-        label: child.labels[currentLocale]
-      }))
-  })) || [];
 ---
 
 <header class="bg-white fixed flex flex-col z-30 md:h-23 w-full shadow-md">
@@ -203,7 +191,7 @@ const headerMenuItems = menuData?.items
     <!-- Contenedor central -->
     <div class="flex w-full items-center justify-around">
       <!-- Navegación -->
-      <HeaderNav data={headerMenuItems} menuData={menuData} currentLocale={currentLocale} style=" " />
+      <HeaderNav data={menuData} menuData={menuData} currentLocale={currentLocale} currentPath={currentPath} style=" " />
 
       <!-- Idioma -->
       <div class="flex items-center gap-1 mx-1">
@@ -250,33 +238,22 @@ const headerMenuItems = menuData?.items
   function initHeader() {
     const navLinks = document.getElementById("nav-links");
     const openMenuBtn = document.getElementById("openMenu");
-    const menu = document.getElementById("menu-principal");
 
-    if (!navLinks || !openMenuBtn || !menu) return;
+    if (!navLinks || !openMenuBtn) return;
 
     // Remover listeners anteriores
     openMenuBtn.removeEventListener("click", handleOpenMenu);
-    menu.removeEventListener("click", handleSubMenu);
     document.removeEventListener("click", handleOutsideClick);
 
     // Agregar nuevos listeners
     openMenuBtn.addEventListener("click", handleOpenMenu);
-    menu.addEventListener("click", handleSubMenu);
     document.addEventListener("click", handleOutsideClick);
   }
 
   function resetHeaderState() {
     const navLinks = document.getElementById("nav-links");
-    const menu = document.getElementById("menu-principal");
-
     // Cerrar menú móvil
     navLinks?.classList.add("translate-x-200");
-
-    // Cerrar todos los submenús
-    menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
-      el.classList.add("hidden");
-      el.classList.remove("flex-col");
-    });
   }
 
   function handleOpenMenu(e) {
@@ -285,35 +262,12 @@ const headerMenuItems = menuData?.items
     navLinks?.classList.toggle("translate-x-200");
   }
 
-  function handleSubMenu(e) {
-    const btn = e.target.closest(".escuchar");
-    if (!btn) return;
-
-    e.stopPropagation();
-    const subMenu = btn.nextElementSibling;
-    const menu = document.getElementById("menu-principal");
-
-    // Cierra todos los submenús visibles
-    menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
-      el.classList.add("hidden");
-      el.classList.remove("flex-col");
-    });
-
-    // Abre solo el submenú actual
-    if (subMenu && !subMenu.classList.contains("flex-col")) {
-      subMenu.classList.remove("hidden");
-      subMenu.classList.add("flex-col");
-    }
-  }
-
   function handleOutsideClick(e) {
     const navLinks = document.getElementById("nav-links");
     const openMenuBtn = document.getElementById("openMenu");
-    const menu = document.getElementById("menu-principal");
 
     const isOutsideNav = !navLinks?.contains(e.target);
     const isOutsideButton = !openMenuBtn?.contains(e.target);
-    const isOutsideMenu = !menu?.contains(e.target);
 
     // Cerrar menú móvil si está abierto
     if (
@@ -322,14 +276,6 @@ const headerMenuItems = menuData?.items
       !navLinks?.classList.contains("translate-x-200")
     ) {
       navLinks?.classList.add("translate-x-200");
-    }
-
-    // Cerrar submenús si se hace clic fuera
-    if (isOutsideMenu) {
-      menu?.querySelectorAll(".escuchar + ul").forEach((el) => {
-        el.classList.add("hidden");
-        el.classList.remove("flex-col");
-      });
     }
   }
 

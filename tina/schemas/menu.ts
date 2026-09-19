@@ -1,70 +1,5 @@
 import type { Collection } from 'tinacms';
-import { FixedList } from "../components/FixedList";
 import { imagePathUi } from '../utils/image-field';
-
-const menuItemChildSchema = {
-  type: 'object' as const,
-  name: 'children',
-  label: 'Submenú',
-  list: true,
-  ui: { itemProps: (item) => ({ label: `${item?.labels?.es || item?.labels?.en || ''} (${item?.href || ''})` }) },
-  description: 'Elementos del submenú desplegable. Se muestran al hacer clic o hover sobre el ítem padre.',
-  fields: [
-    {
-      type: 'string' as const,
-      name: 'key',
-      label: 'Clave interna',
-      description: 'Identificador único del ítem. Debe coincidir con el usado en el código. Ejemplo: "ContactUs", "AboutUs".',
-      required: true,
-    },
-    {
-      type: 'object' as const,
-      name: 'labels',
-      label: 'Etiquetas por idioma',
-      description: 'Traducciones del texto visible en el menú.',
-      fields: [
-        {
-          type: 'string',
-          name: 'en',
-          label: 'Etiqueta EN',
-          description: 'Texto en inglés que se muestra en el menú. Ejemplo: "Contact Us"',
-          required: true,
-        },
-        {
-          type: 'string',
-          name: 'es',
-          label: 'Etiqueta ES',
-          description: 'Texto en español que se muestra en el menú. Ejemplo: "Contáctanos"',
-          required: true,
-        },
-      ],
-    },
-    {
-      type: 'string' as const,
-      name: 'href',
-      label: 'Ruta',
-      description: 'Ruta relativa dentro del sitio. Ejemplo: "/contacto", "/aboutUs".',
-      required: true,
-    },
-    {
-      type: 'image' as const,
-      name: 'coverImage',
-      label: 'Imagen de portada',
-      description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/machu.webp".',
-      required: true,
-      ui: imagePathUi,
-    },
-    {
-      type: 'boolean' as const,
-      name: 'visible',
-      label: 'Visible',
-      description: 'Si está activo, el ítem se muestra en el menú. Si está desactivado, se oculta.',
-      ui: {
-        defaultValue: true,
-      },
-    },
-  ],
-};
 
 export const headerMenu = {
   name: 'headerMenu',
@@ -80,38 +15,33 @@ export const headerMenu = {
     {
       type: 'object',
       name: 'items',
-      label: 'Ítems del menú (No modificar por el momento)',
+      label: 'Ítems del menú',
       list: true,
-      ui: { itemProps: (item) => ({ label: `${item?.labels?.es || item?.labels?.en || ''} (${item?.href || ''})` }),
-    //component: FixedList,
-    },
-      description: 'Elementos principales del menú de navegación. Se muestran en el header del sitio.',
+      ui: { itemProps: (item) => ({ label: `${item?.labels?.es || item?.labels?.en || ''} (${item?.href || ''})` }) },
+      description: 'Elementos del menú de navegación. Usar "parent" para anidar bajo otro ítem.',
       fields: [
         {
           type: 'string',
           name: 'key',
           label: 'Clave interna',
-          description: 'Identificador único del ítem. Debe coincidir con el usado en el código para resolver la página. Ejemplo: "Home", "Blog".',
+          description: 'Identificador único. Ejemplo: "Home", "Blog", "ContactUs".',
           required: true,
         },
         {
           type: 'object',
           name: 'labels',
           label: 'Etiquetas por idioma',
-          description: 'Traducciones del texto visible en el menú.',
           fields: [
             {
               type: 'string',
               name: 'en',
               label: 'Etiqueta EN',
-              description: 'Texto en inglés que se muestra en el menú. Ejemplo: "Home"',
               required: true,
             },
             {
               type: 'string',
               name: 'es',
               label: 'Etiqueta ES',
-              description: 'Texto en español que se muestra en el menú. Ejemplo: "Inicio"',
               required: true,
             },
           ],
@@ -120,27 +50,27 @@ export const headerMenu = {
           type: 'string',
           name: 'href',
           label: 'Ruta',
-          description: 'Ruta relativa dentro del sitio. Ejemplo: "/", "/blog", "/destino/peru".',
+          description: 'Ruta relativa. Ejemplo: "/", "/blog", "/contactUs".',
           required: true,
         },
         {
           type: 'image',
           name: 'coverImage',
           label: 'Imagen de portada',
-          description: 'Imagen que se muestra como fondo del submenú. Ejemplo: "/images/new2principal.webp".',
-          required: true,
           ui: imagePathUi,
         },
         {
           type: 'boolean',
           name: 'visible',
           label: 'Visible',
-          description: 'Si está activo, el ítem se muestra en el menú. Si está desactivado, se oculta.',
-          ui: {
-            defaultValue: true,
-          },
+          ui: { defaultValue: true },
         },
-        menuItemChildSchema,
+        {
+          type: 'string',
+          name: 'parent',
+          label: 'Padre',
+          description: 'Clave del ítem padre para anidar como submenú. Vacío = nivel raíz. Ejemplo: "AboutUs".',
+        },
       ],
     },
   ],

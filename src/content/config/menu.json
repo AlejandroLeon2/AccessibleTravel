@@ -47,40 +47,30 @@
         "es": "Sobre Nosotros"
       },
       "href": "/aboutUs",
-      "coverImage": "/images/images/tours/tour-TYzUlFAAQnWEphQ7Oe6X.webp",
+      "coverImage": "/images/about1.webp",
+      "visible": true
+    },
+    {
+      "key": "ContactUs",
+      "labels": {
+        "en": "Contact Us",
+        "es": "Contáctanos"
+      },
+      "href": "/contactUs",
+      "coverImage": "/images/contacto.webp",
       "visible": true,
-      "children": [
-        {
-          "key": "AboutUs",
-          "labels": {
-            "en": "AboutUs",
-            "es": "Sobre nosotros"
-          },
-          "href": "/aboutUs",
-          "coverImage": "/images/images/tours/tour-2ORIr0IdRGyStPdyvGtp.webp",
-          "visible": true
-        },
-        {
-          "key": "ContactUs",
-          "labels": {
-            "en": "Contact Us",
-            "es": "Contáctanos"
-          },
-          "href": "/contactUs",
-          "coverImage": "/images/images/tours/tour-xKJItWlQyG7sEE4JnVHM.webp",
-          "visible": true
-        },
-        {
-          "key": "TermsAndConditions",
-          "labels": {
-            "en": "Terms and Conditions",
-            "es": "Términos y condiciones"
-          },
-          "href": "/terminosCondiciones",
-          "coverImage": "/images/images/tours/tour-TYzUlFAAQnWEphQ7Oe6X.webp",
-          "visible": true
-        }
-      ]
+      "parent": "AboutUs"
+    },
+    {
+      "key": "TermsAndConditions",
+      "labels": {
+        "en": "Terms and Conditions",
+        "es": "Términos y condiciones"
+      },
+      "href": "/terminosCondiciones",
+      "coverImage": "/images/about2.webp",
+      "visible": true,
+      "parent": "AboutUs"
     }
   ]
 }
