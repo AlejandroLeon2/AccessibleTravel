@@ -117,105 +117,97 @@ const { lenguaje } = Astro.props;
 
 <script is:inline>
 (function () {
-  const modal    = document.getElementById("contactModal");
-  const backdrop = document.getElementById("contactBackdrop");
-  const openBtn  = document.getElementById("openModalBtn");
-  const closeBtn = document.getElementById("closeModalBtn");
-
-  if (!modal || !backdrop || !openBtn || !closeBtn) return;
-
-  // ── Estado ────────────────────────────────────────────────────────────────
-  let isOpen    = false;
+  let controller = null;
   let lastFocus = null;
+  let isOpen = false;
 
-  // ── Focusable elements dentro del modal ──────────────────────────────────
-  function getFocusable() {
+  function getElements() {
+    return {
+      modal: document.getElementById("contactModal"),
+      backdrop: document.getElementById("contactBackdrop"),
+      openBtn: document.getElementById("openModalBtn"),
+      closeBtn: document.getElementById("closeModalBtn"),
+    };
+  }
+
+  function getFocusable(modal) {
     return Array.from(
-      modal.querySelectorAll(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      )
+      modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
     );
   }
 
-  // ── Trap focus dentro del modal ──────────────────────────────────────────
-  function trapFocus(e) {
+  function trapFocus(modal, e) {
     if (e.key !== "Tab") return;
-    const focusable = getFocusable();
+    const focusable = getFocusable(modal);
     if (!focusable.length) return;
-
     const first = focusable[0];
-    const last  = focusable[focusable.length - 1];
-
+    const last = focusable[focusable.length - 1];
     if (e.shiftKey) {
-      if (document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      }
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
     } else {
-      if (document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   }
 
-  // ── Abrir ────────────────────────────────────────────────────────────────
-  function open() {
-    if (isOpen) return;
-    isOpen    = true;
-    lastFocus = document.activeElement;
-
-    modal.classList.remove("translate-x-full", "pointer-events-none");
-    modal.setAttribute("aria-hidden", "false");
-
-    backdrop.classList.remove("pointer-events-none", "bg-black/0");
-    backdrop.classList.add("bg-black/20");
-
-    document.body.classList.add("overflow-hidden");
-    document.addEventListener("keydown", trapFocus);
-
-    // Foco al primer elemento interactivo del modal
-    requestAnimationFrame(() => {
-      const first = getFocusable()[0];
-      if (first) first.focus();
-    });
-  }
-
-  // ── Cerrar ───────────────────────────────────────────────────────────────
-  function close() {
+  function close(modal, backdrop) {
     if (!isOpen) return;
     isOpen = false;
 
-    // Devolver foco ANTES de ocultar para lectores de pantalla
-    if (lastFocus) {
-      lastFocus.focus();
-      lastFocus = null;
-    }
+    if (lastFocus) { lastFocus.focus(); lastFocus = null; }
+    else { document.activeElement?.blur(); }
 
     modal.classList.add("translate-x-full", "pointer-events-none");
-    // aria-hidden DESPUÉS de que el foco ya salió del modal
     modal.setAttribute("aria-hidden", "true");
-
     backdrop.classList.add("pointer-events-none", "bg-black/0");
     backdrop.classList.remove("bg-black/20");
-
     document.body.classList.remove("overflow-hidden");
-    document.removeEventListener("keydown", trapFocus);
   }
 
-  // ── Listeners ────────────────────────────────────────────────────────────
-  openBtn.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
+  function initModal() {
+    const { modal, backdrop, openBtn, closeBtn } = getElements();
+    if (!modal || !backdrop || !openBtn || !closeBtn) return;
 
-  // Escape
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && isOpen) close();
+    controller?.abort();
+    controller = new AbortController();
+    const { signal } = controller;
+
+    openBtn.addEventListener("click", () => {
+      if (isOpen) return;
+      isOpen = true;
+      lastFocus = document.activeElement;
+
+      modal.classList.remove("translate-x-full", "pointer-events-none");
+      modal.setAttribute("aria-hidden", "false");
+      backdrop.classList.remove("pointer-events-none", "bg-black/0");
+      backdrop.classList.add("bg-black/20");
+      document.body.classList.add("overflow-hidden");
+
+      requestAnimationFrame(() => {
+        const first = getFocusable(modal)[0];
+        if (first) first.focus();
+      });
+    }, { signal });
+
+    closeBtn.addEventListener("click", () => close(modal, backdrop), { signal });
+
+    backdrop.addEventListener("click", () => close(modal, backdrop), { signal });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen) close(modal, backdrop);
+      if (isOpen) trapFocus(modal, e);
+    }, { signal });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initModal);
+  } else {
+    initModal();
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initModal();
+    const { modal, backdrop } = getElements();
+    if (modal && backdrop) close(modal, backdrop);
   });
-
-  // Click fuera del modal
-  backdrop.addEventListener("click", close);
-
-  // Cerrar en navegación de Astro (View Transitions)
-  document.addEventListener("astro:page-load", close);
 })();
 </script>

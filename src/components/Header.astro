@@ -235,66 +235,55 @@ const menuData = menuDataProp ?? (await getCollection("headerMenu"))[0]?.data;
 </header>
 
 <script is:inline>
-  function initHeader() {
-    const navLinks = document.getElementById("nav-links");
-    const openMenuBtn = document.getElementById("openMenu");
+  (function () {
+    let menuOpen = false;
+    let controller = null;
 
-    if (!navLinks || !openMenuBtn) return;
+    function getNavLinks() { return document.getElementById("nav-links"); }
+    function getOpenMenuBtn() { return document.getElementById("openMenu"); }
 
-    // Remover listeners anteriores
-    openMenuBtn.removeEventListener("click", handleOpenMenu);
-    document.removeEventListener("click", handleOutsideClick);
-
-    // Agregar nuevos listeners
-    openMenuBtn.addEventListener("click", handleOpenMenu);
-    document.addEventListener("click", handleOutsideClick);
-  }
-
-  function resetHeaderState() {
-    const navLinks = document.getElementById("nav-links");
-    // Cerrar menú móvil
-    navLinks?.classList.add("translate-x-200");
-  }
-
-  function handleOpenMenu(e) {
-    e.stopPropagation();
-    const navLinks = document.getElementById("nav-links");
-    navLinks?.classList.toggle("translate-x-200");
-  }
-
-  function handleOutsideClick(e) {
-    const navLinks = document.getElementById("nav-links");
-    const openMenuBtn = document.getElementById("openMenu");
-
-    const isOutsideNav = !navLinks?.contains(e.target);
-    const isOutsideButton = !openMenuBtn?.contains(e.target);
-
-    // Cerrar menú móvil si está abierto
-    if (
-      isOutsideNav &&
-      isOutsideButton &&
-      !navLinks?.classList.contains("translate-x-200")
-    ) {
-      navLinks?.classList.add("translate-x-200");
+    function closeMenu() {
+      if (!menuOpen) return;
+      menuOpen = false;
+      getNavLinks()?.classList.add("translate-x-200");
     }
-  }
 
-  // Inicializar
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initHeader);
-  } else {
-    initHeader();
-  }
+    function toggleMenu(e) {
+      e.stopPropagation();
+      const nav = getNavLinks();
+      if (!nav) return;
+      menuOpen = !menuOpen;
+      nav.classList.toggle("translate-x-200", !menuOpen);
+    }
 
-  // Re-inicializar en cada navigación de ViewTransitions
-  document.addEventListener("astro:page-load", () => {
-    resetHeaderState();
-    initHeader();
-  });
+    function handleOutsideClick(e) {
+      if (!menuOpen) return;
+      const nav = getNavLinks();
+      const btn = getOpenMenuBtn();
+      if (!nav?.contains(e.target) && !btn?.contains(e.target)) closeMenu();
+    }
 
-  // Re-inicializar cuando TinaCMS actualice el DOM
-  const headerObserver = new MutationObserver(() => {
-    initHeader();
-  });
-  headerObserver.observe(document.body, { childList: true, subtree: true });
+    function initHeader() {
+      const btn = getOpenMenuBtn();
+      if (!btn) return;
+
+      controller?.abort();
+      controller = new AbortController();
+      const { signal } = controller;
+
+      btn.addEventListener("click", toggleMenu, { signal });
+      document.addEventListener("click", handleOutsideClick, { signal });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initHeader);
+    } else {
+      initHeader();
+    }
+
+    document.addEventListener("astro:page-load", () => {
+      closeMenu();
+      initHeader();
+    });
+  })();
 </script>
