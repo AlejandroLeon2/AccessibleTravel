@@ -76,6 +76,52 @@ const alternateLinks = locales.map(loc => ({
     <MensajeApp data={data} />
 
     <script is:inline>
+      // ViewTransitions fallback: detect failed navigations and force full reload.
+      // When the dev server is down or a route doesn't exist, ViewTransitions
+      // fetches via JS, fails silently, and leaves the user stuck.
+      (function () {
+        let pendingNavigation = null;
+        let lastUrl = location.href;
+
+        // Intercept pushState/replaceState to track URL changes
+        const originalPushState = history.pushState;
+        const originalReplaceState = history.replaceState;
+
+        history.pushState = function () {
+          originalPushState.apply(this, arguments);
+          scheduleCheck();
+        };
+        history.replaceState = function () {
+          originalReplaceState.apply(this, arguments);
+          scheduleCheck();
+        };
+
+        window.addEventListener("popstate", () => {
+          scheduleCheck();
+        });
+
+        function scheduleCheck() {
+          clearTimeout(pendingNavigation);
+          const previousUrl = lastUrl;
+          lastUrl = location.href;
+
+          pendingNavigation = setTimeout(() => {
+            // If URL changed but ViewTransitions didn't swap the page content,
+            // force a full navigation so the server can handle redirects
+            if (location.href !== previousUrl) {
+              window.location.href = location.href;
+            }
+          }, 1500);
+        }
+
+        // Also handle ViewTransitions swap event
+        document.addEventListener("astro:after-swap", () => {
+          clearTimeout(pendingNavigation);
+          lastUrl = location.href;
+        });
+      })();
+    </script>
+    <script is:inline>
       function initScrollAnimations() {
         const observerOptions = {
           root: null,

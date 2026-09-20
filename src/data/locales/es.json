@@ -198,5 +198,35 @@
   "shared": "Comparte por",
   "toastCopiado": "¡Enlace copiado!",
   "toastErrorCopiar": "No se pudo copiar",
-  "toastInstagram": "Enlace copiado. Abrí Instagram y pegalo en tu historia"
+  "toastInstagram": "Enlace copiado. Abrí Instagram y pegalo en tu historia",
+
+  "reviewForm": {
+    "title": "Compartí tu Viaje",
+    "description": "Ayudanos a mantener nuestros estándares e inspirar a otros. Cada reseña se envía directamente a nuestro equipo de gestión para su revisión.",
+    "placeholderName": "Tu Nombre Completo",
+    "placeholderEmail": "Tu Correo Electrónico",
+    "placeholderMessage": "Contanos los momentos destacados de tu viaje...",
+    "consent": "Al enviar, aceptás que tu reseña pueda mostrarse de forma anónima en nuestro sitio web para ayudar a otros viajeros.",
+    "submit": "Enviar Reseña",
+    "sending": "Enviando...",
+    "successTitle": "¡Gracias!",
+    "successDescription": "Tu reseña fue enviada directamente a nuestro equipo de calidad. ¡Te agradecemos tu tiempo!",
+    "successButton": "Enviar Otra Reseña",
+    "errorAlert": "Hubo un error al enviar tu reseña. Por favor, intentá de nuevo o contactanos directamente.",
+    "rating": "Puntuación",
+    "comfort": "Comodidad",
+    "food": "Comida",
+    "hospitality": "Hospitalidad",
+    "hygiene": "Higiene",
+    "reception": "Recepción"
+  },
+
+  "reviewList": {
+    "title": "Reseñas de Viajeros",
+    "description": "Lo que nuestros huéspedes dicen sobre su experiencia.",
+    "empty": "Aún no hay reseñas para este tour. ¡Sé el primero en compartir tu experiencia!",
+    "error": "Lo sentimos, no pudimos cargar las reseñas en este momento.",
+    "verified": "Viajero Verificado",
+    "anonymous": "Anónimo"
+  }
 }

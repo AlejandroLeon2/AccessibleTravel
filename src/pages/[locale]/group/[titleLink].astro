@@ -48,7 +48,7 @@ const islandName = lang === "es" ? "toursGrupalesEs" : "toursGrupalesEn";
     <PortadaStatic url={destino.images[0].link} title={destino.images[0].alt} transitionName={`tour-${slug}`}/>
 <MainContent>
   <TinaIsland name={islandName} wrapper={{ tag: "section" }} primary params={{ relativePath: slug + ".json" }}>
-    <Infotravel lenguaje={lenguaje} data={destino} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} bannersData={bannersData}/>
+    <Infotravel lenguaje={lenguaje} data={destino} slug={slug} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} bannersData={bannersData}/>
   </TinaIsland>
 
 

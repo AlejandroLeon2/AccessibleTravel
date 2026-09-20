@@ -197,5 +197,35 @@
   "shared": "Share via",
   "toastCopiado": "Link copied!",
   "toastErrorCopiar": "Could not copy",
-  "toastInstagram": "Link copied. Open Instagram and paste it in your story"
+  "toastInstagram": "Link copied. Open Instagram and paste it in your story",
+
+  "reviewForm": {
+    "title": "Share Your Journey",
+    "description": "Help us maintain our standards and inspire others. Every review is sent directly to our management team for review.",
+    "placeholderName": "Your Full Name",
+    "placeholderEmail": "Your Email Address",
+    "placeholderMessage": "Tell us about the highlights of your trip...",
+    "consent": "By submitting, you agree that your feedback may be displayed anonymously on our website to help other travelers.",
+    "submit": "Send Review",
+    "sending": "Sending...",
+    "successTitle": "Thank You!",
+    "successDescription": "Your feedback has been submitted directly to our quality team. We appreciate your time!",
+    "successButton": "Send Another Review",
+    "errorAlert": "There was an error sending your review. Please try again or contact us directly.",
+    "rating": "Rating",
+    "comfort": "Comfort",
+    "food": "Food",
+    "hospitality": "Hospitality",
+    "hygiene": "Hygiene",
+    "reception": "Reception"
+  },
+
+  "reviewList": {
+    "title": "Traveler Reviews",
+    "description": "What our guests have to say about their experience.",
+    "empty": "No reviews yet for this tour. Be the first to share your experience!",
+    "error": "Sorry, we couldn't load the reviews at this moment.",
+    "verified": "Verified Traveler",
+    "anonymous": "Anonymous"
+  }
 }

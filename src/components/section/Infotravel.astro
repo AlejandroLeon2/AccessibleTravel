@@ -21,6 +21,7 @@ const {
   env = "https://www.wetravel.com",
 
   data,
+  slug,
   lenguaje: lenguajeProp,
   siteConfig,
   galleryLogosData,
@@ -38,6 +39,8 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
 ---
 
 <section class="bg-white py-6 relative px-4 mx-auto">
+  <!-- Hidden element: tour slug for review form & review list (read via #titulo) -->
+  <div id="titulo" data-titulo={slug} class="hidden" aria-hidden="true"></div>
   <div
     class="absolute -top-12 md:left-20 px-2 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 min-w-40 max-w-100 w-auto"
   >
@@ -71,32 +74,47 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
         >
           {
             data.recomendado ? (
-              <span class="w-auto z-10 bg-azul-travel text-white text-xs font-semibold px-3 py-1 rounded mb-2" {...tinaField(data, 'recomendado')}>
+              <span
+                class="w-auto z-10 bg-azul-travel text-white text-xs font-semibold px-3 py-1 rounded mb-2"
+                {...tinaField(data, "recomendado")}
+              >
                 {lenguaje.infoRecomendado}
               </span>
             ) : (
               <span />
             )
           }
-          <h1 class="text-3xl w-full font-bold text-gray-900" data-tina-field={tinaField(data, 'title')}>
+          <h1
+            class="text-3xl w-full font-bold text-gray-900"
+            data-tina-field={tinaField(data, "title")}
+          >
             {data.title}
           </h1>
-          <p class="flex items-center gap-2" data-tina-field={tinaField(data, 'duration')}>
+          <p
+            class="flex items-center gap-2"
+            data-tina-field={tinaField(data, "duration")}
+          >
             <Calendario style="w-4 h-4" />
             {data.duration}
             {lenguaje.infoDias}
           </p>
-          <p class="flex items-center gap-2" data-tina-field={tinaField(data, 'groupSize')}>
+          <p
+            class="flex items-center gap-2"
+            data-tina-field={tinaField(data, "groupSize")}
+          >
             <Persona style="w-4 h-4" />
             {lenguaje.infoHuespedes}: {data.groupSize}
           </p>
-          <p class="flex items-center gap-2" data-tina-field={tinaField(data, 'location')}>
+          <p
+            class="flex items-center gap-2"
+            data-tina-field={tinaField(data, "location")}
+          >
             <LocationIcon width="16" height="16" class="w-4 h-4" />
             {data.location}
           </p>
         </div>
         <div
-          class="flex mb-4 lg:flex-col-reverse  max-w-md justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
+          class="flex mb-4 lg:flex-col-reverse max-w-md justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
         >
           <!--
         
@@ -110,14 +128,21 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           </p>
  -->
 
-          <ShareButtonsAstroComponent lenguaje={lenguaje} siteConfig={siteConfig} />
+          <ShareButtonsAstroComponent
+            lenguaje={lenguaje}
+            siteConfig={siteConfig}
+          />
         </div>
       </div>
       <div class="animate-on-scroll fade-up delay-200">
         <GaleriaModal images={data.images} />
       </div>
       <div class="animate-on-scroll fade-up delay-300">
-        <WhatsappCta lenguaje={lenguaje} variant="booking" siteConfig={siteConfig} />
+        <WhatsappCta
+          lenguaje={lenguaje}
+          variant="booking"
+          siteConfig={siteConfig}
+        />
       </div>
       <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full mt-4">
         <section
@@ -126,7 +151,7 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
           <h2 class="text-lg font-semibold mb-2">
             {lenguaje.infoDescripcion}:
           </h2>
-          <p class="py-4" data-tina-field={tinaField(data, 'description')}>
+          <p class="py-4" data-tina-field={tinaField(data, "description")}>
             {data.description}
           </p>
 
@@ -138,7 +163,10 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
                 </h2>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {data.includes.map((item, index) => (
-                    <li class="text-sm  " data-tina-field={tinaField(data, `includes.${index}`)}>
+                    <li
+                      class="text-sm  "
+                      data-tina-field={tinaField(data, `includes.${index}`)}
+                    >
                       <span class="text-green-700">✔</span> {item}
                     </li>
                   ))}
@@ -155,7 +183,10 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
                 </h2>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {data.excludes.map((item, index) => (
-                    <li class="text-sm " data-tina-field={tinaField(data, `excludes.${index}`)}>
+                    <li
+                      class="text-sm "
+                      data-tina-field={tinaField(data, `excludes.${index}`)}
+                    >
                       <span class="text-red-600">x</span> {item}
                     </li>
                   ))}
@@ -195,14 +226,32 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
 
                   <ul role="list">
                     {data.addOns.map((addon, index) => (
-                      <li class="border-b border-gray-200 py-4" data-tina-field={tinaField(data, `addOns.${index}.name`)}>
+                      <li
+                        class="border-b border-gray-200 py-4"
+                        data-tina-field={tinaField(
+                          data,
+                          `addOns.${index}.name`,
+                        )}
+                      >
                         <h3 class="flex justify-between text-lg font-semibold text-gray-800">
                           {addon.name}
-                          <span class="text-sm font-medium text-azul-travel mt-2" data-tina-field={tinaField(data, `addOns.${index}.price`)}>
+                          <span
+                            class="text-sm font-medium text-azul-travel mt-2"
+                            data-tina-field={tinaField(
+                              data,
+                              `addOns.${index}.price`,
+                            )}
+                          >
                             {addon.price}
                           </span>
                         </h3>
-                        <p class="text-sm text-gray-600 mt-1" data-tina-field={tinaField(data, `addOns.${index}.description`)}>
+                        <p
+                          class="text-sm text-gray-600 mt-1"
+                          data-tina-field={tinaField(
+                            data,
+                            `addOns.${index}.description`,
+                          )}
+                        >
                           {addon.description}
                         </p>
                       </li>
@@ -212,27 +261,37 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
               )
             }
           </div>
-          <!-- 
-          <ReviewList />
-          <Recomendaciones />
-          -->
+          <Recomendaciones lenguaje={lenguaje} />
+          <ReviewList lenguaje={lenguaje} />
         </section>
         <div class="animate-on-scroll fade-left delay-300 w-full lg:w-auto">
-          <AsideTravel lenguaje={lenguaje} data={data} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} bannersData={bannersData} />
+          <AsideTravel
+            lenguaje={lenguaje}
+            data={data}
+            siteConfig={siteConfig}
+            galleryLogosData={galleryLogosData}
+            paymentLogosData={paymentLogosData}
+            bannersData={bannersData}
+          />
         </div>
       </div>
     </section>
     <section
       id="tab-content-plan"
       class="text-gray-700 flex flex-col lg:flex-row hidden w-full animate-on-scroll fade-up"
-      {...tinaField(data, 'itinerary')}
-      
+      {...tinaField(data, "itinerary")}
     >
       <Acordeon data={data} lenguaje={lenguaje} />
       <div
         class="animate-on-scroll fade-left w-full lg:w-auto mt-4 lg:mt-0 lg:ml-6"
       >
-        <AsideTravel lenguaje={lenguaje} data={data} siteConfig={siteConfig} galleryLogosData={galleryLogosData} paymentLogosData={paymentLogosData} />
+        <AsideTravel
+          lenguaje={lenguaje}
+          data={data}
+          siteConfig={siteConfig}
+          galleryLogosData={galleryLogosData}
+          paymentLogosData={paymentLogosData}
+        />
       </div>
     </section>
   </div>
@@ -463,4 +522,9 @@ const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
     initWeTravelWidget();
   }
 </script>
-<ShareButtonsAstroComponent bandera={false} lenguaje={lenguaje} siteConfig={siteConfig} /> 
+<ShareButtonsAstroComponent
+  bandera={false}
+  lenguaje={lenguaje}
+  siteConfig={siteConfig}
+/>
+

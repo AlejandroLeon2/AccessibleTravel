@@ -10,7 +10,7 @@ const { label, entryId } = Astro.props;
 ---
 
 <div class="space-y-3">
-  <label class="block text-sm font-bold text-cyan-950 uppercase tracking-wider">
+  <label class="block text-sm font-bold text-slate-950 uppercase tracking-wider">
     {label}
   </label>
   <div class="star-rating flex flex-row-reverse justify-end items-center gap-1 group">
@@ -27,7 +27,7 @@ const { label, entryId } = Astro.props;
           />
           <label 
             for={`${entryId}-${i}`} 
-            class="cursor-pointer text-cyan-900/30 transition-colors duration-200"
+            class="cursor-pointer text-slate-900/30 transition-colors duration-200"
           >
             <StarIcon class="w-6 h-6" />
           </label>
