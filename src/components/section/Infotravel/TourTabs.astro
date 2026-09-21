@@ -1,0 +1,89 @@
+---
+/**
+ * TourTabs.astro — Tab navigation buttons (Description / Tour Planning)
+ *
+ * Self-contained: renders buttons + owns the tabs switching script.
+ * Props: lenguaje (text labels), hasItinerary (boolean — show Planning tab)
+ */
+const { lenguaje, hasItinerary } = Astro.props;
+---
+
+<div
+  class="absolute -top-12 md:left-20 px-2 mb-8 flex justify-center gap-2 rounded-t-xl bg-white pt-2 min-w-40 max-w-100 w-auto"
+>
+  <button
+    id="tab-info"
+    class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg hover:bg-azul-travel active:text-white active:bg-azul-travel hover:text-white duration-300 active:scale-95 transition text-black"
+    data-tab="info"
+  >
+    {lenguaje.infoBotonDescripcion}
+  </button>
+  {
+    hasItinerary && (
+      <button
+        id="tab-plan"
+        class="tab-btn px-6 bg-white py-3 font-semibold rounded-lg transition text-black active:text-white active:bg-azul-travel hover:bg-azul-travel active:scale-95 hover:text-white duration-300"
+        data-tab="plan"
+      >
+        {lenguaje.infoBotonPlanificacion}
+      </button>
+    )
+  }
+</div>
+
+<script is:inline>
+  function initTabs() {
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = {
+      info: document.getElementById("tab-content-info"),
+      plan: document.getElementById("tab-content-plan"),
+    };
+
+    if (!tabs.length || !contents.info || !contents.plan) return;
+
+    tabs.forEach((tab) => {
+      tab.removeEventListener("click", handleTabClick);
+      tab.addEventListener("click", handleTabClick);
+    });
+
+    const tabInfo = document.getElementById("tab-info");
+    if (tabInfo) {
+      tabInfo.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+    }
+  }
+
+  function handleTabClick(e) {
+    const tab = e.currentTarget;
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = {
+      info: document.getElementById("tab-content-info"),
+      plan: document.getElementById("tab-content-plan"),
+    };
+
+    tabs.forEach((t) => {
+      t.classList.remove("text-[-azul-travel]", "border-[-azul-travel]");
+      t.classList.add("text-gray-500", "border-transparent");
+    });
+    Object.values(contents).forEach((c) => c?.classList.add("hidden"));
+
+    const selected = tab.dataset.tab;
+    tab.classList.remove("text-gray-500", "border-transparent");
+    tab.classList.add("text-[-azul-travel]", "border-[-azul-travel]");
+    contents[selected]?.classList.remove("hidden");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTabs);
+  } else {
+    initTabs();
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initTabs();
+  });
+
+  const observer = new MutationObserver(() => {
+    initTabs();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>

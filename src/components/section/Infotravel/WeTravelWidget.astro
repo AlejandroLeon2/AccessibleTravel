@@ -1,0 +1,128 @@
+---
+/**
+ * WeTravelWidget.astro — WeTravel booking widget (iframe + checkout modal)
+ *
+ * Self-contained: renders container + owns all WeTravel scripts.
+ * Props: uid, uuid, color, text, showReviews, env, lenguaje
+ */
+const {
+  uid = "67260",
+  uuid = "",
+  color = "1666F4",
+  text = "Book Now",
+  showReviews = true,
+  env = "https://www.wetravel.com",
+  lenguaje,
+} = Astro.props;
+---
+
+<h2 class="text-lg font-semibold mb-2 animate-on-scroll fade-up">
+  {lenguaje.infoPaquetes}
+</h2>
+<div
+  id="wetravel_package_listing"
+  data-uid={uid}
+  data-uuid={uuid}
+  data-color={color}
+  data-text={lenguaje.infoReserva}
+  data-showreviews={showReviews}
+  data-env={env}
+  class="w-full h-full flex justify-center scroll-mt-40 my-8 animate-on-scroll fade-up"
+>
+</div>
+
+<script is:inline>
+  function initWeTravelWidget() {
+    const container = document.getElementById("wetravel_package_listing");
+    if (!container) return;
+
+    const { uid, uuid, color, text, showreviews, env } = container.dataset;
+
+    if (!uuid) {
+      container.innerHTML =
+        '<p class="text-sm text-gray-500">Booking information is not available yet.</p>';
+      return;
+    }
+
+    const iframeSrc = `${env}/packages_embed?uuid=${uuid}&btn_color=${color}&btn_name=${encodeURIComponent(text)}&show_reviews=${showreviews}&env=${env}`;
+
+    const iframe = document.createElement("iframe");
+    iframe.setAttribute("frameborder", "0");
+    iframe.src = iframeSrc;
+    iframe.className = "flex w-full h-full justify-center min-h-130";
+
+    container.innerHTML = "";
+    container.appendChild(iframe);
+
+    window.addEventListener("message", (event) => {
+      if (!event.data) return;
+
+      if (
+        typeof event.data === "string" &&
+        event.data.includes("WTRVL_checkout")
+      ) {
+        const [, checkoutUrl] = event.data.split("WTRVL_checkout");
+        if (checkoutUrl) {
+          openCheckout(checkoutUrl);
+        }
+      }
+
+      if (event.data === "wtrvlCheckoutClosed") {
+        closeCheckout();
+      }
+    });
+
+    sendAnalytics("load", uid, env);
+  }
+
+  function openCheckout(url: string) {
+    if (document.querySelector(".wtrvl-checkout-iframe")) return;
+
+    const checkoutIframe = document.createElement("iframe");
+    checkoutIframe.className =
+      "wtrvl-checkout-iframe fixed top-0 left-0 w-screen h-screen border-0";
+    checkoutIframe.style.zIndex = "999999";
+    checkoutIframe.src = url;
+
+    document.body.classList.add("overflow-hidden");
+    document.body.appendChild(checkoutIframe);
+
+    setTimeout(() => {
+      checkoutIframe.contentWindow?.postMessage("packageWidget", "*");
+    }, 3000);
+  }
+
+  function closeCheckout() {
+    const checkoutIframe = document.querySelector(".wtrvl-checkout-iframe");
+    if (checkoutIframe) {
+      checkoutIframe.remove();
+      document.body.classList.remove("overflow-hidden");
+    }
+  }
+
+  function sendAnalytics(actionType: string, uid: string, env: string) {
+    const data = {
+      version: "v0.3",
+      user_id: uid,
+      embed_type: "packages",
+      action_type: actionType,
+      url: window.location.href,
+    };
+
+    fetch("https://t.wetravel.com/widgets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).catch(() => {});
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWeTravelWidget);
+  } else {
+    initWeTravelWidget();
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initWeTravelWidget();
+  });
+</script>

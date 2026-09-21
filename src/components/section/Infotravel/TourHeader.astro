@@ -1,0 +1,69 @@
+---
+/**
+ * TourHeader.astro — Tour title, badge, duration, group size, location, share buttons
+ *
+ * 100% presentational, no script needed.
+ * Props: data (title, duration, groupSize, location, recomendado), lenguaje, siteConfig
+ */
+import Calendario from "../../svg/Calendario.astro";
+import Persona from "../../svg/Persona.astro";
+import LocationIcon from "../../svg/LocationIcon.astro";
+import ShareButtons from "../../ui/ShareButtons.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { data, lenguaje, siteConfig } = Astro.props;
+---
+
+<div
+  class="flex md:px-4 flex-col md:flex-row w-full justify-between animate-on-scroll fade-up delay-100"
+>
+  <div
+    class="flex items-center gap-2 md:gap-4 text-sm text-gray-500 mb-4 flex-wrap"
+  >
+    {
+      data.recomendado ? (
+        <span
+          class="w-auto z-10 bg-azul-travel text-white text-xs font-semibold px-3 py-1 rounded mb-2"
+          {...tinaField(data, "recomendado")}
+        >
+          {lenguaje.infoRecomendado}
+        </span>
+      ) : (
+        <span />
+      )
+    }
+    <h1
+      class="text-3xl w-full font-bold text-gray-900"
+      data-tina-field={tinaField(data, "title")}
+    >
+      {data.title}
+    </h1>
+    <p
+      class="flex items-center gap-2"
+      data-tina-field={tinaField(data, "duration")}
+    >
+      <Calendario style="w-4 h-4" />
+      {data.duration}
+      {lenguaje.infoDias}
+    </p>
+    <p
+      class="flex items-center gap-2"
+      data-tina-field={tinaField(data, "groupSize")}
+    >
+      <Persona style="w-4 h-4" />
+      {lenguaje.infoHuespedes}: {data.groupSize}
+    </p>
+    <p
+      class="flex items-center gap-2"
+      data-tina-field={tinaField(data, "location")}
+    >
+      <LocationIcon width="16" height="16" class="w-4 h-4" />
+      {data.location}
+    </p>
+  </div>
+  <div
+    class="flex mb-4 lg:flex-col-reverse max-w-md justify-between lg:justify-center gap-4 lg:gap-0 items-center text-center w-full"
+  >
+    <ShareButtons lenguaje={lenguaje} siteConfig={siteConfig} />
+  </div>
+</div>

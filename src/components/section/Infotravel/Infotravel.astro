@@ -1,0 +1,173 @@
+---
+import Acordeon from "../../constructor/Acordeon.astro";
+import AsideTravel from "../../ui/AsideTravel.astro";
+import GaleriaModal from "../GaleriaModal.astro";
+import WhatsappCta from "../../ui/WhatsappCta.astro";
+import ShareButtons from "../../ui/ShareButtons.astro";
+import { getLocaleData } from "../../../utils/getLocaleData";
+
+import TourTabs from "./TourTabs.astro";
+import TourHeader from "./TourHeader.astro";
+import TourDescription from "./TourDescription.astro";
+import TourAddons from "./TourAddons.astro";
+import WeTravelWidget from "./WeTravelWidget.astro";
+import Recomendaciones from "../Recomendaciones.astro";
+import ReviewList from "../ReviewList.astro";
+
+const {
+  color = "1666F4",
+  text = "Book Now",
+  showReviews = true,
+  env = "https://www.wetravel.com",
+  data,
+  slug,
+  lenguaje: lenguajeProp,
+  siteConfig,
+  galleryLogosData,
+  paymentLogosData,
+  bannersData,
+} = Astro.props;
+
+const lenguaje = lenguajeProp ?? getLocaleData(Astro.currentLocale).lenguaje;
+
+const uuid = data.links?.book?.match(/-(\d+)\/?$/)?.[1] || "";
+---
+
+<section class="bg-white py-6 relative px-4 mx-auto">
+  <div id="titulo" data-titulo={slug} class="hidden" aria-hidden="true"></div>
+
+  <TourTabs lenguaje={lenguaje} hasItinerary={!!data.itinerary?.length} />
+
+  <div class="flex flex-col lg:flex-row justify-between overflow-hidden gap-6">
+    <section id="tab-content-info" class="block w-full">
+      <TourHeader data={data} lenguaje={lenguaje} siteConfig={siteConfig} />
+
+      <div class="animate-on-scroll fade-up delay-200">
+        <GaleriaModal images={data.images} />
+      </div>
+
+      <div class="animate-on-scroll fade-up delay-300">
+        <WhatsappCta
+          lenguaje={lenguaje}
+          variant="booking"
+          siteConfig={siteConfig}
+        />
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-4 flex-1 w-full mt-4">
+        <section
+          class="py-12 max-w-2xl px-4 bg-white mx-auto  "
+        >
+
+          <section
+            class="max-w-2xl  bg-white mx-auto space-y-10 w-full animate-on-scroll fade-right delay-200"
+          >
+          <TourDescription data={data} lenguaje={lenguaje} />
+
+          <WeTravelWidget
+            uuid={uuid}
+            color={color}
+            showReviews={showReviews}
+            env={env}
+            lenguaje={lenguaje}
+          />
+
+          <TourAddons data={data} lenguaje={lenguaje} />
+
+          </section>
+                      <Recomendaciones lenguaje={lenguaje} />
+            <ReviewList lenguaje={lenguaje} />
+        </section>
+
+        <!-- Reviews: fuera del animate-on-scroll para que siempre sean visibles -->
+
+        <div class="animate-on-scroll fade-left delay-300 w-full lg:w-auto">
+          <AsideTravel
+            lenguaje={lenguaje}
+            data={data}
+            siteConfig={siteConfig}
+            galleryLogosData={galleryLogosData}
+            paymentLogosData={paymentLogosData}
+            bannersData={bannersData}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="tab-content-plan"
+      class="text-gray-700 flex flex-col lg:flex-row hidden w-full animate-on-scroll fade-up"
+    >
+      <Acordeon data={data} lenguaje={lenguaje} />
+      <div
+        class="animate-on-scroll fade-left w-full lg:w-auto mt-4 lg:mt-0 lg:ml-6"
+      >
+        <AsideTravel
+          lenguaje={lenguaje}
+          data={data}
+          siteConfig={siteConfig}
+          galleryLogosData={galleryLogosData}
+          paymentLogosData={paymentLogosData}
+        />
+      </div>
+    </section>
+  </div>
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
+
+  <script type="text/javascript">
+    emailjs.init("E6459n1o-mTYoqA3b");
+  </script>
+
+  <script is:inline>
+    function initEmailForms() {
+      document.querySelectorAll(".formAside").forEach((form) => {
+        form.removeEventListener("submit", form._handleEmailSubmit);
+
+        form._handleEmailSubmit = function (event) {
+          event.preventDefault();
+
+          const btn = form.querySelector(".btn-submit");
+          if (btn) btn.value = "Sending...";
+
+          const serviceID = "service_3iya7ah";
+          const templateID = "template_zbmrdgd";
+
+          if (typeof emailjs === "undefined") {
+            if (btn) btn.value = "Send Email";
+            alert("Email service not available. Please try again.");
+            return;
+          }
+
+          emailjs.sendForm(serviceID, templateID, this).then(
+            () => {
+              if (btn) btn.value = "Send Email";
+              alert("Sent!");
+            },
+            (err) => {
+              if (btn) btn.value = "Send Email";
+              alert(JSON.stringify(err));
+            },
+          );
+        };
+
+        form.addEventListener("submit", form._handleEmailSubmit);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initEmailForms);
+    } else {
+      initEmailForms();
+    }
+
+    document.addEventListener("astro:page-load", () => {
+      initEmailForms();
+    });
+  </script>
+</section>
+
+<ShareButtons bandera={false} lenguaje={lenguaje} siteConfig={siteConfig} />

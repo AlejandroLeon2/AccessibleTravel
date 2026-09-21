@@ -1,0 +1,58 @@
+---
+/**
+ * TourDescription.astro — Tour description + includes + excludes lists
+ *
+ * 100% presentational, no script needed.
+ * Props: data (description, includes, excludes), lenguaje
+ */
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { data, lenguaje } = Astro.props;
+---
+
+<h2 class="text-lg font-semibold mb-2">
+  {lenguaje.infoDescripcion}:
+</h2>
+<p class="py-4" data-tina-field={tinaField(data, "description")}>
+  {data.description}
+</p>
+
+{
+  Array.isArray(data?.includes) && data.includes.length > 0 && (
+    <div class="animate-on-scroll fade-up">
+      <h2 class="text-lg font-semibold mb-2">
+        {lenguaje.infoIncluye}:
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {data.includes.map((item, index) => (
+          <li
+            class="text-sm"
+            data-tina-field={tinaField(data, `includes.${index}`)}
+          >
+            <span class="text-green-700">✔</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+{
+  Array.isArray(data?.excludes) && data.excludes.length > 0 && (
+    <div class="animate-on-scroll fade-up">
+      <h2 class="text-lg font-semibold mb-2">
+        {lenguaje.infoNoIncluye}:
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {data.excludes.map((item, index) => (
+          <li
+            class="text-sm"
+            data-tina-field={tinaField(data, `excludes.${index}`)}
+          >
+            <span class="text-red-600">x</span> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

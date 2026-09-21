@@ -7,7 +7,7 @@ import HeroHome from "../../components/section/HeroHome.astro";
 import PortadaDinamica from "../../components/section/PortadaDinamica.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import Infotravel from "../../components/section/Infotravel.astro";
+import Infotravel from "../../components/section/Infotravel/Infotravel.astro";
 import Page404Body from "../../components/islands/Page404Body.astro";
 
 import { getBlogPostEs, getBlogPostEn, getConfig, getMenuData, getGalleryLogos, getBanners, getTourGlobalesEs, getTourGlobalesEn, getTourGrupalesEs, getTourGrupalesEn, getPage404 } from "./data";

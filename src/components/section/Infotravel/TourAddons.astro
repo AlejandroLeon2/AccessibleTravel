@@ -1,0 +1,52 @@
+---
+/**
+ * TourAddons.astro — Add-ons list (name, price, description)
+ *
+ * 100% presentational, no script needed.
+ * Props: data (addOns), lenguaje
+ */
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { data, lenguaje } = Astro.props;
+---
+
+{
+  data.addOns && data.addOns.length > 0 && (
+    <section
+      aria-labelledby="add-ons-heading"
+      class="mt-4 animate-on-scroll fade-up"
+    >
+      <h2
+        id="add-ons-heading"
+        class="text-xl font-semibold text-black mb-4"
+      >
+        {lenguaje.infoComplementos}
+      </h2>
+
+      <ul role="list">
+        {data.addOns.map((addon, index) => (
+          <li
+            class="border-b border-gray-200 py-4"
+            data-tina-field={tinaField(data, `addOns.${index}.name`)}
+          >
+            <h3 class="flex justify-between text-lg font-semibold text-gray-800">
+              {addon.name}
+              <span
+                class="text-sm font-medium text-azul-travel mt-2"
+                data-tina-field={tinaField(data, `addOns.${index}.price`)}
+              >
+                {addon.price}
+              </span>
+            </h3>
+            <p
+              class="text-sm text-gray-600 mt-1"
+              data-tina-field={tinaField(data, `addOns.${index}.description`)}
+            >
+              {addon.description}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
